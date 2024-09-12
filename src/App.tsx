@@ -1,5 +1,9 @@
 import Header from "./components/header";
-import About from "./components/about";
+//import About from "./components/about";
+import Action from "./components/action";
+import Services from "./components/services";
+import Contact from "./components/contact";
+
 import { LanguageProvider } from "./i18n";
 
 function App() {
@@ -7,7 +11,9 @@ function App() {
     <LanguageProvider>
       <div className="flex flex-col">
         <Header />
-        <About />
+        <Action />
+        <Services />
+        <Contact />
       </div>
     </LanguageProvider>
   );
