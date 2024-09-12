@@ -19,21 +19,28 @@ const translations: Translations = {
   TR: {
     changeLanguage: "EN",
     companyName: "Ayrota Yazılım Teknolojileri",
-    insGpsDeniedText:
-      "İHA'lar için GPS Kısıtlı Oramlarda Ataletsel Navigasyon Sistemi Yazılımı",
-    industrialSoftwareText:
-      "Endüstriyel Cihazlar ve Sistemler için Kullanıcı Arayüzü Yazılımları",
-    softwareConsultancy: "Yazılım Danışmanlığı",
-    underConstruction: "Yapım Aşamasında",
+    services:"Hizmetler",
+    contact:"İletişim",
+    callActionHeader:"Güvenilir Endüstriyel Yazılım Çözümleri",
+    callActionSubHeader:"Endüstri 4.0'a giden yolda, Dijital İkiz öncesi Endüstriyel Nesnelerin İnterneti (IIoT) Yazılım Çözümleri ve GPS Bulunmayan Ortamlarda Ataletsel Seyrüsefer Yazılım Çalışmlarımızla Hizmetinizdeyiz.",
+    textServices:"Güvenilir Yazılım Geliştirme Hizmetleri Sunuyoruz", 
+    headerIns:"Gps Kısıtlı Ortamlar için Ataletsel Navigasyon Yazılımı",
+    textIns:"Bu büyük Ar-Ge projemiz ile, GPS kısıtlı ortamlarda mini insansız hava araçlarının hiç bir dış kaynağa ihtiyaç duymadan görevlerini icra edebilmeleri için, sadece taşıdıkları mikro elektro mekanik ataletsel sensörleri kullanarak navigasyon yapabilmelerini hedefliyoruz.",
+    headerIot:"Endsütriyel Nesnelerin İnterneti", 
+    textIot:"Endüstri 4.0'a giden yolda; endüstriyel cihaz, sistem ve fabrikaların dijital ikizlerinin oluşturulması basamağı için nesnelerin interneti teknolojilerinden faydalanarak izleme ve kontrol amaçlı yazılım sistemleri ve kullanıcı arayüzleri geliştiriyoruz."
   },
   EN: {
     changeLanguage: "TR",
     companyName: "Ayrota Software Technologies",
-    insGpsDeniedText: "INS Software for UAVs in GPS-Denied Environments",
-    industrialSoftwareText:
-      "Custom Graphical User Interface Softwares for Industrial Devices and Systems",
-    softwareConsultancy: "Software Consultancy",
-    underConstruction: "Under Construction",
+    services:"Services",
+    contact:"Contact",
+    callActionHeader:"Robust Industrial Software Solutions",
+    callActionSubHeader:"On the path to Industry 4.0, we are at your service with our Industrial Internet of Things (IIoT) Software Solutions leading up to Digital Twin technology and Inertial Navigation Software for GPS-denied environments.",
+    textServices:"We Provide Reliable Software Development Services",
+    headerIns:"Inertial Navigation for GPS-Denied Environments",
+    textIns:"With this major R&D project, we aim to enable mini unmanned aerial vehicles to navigate in GPS-restricted environments using only the micro electromechanical inertial sensors they carry, so that they can perform their tasks without needing any external resources.",
+    headerIot:"Industrial Internet of Things",
+    textIot:"On the way to Industry 4.0; we are developing monitoring and control software systems and user interfaces for the creation of digital twins of industrial devices, systems and factories by utilizing Internet of Things technologies."
   },
 };
 
