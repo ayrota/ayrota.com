@@ -10,7 +10,7 @@ const Contact = () => {
       <div className="relative z-10 text-center text-white p-8 container mx-auto">
         <h2 className="text-3xl font-bold text-gray-200 text-center">{t("contact")}</h2>
         <div className="flex justify-center items-center">
-          <a href="https://www.linkedin.com/in/ayrota" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.linkedin.com/company/ayrota" target="_blank" rel="noopener noreferrer"
             className="flex flex-row text-blue-600 hover:text-blue-200 space-x-2 m-8 mb-12 text-center">
             <FaLinkedin className="h-7 w-7" />
             <span className="text-gray-100 text-xl">/</span>
