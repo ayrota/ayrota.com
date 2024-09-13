@@ -4,7 +4,7 @@ const Action = () => {
     return (  
     <section
         id="home"
-        className="bg-cover bg-center h-screen flex items-center justify-center text-center relative"
+        className="bg-cover bg-center min-h-screen flex items-center justify-center text-center relative"
         style={{backgroundImage: `url('/ind.png')`}}>
         
         <div className="absolute inset-0 bg-black opacity-80"></div>
