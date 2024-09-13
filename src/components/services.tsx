@@ -4,7 +4,7 @@ import { t } from '../i18n'
 const Services = () => {
   return (
     <section id="services"
-      className="bg-cover bg-center bg-gray-100 h-screen flex items-center justify-center text-center relative">
+      className="bg-cover bg-center bg-gray-100 min-h-screen flex items-center justify-center text-center relative p-8">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-800">{t("services")}</h2>
         <p className="mt-4 text-gray-600">{t("textServices")}</p>
