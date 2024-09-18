@@ -1,7 +1,7 @@
 import { t } from '../i18n'
 import React from 'react';
 
-const AiSection = React.forwardRef<HTMLDivElement>((props,ref) => {
+const AiSection = React.forwardRef<HTMLDivElement>((_props,ref) => {
   return (
     <section
       id="aiSection"
