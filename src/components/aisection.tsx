@@ -9,7 +9,7 @@ const AiSection = React.forwardRef<HTMLDivElement>((_props,ref) => {
       className="bg-cover bg-center bg-gray-200 min-h-screen flex flex-col items-center justify-center text-center relative p-8">
       <h2 className="text-4xl mt-4 font-bold text-gray-800">{t("AiHeader")}</h2>
       <p className="mt-4 text-2xl text-gray-600">{t("AiSubHeader")}</p>
-      <div className='w-screen flex flex-row justify-evenly items-center'>
+      <div className='w-screen flex flex-col md:flex-row  justify-evenly items-center'>
         <div className='p-12 md:w-1/2'>
           <h3 className="text-2xl font-bold text-gray-800 mb-4">{t("AiText1Header")}</h3>
           <p className="text-gray-600">
@@ -24,7 +24,7 @@ const AiSection = React.forwardRef<HTMLDivElement>((_props,ref) => {
           />
         </div>
       </div>
-      <div className='w-screen flex flex-row justify-evenly items-center'>
+      <div className='w-screen flex flex-col-reverse md:flex-row justify-evenly items-center'>
         <div className='p-12 md:w-1/2'>
           <img
             src="/droneOnFac.png"
