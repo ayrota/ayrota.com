@@ -1,4 +1,4 @@
-import { useLanguage, t } from "../i18n";
+import { useLanguage} from "../i18n";
 
 const buttonClass =
   "font-semibold text-gray-800 hover:text-cyan-700 active:text-cyan-600";
