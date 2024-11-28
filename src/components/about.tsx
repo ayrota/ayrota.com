@@ -13,12 +13,12 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>((props, ref) => {
       className="min-h-screen flex flex-col text-blue-900 items-center justify-around text-justify m-16"
     >
       <h1 className="text-4xl font-bold">{t("aboutUs")}</h1>
-      <div className="flex justify-around">
-        <div className="flex flex-col justify-between items-center w-2/5">
+      <div className="flex flex-wrap justify-around">
+        <img className="w-1/2 min-w-72 p-8" src="./uav.webp"></img>
+        <div className="flex flex-col justify-around items-center w-1/2 min-w-72 p-8">
           <p className="">{t("aboutText1")}</p>
           <p className="">{t("aboutText2")}</p>
         </div>
-        <img className="flex w-2/5" src="./uav.webp"></img>
       </div>
       <button
         onClick={props.scroll}

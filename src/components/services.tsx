@@ -29,13 +29,13 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
       <section
         ref={ref}
         id="services"
-        className="bg-cover bg-center min-h-screen flex items-center justify-center text-center relative"
+        className="bg-cover bg-center min-h-screen flex items-center justify-center text-center relative p-8"
         style={{ backgroundImage: `url('./monitor.webp')` }}
       >
         <div className="absolute inset-0 bg-gray-950 bg-opacity-90"></div>
-        <div className="relative z-10 text-white h-screen w-screen flex flex-col justify-around">
+        <div className="relative z-10 text-white flex flex-col justify-around">
           <h1 className="text-4xl font-bold mb-4">{t("services")}</h1>
-          <div className="grid grid-cols-2">
+          <div className="flex flex-wrap justify-center">
             {services.map((item, index) => {
               return (
                 <div

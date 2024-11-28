@@ -12,9 +12,9 @@ const Info = React.forwardRef<HTMLDivElement, InfoProps>((props, ref) => {
     <section
       ref={ref}
       id="info"
-      className="flex flex-col text-blue-900 items-center justify-center text-center m-8"
+      className="flex flex-col text-blue-900 items-center justify-center text-center p-8"
     >
-      <div className="w-1/2 min-w-96">
+      <div className="w-1/2 min-w-72">
         <h1 className="text-4xl font-bold mb-8">{t("info")}</h1>
         {indices.map((index) => {
           return (

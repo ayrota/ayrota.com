@@ -12,7 +12,7 @@ const InfoItem: React.FC<InfoItemProps> = (props) => {
   return (
     <div className="flex flex-col m-1 w-full">
       <div
-        className="flex border border-gray shadow p-2 bg-gray-200 justify-between"
+        className="flex border border-gray shadow p-2 bg-gray-200 justify-between text-left"
         onClick={() => setOpen(!open)}
       >
         {props.question}

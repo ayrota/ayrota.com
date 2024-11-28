@@ -10,7 +10,7 @@ const Action = React.forwardRef<HTMLDivElement, ActionProps>((props, ref) => {
     <section
       id="action"
       ref={ref}
-      className="bg-cover bg-center min-h-screen flex items-center justify-center text-center relative"
+      className="bg-cover bg-center min-h-screen flex items-center justify-center text-center relative p-8"
       style={{ backgroundImage: `url('./ins.webp')` }}
     >
       <div className="absolute inset-0 bg-gray-950 bg-opacity-90"></div>
