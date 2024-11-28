@@ -2,7 +2,7 @@ import { t } from "../i18n";
 import { FaLinkedin } from "react-icons/fa";
 import React from "react";
 
-const Contact = React.forwardRef<HTMLDivElement>((props, ref) => {
+const Contact = React.forwardRef<HTMLDivElement>((_props, ref) => {
   return (
     <section
       ref={ref}
