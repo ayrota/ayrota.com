@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { t } from "../i18n";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 interface InfoItemProps {
