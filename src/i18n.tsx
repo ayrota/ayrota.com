@@ -19,6 +19,7 @@ const translations: Translations = {
   TR: {
     changeLanguage: "EN",
     companyName: "Ayrota Yazılım Teknolojileri",
+    reserved: "© 2024 Ayrota. Tüm Hakları Saklıdır.",
     contact: "İletişim",
     aboutUs: "Hakkımızda",
     action_header: "Geleceği Şekillendiren Mühendislik Çözümleri",
@@ -57,6 +58,7 @@ const translations: Translations = {
   EN: {
     changeLanguage: "TR",
     companyName: "Ayrota Software Technologies",
+    reserved: "© 2024 Ayrota. All rights are reserved.",
     contact: "Contact",
     aboutUs: "About Us",
     action_header: "Engineering Solutions Shaping the Future",
