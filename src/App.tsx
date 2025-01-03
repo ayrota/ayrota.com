@@ -4,42 +4,46 @@ import { LanguageProvider } from "./i18n";
 import React, { useRef } from "react";
 import Action from "./components/action";
 import About from "./components/about";
-import Services from "./components/services";
-import Info from "./components/info";
 import Footer from "./components/footer";
+import Professions from "./components/professions";
+import Solutions from "./components/solutions";
 
 const App: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
-  const servicesRef = useRef<HTMLDivElement | null>(null);
-  const infoRef = useRef<HTMLDivElement | null>(null);
+  const solutionsRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
+  const professionsRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <LanguageProvider>
       <div className="flex flex-col">
         <Header />
         <Action
-          scroll={() => {
+          scrollAbout={() => {
             if (aboutRef.current)
               aboutRef.current.scrollIntoView({ behavior: "smooth" });
+          }}
+          scrollContact={() => {
+            if (contactRef.current)
+              contactRef.current.scrollIntoView({ behavior: "smooth" });
           }}
         />
         <About
           ref={aboutRef}
           scroll={() => {
-            if (servicesRef.current)
-              servicesRef.current.scrollIntoView({ behavior: "smooth" });
+            if (professionsRef.current)
+              professionsRef.current.scrollIntoView({ behavior: "smooth" });
           }}
         />
-        <Services
-          ref={servicesRef}
+        <Professions
+          ref={professionsRef}
           scroll={() => {
-            if (infoRef.current)
-              infoRef.current.scrollIntoView({ behavior: "smooth" });
+            if (solutionsRef.current)
+              solutionsRef.current.scrollIntoView({ behavior: "smooth" });
           }}
         />
-        <Info
-          ref={infoRef}
+        <Solutions
+          ref={solutionsRef}
           scroll={() => {
             if (contactRef.current)
               contactRef.current.scrollIntoView({ behavior: "smooth" });

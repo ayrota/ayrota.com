@@ -14,17 +14,19 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>((props, ref) => {
     >
       <h1 className="text-4xl font-bold">{t("aboutUs")}</h1>
       <div className="flex flex-wrap justify-around">
-        <img className="w-1/2 min-w-72 p-8" src="./uav.webp"></img>
+        <img className="w-1/2 min-w-72 p-8" src="./about.webp"></img>
         <div className="flex flex-col justify-around items-center w-1/2 min-w-72 p-8">
-          <p className="">{t("aboutText1")}</p>
-          <p className="">{t("aboutText2")}</p>
+          <div className="text-lg">{t("about_vision")}</div>
+          <div className="">{t("about_vision_text")}</div>
+          <div className="text-lg">{t("about_mission")}</div>
+          <div className="">{t("about_mission_text")}</div>
         </div>
       </div>
       <button
         onClick={props.scroll}
         className="mt-12 inline-block bg-blue-800 text-white py-2 px-6 rounded-full hover:bg-blue-500 transition"
       >
-        {t("services")}
+        {t("professions")}
       </button>
     </section>
   );
