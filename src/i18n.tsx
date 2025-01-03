@@ -59,6 +59,39 @@ const translations: Translations = {
     companyName: "Ayrota Software Technologies",
     contact: "Contact",
     aboutUs: "About Us",
+    action_header: "Engineering Solutions Shaping the Future",
+    action_sub_header:
+      "We deliver advanced technology software solutions by interpreting sensor data with artificial intelligence.",
+    about_vision: "Vision",
+    about_vision_text:
+      "At Ayrota Software Technologies, our vision is to lead the global transformation of intelligent systems with advanced software solutions that interpret sensor data. With our innovative approach and technological expertise, we aim to address even the most complex data processing and artificial intelligence needs of our clients.",
+    about_mission: "Mission",
+    about_mission_text:
+      "Our mission is to develop solutions that enhance our clients' operational processes and create value through sensor-based data processing, artificial intelligence, and deep learning technologies. By delivering high-performance software, intuitive visualization tools, and robust testing processes, we aim to drive innovation in both industrial and academic fields.",
+    professions: "Our Expertise",
+    profession_1_header: "Real-Time Data Processing Software",
+    profession_1_text:
+      "Real-time processing of raw data from sources like IMUs. Management of advanced, complex data such as radar.",
+    profession_2_header: "AI-Powered Solutions",
+    profession_2_text:
+      "Deriving insights from data streams and integrating them into advanced systems.",
+    profession_3_header: "Intuitive Data Visualization",
+    profession_3_text:
+      "2D/3D indicators, graphs, and map-based solutions with user-friendly interfaces.",
+    profession_4_header: "Simulation and Testing Processes",
+    profession_4_text:
+      "Virtual validation using MATLAB, Python, Gazebo, AirSim, and Unreal Engine.",
+    solutions: "Our Solutions",
+    solution_1_header:
+      "Sensor-Based Data Processing and Visualization Solutions",
+    solution_1_text:
+      "Real-time processing of all types of sensor data, from IMU to radar. Visualization with dynamic maps and customized 2D/3D graphics. Providing insights derived from collected data.",
+    solution_2_header: "AI-Powered Inertial Navigation Software",
+    solution_2_text:
+      "Navigation solutions that provide precise estimations and inferences in GPS-denied environments. Mission control software for performance measurement and optimization.",
+    solution_3_header: "Simulation and Virtual Validation Studies",
+    solution_3_text:
+      "Testing processes of systems developed on platforms like Gazebo, AirSim, and Unreal Engine. Simulations in environments closely resembling real-world conditions.",
   },
 };
 
