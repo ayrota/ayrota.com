@@ -1,59 +1,46 @@
-import Header from "./components/header";
-import Contact from "./components/contact";
-import { LanguageProvider } from "./i18n";
-import React, { useRef } from "react";
-import Action from "./components/action";
-import About from "./components/about";
-import Footer from "./components/footer";
-import Professions from "./components/professions";
-import Solutions from "./components/solutions";
+import { Routes, Route } from 'react-router-dom';
 
-const App: React.FC = () => {
-  const aboutRef = useRef<HTMLDivElement>(null);
-  const solutionsRef = useRef<HTMLDivElement | null>(null);
-  const contactRef = useRef<HTMLDivElement | null>(null);
-  const professionsRef = useRef<HTMLDivElement | null>(null);
+import { BackgroundField } from './components/BackgroundField';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
+import { Hero } from './sections/Hero';
+import { Approach } from './sections/Approach';
+import { Capabilities } from './sections/Capabilities';
+import { Provisioning } from './sections/Provisioning';
+import { Contact } from './sections/Contact';
+
+import Privacy from './pages/Privacy';
+import { ScrollToHash } from './components/ScrollToHash';
+import { Core } from './sections/Core';
+
+export default function App() {
   return (
-    <LanguageProvider>
-      <div className="flex flex-col">
-        <Header />
-        <Action
-          scrollAbout={() => {
-            if (aboutRef.current)
-              aboutRef.current.scrollIntoView({ behavior: "smooth" });
-          }}
-          scrollContact={() => {
-            if (contactRef.current)
-              contactRef.current.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
-        <About
-          ref={aboutRef}
-          scroll={() => {
-            if (professionsRef.current)
-              professionsRef.current.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
-        <Professions
-          ref={professionsRef}
-          scroll={() => {
-            if (solutionsRef.current)
-              solutionsRef.current.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
-        <Solutions
-          ref={solutionsRef}
-          scroll={() => {
-            if (contactRef.current)
-              contactRef.current.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
-        <Contact ref={contactRef} />
-        <Footer />
-      </div>
-    </LanguageProvider>
-  );
-};
+    <div className="min-h-screen bg-bg text-fg font-sans relative">
+      <BackgroundField />
+      <Header />
 
-export default App;
+      {/* 🔒 HASH SCROLL ENABLER */}
+      <ScrollToHash />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="relative z-10">
+              <Hero />
+              <Approach />
+              <Core />
+              <Capabilities />
+              <Provisioning />
+              <Contact />
+              <Footer />
+            </main>
+          }
+        />
+
+        <Route path="/privacy" element={<Privacy />} />
+      </Routes>
+    </div>
+  );
+}
