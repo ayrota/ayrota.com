@@ -1,44 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <link rel="canonical" href="https://ayrota.com/" />
+    <script>
+      const redirect = sessionStorage.getItem('redirect');
+      if (redirect) {
+        sessionStorage.removeItem('redirect');
+        window.history.replaceState(null, '', redirect);
+      }
+    </script>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-      content="Ayrota Yazılım Teknolojileri, MEMS tabanlı IMU'dan Radar verilerine kadar geniş yelpazedeki sensör verilerini
-       gerçek zamanlı işleyerek yapay zeka ve derin öğrenme tabanlı çözümler geliştirir. Sezgisel veri görselleştirme,
-        simülasyon ve test süreçleriyle yenilikçi uygulamalar sunar. Ayrota Software Technologies processes a wide range of sensor data
-        —from MEMS-based IMU to complex Radar— in real time, leveraging AI and deep learning. 
-        We offer intuitive data visualization, simulation, and testing to deliver innovative solutions." />
-    <meta name="keywords"
-      content="Ayrota Yazılım Teknolojileri, sensör verisi, yapay zeka, derin öğrenme, sinyal işleme, veri görselleştirme, simülasyon, test,
-       navigasyon, IMU, Radar Ayrota Software Technologies, sensor data, artificial intelligence, deep learning, signal processing,
-        data visualization, simulation, testing, navigation," />
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
-    <meta property="og:title" content="Ayrota Yazılım Teknolojileri">
-    <meta property="og:description"
-      content="Ayrota Software Technologies focuses on real-time data processing, AI-driven inertial navigation, and intuitive data visualization
-       for advanced sensor solutions. Ayrota Yazılım Teknolojileri, sensör verilerinden en iyi şekilde faydalanmayı amaçlayarak gerçek zamanlı
-        veri işleme, yapay zeka tabanlı ataletsel navigasyon ve sezgisel veri görselleştirme gibi ileri seviye yazılım çözümleri sunar." />
-    <meta property="og:image" content="https://www.ayrota.com/ayrota_transparent.png">
-    <meta property="og:url" content="https://www.ayrota.com/">
-    <meta property="og:type" content="website">
-
-<!-- Twitter Kart Etiketleri -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ayrota Yazılım Teknolojileri">
-    <meta name="twitter:description"
-      content="Ayrota Yazılım Teknolojileri, gerçek zamanlı veri işleme ve yapay zeka destekli çözümlerle sensör teknolojilerinden
-       en yüksek verimi almanızı sağlar. Ayrota Software Technologies empowers your sensor technology with real-time data processing and
-        AI-driven solutions for maximum efficiency." />
-    <meta name="twitter:image" content="https://www.ayrota.com/ayrota_transparent.png">
-
-    <link rel="icon" href="/ayrota_logo_only.png" type="image/png" sizes="16x16">
-    <link rel="canonical" href="https://www.ayrota.com/">
-
-    <title>Ayrota Yazılım Teknolojileri</title>
+    <title>ayrota.com</title>
   </head>
   <body>
     <div id="root"></div>
