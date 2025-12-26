@@ -6,8 +6,8 @@ export function Approach() {
 
   return (
     <Section id="approach" width="narrow">
-      <div className="text-xs tracking-widest uppercase text-muted">
-        {t('approachBadge')}
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionApproach')}
       </div>
 
       <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">

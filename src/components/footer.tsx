@@ -1,7 +1,11 @@
 import { Container } from './Container';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../lib/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative py-10">
       <Container>
@@ -11,7 +15,7 @@ export function Footer() {
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-muted">
             <div>
-              © {new Date().getFullYear()} Ayrota
+              {t('footerCopyright').replace('{{year}}', String(year))}
             </div>
 
             <div className="flex gap-4">
@@ -19,40 +23,40 @@ export function Footer() {
                 to="/#approach"
                 className="hover:text-fg transition-colors"
               >
-                Approach
+                {t('sectionApproach')}
               </Link>
               <Link
                 to="/#core"
                 className="hover:text-fg transition-colors"
               >
-                The Core
+                {t('sectionCore')}
               </Link>
               <Link
                 to="/#provisioning"
                 className="hover:text-fg transition-colors"
               >
-                Provisioning
+                {t('sectionProvisioning')}
               </Link>
               <Link
                 to="/#contact"
                 className="hover:text-fg transition-colors"
               >
-                Contact
+                {t('sectionContact')}
               </Link>
             </div>
           </div>
 
           {/* legal / positioning whisper */}
           <div className="mt-4 text-[11px] leading-relaxed text-muted max-w-2xl">
-            Productized inertial navigation software.
+            {t('footerTaglineLine1')}
             <br />
-            Cloud-backed evaluation supported where permitted.
+            {t('footerTaglineLine2')}
             <br />
             <Link
               to="/privacy"
               className="underline underline-offset-2 hover:text-fg"
             >
-              Privacy & Data Notice
+              {t('footerPrivacy')}
             </Link>
           </div>
         </div>
