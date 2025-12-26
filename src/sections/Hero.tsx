@@ -22,7 +22,7 @@ export function Hero() {
       <Container className="pt-28 relative">
         <div className="max-w-3xl mx-auto">
           <div className="text-xs tracking-widest text-muted">
-            {t('heroBadge')}
+            {t('sectionHero')}
           </div>
 
           <h1 className="mt-6 text-3xl md:text-5xl font-medium leading-[1.08]">

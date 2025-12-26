@@ -43,19 +43,19 @@ export function Header() {
 
           <nav className="hidden md:flex items-center gap-8 text-sm">
             <Link to="/#approach" onClick={handleNav('approach')} className={navLinkClass}>
-              {t('approach')}
+              {t('sectionApproach')}
             </Link>
             <Link to="/#core" onClick={handleNav('core')} className={navLinkClass}>
-              {t('core')}
+              {t('sectionCore')}
             </Link>
             <Link to="/#capabilities" onClick={handleNav('capabilities')} className={navLinkClass}>
-              {t('capabilities')}
+              {t('sectionCapabilities')}
             </Link>
             <Link to="/#provisioning" onClick={handleNav('provisioning')} className={navLinkClass}>
-              {t('provisioning')}
+              {t('sectionProvisioning')}
             </Link>
             <Link to="/#contact" onClick={handleNav('contact')} className={navLinkClass}>
-              {t('contact')}
+              {t('sectionContact')}
             </Link>
 
             <div className="flex items-center gap-1 ml-2">
