@@ -1,27 +1,27 @@
 import { Section } from '../components/Section';
+import { useLanguage } from '../lib/LanguageContext';
 
 export function Approach() {
+  const { t } = useLanguage();
+
   return (
     <Section id="approach" width="narrow">
       <div className="text-xs tracking-widest uppercase text-muted">
-        Approach
+        {t('approachBadge')}
       </div>
 
       <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
-        Failure-first thinking
+        {t('approachTitle')}
       </h2>
 
       <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
-        We treat failure, drift, and degradation as baseline conditions —
-        not edge cases.
+        {t('approachParagraph1')}
         <br />
-        Our work starts by constraining the problem space and observing
-        how systems behave when ideal assumptions break down.
+        {t('approachParagraph2')}
       </p>
 
       <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
-        This approach shapes both the core technology and every operational
-        extension built on top of it.
+        {t('approachParagraph3')}
       </p>
 
       <div className="mt-16 h-px bg-line/50 max-w-md" />
