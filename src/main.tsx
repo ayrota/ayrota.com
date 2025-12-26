@@ -5,10 +5,14 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
+import { LanguageProvider } from './lib/LanguageContext';
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
