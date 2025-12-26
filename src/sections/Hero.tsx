@@ -8,7 +8,7 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
       <div
         className={`absolute inset-0 transition-opacity duration-700 ${
           unsettled ? 'opacity-100' : 'opacity-0'
