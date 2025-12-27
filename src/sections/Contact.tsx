@@ -14,12 +14,6 @@ export function Contact() {
         {t('contactTitle')}
       </h2>
 
-      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
-        {t('contactIntroLine1')}
-        <br />
-        {t('contactIntroLine2')}
-      </p>
-
       <form
         action="https://usebasin.com/f/acb4b7f09c8b"
         method="POST"
@@ -63,7 +57,6 @@ export function Contact() {
             name="message"
             rows={4}
             required
-            placeholder={t('contactPlaceholderMessage')}
             className="w-full rounded-md border border-line bg-panel/40 px-4 py-2 text-sm text-fg outline-none focus:border-line/80"
           />
         </div>
@@ -76,9 +69,6 @@ export function Contact() {
         </button>
       </form>
 
-      <div className="mt-6 text-xs text-muted">
-        {t('contactFootnote')}
-      </div>
     </Section>
   );
 }

@@ -15,7 +15,7 @@ sectionApproach: {
 },
 sectionCore: {
   en: 'The Core',
-  tr: 'Çekirdek',
+  tr: 'Çekirdek Teknoloji',
 },
 sectionCapabilities: {
   en: 'Capabilities',
@@ -23,7 +23,7 @@ sectionCapabilities: {
 },
 sectionProvisioning: {
   en: 'Provisioning',
-  tr: 'Sunum ve Dağıtım',
+  tr: 'Dağıtım',
 },
 sectionContact: {
   en: 'Contact',
@@ -33,33 +33,33 @@ sectionContact: {
     HERO
 -------------------- */
 heroTitleMain: {
-  en: 'AI-assisted motion estimation',
+  en: 'IMU-only motion estimation',
   tr: 'IMU verisinden hareket kestirimi',
 },
 
 heroTitleSub: {
-  en: 'from IMU data only',
-  tr: 'AI destekli, GNSS’siz',
+  en: 'GNSS independent, AI assisted',
+  tr: 'GNSS bağımsız, AI destekli',
 },
 
 heroLead: {
   en: 'Displacement and pose estimation designed for GNSS-denied and degraded operations.',
-  tr: 'GNSS olmayan veya bozunmuş ortamlarda çalışmak üzere tasarlanmış yer değiştirme ve duruş kestirimi.',
+  tr: 'GNSS’nin olmadığı veya bozunduğu ortamlarda, yer değiştirme ve duruş kestirimi için tasarlandı.',
 },
 
 heroParagraph1: {
   en: 'Operational failure is expected.',
-  tr: 'Gerçek operasyonlarda belirsizlik kaçınılmazdır.',
+  tr: 'Gerçek operasyonlarda belirsizlik normaldir.',
 },
 
 heroParagraph2: {
   en: 'Drift is inevitable.',
-  tr: 'Ölçüm sapmaları zamanla birikir.',
+  tr: 'Sapma zamanla birikir.',
 },
 
 heroParagraph3: {
   en: 'Systems must converge under constraint — not assume ideal conditions.',
-  tr: 'Sağlam sistemler, ideal koşulları varsaymaz; kısıtlar altında dengeye gelmek zorundadır.',
+  tr: 'Sağlam sistemler ideal koşulları varsaymaz. Kısıtlar altında dengeye gelir.',
 },
 
 /* --------------------
@@ -68,27 +68,27 @@ heroParagraph3: {
 
 approachTitle: {
   en: 'Failure-first thinking',
-  tr: 'Başarısızlığı başlangıç kabul eden yaklaşım',
+  tr: 'Operasyonel gerçekliği esas alan yaklaşım',
 },
 
 approachParagraph1: {
   en: `We treat failure, drift, and degradation as baseline conditions —
 not edge cases.`,
-  tr: `Başarısızlık, sapma ve bozunma bizim için istisna değil;
-başlangıç koşuludur.`,
+  tr: `Sapma, bozunma ve belirsizlik operasyonel sürecin parçasıdır.
+Sistemin gerçek çalışma koşullarını tanımlar.`,
 },
 
 approachParagraph2: {
   en: `Our work starts by constraining the problem space and observing
 how systems behave when ideal assumptions break down.`,
-  tr: `Çalışmaya problemi daraltarak ve ideal varsayımlar geçerliliğini
-yitirdiğinde sistemlerin nasıl davrandığını gözlemleyerek başlarız.`,
+  tr: `Yaklaşımımız, problem alanını bilinçli biçimde daraltmakla başlar.
+İdeal varsayımlar geçerliliğini yitirdiğinde sistem davranışı esas alınır.`,
 },
 
 approachParagraph3: {
   en: `This approach shapes both the core technology and every operational
 extension built on top of it.`,
-  tr: `Bu yaklaşım yalnızca çekirdek teknolojiyi değil, onun üzerine inşa edilen
+  tr: `Bu yaklaşım, çekirdek teknolojiyi ve onun üzerine inşa edilen
 tüm operasyonel katmanları belirler.`,
 },
 
@@ -127,7 +127,7 @@ capabilityRealtimeText: {
 
 capabilitiesOutro: {
   en: 'Interfaces are structured for controlled embedding. When integration requires it, the ROS I/O shell can be used without turning the core into a ROS product.',
-  tr: 'Arayüzler kontrollü gömülme için yapılandırılmıştır. Gerekli durumlarda ROS I/O kabuğu kullanılabilir; ancak çekirdek bir ROS ürünü hâline getirilmez.',
+  tr: 'Arayüzler kontrollü programlama için yapılandırılmıştır. Gerekli durumlarda ROS I/O kabuğu kullanılabilir.',
 },
 
 /* --------------------
@@ -135,7 +135,7 @@ capabilitiesOutro: {
 -------------------- */
 provisioningTitle: {
   en: 'How the core is made available',
-  tr: 'Çekirdek yazılımın nasıl sunulduğu',
+  tr: 'Çekirdek yazılımın dağıtımı',
 },
 
 provisioningIntro: {
@@ -162,8 +162,8 @@ optimize edilmiş bir gömülü çalışma ortamı olarak sağlanabilir.`,
 },
 
 provisioningSdkTitle: {
-  en: 'Licensed SDK (controlled)',
-  tr: 'Lisanslı SDK (kontrollü)',
+  en: 'Licensed SDK',
+  tr: 'Lisanslı SDK',
 },
 
 provisioningSdkText: {
@@ -171,8 +171,8 @@ provisioningSdkText: {
 evaluation, and system integration — scope-bound and
 interface-limited by design.`,
   tr: `Geliştirme, değerlendirme ve sistem entegrasyonu amacıyla
-kapsamı ve arayüzleri sınırlandırılmış, lisans kontrollü bir
-SDK sağlanabilir.`,
+kapsamı ve arayüzleri sınırlandırılmış, lisans kontrollü sağlanan bir
+SDK.`,
 },
 
 provisioningCloudNote: {
@@ -201,7 +201,7 @@ coreTitleSub: {
 
 coreCard1Title: {
   en: 'IMU-only AI-assisted estimation core',
-  tr: 'IMU-only, AI destekli kestirim çekirdeği',
+  tr: 'IMU odaklı, AI destekli kestirim çekirdeği',
 },
 
 coreCard1Text: {
@@ -227,13 +227,12 @@ olarak sağlanabilir.`,
 },
 
 coreShellsText: {
-  en: `On top of the core, operational shells can be used to reconstruct a dead-reckoned path,
+  en: `On top of the core, operational shells can be used to reconstruct the path with recorded signals,
 compute navigation commands for a predefined route, and interface with ROS
 (IMU input and command output) when required by the mission system.`,
-  tr: `Çekirdeğin üzerinde, dead-reckoning ile yol yeniden inşa etmek,
-önceden tanımlı bir rota için navigasyon komutları hesaplamak ve
-görev sisteminin gerektirdiği durumlarda ROS ile arayüzlemek
-(IMU girişi ve komut çıktısı) için operasyonel kabuklar kullanılabilir.`,
+  tr: `Çekirdeğin üzerinde, kaydedilen sinyallerle yeniden rota oluşturma,
+önceden tanımlı bir rota için navigasyon komutları hesaplama ve
+görev sisteminin gerektirdiği durumlarda ROS (IMU girişi ve komut çıktısı) arayüzü operasyonel kabuklar kullanılabilir.`,
 },
 /* --------------------
    CONTACT
@@ -243,19 +242,9 @@ contactTitle: {
   tr: 'Değerlendirme talebi gönder',
 },
 
-contactIntroLine1: {
-  en: 'This channel is intended for serious evaluation inquiries only.',
-  tr: 'Bu kanal yalnızca ciddi değerlendirme talepleri içindir.',
-},
-
-contactIntroLine2: {
-  en: 'High-level context is sufficient at this stage.',
-  tr: 'Bu aşamada yüksek seviyeli bağlam yeterlidir.',
-},
-
 contactLabelOrg: {
-  en: 'Organization / Project',
-  tr: 'Kurum / Proje',
+  en: 'Person / Organization',
+  tr: 'Kişi / Kurum',
 },
 
 contactLabelEmail: {
@@ -268,19 +257,9 @@ contactLabelMessage: {
   tr: 'Talebiniz',
 },
 
-contactPlaceholderMessage: {
-  en: 'Environment, constraints, timeline…',
-  tr: 'Ortam, kısıtlar, zaman çizelgesi…',
-},
-
 contactSubmit: {
   en: 'Submit inquiry',
   tr: 'Talebi gönder',
-},
-
-contactFootnote: {
-  en: 'NDA-first · scope-bound · response is not guaranteed',
-  tr: 'NDA öncelikli · kapsam sınırlı · geri dönüş garanti edilmez',
 },
 
 /* --------------------
