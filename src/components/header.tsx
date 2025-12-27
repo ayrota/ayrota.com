@@ -71,9 +71,9 @@ export function Header() {
 
           <div className="md:hidden flex items-center gap-3">
             <div className="flex items-center gap-1">
-              <button onClick={() => setLang('en')} className={langButton('en')}>EN</button>
-              <span className="text-muted text-xs">·</span>
               <button onClick={() => setLang('tr')} className={langButton('tr')}>TR</button>
+              <span className="text-muted text-xs">·</span>
+              <button onClick={() => setLang('en')} className={langButton('en')}>EN</button>
             </div>
 
             <Link
