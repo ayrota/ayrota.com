@@ -81,7 +81,7 @@ export function Header() {
               onClick={handleNav('contact')}
               className="rounded-md border border-line/70 bg-panel/40 px-3 py-1.5 text-sm text-fg backdrop-blur"
             >
-              {t('contact')}
+              {t('sectionContact')}
             </Link>
           </div>
         </Container>
