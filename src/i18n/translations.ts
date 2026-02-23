@@ -238,8 +238,8 @@ görev sisteminin gerektirdiği durumlarda ROS (IMU girişi ve komut çıktısı
    CONTACT
 -------------------- */
 contactTitle: {
-  en: 'Submit an evaluation request',
-  tr: 'Değerlendirme talebi gönder',
+  en: 'Get in Touch',
+  tr: 'Bize Ulaşın',
 },
 
 contactLabelOrg: {
@@ -253,13 +253,13 @@ contactLabelEmail: {
 },
 
 contactLabelMessage: {
-  en: 'Your inquiry',
-  tr: 'Talebiniz',
+  en: 'Your message',
+  tr: 'Mesajınız',
 },
 
 contactSubmit: {
-  en: 'Submit inquiry',
-  tr: 'Talebi gönder',
+  en: 'Send message',
+  tr: 'Mesajınızı gönderin',
 },
 
 /* --------------------
@@ -337,6 +337,38 @@ privacyCookieText: {
   en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
   tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
 },
+
+internshipTitle: {
+  en: 'Internship Applications',
+  tr: 'Staj Başvuruları',
+},
+
+internshipDescription: {
+  en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
+  tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir. Lütfen aşağıdaki bağlantıyı kullanın.',
+},
+
+contactInternshipCta: {
+  en: 'Apply via Google Form',
+  tr: 'Google Form Üzerinden Başvur',
+},
+
+corporateContactTitle: {
+  en: 'Corporate Contact',
+  tr: 'Kurumsal İletişim',
+},
+
+corporateContactDescription: {
+  en: 'For partnerships, project inquiries, and corporate matters, please use the form below.',
+  tr: 'İş birlikleri, proje talepleri ve kurumsal konular için lütfen aşağıdaki formu kullanın.',
+},
+
+contactMapTitle: {
+  en: 'Ayrota Location',
+  tr: 'Ayrota Konumu',
+},
+
+
 } as const;
 
 export type TranslationKey = keyof typeof translations;
