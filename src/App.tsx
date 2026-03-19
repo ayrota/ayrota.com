@@ -20,7 +20,6 @@ export default function App() {
       <BackgroundField />
       <Header />
 
-      {/* 🔒 HASH SCROLL ENABLER */}
       <ScrollToHash />
 
       <Routes>
