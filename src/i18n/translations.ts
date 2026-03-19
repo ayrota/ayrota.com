@@ -210,11 +210,6 @@ export const translations = {
     en: 'Send message',
     tr: 'Mesaj gönder',
   },
-  
-  contactFraming: {
-    en: 'Access is not open-ended. Engagement begins through structured evaluation and evolves based on alignment.',
-    tr: 'Erişim sınırsız değildir. Süreç, yapılandırılmış değerlendirme ile başlar ve uyuma göre ilerler.',
-  },
 
   footerCopyright: {
     en: '© {{year}} Ayrota',
@@ -315,41 +310,6 @@ export const translations = {
     en: 'Ayrota Location',
     tr: 'Ayrota Konumu',
   },
-
-  accessModesTitle: {
-  en: 'Engagement',
-  tr: 'Erişim Biçimleri',
-},
-
-accessEvalTitle: {
-  en: 'Evaluation',
-  tr: 'Değerlendirme',
-},
-
-accessEvalText: {
-  en: 'Initial access is provided for evaluation under constrained scenarios. The goal is not demonstration, but observation of system behavior under defined conditions.',
-  tr: 'İlk erişim, tanımlı senaryolar altında değerlendirme amacıyla sağlanır. Amaç gösterim değil, sistem davranışının kontrollü koşullarda gözlemlenmesidir.',
-},
-
-accessIntegrationTitle: {
-  en: 'Integration',
-  tr: 'Entegrasyon',
-},
-
-accessIntegrationText: {
-  en: 'For operational use, selected components can be integrated into existing systems. Integration is controlled and adapted to constraints of the target environment.',
-  tr: 'Operasyonel kullanım için sistemin belirli bileşenleri mevcut yapılara entegre edilebilir. Entegrasyon, hedef ortamın kısıtlarına göre kontrollü biçimde gerçekleştirilir.',
-},
-
-accessResearchTitle: {
-  en: 'Research',
-  tr: 'Araştırma',
-},
-
-accessResearchText: {
-  en: 'For advanced work, collaboration may extend into research-level exploration. Focus remains on system behavior, not surface outputs.',
-  tr: 'İleri düzey çalışmalar için iş birliği araştırma seviyesine genişleyebilir. Odak, çıktılar değil sistem davranışıdır.',
-},
 } as const;
 
 export type TranslationKey = keyof typeof translations;

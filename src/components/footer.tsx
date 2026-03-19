@@ -8,8 +8,8 @@ export function Footer() {
 
   return (
     <footer className="relative py-10">
-      <Container className="pt-28 relative md:pl-6">
-        <div className="max-w-4xl ml-0">
+      <Container>
+        <div className="max-w-3xl mx-auto">
           {/* single closing divider */}
           <div className="h-px bg-line/60 mb-8" />
 
