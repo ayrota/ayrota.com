@@ -13,7 +13,7 @@ export function Section({
   id,
   width = 'narrow',
   className = '',
-  paddingClassName = 'py-24',
+  paddingClassName = 'py-32 md:py-44 first:pt-48',
   children,
 }: SectionProps) {
   const maxWidth = width === 'wide' ? 'max-w-4xl' : 'max-w-3xl';

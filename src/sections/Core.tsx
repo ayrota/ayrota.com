@@ -1,49 +1,43 @@
 import { Section } from '../components/Section';
-import { Card } from '../components/Card';
 import { useLanguage } from '../lib/LanguageContext';
 
 export function Core() {
   const { t } = useLanguage();
 
   return (
-    <Section id="core" width="wide">
-      <div className="text-xs tracking-widest text-muted">
-        {t('sectionCore')}
-      </div>
-
-      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+    <Section id="core">
+      <h2 className="text-3xl md:text-5xl leading-[1.08] text-fg/95 font-medium ">
         {t('coreTitleMain')}
         <br />
-        <span className="text-fg/80">
+        <span className="text-fg/72">
           {t('coreTitleSub')}
         </span>
       </h2>
+      <div className="mt-16 grid gap-16 md:grid-cols-[1.2fr_0.8fr]">
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        <Card>
-          <h3 className="text-sm font-medium text-fg">
+        <div>
+          <h3 className="text-lg text-fg/95">
             {t('coreCard1Title')}
           </h3>
-          <p className="mt-2 text-sm text-muted leading-relaxed">
+          <p className="mt-4 text-[15px] text-muted/90 leading-[1.7]">
             {t('coreCard1Text')}
           </p>
-        </Card>
+        </div>
 
-        <Card>
-          <h3 className="text-sm font-medium text-fg">
+        <div>
+          <h3 className="text-lg text-fg/95">
             {t('coreCard2Title')}
           </h3>
-          <p className="mt-2 text-sm text-muted leading-relaxed">
+          <p className="mt-4 text-[15px] text-muted/90 leading-[1.7]">
             {t('coreCard2Text')}
           </p>
-        </Card>
+        </div>
+
       </div>
 
-      <p className="mt-10 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+      <p className="mt-10 text-[15px] text-muted/90 leading-[1.7] max-w-xl">
         {t('coreShellsText')}
       </p>
-
-      <div className="mt-16 h-px bg-line/50 max-w-md" />
     </Section>
   );
 }
