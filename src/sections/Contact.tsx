@@ -7,9 +7,7 @@ export function Contact() {
   return (
     <Section id="contact" width="narrow">
       {/* Section Header */}
-      <div className="text-xs tracking-[0.2em] text-muted">
-        {t('sectionContact')}
-      </div>
+
 
       <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
         {t('contactTitle')}
