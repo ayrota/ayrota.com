@@ -5,26 +5,22 @@ export function Approach() {
   const { t } = useLanguage();
 
   return (
-    <Section id="approach" width="narrow">
-      <div className="text-xs tracking-widest text-muted">
-        {t('sectionApproach')}
-      </div>
-
-      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+    <Section id="approach" className="pt-20 md:pt-28">
+      <h1 className="mt-6 text-5xl md:text-6xl font-medium leading-[1.08] tracking-[-0.02em] text-fg/95">
         {t('approachTitle')}
-      </h2>
+      </h1>
 
-      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
+      <p className="mt-8 text-[15px] leading-[1.7] text-fg/92 max-w-2xl">
         {t('approachParagraph1')}
-        <br />
+      </p>
+
+      <p className="mt-5 text-[15px] leading-[1.7] text-muted/90 max-w-2xl">
         {t('approachParagraph2')}
       </p>
 
-      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
+      <p className="mt-5 text-[15px] leading-[1.7] text-muted/90 max-w-2xl">
         {t('approachParagraph3')}
       </p>
-
-      <div className="mt-16 h-px bg-line/50 max-w-md" />
     </Section>
   );
 }

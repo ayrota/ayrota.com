@@ -1,48 +1,43 @@
 import { Container } from '../components/Container';
-import { usePhase } from '../lib/phaseContext';
 import { useLanguage } from '../lib/LanguageContext';
 
 export function Hero() {
-  const phase = usePhase();
-  const unsettled = phase === 'orientation' || phase === 'drift';
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      <div
-        className={`absolute inset-0 transition-opacity duration-700 ${
-          unsettled ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          background:
-            'radial-gradient(80% 60% at 60% 40%, rgba(75,107,136,0.12), transparent 70%)',
-        }}
-      />
-
+    <section
+      id="hero"
+      className="min-h-screen flex items-center relative overflow-hidden"
+    >
       <Container className="pt-28 relative">
         <div className="max-w-3xl mx-auto">
-
-          <h1 className="mt-6 text-3xl md:text-5xl font-medium leading-[1.08]">
+          <h1 className="mt-6 text-5xl md:text-6xl font-medium leading-[1.08] tracking-[-0.02em] text-fg/95">
             {t('heroTitleMain')}
             <br />
-            <span className="text-fg/80">
+            <span className="text-fg/70">
               {t('heroTitleSub')}
             </span>
           </h1>
 
-          <p className="mt-5 text-sm md:text-base text-fg/85 max-w-2xl">
+          <p className="mt-6 text-base text-fg/90 max-w-2xl leading-relaxed">
             {t('heroLead')}
           </p>
 
-          <p className="mt-5 text-sm md:text-base text-muted leading-relaxed max-w-2xl">
+          <p className="mt-8 text-[15px] text-muted/90 leading-[1.7] max-w-xl">
             {t('heroParagraph1')}
-            <br />
+          </p>
+
+          <p className="mt-3 text-[15px] text-muted/90 leading-[1.7] max-w-xl">
             {t('heroParagraph2')}
-            <br />
+          </p>
+
+          <p className="mt-3 text-[15px] text-muted/90 leading-[1.7] max-w-xl">
             {t('heroParagraph3')}
           </p>
 
-          <div className="mt-10 h-px bg-line/60 max-w-md" />
+          <p className="mt-10 text-xs tracking-wide text-muted/70">
+            {t('heroMeta')}
+          </p>
         </div>
       </Container>
     </section>

@@ -50,11 +50,11 @@ const VIRTUAL_SCALE = 1.1;
 /* =============================
    ENERGY / COLOR PARAMS
 ============================= */
-const ENERGY_RISE = 0.002; // ⬅️ yavaş parlıyor
-const ENERGY_DECAY = 0.94;
+const ENERGY_RISE = 0.006;
+const ENERGY_DECAY = 0.90;
 const MAX_ENERGY = 1.0;
 
-const COLOR_BLEND_SPEED = 0.035;
+const COLOR_BLEND_SPEED = 0.06;
 
 /* =============================
    COLOR UTILS
@@ -107,7 +107,7 @@ function buildPath(
     const wave =
       Math.sin(
         t * Math.PI * 2 * periods + phase
-      ) * 18;
+      ) * 22;
 
     d += ` L ${x} ${yBase + wave}`;
   }
@@ -246,7 +246,7 @@ export function BackgroundField() {
           ) as SVGPathElement | null;
 
           const alpha =
-            0.26 + energy.current * 0.32;
+            0.22 + energy.current * 0.35;
 
           path?.setAttribute(
             'd',
