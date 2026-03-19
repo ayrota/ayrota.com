@@ -181,72 +181,15 @@ export const translations = {
     tr: 'Deneysel çalışma ve entegrasyon süreçleri için sistemin belirli bölümleri kontrollü arayüzlerle erişime açılabilir. Bu yapı serbest dağıtım için değil, değerlendirme ve geliştirme için tasarlanır.',
   },
 
-provisioningCloudNote: {
-  en: `Cloud-backed workflows may be used to support training,
-benchmarking, and large-scale evaluation when permitted.
-All operational runtimes remain self-contained and
-independent of cloud infrastructure.`,
-  tr: `Eğitim, kıyaslama ve geniş ölçekli değerlendirme süreçlerinde,
-izin verilen durumlarda bulut destekli iş akışları kullanılabilir.
-Operasyonel çalışma ortamları ise her zaman kendi içinde kapalı
-ve bulut altyapısından bağımsızdır.`,
-},
+  provisioningCloudNote: {
+    en: 'When required, offline evaluation workflows and data-driven processes support analysis and improvement. Operational behavior remains independent from external infrastructure.',
+    tr: 'Gerekli olduğunda analiz ve geliştirme süreçleri çevrimdışı değerlendirme akışları ve veri odaklı yöntemlerle desteklenir. Operasyonel davranış dış altyapılardan bağımsız kalır.',
+  },
 
-/* --------------------
-   CORE
--------------------- */
-coreTitleMain: {
-  en: 'One core.',
-  tr: 'Tek bir çekirdek.',
-},
-
-coreTitleSub: {
-  en: 'Operational extensions — by necessity.',
-  tr: 'Operasyonel uzantılar — gereklilikten doğar.',
-},
-
-coreCard1Title: {
-  en: 'IMU-only AI-assisted estimation core',
-  tr: 'IMU odaklı, AI destekli kestirim çekirdeği',
-},
-
-coreCard1Text: {
-  en: `Displacement and pose estimation from IMU signals only —
-structured to remain bounded as drift accumulates.`,
-  tr: `Yalnızca IMU sinyallerinden yer değiştirme ve duruş kestirimi.
-Drift biriktikçe davranışı sınırlı kalacak şekilde yapılandırılmıştır.`,
-},
-
-coreCard2Title: {
-  en: 'Delivered as productized software',
-  tr: 'Ürünleştirilmiş yazılım olarak sunulur',
-},
-
-coreCard2Text: {
-  en: `Available as licensed software. May be provided as a controlled,
-licensed SDK for development/evaluation, or as an optimized embedded
-runtime for target devices.`,
-  tr: `Lisanslı bir yazılım olarak sunulur. Geliştirme ve değerlendirme
-amaçlı, kapsamı sınırlandırılmış lisanslı bir SDK şeklinde ya da
-hedef uç cihazlar için optimize edilmiş bir gömülü çalışma ortamı
-olarak sağlanabilir.`,
-},
-
-coreShellsText: {
-  en: `On top of the core, operational shells can be used to reconstruct the path with recorded signals,
-compute navigation commands for a predefined route, and interface with ROS
-(IMU input and command output) when required by the mission system.`,
-  tr: `Çekirdeğin üzerinde, kaydedilen sinyallerle yeniden rota oluşturma,
-önceden tanımlı bir rota için navigasyon komutları hesaplama ve
-görev sisteminin gerektirdiği durumlarda ROS (IMU girişi ve komut çıktısı) arayüzü operasyonel kabuklar kullanılabilir.`,
-},
-/* --------------------
-   CONTACT
--------------------- */
-contactTitle: {
-  en: 'Submit an evaluation request',
-  tr: 'Değerlendirme talebi gönder',
-},
+  contactTitle: {
+    en: 'Contact',
+    tr: 'İletişim',
+  },
 
   contactLabelOrg: {
     en: 'Person / Organization',
@@ -258,23 +201,25 @@ contactTitle: {
     tr: 'İletişim e-postası',
   },
 
-contactLabelMessage: {
-  en: 'Your inquiry',
-  tr: 'Talebiniz',
-},
+  contactLabelMessage: {
+    en: 'Your message',
+    tr: 'Mesajınız',
+  },
 
-contactSubmit: {
-  en: 'Submit inquiry',
-  tr: 'Talebi gönder',
-},
+  contactSubmit: {
+    en: 'Send message',
+    tr: 'Mesaj gönder',
+  },
+  
+  contactFraming: {
+    en: 'Access is not open-ended. Engagement begins through structured evaluation and evolves based on alignment.',
+    tr: 'Erişim sınırsız değildir. Süreç, yapılandırılmış değerlendirme ile başlar ve uyuma göre ilerler.',
+  },
 
-/* --------------------
-   FOOTER
--------------------- */
-footerCopyright: {
-  en: '© {{year}} Ayrota',
-  tr: '© {{year}} Ayrota',
-},
+  footerCopyright: {
+    en: '© {{year}} Ayrota',
+    tr: '© {{year}} Ayrota',
+  },
 
   footerTaglineLine1: {
     en: 'Inertial navigation systems under active development.',
@@ -336,9 +281,74 @@ footerCopyright: {
     tr: 'Çerez Bildirimi',
   },
 
-privacyCookieText: {
-  en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
-  tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
+  privacyCookieText: {
+    en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
+    tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
+  },
+
+  internshipTitle: {
+    en: 'Internship Applications',
+    tr: 'Staj Başvuruları',
+  },
+
+  internshipDescription: {
+    en: 'Student applications are accepted exclusively through the Google Form.',
+    tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir.',
+  },
+
+  contactInternshipCta: {
+    en: 'Apply via Google Form',
+    tr: 'Google Form Üzerinden Başvur',
+  },
+
+  corporateContactTitle: {
+    en: 'Corporate Contact',
+    tr: 'Kurumsal İletişim',
+  },
+
+  corporateContactDescription: {
+    en: 'For partnerships, project inquiries, and technical contact, please use the form below.',
+    tr: 'İş birlikleri, proje talepleri ve teknik iletişim için lütfen aşağıdaki formu kullanın.',
+  },
+
+  contactMapTitle: {
+    en: 'Ayrota Location',
+    tr: 'Ayrota Konumu',
+  },
+
+  accessModesTitle: {
+  en: 'Engagement',
+  tr: 'Erişim Biçimleri',
+},
+
+accessEvalTitle: {
+  en: 'Evaluation',
+  tr: 'Değerlendirme',
+},
+
+accessEvalText: {
+  en: 'Initial access is provided for evaluation under constrained scenarios. The goal is not demonstration, but observation of system behavior under defined conditions.',
+  tr: 'İlk erişim, tanımlı senaryolar altında değerlendirme amacıyla sağlanır. Amaç gösterim değil, sistem davranışının kontrollü koşullarda gözlemlenmesidir.',
+},
+
+accessIntegrationTitle: {
+  en: 'Integration',
+  tr: 'Entegrasyon',
+},
+
+accessIntegrationText: {
+  en: 'For operational use, selected components can be integrated into existing systems. Integration is controlled and adapted to constraints of the target environment.',
+  tr: 'Operasyonel kullanım için sistemin belirli bileşenleri mevcut yapılara entegre edilebilir. Entegrasyon, hedef ortamın kısıtlarına göre kontrollü biçimde gerçekleştirilir.',
+},
+
+accessResearchTitle: {
+  en: 'Research',
+  tr: 'Araştırma',
+},
+
+accessResearchText: {
+  en: 'For advanced work, collaboration may extend into research-level exploration. Focus remains on system behavior, not surface outputs.',
+  tr: 'İleri düzey çalışmalar için iş birliği araştırma seviyesine genişleyebilir. Odak, çıktılar değil sistem davranışıdır.',
 },
 } as const;
 
