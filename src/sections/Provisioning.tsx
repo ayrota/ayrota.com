@@ -7,6 +7,9 @@ export function Provisioning() {
 
   return (
     <Section id="provisioning" width="wide">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionProvisioning')}
+      </div>
 
       <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
         {t('provisioningTitle')}
