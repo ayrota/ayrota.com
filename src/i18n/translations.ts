@@ -1,315 +1,374 @@
 export type Language = 'en' | 'tr';
 
 export const translations = {
-  sectionHero: {
-    en: 'Signal',
-    tr: 'Sinyal',
-  },
-  sectionApproach: {
-    en: 'Approach',
-    tr: 'Yaklaşım',
-  },
-  sectionCore: {
-    en: 'Core',
-    tr: 'Çekirdek',
-  },
-  sectionCapabilities: {
-    en: 'Capabilities',
-    tr: 'Yetenek',
-  },
-  sectionProvisioning: {
-    en: 'Access',
-    tr: 'Erişim',
-  },
-  sectionContact: {
-    en: 'Contact',
-    tr: 'İletişim',
-  },
 
-  heroTitleMain: {
-    en: 'Navigation without GPS',
-    tr: 'GPS’in güvenilir olmadığı ortamlarda navigasyon',
-  },
+/* --------------------
+   SECTION LABELS (GLOBAL)
+-------------------- */
+sectionHero: {
+  en: 'IMU-Only Core',
+  tr: 'IMU Tabanlı Çekirdek',
+},
+sectionApproach: {
+  en: 'Approach',
+  tr: 'Yaklaşım',
+},
+sectionCore: {
+  en: 'The Core',
+  tr: 'Çekirdek Teknoloji',
+},
+sectionCapabilities: {
+  en: 'Capabilities',
+  tr: 'Yetkinlikler',
+},
+sectionProvisioning: {
+  en: 'Provisioning',
+  tr: 'Dağıtım',
+},
+sectionContact: {
+  en: 'Contact',
+  tr: 'İletişim',
+},
+/* --------------------
+    HERO
+-------------------- */
+heroTitleMain: {
+  en: 'IMU-only motion estimation',
+  tr: 'IMU verisinden hareket kestirimi',
+},
 
-  heroTitleSub: {
-    en: 'Inertial estimation shaped by physics and learning',
-    tr: 'Fizik ve öğrenmeyle biçimlenen ataletsel kestirim',
-  },
+heroTitleSub: {
+  en: 'GNSS independent, AI assisted',
+  tr: 'GNSS bağımsız, AI destekli',
+},
 
-  heroLead: {
-    en: 'Ayrota develops navigation systems that operate using only inertial signals, for environments where GPS cannot be trusted.',
-    tr: 'Ayrota, yalnızca ataletsel sinyallerle çalışan ve GPS’in güvenilemediği ortamlara yönelik navigasyon sistemleri geliştirir.',
-  },
+heroLead: {
+  en: 'Displacement and pose estimation designed for GNSS-denied and degraded operations.',
+  tr: 'GNSS’nin olmadığı veya bozunduğu ortamlarda, yer değiştirme ve duruş kestirimi için tasarlandı.',
+},
 
-  heroParagraph1: {
-    en: 'Real-world systems do not operate under ideal conditions. Noise, bias, and drift are part of the signal, not exceptions to it.',
-    tr: 'Gerçek dünyada sistemler ideal koşullarda çalışmaz. Gürültü, bias ve sapma bu sürecin istisnası değil, doğal parçalarıdır.',
-  },
+heroParagraph1: {
+  en: 'Operational failure is expected.',
+  tr: 'Gerçek operasyonlarda belirsizlik normaldir.',
+},
 
-  heroParagraph2: {
-    en: 'Instead of assuming perfect measurements, we focus on how estimation behaves as uncertainty accumulates and constraints begin to dominate.',
-    tr: 'Bizim yaklaşımımız, kusursuz ölçümler varsaymak yerine belirsizlik biriktikçe kestirimin nasıl davrandığını anlamaya odaklanır.',
-  },
+heroParagraph2: {
+  en: 'Drift is inevitable.',
+  tr: 'Sapma zamanla birikir.',
+},
 
-  heroParagraph3: {
-    en: 'The goal is not to erase drift, but to understand it, shape it, and build systems that continue to function as it evolves.',
-    tr: 'Amaç sapmayı yok etmek değil; onu anlamak, yönlendirmek ve bu süreç içinde çalışmayı sürdüren sistemler kurmaktır.',
-  },
+heroParagraph3: {
+  en: 'Systems must converge under constraint — not assume ideal conditions.',
+  tr: 'Sağlam sistemler ideal koşulları varsaymaz. Kısıtlar altında dengeye gelir.',
+},
 
-  heroMeta: {
-    en: 'Signal evolves. Estimation follows.',
-    tr: 'Sinyal değişir. Kestirim onu takip eder.',
-  },
+/* --------------------
+   APPROACH
+-------------------- */
 
-  approachTitle: {
-    en: 'Working with the signal as it is',
-    tr: 'Sinyali olduğu haliyle ele almak',
-  },
+approachTitle: {
+  en: 'Failure-first thinking',
+  tr: 'Operasyonel gerçekliği esas alan yaklaşım',
+},
 
-  approachParagraph1: {
-    en: 'In inertial systems, drift, degradation, and failure are not edge cases. They define the operating conditions.',
-    tr: 'Ataletsel sistemlerde sapma, bozunma ve hata istisna değildir. Çalışma koşullarının kendisini oluştururlar.',
-  },
+approachParagraph1: {
+  en: `We treat failure, drift, and degradation as baseline conditions —
+not edge cases.`,
+  tr: `Sapma, bozunma ve belirsizlik operasyonel sürecin parçasıdır.
+Sistemin gerçek çalışma koşullarını tanımlar.`,
+},
 
-  approachParagraph2: {
-    en: 'Our work begins by accepting these conditions as given. Instead of forcing ideal behavior, we observe how systems respond as uncertainty accumulates.',
-    tr: 'Bizim işimiz bu koşulları veri kabul ederek başlar. İdeal davranışı zorlamak yerine, belirsizlik biriktikçe sistemin nasıl tepki verdiğini gözlemleriz.',
-  },
+approachParagraph2: {
+  en: `Our work starts by constraining the problem space and observing
+how systems behave when ideal assumptions break down.`,
+  tr: `Yaklaşımımız, problem alanını bilinçli biçimde daraltmakla başlar.
+İdeal varsayımlar geçerliliğini yitirdiğinde sistem davranışı esas alınır.`,
+},
 
-  approachParagraph3: {
-    en: 'That perspective shapes the entire structure — from signal processing to learning-based correction and controlled integration.',
-    tr: 'Bu bakış açısı, sinyal işleme katmanından öğrenme tabanlı düzeltmeye ve kontrollü entegrasyona kadar tüm yapıyı belirler.',
-  },
+approachParagraph3: {
+  en: `This approach shapes both the core technology and every operational
+extension built on top of it.`,
+  tr: `Bu yaklaşım, çekirdek teknolojiyi ve onun üzerine inşa edilen
+tüm operasyonel katmanları belirler.`,
+},
 
-  coreTitleMain: {
-    en: 'A single evolving core.',
-    tr: 'Tek ve evrilen bir çekirdek.',
-  },
+/* --------------------
+   CAPABILITIES
+-------------------- */
+capabilitiesTitle: {
+  en: 'What survives degraded conditions',
+  tr: 'Bozulmuş koşullarda ayakta kalanlar',
+},
 
-  coreTitleSub: {
-    en: 'Built under constraint, extended by necessity.',
-    tr: 'Kısıtlar altında kurulur, ihtiyaçla genişler.',
-  },
+capabilitiesIntro: {
+  en: 'We focus on what survives drift and failure — not on ideal benchmarks.',
+  tr: 'İdeal senaryoları değil, sapma ve arıza altında çalışmaya devam eden davranışları esas alırız.',
+},
 
-  coreCard1Title: {
-    en: 'IMU-based estimation core',
-    tr: 'IMU tabanlı kestirim çekirdeği',
-  },
+capabilityDriftTitle: {
+  en: 'Drift-aware estimation',
+  tr: 'Sapma farkındalığı olan kestirim',
+},
 
-  coreCard1Text: {
-    en: 'At the center is an estimation structure built directly on inertial signals, designed to remain interpretable as drift accumulates.',
-    tr: 'Merkezde, doğrudan ataletsel sinyaller üzerine kurulu ve sapma biriktikçe davranışı anlaşılabilir kalacak şekilde tasarlanmış bir kestirim yapısı bulunur.',
-  },
+capabilityDriftText: {
+  en: 'Predictable behavior as inertial drift accumulates, with controlled degradation under noise and bias growth.',
+  tr: 'Ataletsel sapmalar biriktikçe öngörülebilir davranış ve gürültü ile bias artışı altında kontrollü bozunma.',
+},
 
-  coreCard2Title: {
-    en: 'Modular system structure',
-    tr: 'Modüler sistem yapısı',
-  },
+capabilityRealtimeTitle: {
+  en: 'Real-time embedding posture',
+  tr: 'Gerçek zamanlı gömülü çalışma',
+},
 
-  coreCard2Text: {
-    en: 'The system is organized as a modular software core, allowing controlled evaluation, iteration, and integration into different operational contexts.',
-    tr: 'Sistem, kontrollü değerlendirme, yineleme ve farklı kullanım bağlamlarına entegrasyon sağlayacak şekilde modüler bir yazılım çekirdeği olarak düzenlenmiştir.',
-  },
+capabilityRealtimeText: {
+  en: 'Designed to run on constrained edge devices (e.g., Jetson / Raspberry-class), within operational latency limits.',
+  tr: 'Jetson veya Raspberry sınıfı kısıtlı uç cihazlarda, operasyonel gecikme sınırları içinde çalışacak şekilde tasarlanmıştır.',
+},
 
-  coreShellsText: {
-    en: 'Around this core, additional layers are used to reconstruct motion, analyze behavior over recorded data, and interface with external systems when required. These layers are shaped by operational need, not by arbitrary abstraction.',
-    tr: 'Bu çekirdeğin etrafında, hareketin yeniden kurulması, kaydedilmiş veriler üzerinde davranış analizi yapılması ve gerektiğinde dış sistemlerle arayüz kurulması için ek katmanlar yer alır. Bu katmanlar keyfi soyutlamalarla değil, operasyonel ihtiyaçlarla şekillenir.',
-  },
+capabilitiesOutro: {
+  en: 'Interfaces are structured for controlled embedding. When integration requires it, the ROS I/O shell can be used without turning the core into a ROS product.',
+  tr: 'Arayüzler kontrollü programlama için yapılandırılmıştır. Gerekli durumlarda ROS I/O kabuğu kullanılabilir.',
+},
 
-  capabilitiesTitle: {
-    en: 'Behavior under real conditions',
-    tr: 'Gerçek koşullarda davranış',
-  },
+/* --------------------
+   PROVISIONING
+-------------------- */
+provisioningTitle: {
+  en: 'How the core is made available',
+  tr: 'Çekirdek yazılımın dağıtımı',
+},
 
-  capabilitiesIntro: {
-    en: 'Rather than focusing on ideal performance, we focus on how the system behaves as drift, noise, and bias evolve over time.',
-    tr: 'İdeal performanstan çok, sapma, gürültü ve bias zaman içinde değişirken sistemin nasıl davrandığına odaklanıyoruz.',
-  },
+provisioningIntro: {
+  en: `The navigation core is productized software.
+Provisioning options are selected based on operational constraints,
+not convenience.`,
+  tr: `Navigasyon çekirdeği ürünleştirilmiş bir yazılımdır.
+Teslim ve kullanım biçimleri, pratiklikten ziyade
+operasyonel kısıtlara göre belirlenir.`,
+},
 
-  capabilityDriftTitle: {
-    en: 'Drift-aware estimation',
-    tr: 'Sapma farkındalığı olan kestirim',
-  },
+provisioningEmbeddedTitle: {
+  en: 'Embedded runtime',
+  tr: 'Gömülü çalışma ortamı',
+},
 
-  capabilityDriftText: {
-    en: 'Estimation is structured to stay bounded and interpretable as inertial drift accumulates, rather than diverging unpredictably.',
-    tr: 'Kestirim yapısı, ataletsel sapma biriktikçe öngörülemez biçimde ayrışmak yerine, sınırları bilinen ve anlaşılabilir bir davranış sergileyecek şekilde tasarlanır.',
-  },
+provisioningEmbeddedText: {
+  en: `The core may be provided as an optimized embedded runtime,
+delivered with target devices and intended to run under
+real-time and resource constraints.`,
+  tr: `Çekirdek yazılım, hedef uç cihazlarla birlikte teslim edilen,
+gerçek zamanlı ve kaynak kısıtları altında çalışacak şekilde
+optimize edilmiş bir gömülü çalışma ortamı olarak sağlanabilir.`,
+},
 
-  capabilityRealtimeTitle: {
-    en: 'Real-time execution',
-    tr: 'Gerçek zamanlı çalışma',
-  },
+provisioningSdkTitle: {
+  en: 'Licensed SDK',
+  tr: 'Lisanslı SDK',
+},
 
-  capabilityRealtimeText: {
-    en: 'The system is designed to operate under embedded hardware constraints, with consistent behavior under limited compute and strict timing conditions.',
-    tr: 'Sistem, gömülü donanım kısıtları altında; sınırlı hesaplama gücü ve sıkı zaman koşullarında tutarlı davranış gösterecek şekilde tasarlanır.',
-  },
+provisioningSdkText: {
+  en: `A controlled, licensed SDK may be used for development,
+evaluation, and system integration — scope-bound and
+interface-limited by design.`,
+  tr: `Geliştirme, değerlendirme ve sistem entegrasyonu amacıyla
+kapsamı ve arayüzleri sınırlandırılmış, lisans kontrollü sağlanan bir
+SDK.`,
+},
 
-  capabilitiesOutro: {
-    en: 'Interfaces are kept minimal and controlled so the system can be evaluated, adapted, and integrated without becoming framework-dependent.',
-    tr: 'Arayüzler sade ve kontrollü tutulur; böylece sistem belirli bir çerçeveye bağımlı hale gelmeden değerlendirilebilir, uyarlanabilir ve entegre edilebilir.',
-  },
+provisioningCloudNote: {
+  en: `Cloud-backed workflows may be used to support training,
+benchmarking, and large-scale evaluation when permitted.
+All operational runtimes remain self-contained and
+independent of cloud infrastructure.`,
+  tr: `Eğitim, kıyaslama ve geniş ölçekli değerlendirme süreçlerinde,
+izin verilen durumlarda bulut destekli iş akışları kullanılabilir.
+Operasyonel çalışma ortamları ise her zaman kendi içinde kapalı
+ve bulut altyapısından bağımsızdır.`,
+},
 
-  provisioningTitle: {
-    en: 'Access and deployment',
-    tr: 'Erişim ve kullanım',
-  },
+/* --------------------
+   CORE
+-------------------- */
+coreTitleMain: {
+  en: 'One core.',
+  tr: 'Tek bir çekirdek.',
+},
 
-  provisioningIntro: {
-    en: 'The system is not distributed as a generic product. Access is provided in controlled forms depending on evaluation context, integration scope, and operational constraints.',
-    tr: 'Sistem genel kullanıma açık bir ürün olarak sunulmaz. Erişim; değerlendirme bağlamına, entegrasyon kapsamına ve operasyonel kısıtlara göre kontrollü biçimde sağlanır.',
-  },
+coreTitleSub: {
+  en: 'Operational extensions — by necessity.',
+  tr: 'Operasyonel uzantılar — gereklilikten doğar.',
+},
 
-  provisioningEmbeddedTitle: {
-    en: 'Embedded evaluation environments',
-    tr: 'Gömülü değerlendirme ortamları',
-  },
+coreCard1Title: {
+  en: 'IMU-only AI-assisted estimation core',
+  tr: 'IMU odaklı, AI destekli kestirim çekirdeği',
+},
 
-  provisioningEmbeddedText: {
-    en: 'In some cases, the system is evaluated on constrained target hardware so its behavior can be observed under realistic timing and resource limits.',
-    tr: 'Bazı durumlarda sistem, hedef donanım üzerinde ve sınırlı kaynak koşullarında değerlendirilir; böylece davranışı gerçek zaman ve kaynak sınırları altında gözlemlenebilir.',
-  },
+coreCard1Text: {
+  en: `Displacement and pose estimation from IMU signals only —
+structured to remain bounded as drift accumulates.`,
+  tr: `Yalnızca IMU sinyallerinden yer değiştirme ve duruş kestirimi.
+Drift biriktikçe davranışı sınırlı kalacak şekilde yapılandırılmıştır.`,
+},
 
-  provisioningSdkTitle: {
-    en: 'Controlled development access',
-    tr: 'Kontrollü geliştirme erişimi',
-  },
+coreCard2Title: {
+  en: 'Delivered as productized software',
+  tr: 'Ürünleştirilmiş yazılım olarak sunulur',
+},
 
-  provisioningSdkText: {
-    en: 'For experimentation and integration work, selected parts of the system may be exposed through controlled interfaces. These are intended for evaluation and iteration, not unrestricted distribution.',
-    tr: 'Deneysel çalışma ve entegrasyon süreçleri için sistemin belirli bölümleri kontrollü arayüzlerle erişime açılabilir. Bu yapı serbest dağıtım için değil, değerlendirme ve geliştirme için tasarlanır.',
-  },
+coreCard2Text: {
+  en: `Available as licensed software. May be provided as a controlled,
+licensed SDK for development/evaluation, or as an optimized embedded
+runtime for target devices.`,
+  tr: `Lisanslı bir yazılım olarak sunulur. Geliştirme ve değerlendirme
+amaçlı, kapsamı sınırlandırılmış lisanslı bir SDK şeklinde ya da
+hedef uç cihazlar için optimize edilmiş bir gömülü çalışma ortamı
+olarak sağlanabilir.`,
+},
 
-  provisioningCloudNote: {
-    en: 'When required, offline evaluation workflows and data-driven processes support analysis and improvement. Operational behavior remains independent from external infrastructure.',
-    tr: 'Gerekli olduğunda analiz ve geliştirme süreçleri çevrimdışı değerlendirme akışları ve veri odaklı yöntemlerle desteklenir. Operasyonel davranış dış altyapılardan bağımsız kalır.',
-  },
+coreShellsText: {
+  en: `On top of the core, operational shells can be used to reconstruct the path with recorded signals,
+compute navigation commands for a predefined route, and interface with ROS
+(IMU input and command output) when required by the mission system.`,
+  tr: `Çekirdeğin üzerinde, kaydedilen sinyallerle yeniden rota oluşturma,
+önceden tanımlı bir rota için navigasyon komutları hesaplama ve
+görev sisteminin gerektirdiği durumlarda ROS (IMU girişi ve komut çıktısı) arayüzü operasyonel kabuklar kullanılabilir.`,
+},
+/* --------------------
+   CONTACT
+-------------------- */
+contactTitle: {
+  en: 'Get in Touch',
+  tr: 'Bize Ulaşın',
+},
 
-  contactTitle: {
-    en: 'Contact',
-    tr: 'İletişim',
-  },
+contactLabelOrg: {
+  en: 'Person / Organization',
+  tr: 'Kişi / Kurum',
+},
 
-  contactLabelOrg: {
-    en: 'Person / Organization',
-    tr: 'Kişi / Kurum',
-  },
+contactLabelEmail: {
+  en: 'Contact email',
+  tr: 'İletişim e-postası',
+},
 
-  contactLabelEmail: {
-    en: 'Contact email',
-    tr: 'İletişim e-postası',
-  },
+contactLabelMessage: {
+  en: 'Your message',
+  tr: 'Mesajınız',
+},
 
-  contactLabelMessage: {
-    en: 'Your message',
-    tr: 'Mesajınız',
-  },
+contactSubmit: {
+  en: 'Send message',
+  tr: 'Mesajınızı gönderin',
+},
 
-  contactSubmit: {
-    en: 'Send message',
-    tr: 'Mesaj gönder',
-  },
+/* --------------------
+   FOOTER
+-------------------- */
+footerCopyright: {
+  en: '© {{year}} Ayrota',
+  tr: '© {{year}} Ayrota',
+},
 
-  footerCopyright: {
-    en: '© {{year}} Ayrota',
-    tr: '© {{year}} Ayrota',
-  },
+footerTaglineLine1: {
+  en: 'Productized inertial navigation software.',
+  tr: 'Ürünleştirilmiş ataletsel navigasyon yazılımı.',
+},
 
-  footerTaglineLine1: {
-    en: 'Inertial navigation systems under active development.',
-    tr: 'Geliştirilmekte olan ataletsel navigasyon sistemleri.',
-  },
+footerTaglineLine2: {
+  en: 'Cloud-backed evaluation supported where permitted.',
+  tr: 'İzin verilen durumlarda bulut destekli değerlendirme süreçleri kullanılır.',
+},
 
-  footerTaglineLine2: {
-    en: 'Controlled evaluation and collaboration supported where appropriate.',
-    tr: 'Uygun durumlarda kontrollü değerlendirme ve iş birliği süreçleri yürütülür.',
-  },
+footerPrivacy: {
+  en: 'Privacy & Data Notice',
+  tr: 'Gizlilik ve Veri Bildirimi',
+},
 
-  footerPrivacy: {
-    en: 'Privacy & Data Notice',
-    tr: 'Gizlilik ve Veri Bildirimi',
-  },
+/* --------------------
+   PRIVACY / DATA NOTICE
+-------------------- */
+privacyTitle: {
+  en: 'Privacy & Data Notice',
+  tr: 'Gizlilik ve Veri Bildirimi',
+},
 
-  privacyTitle: {
-    en: 'Privacy & Data Notice',
-    tr: 'Gizlilik ve Veri Bildirimi',
-  },
+privacyIntro: {
+  en: 'Ayrota collects limited personal data solely for evaluation purposes.',
+  tr: 'Ayrota, yalnızca değerlendirme amacıyla sınırlı kişisel veri toplar.',
+},
 
-  privacyIntro: {
-    en: 'Ayrota collects limited personal data solely for evaluation purposes.',
-    tr: 'Ayrota, yalnızca değerlendirme amacıyla sınırlı kişisel veri toplar.',
-  },
+privacyParagraph1: {
+  en: 'Data collected via the contact form may include organization or project name, contact email address, and high-level inquiry context.',
+  tr: 'İletişim formu aracılığıyla; kurum veya proje adı, iletişim e-posta adresi ve talebe ilişkin yüksek seviyeli bağlam bilgileri toplanabilir.',
+},
 
-  privacyParagraph1: {
-    en: 'Data collected via the contact form may include organization or project name, contact email address, and high-level inquiry context.',
-    tr: 'İletişim formu aracılığıyla; kurum veya proje adı, iletişim e-posta adresi ve talebe ilişkin yüksek seviyeli bağlam bilgileri toplanabilir.',
-  },
+privacyParagraph2: {
+  en: 'This website does not perform tracking, profiling, or marketing analytics.',
+  tr: 'Bu web sitesinde izleme, profilleme veya pazarlama amaçlı analiz yapılmamaktadır.',
+},
 
-  privacyParagraph2: {
-    en: 'This website does not perform tracking, profiling, or marketing analytics.',
-    tr: 'Bu web sitesinde izleme, profilleme veya pazarlama amaçlı analiz yapılmamaktadır.',
-  },
+privacyParagraph3: {
+  en: 'Form submissions are processed through a third-party form handling service (Basin) and stored securely for review.',
+  tr: 'Form iletileri, üçüncü taraf bir form hizmeti (Basin) üzerinden işlenir ve değerlendirme amacıyla güvenli şekilde saklanır.',
+},
 
-  privacyParagraph3: {
-    en: 'Form submissions are processed through a third-party form handling service (Basin) and stored securely for review.',
-    tr: 'Form iletileri, üçüncü taraf bir form hizmeti (Basin) üzerinden işlenir ve değerlendirme amacıyla güvenli şekilde saklanır.',
-  },
+privacyParagraph4: {
+  en: 'Personal data is retained only as long as necessary to assess potential engagement and is deleted periodically.',
+  tr: 'Kişisel veriler, olası bir işbirliğini değerlendirmek için gerekli süre boyunca saklanır ve düzenli olarak silinir.',
+},
 
-  privacyParagraph4: {
-    en: 'Personal data is retained only as long as necessary to assess potential engagement and is deleted periodically.',
-    tr: 'Kişisel veriler, olası bir işbirliğini değerlendirmek için gerekli süre boyunca saklanır ve düzenli olarak silinir.',
-  },
+privacyParagraph5: {
+  en: 'Where applicable, data handling complies with KVKK and GDPR.',
+  tr: 'Veri işleme süreçleri, uygulanabilir olduğu ölçüde KVKK ve GDPR ile uyumludur.',
+},
 
-  privacyParagraph5: {
-    en: 'Where applicable, data handling complies with KVKK and GDPR.',
-    tr: 'Veri işleme süreçleri, uygulanabilir olduğu ölçüde KVKK ve GDPR ile uyumludur.',
-  },
+privacyConsent: {
+  en: 'By submitting the contact form, you acknowledge and consent to this data processing for evaluation purposes.',
+  tr: 'İletişim formunu göndererek, bu veri işleme sürecini değerlendirme amacıyla kabul etmiş sayılırsınız.',
+},
 
-  privacyConsent: {
-    en: 'By submitting the contact form, you acknowledge and consent to this data processing for evaluation purposes.',
-    tr: 'İletişim formunu göndererek, bu veri işleme sürecini değerlendirme amacıyla kabul etmiş sayılırsınız.',
-  },
+privacyCookieTitle: {
+  en: 'Cookie Notice',
+  tr: 'Çerez Bildirimi',
+},
 
-  privacyCookieTitle: {
-    en: 'Cookie Notice',
-    tr: 'Çerez Bildirimi',
-  },
+privacyCookieText: {
+  en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
+  tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
+},
 
-  privacyCookieText: {
-    en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
-    tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
-  },
+internshipTitle: {
+  en: 'Internship Applications',
+  tr: 'Staj Başvuruları',
+},
 
-  internshipTitle: {
-    en: 'Internship Applications',
-    tr: 'Staj Başvuruları',
-  },
+internshipDescription: {
+  en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
+  tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir. Lütfen aşağıdaki bağlantıyı kullanın.',
+},
 
-  internshipDescription: {
-    en: 'Student applications are accepted exclusively through the Google Form.',
-    tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir.',
-  },
+contactInternshipCta: {
+  en: 'Apply via Google Form',
+  tr: 'Google Form Üzerinden Başvur',
+},
 
-  contactInternshipCta: {
-    en: 'Apply via Google Form',
-    tr: 'Google Form Üzerinden Başvur',
-  },
+corporateContactTitle: {
+  en: 'Corporate Contact',
+  tr: 'Kurumsal İletişim',
+},
 
-  corporateContactTitle: {
-    en: 'Corporate Contact',
-    tr: 'Kurumsal İletişim',
-  },
+corporateContactDescription: {
+  en: 'For partnerships, project inquiries, and corporate matters, please use the form below.',
+  tr: 'İş birlikleri, proje talepleri ve kurumsal konular için lütfen aşağıdaki formu kullanın.',
+},
 
-  corporateContactDescription: {
-    en: 'For partnerships, project inquiries, and technical contact, please use the form below.',
-    tr: 'İş birlikleri, proje talepleri ve teknik iletişim için lütfen aşağıdaki formu kullanın.',
-  },
+contactMapTitle: {
+  en: 'Ayrota Location',
+  tr: 'Ayrota Konumu',
+},
 
-  contactMapTitle: {
-    en: 'Ayrota Location',
-    tr: 'Ayrota Konumu',
-  },
+
 } as const;
 
 export type TranslationKey = keyof typeof translations;
