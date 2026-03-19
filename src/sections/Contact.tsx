@@ -5,120 +5,70 @@ export function Contact() {
   const { t } = useLanguage();
 
   return (
-    <Section id="contact" className="pb-24 md:pb-28 bg-bg/40">
-      <h2 className="text-3xl md:text-5xl text-fg/95 font-medium leading-[1.08]">
+    <Section id="contact" width="narrow">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionContact')}
+      </div>
+
+      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
         {t('contactTitle')}
       </h2>
 
-      <p className="mt-6 text-sm text-muted max-w-xl leading-relaxed">
-        {t('contactFraming')}
-      </p>
+      <form
+        action="https://usebasin.com/f/acb4b7f09c8b"
+        method="POST"
+        className="mt-10 grid gap-6"
+      >
+        {/* Honeypot — spam guard */}
+        <input type="text" name="_gotcha" className="hidden" />
 
-      <div className="mt-20 space-y-20">
+        {/* Redirect back to contact section */}
+        <input type="hidden" name="_redirect" value="/#contact" />
 
-        {/* ACCESS MODES */}
-        <div className="grid gap-14 md:grid-cols-3">
-
-          <div>
-            <h3 className="text-sm text-fg/90">
-              {t('accessEvalTitle')}
-            </h3>
-            <p className="mt-4 text-[14px] text-muted/90 leading-[1.7]">
-              {t('accessEvalText')}
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm text-fg/90">
-              {t('accessIntegrationTitle')}
-            </h3>
-            <p className="mt-4 text-[14px] text-muted/90 leading-[1.7]">
-              {t('accessIntegrationText')}
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm text-fg/90">
-              {t('accessResearchTitle')}
-            </h3>
-            <p className="mt-4 text-[14px] text-muted/90 leading-[1.7]">
-              {t('accessResearchText')}
-            </p>
-          </div>
-
+        <div>
+          <label className="block text-xs text-muted mb-2">
+            {t('contactLabelOrg')}
+          </label>
+          <input
+            type="text"
+            name="organization"
+            required
+            className="w-full rounded-md border border-line bg-panel/40 px-4 py-2 text-sm text-fg outline-none focus:border-line/80"
+          />
         </div>
 
-        {/* ORIGINAL CONTACT GRID */}
-        <div className="grid gap-16 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <h3 className="text-base md:text-lg text-fg">
-              {t('internshipTitle')}
-            </h3>
-            <p className="mt-4 text-muted leading-relaxed max-w-md">
-              {t('internshipDescription')}
-            </p>
-            <a
-              href="https://forms.gle/Hp6EFHUxp3ZaJgzK7"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-block text-sm underline underline-offset-4 hover:text-fg"
-            >
-              {t('contactInternshipCta')}
-            </a>
-
-            <div className="mt-14">
-              <h3 className="text-base md:text-lg text-fg">
-                {t('corporateContactTitle')}
-              </h3>
-              <p className="mt-4 text-muted leading-relaxed max-w-md">
-                {t('corporateContactDescription')}
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <form
-              action="https://usebasin.com/f/acb4b7f09c8b"
-              method="POST"
-              className="grid gap-8"
-            >
-              <input type="text" name="_gotcha" className="hidden" />
-              <input type="hidden" name="_redirect" value="/#contact" />
-
-              <input
-                type="text"
-                name="organization"
-                placeholder={t('contactLabelOrg')}
-                required
-                className="border-b border-line/60 bg-transparent py-3 text-sm outline-none placeholder:text-muted"
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder={t('contactLabelEmail')}
-                required
-                className="border-b border-line/60 bg-transparent py-3 text-sm outline-none placeholder:text-muted"
-              />
-
-              <textarea
-                name="message"
-                rows={5}
-                placeholder={t('contactLabelMessage')}
-                required
-                className="border-b border-line/60 bg-transparent py-3 text-sm outline-none resize-none placeholder:text-muted"
-              />
-
-              <button
-                type="submit"
-                className="mt-4 text-sm text-muted hover:text-fg underline underline-offset-4"
-              >
-                {t('contactSubmit')}
-              </button>
-            </form>
-          </div>
+        <div>
+          <label className="block text-xs text-muted mb-2">
+            {t('contactLabelEmail')}
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            className="w-full rounded-md border border-line bg-panel/40 px-4 py-2 text-sm text-fg outline-none focus:border-line/80"
+          />
         </div>
-      </div>
+
+        <div>
+          <label className="block text-xs text-muted mb-2">
+            {t('contactLabelMessage')}
+          </label>
+          <textarea
+            name="message"
+            rows={4}
+            required
+            className="w-full rounded-md border border-line bg-panel/40 px-4 py-2 text-sm text-fg outline-none focus:border-line/80"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="mt-4 inline-flex items-center justify-center rounded-lg border border-line/70 bg-panel/40 px-5 py-2 text-sm text-fg hover:bg-panel/55 transition-colors"
+        >
+          {t('contactSubmit')}
+        </button>
+      </form>
+
     </Section>
   );
 }
