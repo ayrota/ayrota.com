@@ -70,19 +70,9 @@ approachTitle: {
   tr: 'Kısıtları başlangıç kabul eden yaklaşım',
 },
 
-approachParagraph1: {
-  en: `We treat drift, degradation, and uncertainty as baseline conditions — not exceptions.`,
-  tr: `Sapma, bozunma ve belirsizlik bizim için istisna değil, başlangıç koşuludur.`,
-},
-
-approachParagraph2: {
-  en: `Our work begins by constraining the problem and observing how estimation behaves when ideal assumptions no longer hold.`,
-  tr: `Yaklaşımımız, problemi bilinçli olarak sınırlandırmak ve ideal varsayımlar ortadan kalktığında kestirimin nasıl davrandığını gözlemlemekle başlar.`,
-},
-
-approachParagraph3: {
-  en: `That perspective shapes both the structure of the core system and every layer built around it.`,
-  tr: `Bu bakış açısı hem çekirdek yapının mimarisini hem de onun üzerine kurulan tüm katmanları belirler.`,
+approachParagraph: {
+  en: `In inertial systems, drift, bias, and degradation are not edge cases — they define the problem space. Instead of designing around ideal conditions, we begin by accepting these constraints and observing how estimation behaves as they accumulate. This perspective shapes how the system is structured, how extensions are added, and how it evolves over time.`,
+  tr: `Ataletsel sistemlerde sapma, bias ve bozunma istisna değil, problemin kendisini tanımlar. Bu nedenle yaklaşımımız ideal koşulları varsaymak yerine, bu kısıtları baştan kabul etmek ve kestirimin zaman içinde bu etkiler altında nasıl davrandığını gözlemlemekle başlar. Bu bakış açısı hem sistemin mimarisini hem de üzerine kurulan tüm katmanları belirler.`,
 },
 
 /* --------------------
@@ -137,8 +127,8 @@ capabilitiesTitle: {
 },
 
 capabilitiesIntro: {
-  en: 'We focus on what survives drift and failure — not on ideal benchmarks.',
-  tr: 'İdeal senaryoları değil, sapma ve arıza altında çalışmaya devam eden davranışları esas alırız.',
+  en: `We focus on behaviors that remain interpretable and stable as conditions degrade, rather than optimizing for ideal scenarios.`,
+  tr: `Odak noktamız ideal koşullar değil; sistemin bozulan şartlar altında dahi anlaşılabilir ve tutarlı kalabilen davranışlarıdır.`,
 },
 
 capabilityDriftTitle: {
@@ -147,23 +137,23 @@ capabilityDriftTitle: {
 },
 
 capabilityDriftText: {
-  en: 'Predictable behavior as inertial drift accumulates, with controlled degradation under noise and bias growth.',
-  tr: 'Ataletsel sapmalar biriktikçe öngörülebilir davranış ve gürültü ile bias artışı altında kontrollü bozunma.',
+  en: `Estimation remains analyzable as drift accumulates, with predictable degradation instead of uncontrolled divergence.`,
+  tr: `Sapma biriktikçe kestirim davranışı analiz edilebilir kalır ve kontrolsüz sapma yerine öngörülebilir bozunma gözlemlenir.`,
 },
 
 capabilityRealtimeTitle: {
-  en: 'Real-time embedding posture',
-  tr: 'Gerçek zamanlı gömülü çalışma',
+  en: 'Real-time execution',
+  tr: 'Gerçek zamanlı çalışma',
 },
 
 capabilityRealtimeText: {
-  en: 'Designed to run on constrained edge devices, within operational latency limits.',
-  tr: 'Kısıtlı uç cihazlarda, operasyonel gecikme sınırları içinde çalışacak şekilde tasarlanır.',
+  en: `The system is designed to operate within real-time constraints on embedded hardware, respecting latency and resource limits.`,
+  tr: `Sistem, gecikme ve kaynak kısıtlarını dikkate alarak gömülü donanımlar üzerinde gerçek zamanlı çalışacak şekilde tasarlanır.`,
 },
 
 capabilitiesOutro: {
-  en: 'Interfaces are structured for controlled embedding. When integration requires it, the ROS I/O shell can be used without turning the core into a ROS product.',
-  tr: 'Arayüzler kontrollü entegrasyon için yapılandırılmıştır. Gerektiğinde ROS giriş/çıkış kabuğu kullanılabilir; ancak çekirdek yapı bir ROS ürününe dönüştürülmez.',
+  en: `Interfaces are structured to allow controlled integration. Additional layers can be introduced when required, without forcing the core into a fixed ecosystem.`,
+  tr: `Arayüzler kontrollü entegrasyonu mümkün kılacak şekilde yapılandırılmıştır. Gerektiğinde ek katmanlar eklenebilir, ancak çekirdek yapı belirli bir ekosisteme zorlanmaz.`,
 },
 
 /* --------------------
@@ -175,35 +165,34 @@ provisioningTitle: {
 },
 
 provisioningIntro: {
-  en: `The core is not presented as a finished commercial product. Access paths are shaped around evaluation, integration, and operational constraints.`,
-  tr: `Çekirdek yapı, tamamlanmış ticari bir ürün olarak sunulmaz. Erişim biçimleri; değerlendirme, entegrasyon ve operasyonel kısıtlara göre şekillenir.`,
+  en: `The system is not presented as a finished commercial product. Access is structured around evaluation, experimentation, and integration under real constraints.`,
+  tr: `Sistem tamamlanmış bir ticari ürün olarak sunulmaz. Erişim; değerlendirme, deneysel çalışma ve gerçek kısıtlar altında entegrasyon süreçleri etrafında yapılandırılır.`,
 },
 
 provisioningEmbeddedTitle: {
-  en: 'Embedded runtime path',
-  tr: 'Gömülü çalışma yolu',
+  en: 'Embedded direction',
+  tr: 'Gömülü çalışma yönü',
 },
 
 provisioningEmbeddedText: {
-  en: `Where needed, the system can be prepared as an embedded runtime direction for target hardware and constrained execution environments.`,
-  tr: `Gerektiğinde sistem, hedef donanımlar ve kaynak kısıtlı çalışma ortamları için gömülü çalışma yönünde hazırlanabilir.`,
+  en: `Where required, the system can be adapted toward embedded execution for target hardware and constrained environments.`,
+  tr: `Gerektiğinde sistem, hedef donanımlar ve kısıtlı çalışma ortamları için gömülü çalışmaya uyarlanabilir.`,
 },
 
 provisioningSdkTitle: {
-  en: 'Evaluation SDK',
-  tr: 'Değerlendirme amaçlı SDK',
+  en: 'Evaluation access',
+  tr: 'Değerlendirme erişimi',
 },
 
 provisioningSdkText: {
-  en: `A controlled SDK can be provided for evaluation, experimentation, and integration studies with clearly bounded scope.`,
-  tr: `Kapsamı açık biçimde sınırlandırılmış bir SDK; değerlendirme, deneysel çalışma ve entegrasyon amaçlarıyla sunulabilir.`,
+  en: `Controlled access can be provided for evaluation, experimentation, and integration studies within a clearly defined scope.`,
+  tr: `Kapsamı açık biçimde tanımlanmış bir şekilde; değerlendirme, deneysel çalışma ve entegrasyon amaçlı erişim sağlanabilir.`,
 },
 
 provisioningCloudNote: {
-  en: `Cloud-backed workflows may support training, benchmarking, or large-scale evaluation where appropriate, while operational runtimes remain self-contained.`,
-  tr: `Uygun durumlarda eğitim, kıyaslama ve geniş ölçekli değerlendirme için bulut destekli iş akışlarından yararlanılabilir; operasyonel çalışma ortamları ise kendi içinde kapalı tutulur.`,
+  en: `Where useful, cloud-supported workflows can assist with benchmarking or large-scale evaluation, while operational runtimes remain self-contained.`,
+  tr: `Gerekli durumlarda bulut destekli iş akışları kıyaslama ve geniş ölçekli değerlendirme için kullanılabilir; operasyonel çalışma ortamları ise kendi içinde kapalı tutulur.`,
 },
-
 /* --------------------
    EARLY ACCESS
 -------------------- */

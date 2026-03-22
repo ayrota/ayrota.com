@@ -13,15 +13,8 @@ export function Approach() {
       <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
         {t('approachTitle')}
       </h2>
-
-      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
-        {t('approachParagraph1')}
-        <br />
-        {t('approachParagraph2')}
-      </p>
-
-      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed">
-        {t('approachParagraph3')}
+      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('approachParagraph')}
       </p>
 
       <div className="mt-16 h-px bg-line/50 max-w-md" />
