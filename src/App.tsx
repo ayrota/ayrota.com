@@ -9,18 +9,17 @@ import { Approach } from './sections/Approach';
 import { Capabilities } from './sections/Capabilities';
 import { Provisioning } from './sections/Provisioning';
 import { Contact } from './sections/Contact';
+import { Core } from './sections/Core';
+import { EarlyAccess } from './sections/EarlyAccess';
 
 import Privacy from './pages/Privacy';
 import { ScrollToHash } from './components/ScrollToHash';
-import { Core } from './sections/Core';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-bg text-fg font-sans relative">
       <BackgroundField />
       <Header />
-
-      {/* 🔒 HASH SCROLL ENABLER */}
       <ScrollToHash />
 
       <Routes>
@@ -33,6 +32,7 @@ export default function App() {
               <Core />
               <Capabilities />
               <Provisioning />
+              <EarlyAccess />
               <Contact />
               <Footer />
             </main>

@@ -54,6 +54,13 @@ export function Header() {
             <Link to="/#provisioning" onClick={handleNav('provisioning')} className={navLinkClass}>
               {t('sectionProvisioning')}
             </Link>
+            <Link
+              to="/#early-access"
+              onClick={handleNav('early-access')}
+              className={navLinkClass}
+            >
+              {t('sectionEarlyAccess')}
+            </Link>
             <Link to="/#contact" onClick={handleNav('contact')} className={navLinkClass}>
               {t('sectionContact')}
             </Link>

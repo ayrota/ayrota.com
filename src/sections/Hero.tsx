@@ -25,7 +25,11 @@ export function Hero() {
             {t('sectionHero')}
           </div>
 
-          <h1 className="mt-6 text-3xl md:text-5xl font-medium leading-[1.08]">
+          <div className="mt-8 text-[11px] tracking-[0.24em] uppercase text-fg/45">
+            {t('heroMetaLine')}
+          </div>
+
+          <h1 className="mt-4 text-3xl md:text-5xl font-medium leading-[1.08]">
             {t('heroTitleMain')}
             <br />
             <span className="text-fg/80">
@@ -33,16 +37,12 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-5 text-sm md:text-base text-fg/85 max-w-2xl">
+          <p className="mt-6 text-sm md:text-base text-fg/85 max-w-2xl leading-relaxed">
             {t('heroLead')}
           </p>
 
-          <p className="mt-5 text-sm md:text-base text-muted leading-relaxed max-w-2xl">
-            {t('heroParagraph1')}
-            <br />
-            {t('heroParagraph2')}
-            <br />
-            {t('heroParagraph3')}
+          <p className="mt-6 text-sm md:text-base text-muted leading-relaxed max-w-2xl">
+            {t('heroParagraph')}
           </p>
 
           <div className="mt-10 h-px bg-line/60 max-w-md" />

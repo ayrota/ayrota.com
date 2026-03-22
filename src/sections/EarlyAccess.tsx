@@ -2,51 +2,49 @@ import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 import { useLanguage } from '../lib/LanguageContext';
 
-export function Core() {
+export function EarlyAccess() {
   const { t } = useLanguage();
 
   return (
-    <Section id="core" width="wide">
+    <Section id="early-access" width="wide">
       <div className="text-xs tracking-widest text-muted">
-        {t('sectionCore')}
+        {t('sectionEarlyAccess')}
       </div>
 
       <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
-        {t('coreTitleMain')}
-        <br />
-        <span className="text-fg/80">
-          {t('coreTitleSub')}
-        </span>
+        {t('earlyAccessTitle')}
       </h2>
 
-      <div className="mt-10 max-w-3xl">
-        <p className="text-sm md:text-base text-muted leading-relaxed">
-          {t('coreRealityLine')}
-        </p>
-      </div>
+      <p className="mt-4 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('earlyAccessIntro')}
+      </p>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
         <Card>
           <h3 className="text-sm font-medium text-fg">
-            {t('coreCard1Title')}
+            {t('earlyAccessCard1Title')}
           </h3>
           <p className="mt-2 text-sm text-muted leading-relaxed">
-            {t('coreCard1Text')}
+            {t('earlyAccessCard1Text')}
           </p>
         </Card>
 
         <Card>
           <h3 className="text-sm font-medium text-fg">
-            {t('coreCard2Title')}
+            {t('earlyAccessCard2Title')}
           </h3>
           <p className="mt-2 text-sm text-muted leading-relaxed">
-            {t('coreCard2Text')}
+            {t('earlyAccessCard2Text')}
           </p>
         </Card>
       </div>
 
       <p className="mt-10 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
-        {t('coreShellsText')}
+        {t('earlyAccessOutro')}
+      </p>
+
+      <p className="mt-6 text-sm md:text-base text-fg/85 leading-relaxed max-w-3xl">
+        {t('earlyAccessCta')}
       </p>
 
       <div className="mt-16 h-px bg-line/50 max-w-md" />

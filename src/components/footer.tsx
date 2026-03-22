@@ -38,6 +38,12 @@ export function Footer() {
                 {t('sectionProvisioning')}
               </Link>
               <Link
+                to="/#early-access"
+                className="hover:text-fg transition-colors"
+              >
+                {t('sectionEarlyAccess')}
+              </Link>
+              <Link
                 to="/#contact"
                 className="hover:text-fg transition-colors"
               >
