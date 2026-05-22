@@ -21,6 +21,10 @@ sectionCapabilities: {
   en: 'Capabilities',
   tr: 'Yetkinlikler',
 },
+sectionProduct: {
+  en: 'Products',
+  tr: 'Ürünler',
+},
 sectionProvisioning: {
   en: 'Provisioning',
   tr: 'Erişim ve Kullanım',
@@ -285,6 +289,99 @@ footerTaglineLine2: {
 footerPrivacy: {
   en: 'Privacy & Data Notice',
   tr: 'Gizlilik ve Veri Bildirimi',
+},
+
+/* --------------------
+   ÜRÜN
+-------------------- */
+
+
+/* --------------------
+   PRODUCT / ILBER
+-------------------- */
+productTitle: {
+  en: 'İlber',
+  tr: 'İlber',
+},
+
+productIntro: {
+  en: 'İlber is an IMU data workspace for validating, repairing, analyzing, and reporting inertial sessions before navigation workflows.',
+  tr: 'İlber, ataletsel oturumları navigasyon süreçlerinden önce doğrulamak, onarmak, analiz etmek ve raporlamak için geliştirilen bir IMU veri analiz yazılımıdır.',
+},
+
+productBody: {
+  en: 'It runs quality control and repair steps before algorithm modules, then turns raw IMU sessions into reviewable technical outputs.',
+  tr: 'Algoritma modüllerinden önce kalite kontrol ve onarım adımlarını çalıştırır; ardından ham IMU verisetlerini çeşitli analizlerle değerlendirir ve teknik çıktılara dönüştürür.',
+},
+
+productFeatureQcRepair: {
+  en: 'QC & repair',
+  tr: 'Kalite kontrol ve onarım',
+},
+
+productFeatureImport: {
+  en: 'Dataset import',
+  tr: 'Veri seti içe aktarma',
+},
+
+productFeatureQc: {
+  en: 'QC validation',
+  tr: 'QC doğrulama',
+},
+
+productFeatureRepair: {
+  en: 'Signal repair',
+  tr: 'Sinyal onarımı',
+},
+
+productFeatureConsistency: {
+  en: 'Consistency analysis',
+  tr: 'Tutarlılık analizi',
+},
+
+productFeatureCadence: {
+  en: 'Cadence analysis',
+  tr: 'Ritim analizi',
+},
+
+productFeatureSpectral: {
+  en: 'Spectral analysis',
+  tr: 'Spektral analiz',
+},
+
+productFeatureSensorDomain: {
+  en: 'Sensor-domain analysis',
+  tr: 'Sensor domain analizi',
+},
+
+productFeaturePhysical: {
+  en: 'Physical checks',
+  tr: 'Fiziksel kontrol',
+},
+
+productFeatureWindow: {
+  en: 'Window analysis',
+  tr: 'Pencere analizi',
+},
+
+productFeatureMotion: {
+  en: 'Motion analysis',
+  tr: 'Hareket analizi',
+},
+
+productFeatureReport: {
+  en: 'Session reports',
+  tr: 'Oturum raporu',
+},
+
+productPreviewLabel: {
+  en: 'Ilber Competencies',
+  tr: 'İlber Yetkinlikleri',
+},
+
+productCta: {
+  en: 'Try İlber',
+  tr: 'İlber’i Dene',
 },
 
 /* --------------------

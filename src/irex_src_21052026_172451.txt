@@ -1,0 +1,1692 @@
+
+================================================================================
+FILE: App.tsx
+================================================================================
+
+import { Routes, Route } from 'react-router-dom';
+
+import { BackgroundField } from './components/BackgroundField';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+
+import { Hero } from './sections/Hero';
+import { Approach } from './sections/Approach';
+import { Capabilities } from './sections/Capabilities';
+import { Provisioning } from './sections/Provisioning';
+import { Contact } from './sections/Contact';
+import { Core } from './sections/Core';
+import { EarlyAccess } from './sections/EarlyAccess';
+
+import Privacy from './pages/Privacy';
+import { ScrollToHash } from './components/ScrollToHash';
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-bg text-fg font-sans relative">
+      <BackgroundField />
+      <Header />
+      <ScrollToHash />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="relative z-10">
+              <Hero />
+              <Approach />
+              <Core />
+              <Capabilities />
+              <Provisioning />
+              <EarlyAccess />
+              <Contact />
+              <Footer />
+            </main>
+          }
+        />
+
+        <Route path="/privacy" element={<Privacy />} />
+      </Routes>
+    </div>
+  );
+}
+================================================================================
+FILE: main.tsx
+================================================================================
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
+
+import App from './App';
+import './index.css';
+
+import { LanguageProvider } from './lib/LanguageContext';
+
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <HashRouter>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </HashRouter>
+  </React.StrictMode>
+);
+================================================================================
+FILE: components/BackgroundField.tsx
+================================================================================
+
+import { useEffect, useRef } from 'react';
+
+type FlowKey = 'dark' | 'mid' | 'light';
+type FlowState = [number, number, number, number, number];
+
+const COLORS: Record<
+  FlowKey,
+  { base: string; active: string }
+> = {
+  dark: {
+    base: '#1F3F66',
+    active: '#2F5F6A',
+  },
+  mid: {
+    base: '#3F7FBF',
+    active: '#4F8FA6',
+  },
+  light: {
+    base: '#7FB7D8',
+    active: '#8FBFD0',
+  },
+};
+
+const FLOW_CONFIG: Record<FlowKey, FlowState[]> = {
+  dark: [
+    [0.0, 0.66, 0.62, 1.0, 4],
+    [0.0, 0.58, 0.58, 1.0, 5],
+    [0.0, 0.64, 0.62, 1.0, 4],
+    [0.0, 0.64, 0.62, 1.0, 5],
+  ],
+  mid: [
+    [0.0, 0.56, 0.74, 1.0, 5],
+    [0.0, 0.56, 0.78, 1.0, 4],
+    [0.0, 0.60, 0.72, 1.0, 4],
+    [0.0, 0.60, 0.72, 1.0, 5],
+  ],
+  light: [
+    [0.0, 0.50, 0.82, 1.0, 5],
+    [0.0, 0.54, 0.86, 1.0, 4],
+    [0.0, 0.50, 0.82, 1.0, 5],
+    [0.0, 0.50, 0.82, 1.0, 5],
+  ],
+};
+
+const lerp = (a: number, b: number, t: number) =>
+  a + (b - a) * t;
+
+const VIRTUAL_SCALE = 1.1;
+
+/* =============================
+   ENERGY / COLOR PARAMS
+============================= */
+const ENERGY_RISE = 0.002; // ⬅️ yavaş parlıyor
+const ENERGY_DECAY = 0.94;
+const MAX_ENERGY = 1.0;
+
+const COLOR_BLEND_SPEED = 0.035;
+
+/* =============================
+   COLOR UTILS
+============================= */
+function lerpColor(a: string, b: string, t: number) {
+  const pa = parseInt(a.slice(1), 16);
+  const pb = parseInt(b.slice(1), 16);
+
+  const ar = (pa >> 16) & 255;
+  const ag = (pa >> 8) & 255;
+  const ab = pa & 255;
+
+  const br = (pb >> 16) & 255;
+  const bg = (pb >> 8) & 255;
+  const bb = pb & 255;
+
+  return `rgb(
+    ${Math.round(lerp(ar, br, t))},
+    ${Math.round(lerp(ag, bg, t))},
+    ${Math.round(lerp(ab, bb, t))}
+  )`;
+}
+
+function buildPath(
+  w: number,
+  h: number,
+  params: FlowState,
+  phase: number
+) {
+  const [x0s, y0s, x1s, y1s, periods] = params;
+
+  const vW = w * VIRTUAL_SCALE;
+  const vH = h * VIRTUAL_SCALE;
+
+  const originX = -(vW - w) / 2;
+  const originY = h + (vH - h) / 2;
+
+  const x0 = originX + vW * x0s;
+  const y0 = originY - vH * y0s;
+  const x1 = originX + vW * x1s;
+  const y1 = originY - vH * y1s;
+
+  const steps = 140;
+  let d = `M ${x0} ${y0}`;
+
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps;
+    const x = lerp(x0, x1, t);
+    const yBase = lerp(y0, y1, t);
+    const wave =
+      Math.sin(
+        t * Math.PI * 2 * periods + phase
+      ) * 18;
+
+    d += ` L ${x} ${yBase + wave}`;
+  }
+
+  return d;
+}
+
+export function BackgroundField() {
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const phaseRef = useRef<Record<FlowKey, number>>({
+    dark: 0,
+    mid: 1.3,
+    light: 2.6,
+  });
+
+  const energy = useRef(0);
+  const colorEnergy = useRef(0);
+
+  const lastScroll = useRef(0);
+  const lastMouse = useRef<{ x: number; y: number } | null>(
+    null
+  );
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      if (lastMouse.current) {
+        const dx = Math.abs(
+          e.clientX - lastMouse.current.x
+        );
+        const dy = Math.abs(
+          e.clientY - lastMouse.current.y
+        );
+
+        energy.current = Math.min(
+          MAX_ENERGY,
+          energy.current + dx * ENERGY_RISE
+        );
+
+        colorEnergy.current = Math.min(
+          1,
+          colorEnergy.current + dy * 0.0018
+        );
+      }
+
+      lastMouse.current = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+    };
+
+    const onScroll = () => {
+      const dy = Math.abs(
+        window.scrollY - lastScroll.current
+      );
+      energy.current = Math.min(
+        MAX_ENERGY,
+        energy.current + dy * ENERGY_RISE * 0.5
+      );
+      lastScroll.current = window.scrollY;
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener(
+        'mousemove',
+        onMouseMove
+      );
+      window.removeEventListener(
+        'scroll',
+        onScroll
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    let raf = 0;
+
+    const render = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+      energy.current *= ENERGY_DECAY;
+      colorEnergy.current = lerp(
+        colorEnergy.current,
+        0,
+        COLOR_BLEND_SPEED
+      );
+
+      (Object.keys(FLOW_CONFIG) as FlowKey[]).forEach(
+        (key) => {
+          const states = FLOW_CONFIG[key];
+          const segments = states.length - 1;
+
+          const scrollMax =
+            document.body.scrollHeight - h;
+          const s =
+            scrollMax > 0
+              ? window.scrollY / scrollMax
+              : 0;
+
+          const scrollP = Math.min(
+            Math.max(s, 0),
+            0.999999
+          );
+
+          const seg = Math.floor(
+            scrollP * segments
+          );
+          const t =
+            scrollP * segments - seg;
+
+          const a = states[seg];
+          const b = states[seg + 1];
+
+          const interp: FlowState = [
+            lerp(a[0], b[0], t),
+            lerp(a[1], b[1], t),
+            lerp(a[2], b[2], t),
+            lerp(a[3], b[3], t),
+            lerp(a[4], b[4], t),
+          ];
+
+          phaseRef.current[key] += 0.01;
+
+          const path = svg.querySelector(
+            `[data-line="${key}"]`
+          ) as SVGPathElement | null;
+
+          const alpha =
+            0.26 + energy.current * 0.32;
+
+          path?.setAttribute(
+            'd',
+            buildPath(
+              w,
+              h,
+              interp,
+              phaseRef.current[key]
+            )
+          );
+          path?.setAttribute(
+            'stroke-opacity',
+            alpha.toFixed(3)
+          );
+          path?.setAttribute(
+            'stroke',
+            lerpColor(
+              COLORS[key].base,
+              COLORS[key].active,
+              colorEnergy.current
+            )
+          );
+        }
+      );
+
+      raf = requestAnimationFrame(render);
+    };
+
+    raf = requestAnimationFrame(render);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+    >
+      <svg
+        ref={svgRef}
+        className="absolute inset-0"
+        fill="none"
+      >
+        {(Object.keys(FLOW_CONFIG) as FlowKey[]).map(
+          (key) => (
+            <path
+              key={key}
+              data-line={key}
+              stroke={COLORS[key].base}
+              strokeWidth={2.3}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          )
+        )}
+      </svg>
+    </div>
+  );
+}
+================================================================================
+FILE: components/Card.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+
+export function Card({ children }: PropsWithChildren) {
+  return (
+    <div className="rounded-lg border border-line/60 bg-panel/40 p-6 backdrop-blur shadow-soft transition-transform duration-200 hover:-translate-y-0.5">
+      {children}
+    </div>
+  );
+}
+================================================================================
+FILE: components/Container.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+
+type Props = PropsWithChildren<{ className?: string }>;
+
+export function Container({ className = '', children }: Props) {
+  return <div className={`mx-auto w-full max-w-[1440px] px-6 md:px-10 ${className}`}>{children}</div>;
+}
+================================================================================
+FILE: components/ScrollToHash.tsx
+================================================================================
+
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+export function ScrollToHash() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+
+    // DOM render edilsin diye micro-delay
+    const id = hash.replace('#', '');
+    const el = document.getElementById(id);
+
+    if (el) {
+      // header yüksekliğini telafi et
+      const headerOffset = 96; // px
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }, [hash]);
+
+  return null;
+}
+================================================================================
+FILE: components/Section.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+import { Container } from './Container';
+
+type SectionProps = PropsWithChildren<{
+  id?: string;
+  width?: 'narrow' | 'wide';
+  className?: string;
+  /** Default: "py-24" */
+  paddingClassName?: string;
+}>;
+
+export function Section({
+  id,
+  width = 'narrow',
+  className = '',
+  paddingClassName = 'py-24',
+  children,
+}: SectionProps) {
+  const maxWidth = width === 'wide' ? 'max-w-4xl' : 'max-w-3xl';
+
+  return (
+    <section id={id} className={`relative ${paddingClassName} ${className}`.trim()}>
+      <Container>
+        <div className={`${maxWidth} mx-auto`}>{children}</div>
+      </Container>
+    </section>
+  );
+}
+================================================================================
+FILE: components/footer.tsx
+================================================================================
+
+import { Container } from './Container';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Footer() {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="relative py-10">
+      <Container>
+        <div className="max-w-3xl mx-auto">
+          {/* single closing divider */}
+          <div className="h-px bg-line/60 mb-8" />
+
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-muted">
+            <div>
+              {t('footerCopyright').replace('{{year}}', String(year))}
+            </div>
+
+            <div className="flex gap-4">
+              <Link
+                to="/#approach"
+                className="hover:text-fg transition-colors"
+              >
+                {t('sectionApproach')}
+              </Link>
+              <Link
+                to="/#core"
+                className="hover:text-fg transition-colors"
+              >
+                {t('sectionCore')}
+              </Link>
+              <Link
+                to="/#provisioning"
+                className="hover:text-fg transition-colors"
+              >
+                {t('sectionProvisioning')}
+              </Link>
+              <Link
+                to="/#early-access"
+                className="hover:text-fg transition-colors"
+              >
+                {t('sectionEarlyAccess')}
+              </Link>
+              <Link
+                to="/#contact"
+                className="hover:text-fg transition-colors"
+              >
+                {t('sectionContact')}
+              </Link>
+            </div>
+          </div>
+
+          {/* legal / positioning whisper */}
+          <div className="mt-4 text-[11px] leading-relaxed text-muted max-w-2xl">
+            {t('footerTaglineLine1')}
+            <br />
+            {t('footerTaglineLine2')}
+            <br />
+            <Link
+              to="/privacy"
+              className="underline underline-offset-2 hover:text-fg"
+            >
+              {t('footerPrivacy')}
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+}
+================================================================================
+FILE: components/header.tsx
+================================================================================
+
+import { Container } from './Container';
+import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../lib/LanguageContext';
+import { scrollToSection } from '../lib/scrollToSection';
+
+export function Header() {
+  const { lang, setLang, t } = useLanguage();
+  const location = useLocation();
+
+  const navLinkClass = 'transition-colors text-muted hover:text-fg';
+
+  const langButton = (l: 'en' | 'tr') =>
+    `text-xs tracking-wide ${lang === l ? 'text-fg' : 'text-muted hover:text-fg'}`;
+
+  const handleNav = (id: string) => (e: React.MouseEvent) => {
+    // Home'daysak: Router'a bırakmadan scroll'u garanti et
+    if (location.pathname === '/') {
+      e.preventDefault();
+      // URL hash'i güncelle (back/forward için)
+      window.history.pushState(null, '', `/#${id}`);
+      scrollToSection(id, 96);
+    }
+  };
+
+  return (
+    <header className="fixed top-0 w-full z-50">
+      <div className="bg-bg/95 backdrop-blur border-b border-line/70">
+        <Container className="py-4 flex items-center justify-between">
+          <Link
+            to="/#hero"
+            onClick={handleNav('hero')}
+            aria-label="Go to top"
+            className="inline-flex items-center gap-3"
+          >
+            <img src="/icon.png" alt="Ayrota logo" className="h-6 w-auto" />
+            <span
+              className="text-[13px] font-extrabold tracking-[0.12em]"
+              style={{ fontFamily: 'Arial', color: '#D7E3F1' }}
+            >
+              ayrota
+            </span>
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-8 text-sm">
+            <Link to="/#approach" onClick={handleNav('approach')} className={navLinkClass}>
+              {t('sectionApproach')}
+            </Link>
+            <Link to="/#core" onClick={handleNav('core')} className={navLinkClass}>
+              {t('sectionCore')}
+            </Link>
+            <Link to="/#capabilities" onClick={handleNav('capabilities')} className={navLinkClass}>
+              {t('sectionCapabilities')}
+            </Link>
+            <Link to="/#provisioning" onClick={handleNav('provisioning')} className={navLinkClass}>
+              {t('sectionProvisioning')}
+            </Link>
+            <Link
+              to="/#early-access"
+              onClick={handleNav('early-access')}
+              className={navLinkClass}
+            >
+              {t('sectionEarlyAccess')}
+            </Link>
+            <Link to="/#contact" onClick={handleNav('contact')} className={navLinkClass}>
+              {t('sectionContact')}
+            </Link>
+
+            <div className="flex items-center gap-1 ml-2">
+              <button onClick={() => setLang('en')} className={langButton('en')} aria-label="Switch to English">
+                EN
+              </button>
+              <span className="text-muted text-xs">·</span>
+              <button onClick={() => setLang('tr')} className={langButton('tr')} aria-label="Switch to Turkish">
+                TR
+              </button>
+            </div>
+          </nav>
+
+          <div className="md:hidden flex items-center gap-3">
+            <div className="flex items-center gap-1">
+              <button onClick={() => setLang('tr')} className={langButton('tr')}>TR</button>
+              <span className="text-muted text-xs">·</span>
+              <button onClick={() => setLang('en')} className={langButton('en')}>EN</button>
+            </div>
+
+            <Link
+              to="/#contact"
+              onClick={handleNav('contact')}
+              className="rounded-md border border-line/70 bg-panel/40 px-3 py-1.5 text-sm text-fg backdrop-blur"
+            >
+              {t('sectionContact')}
+            </Link>
+          </div>
+        </Container>
+      </div>
+    </header>
+  );
+}
+================================================================================
+FILE: i18n/translations.ts
+================================================================================
+
+export type Language = 'en' | 'tr';
+
+export const translations = {
+
+/* --------------------
+   SECTION LABELS (GLOBAL)
+-------------------- */
+sectionHero: {
+  en: 'Inertial Navigation',
+  tr: 'Ataletsel Navigasyon',
+},
+sectionApproach: {
+  en: 'Approach',
+  tr: 'Yaklaşım',
+},
+sectionCore: {
+  en: 'The Core',
+  tr: 'Çekirdek Yapı',
+},
+sectionCapabilities: {
+  en: 'Capabilities',
+  tr: 'Yetkinlikler',
+},
+sectionProvisioning: {
+  en: 'Provisioning',
+  tr: 'Erişim ve Kullanım',
+},
+sectionContact: {
+  en: 'Contact',
+  tr: 'İletişim',
+},
+sectionEarlyAccess: {
+  en: 'Early Access',
+  tr: 'Erken Erişim',
+},
+
+/* --------------------
+   HERO
+-------------------- */
+heroTitleMain: {
+  en: 'IMU-only motion estimation',
+  tr: 'IMU verisinden hareket kestirimi',
+},
+
+heroTitleSub: {
+  en: 'GNSS-independent, AI-assisted',
+  tr: 'GNSS’den bağımsız, öğrenme destekli',
+},
+
+heroLead: {
+  en: 'Ayrota develops inertial navigation systems for environments where GPS cannot be relied on.',
+  tr: 'Ayrota, GPS’e güvenilemeyen ortamlarda çalışmak üzere ataletsel navigasyon sistemleri geliştirir.',
+},
+
+heroParagraph: {
+  en: `Real-world systems do not operate under ideal assumptions. Drift accumulates, noise grows, and failure becomes part of the process. Our focus is on how estimation behaves under those constraints, and how it can remain structured as uncertainty increases.`,
+  tr: `Gerçek dünyada sistemler ideal varsayımlarla çalışmaz. Sapma zamanla birikir, gürültü büyür ve belirsizlik sürecin doğal bir parçası haline gelir. Bizim odağımız, kestirimin tam da bu koşullar altında nasıl davrandığını anlamak ve belirsizlik arttıkça yapısını koruyabilen sistemler geliştirmektir.`,
+},
+
+heroMetaLine: {
+  en: 'Signal evolves. Estimation follows.',
+  tr: 'Sinyal değişir. Kestirim onu takip eder.',
+},
+
+/* --------------------
+   APPROACH
+-------------------- */
+approachTitle: {
+  en: 'Failure-first thinking',
+  tr: 'Kısıtları başlangıç kabul eden yaklaşım',
+},
+
+approachParagraph: {
+  en: `In inertial systems, drift, bias, and degradation are not edge cases — they define the problem space. Instead of designing around ideal conditions, we begin by accepting these constraints and observing how estimation behaves as they accumulate. This perspective shapes how the system is structured, how extensions are added, and how it evolves over time.`,
+  tr: `Ataletsel sistemlerde sapma, bias ve bozunma istisna değil, problemin kendisini tanımlar. Bu nedenle yaklaşımımız ideal koşulları varsaymak yerine, bu kısıtları baştan kabul etmek ve kestirimin zaman içinde bu etkiler altında nasıl davrandığını gözlemlemekle başlar. Bu bakış açısı hem sistemin mimarisini hem de üzerine kurulan tüm katmanları belirler.`,
+},
+
+/* --------------------
+   CORE
+-------------------- */
+coreTitleMain: {
+  en: 'One core.',
+  tr: 'Tek bir çekirdek.',
+},
+
+coreTitleSub: {
+  en: 'Operational extensions — where needed.',
+  tr: 'Gerektiği yerde operasyonel uzantılar.',
+},
+
+coreCard1Title: {
+  en: 'IMU-only estimation core',
+  tr: 'IMU odaklı kestirim çekirdeği',
+},
+
+coreCard1Text: {
+  en: `The system is being developed around an IMU-only estimation core, designed to operate without GNSS and to remain analyzable as drift accumulates.`,
+  tr: `Sistem, GNSS’e ihtiyaç duymadan çalışabilen ve sapma biriktikçe davranışı analiz edilebilir kalacak şekilde tasarlanan bir IMU odaklı kestirim çekirdeği etrafında geliştirilmektedir.`,
+},
+
+coreCard2Title: {
+  en: 'Modular software structure',
+  tr: 'Modüler yazılım yapısı',
+},
+
+coreCard2Text: {
+  en: `The core is being shaped as a modular software system that can support evaluation workflows, system integration, and future deployment paths without locking the architecture too early.`,
+  tr: `Çekirdek yapı, değerlendirme süreçlerini, sistem entegrasyonunu ve ileride oluşacak dağıtım ihtiyaçlarını destekleyebilecek modüler bir yazılım sistemi olarak şekillendirilmektedir; mimari erkenden katılaştırılmamaktadır.`,
+},
+
+coreRealityLine: {
+  en: `Under the hood, the system is built around real-time inertial pipelines that combine attitude estimation, inertial propagation, and control-loop integration.`,
+  tr: `Arka planda sistem; attitude kestirimi, ataletsel yayılım ve kontrol döngüsü entegrasyonunu bir araya getiren gerçek zamanlı ataletsel işleme hatları üzerine kuruludur.`,
+},
+
+coreShellsText: {
+  en: `Around that core, operational shells can be added for route reconstruction from recorded signals, mission-specific command generation, and ROS-based input/output integration when the surrounding system requires it.`,
+  tr: `Bu çekirdeğin etrafına; kaydedilmiş sinyallerden rota yeniden oluşturma, göreve özgü komut üretimi ve ihtiyaç halinde ROS tabanlı giriş/çıkış entegrasyonu gibi operasyonel katmanlar eklenebilir.`,
+},
+
+/* --------------------
+   CAPABILITIES
+-------------------- */
+capabilitiesTitle: {
+  en: 'What survives degraded conditions',
+  tr: 'Bozulmuş koşullarda ayakta kalanlar',
+},
+
+capabilitiesIntro: {
+  en: `We focus on behaviors that remain interpretable and stable as conditions degrade, rather than optimizing for ideal scenarios.`,
+  tr: `Odak noktamız ideal koşullar değil; sistemin bozulan şartlar altında dahi anlaşılabilir ve tutarlı kalabilen davranışlarıdır.`,
+},
+
+capabilityDriftTitle: {
+  en: 'Drift-aware estimation',
+  tr: 'Sapma farkındalığı olan kestirim',
+},
+
+capabilityDriftText: {
+  en: `Estimation remains analyzable as drift accumulates, with predictable degradation instead of uncontrolled divergence.`,
+  tr: `Sapma biriktikçe kestirim davranışı analiz edilebilir kalır ve kontrolsüz sapma yerine öngörülebilir bozunma gözlemlenir.`,
+},
+
+capabilityRealtimeTitle: {
+  en: 'Real-time execution',
+  tr: 'Gerçek zamanlı çalışma',
+},
+
+capabilityRealtimeText: {
+  en: `The system is designed to operate within real-time constraints on embedded hardware, respecting latency and resource limits.`,
+  tr: `Sistem, gecikme ve kaynak kısıtlarını dikkate alarak gömülü donanımlar üzerinde gerçek zamanlı çalışacak şekilde tasarlanır.`,
+},
+
+capabilitiesOutro: {
+  en: `Interfaces are structured to allow controlled integration. Additional layers can be introduced when required, without forcing the core into a fixed ecosystem.`,
+  tr: `Arayüzler kontrollü entegrasyonu mümkün kılacak şekilde yapılandırılmıştır. Gerektiğinde ek katmanlar eklenebilir, ancak çekirdek yapı belirli bir ekosisteme zorlanmaz.`,
+},
+
+/* --------------------
+   PROVISIONING
+-------------------- */
+provisioningTitle: {
+  en: 'How access is structured',
+  tr: 'Erişimin nasıl yapılandırıldığı',
+},
+
+provisioningIntro: {
+  en: `The system is not presented as a finished commercial product. Access is structured around evaluation, experimentation, and integration under real constraints.`,
+  tr: `Sistem tamamlanmış bir ticari ürün olarak sunulmaz. Erişim; değerlendirme, deneysel çalışma ve gerçek kısıtlar altında entegrasyon süreçleri etrafında yapılandırılır.`,
+},
+
+provisioningEmbeddedTitle: {
+  en: 'Embedded direction',
+  tr: 'Gömülü çalışma yönü',
+},
+
+provisioningEmbeddedText: {
+  en: `Where required, the system can be adapted toward embedded execution for target hardware and constrained environments.`,
+  tr: `Gerektiğinde sistem, hedef donanımlar ve kısıtlı çalışma ortamları için gömülü çalışmaya uyarlanabilir.`,
+},
+
+provisioningSdkTitle: {
+  en: 'Evaluation access',
+  tr: 'Değerlendirme erişimi',
+},
+
+provisioningSdkText: {
+  en: `Controlled access can be provided for evaluation, experimentation, and integration studies within a clearly defined scope.`,
+  tr: `Kapsamı açık biçimde tanımlanmış bir şekilde; değerlendirme, deneysel çalışma ve entegrasyon amaçlı erişim sağlanabilir.`,
+},
+
+provisioningCloudNote: {
+  en: `Where useful, cloud-supported workflows can assist with benchmarking or large-scale evaluation, while operational runtimes remain self-contained.`,
+  tr: `Gerekli durumlarda bulut destekli iş akışları kıyaslama ve geniş ölçekli değerlendirme için kullanılabilir; operasyonel çalışma ortamları ise kendi içinde kapalı tutulur.`,
+},
+/* --------------------
+   EARLY ACCESS
+-------------------- */
+earlyAccessTitle: {
+  en: 'Early access',
+  tr: 'Erken erişim',
+},
+
+earlyAccessIntro: {
+  en: `We are working with a limited number of partners to evaluate IMU-only navigation in real conditions and improve the system through direct technical feedback.`,
+  tr: `IMU-only navigasyonu gerçek koşullarda değerlendirmek ve sistemi doğrudan teknik geri bildirimle geliştirmek için sınırlı sayıda paydaşla birlikte çalışıyoruz.`,
+},
+
+earlyAccessCard1Title: {
+  en: 'Prototype evaluation',
+  tr: 'Prototip değerlendirme',
+},
+
+earlyAccessCard1Text: {
+  en: `Access to prototype software, evaluation flows, and experimental system behavior under constrained scenarios.`,
+  tr: `Prototip yazılıma, değerlendirme akışlarına ve sistemin kısıtlı senaryolar altındaki deneysel davranışına erişim.`,
+},
+
+earlyAccessCard2Title: {
+  en: 'Technical collaboration',
+  tr: 'Teknik iş birliği',
+},
+
+earlyAccessCard2Text: {
+  en: `Direct interaction around IMU pipelines, estimation behavior, integration constraints, and feasibility studies.`,
+  tr: `IMU işleme hatları, kestirim davranışı, entegrasyon kısıtları ve uygulanabilirlik çalışmaları etrafında doğrudan teknik etkileşim.`,
+},
+
+earlyAccessOutro: {
+  en: `If you are exploring navigation in GNSS-denied environments, we can discuss evaluation access, pilot studies, or integration-oriented collaboration.`,
+  tr: `GNSS’in güvenilir olmadığı ortamlarda navigasyon üzerine çalışıyorsanız; değerlendirme erişimi, pilot çalışma ya da entegrasyon odaklı iş birliği seçeneklerini birlikte ele alabiliriz.`,
+},
+
+earlyAccessCta: {
+  en: 'Request access through the contact form below.',
+  tr: 'Aşağıdaki iletişim formu üzerinden erişim talep edebilirsiniz.',
+},
+
+/* --------------------
+   CONTACT
+-------------------- */
+contactTitle: {
+  en: 'Get in touch',
+  tr: 'İletişime geçin',
+},
+
+contactLabelOrg: {
+  en: 'Person / Organization',
+  tr: 'Kişi / Kurum',
+},
+
+contactLabelEmail: {
+  en: 'Contact email',
+  tr: 'İletişim e-postası',
+},
+
+contactLabelMessage: {
+  en: 'Your message',
+  tr: 'Mesajınız',
+},
+
+contactSubmit: {
+  en: 'Send message',
+  tr: 'Mesajı gönder',
+},
+
+/* --------------------
+   FOOTER
+-------------------- */
+footerCopyright: {
+  en: '© {{year}} Ayrota',
+  tr: '© {{year}} Ayrota',
+},
+
+footerTaglineLine1: {
+  en: 'Inertial navigation systems under active development.',
+  tr: 'Aktif olarak geliştirilen ataletsel navigasyon sistemleri.',
+},
+
+footerTaglineLine2: {
+  en: 'Evaluation and collaboration paths available where appropriate.',
+  tr: 'Uygun durumlarda değerlendirme ve iş birliği yolları açıktır.',
+},
+
+footerPrivacy: {
+  en: 'Privacy & Data Notice',
+  tr: 'Gizlilik ve Veri Bildirimi',
+},
+
+/* --------------------
+   PRIVACY / DATA NOTICE
+-------------------- */
+privacyTitle: {
+  en: 'Privacy & Data Notice',
+  tr: 'Gizlilik ve Veri Bildirimi',
+},
+
+privacyIntro: {
+  en: 'Ayrota collects limited personal data solely for evaluation purposes.',
+  tr: 'Ayrota, yalnızca değerlendirme amacıyla sınırlı kişisel veri toplar.',
+},
+
+privacyParagraph1: {
+  en: 'Data collected via the contact form may include organization or project name, contact email address, and high-level inquiry context.',
+  tr: 'İletişim formu aracılığıyla; kurum veya proje adı, iletişim e-posta adresi ve talebe ilişkin yüksek seviyeli bağlam bilgileri toplanabilir.',
+},
+
+privacyParagraph2: {
+  en: 'This website does not perform tracking, profiling, or marketing analytics.',
+  tr: 'Bu web sitesinde izleme, profilleme veya pazarlama amaçlı analiz yapılmamaktadır.',
+},
+
+privacyParagraph3: {
+  en: 'Form submissions are processed through a third-party form handling service (Basin) and stored securely for review.',
+  tr: 'Form iletileri, üçüncü taraf bir form hizmeti (Basin) üzerinden işlenir ve değerlendirme amacıyla güvenli şekilde saklanır.',
+},
+
+privacyParagraph4: {
+  en: 'Personal data is retained only as long as necessary to assess potential engagement and is deleted periodically.',
+  tr: 'Kişisel veriler, olası bir iş birliğini değerlendirmek için gerekli süre boyunca saklanır ve düzenli olarak silinir.',
+},
+
+privacyParagraph5: {
+  en: 'Where applicable, data handling complies with KVKK and GDPR.',
+  tr: 'Veri işleme süreçleri, uygulanabilir olduğu ölçüde KVKK ve GDPR ile uyumludur.',
+},
+
+privacyConsent: {
+  en: 'By submitting the contact form, you acknowledge and consent to this data processing for evaluation purposes.',
+  tr: 'İletişim formunu göndererek, bu veri işleme sürecini değerlendirme amacıyla kabul etmiş sayılırsınız.',
+},
+
+privacyCookieTitle: {
+  en: 'Cookie Notice',
+  tr: 'Çerez Bildirimi',
+},
+
+privacyCookieText: {
+  en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
+  tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
+},
+
+internshipTitle: {
+  en: 'Internship Applications',
+  tr: 'Staj Başvuruları',
+},
+
+internshipDescription: {
+  en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
+  tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir. Lütfen aşağıdaki bağlantıyı kullanın.',
+},
+
+contactInternshipCta: {
+  en: 'Apply via Google Form',
+  tr: 'Google Form Üzerinden Başvur',
+},
+
+corporateContactTitle: {
+  en: 'Corporate Contact',
+  tr: 'Kurumsal İletişim',
+},
+
+corporateContactDescription: {
+  en: 'For partnerships, pilot studies, evaluation access, and corporate matters, please use the form below.',
+  tr: 'İş birlikleri, pilot çalışmalar, değerlendirme erişimi ve kurumsal konular için lütfen aşağıdaki formu kullanın.',
+},
+
+contactMapTitle: {
+  en: 'Ayrota Location',
+  tr: 'Ayrota Konumu',
+},
+
+} as const;
+
+export type TranslationKey = keyof typeof translations;
+================================================================================
+FILE: lib/LanguageContext.tsx
+================================================================================
+
+import { createContext, useContext, useState } from 'react';
+import { translations } from '../i18n/translations';
+import type { TranslationKey, Language } from '../i18n/translations';
+
+type LanguageContextType = {
+  lang: Language;
+  setLang: (l: Language) => void;
+  t: (key: TranslationKey | string) => string;
+};
+
+const LanguageContext = createContext<LanguageContextType | null>(null);
+
+/* --------------------------------
+   INITIAL LANGUAGE DETECTION
+-------------------------------- */
+function detectInitialLang(): Language {
+  // Browser guard (SSR / build safety)
+  if (typeof window === 'undefined') return 'en';
+
+  // 1) Daha önce seçildiyse
+  const saved = localStorage.getItem('lang');
+  if (saved === 'tr' || saved === 'en') return saved;
+
+  // 2) Tarayıcı dili
+  const nav = (navigator.language || '').toLowerCase();
+  if (nav.startsWith('tr')) return 'tr';
+
+  // 3) Varsayılan
+  return 'en';
+}
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [lang, setLangState] = useState<Language>(detectInitialLang);
+
+  /* --------------------------------
+     LANGUAGE SETTER (PERSISTENT)
+  -------------------------------- */
+  const setLang = (l: Language) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lang', l);
+    }
+    setLangState(l);
+  };
+
+  /* --------------------------------
+     TRANSLATION FUNCTION
+  -------------------------------- */
+  const t = (key: TranslationKey | string): string => {
+    const entry = (translations as Record<string, any>)[key];
+
+    // 🔒 Fallback: key aynen döner (uppercase YOK)
+    if (!entry) {
+      if (import.meta.env.DEV) {
+        console.warn(`[i18n] Missing key: ${key}`);
+      }
+      return key.toLocaleUpperCase();
+    }
+
+    return entry[lang] ?? entry.en ?? key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const ctx = useContext(LanguageContext);
+  if (!ctx) {
+    throw new Error('useLanguage must be used within LanguageProvider');
+  }
+  return ctx;
+}
+================================================================================
+FILE: lib/motion.ts
+================================================================================
+
+export function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return true;
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? true;
+}
+================================================================================
+FILE: lib/noise.ts
+================================================================================
+
+export function noise1D(x: number, seed = 1): number {
+  const s = Math.sin(x * 127.1 + seed * 311.7) * 43758.5453;
+  return s - Math.floor(s);
+}
+================================================================================
+FILE: lib/phase.ts
+================================================================================
+
+export type Phase =
+  | 'orientation'
+  | 'drift'
+  | 'learning'
+  | 'correction'
+  | 'stability';
+
+export function phaseFromScroll(
+  scrollY: number,
+  totalHeight: number
+): Phase {
+  const p = scrollY / totalHeight;
+
+  if (p < 0.15) return 'orientation';
+  if (p < 0.35) return 'drift';
+  if (p < 0.6) return 'learning';
+  if (p < 0.8) return 'correction';
+  return 'stability';
+}
+================================================================================
+FILE: lib/phaseContext.tsx
+================================================================================
+
+import { createContext, useContext } from 'react';
+import type { Phase } from './phase';
+
+export const PhaseContext = createContext<Phase>('orientation');
+
+export function usePhase() {
+  return useContext(PhaseContext);
+}
+================================================================================
+FILE: lib/scrollToSection.ts
+================================================================================
+
+export function scrollToSection(id: string, headerOffset = 96) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const elementPosition = el.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth',
+  });
+}
+================================================================================
+FILE: lib/useActiveSection.ts
+================================================================================
+
+import { useEffect, useState } from 'react';
+
+const SECTIONS = [
+  'approach',
+  'capabilities',
+  'engagements',
+  'deployment',
+  'contact',
+];
+
+export function useActiveSection(offset = 120) {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      for (let i = SECTIONS.length - 1; i >= 0; i--) {
+        const id = SECTIONS[i];
+        const el = document.getElementById(id);
+        if (!el) continue;
+
+        const top = el.getBoundingClientRect().top;
+        if (top <= offset) {
+          setActive(id);
+          return;
+        }
+      }
+      setActive(null);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [offset]);
+
+  return active;
+}
+================================================================================
+FILE: pages/Privacy.tsx
+================================================================================
+
+import { Container } from '../components/Container';
+import { useLanguage } from '../lib/LanguageContext';
+
+export default function Privacy() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="pt-32 pb-24">
+      <Container>
+        <div className="max-w-3xl mx-auto text-sm text-muted leading-relaxed">
+          <h1 className="text-2xl text-fg font-medium mb-6">
+            {t('privacyTitle')}
+          </h1>
+
+          <p>{t('privacyIntro')}</p>
+
+          <p className="mt-4">{t('privacyParagraph1')}</p>
+          <p className="mt-4">{t('privacyParagraph2')}</p>
+          <p className="mt-4">{t('privacyParagraph3')}</p>
+          <p className="mt-4">{t('privacyParagraph4')}</p>
+          <p className="mt-4">{t('privacyParagraph5')}</p>
+
+          <p className="mt-4">{t('privacyConsent')}</p>
+
+          <h2 className="mt-10 text-lg text-fg font-medium">
+            {t('privacyCookieTitle')}
+          </h2>
+
+          <p className="mt-4">{t('privacyCookieText')}</p>
+        </div>
+      </Container>
+    </div>
+  );
+}
+================================================================================
+FILE: sections/Approach.tsx
+================================================================================
+
+import { Section } from '../components/Section';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Approach() {
+  const { t } = useLanguage();
+
+  return (
+    <Section id="approach" width="narrow">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionApproach')}
+      </div>
+
+      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+        {t('approachTitle')}
+      </h2>
+      <p className="mt-6 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('approachParagraph')}
+      </p>
+
+      <div className="mt-16 h-px bg-line/50 max-w-md" />
+    </Section>
+  );
+}
+================================================================================
+FILE: sections/Capabilities.tsx
+================================================================================
+
+import { Section } from '../components/Section';
+import { Card } from '../components/Card';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Capabilities() {
+  const { t } = useLanguage();
+
+  return (
+    <Section id="capabilities" width="wide">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionCapabilities')}
+      </div>
+
+      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+        {t('capabilitiesTitle')}
+      </h2>
+
+      <p className="mt-4 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('capabilitiesIntro')}
+      </p>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('capabilityDriftTitle')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('capabilityDriftText')}
+          </p>
+        </Card>
+
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('capabilityRealtimeTitle')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('capabilityRealtimeText')}
+          </p>
+        </Card>
+      </div>
+
+      <p className="mt-10 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('capabilitiesOutro')}
+      </p>
+
+      <div className="mt-16 h-px bg-line/50 max-w-md" />
+    </Section>
+  );
+}
+================================================================================
+FILE: sections/Contact.tsx
+================================================================================
+
+import { Section } from '../components/Section';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Contact() {
+  const { t } = useLanguage();
+
+  return (
+    <Section id="contact" width="narrow">
+      {/* Section Header */}
+      <div className="text-xs tracking-[0.2em] text-muted">
+        {t('sectionContact')}
+      </div>
+
+      <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
+        {t('contactTitle')}
+      </h2>
+
+      {/* Internship Priority Block */}
+      <div className="mt-10 rounded-2xl border border-line/60 bg-panel/40 p-6 md:p-8 backdrop-blur-sm">
+        <h3 className="text-xl md:text-2xl font-semibold">
+          {t('internshipTitle')}
+        </h3>
+
+        <p className="mt-3 text-sm text-muted max-w-md">
+          {t('internshipDescription')}
+        </p>
+
+        <a
+          href="https://forms.gle/Hp6EFHUxp3ZaJgzK7"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 inline-flex items-center justify-center rounded-xl
+                     border border-line bg-fg text-bg
+                     px-6 py-3 text-sm font-medium
+                     transition hover:opacity-90"
+        >
+          {t('contactInternshipCta')}
+        </a>
+      </div>
+
+      {/* Corporate Contact Block */}
+      <div className="mt-14 border-t border-line/50 pt-12">
+        <h3 className="text-xl md:text-2xl font-semibold">
+          {t('corporateContactTitle')}
+        </h3>
+
+        <p className="mt-3 text-sm text-muted max-w-md">
+          {t('corporateContactDescription')}
+        </p>
+
+        <div className="mt-8 rounded-2xl border border-line/60 bg-panel/40 p-6 md:p-8 backdrop-blur-sm">
+          <form
+            action="https://usebasin.com/f/acb4b7f09c8b"
+            method="POST"
+            className="grid gap-6"
+          >
+            <input type="text" name="_gotcha" className="hidden" />
+            <input type="hidden" name="_redirect" value="/#contact" />
+
+            <div>
+              <label className="block text-xs text-muted mb-2">
+                {t('contactLabelOrg')}
+              </label>
+              <input
+                type="text"
+                name="organization"
+                required
+                className="w-full rounded-lg border border-line bg-panel/60 px-4 py-2.5 text-sm text-fg outline-none transition
+                           focus:border-fg/40 focus:ring-1 focus:ring-fg/20"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs text-muted mb-2">
+                {t('contactLabelEmail')}
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                className="w-full rounded-lg border border-line bg-panel/60 px-4 py-2.5 text-sm text-fg outline-none transition
+                           focus:border-fg/40 focus:ring-1 focus:ring-fg/20"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs text-muted mb-2">
+                {t('contactLabelMessage')}
+              </label>
+              <textarea
+                name="message"
+                rows={4}
+                required
+                className="w-full rounded-lg border border-line bg-panel/60 px-4 py-2.5 text-sm text-fg outline-none transition
+                           focus:border-fg/40 focus:ring-1 focus:ring-fg/20 resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="mt-2 inline-flex items-center justify-center rounded-xl
+                         border border-line bg-panel/60
+                         px-5 py-2.5 text-sm font-medium text-fg
+                         transition hover:bg-panel/80"
+            >
+              {t('contactSubmit')}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Map */}
+      <div className="mt-16 overflow-hidden rounded-2xl border border-line/60">
+        <div className="aspect-[16/9] w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.541093264971!2d32.80525197619953!3d39.77949829417675!2m3!1f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345384af32c01%3A0x49942fbe68a82b2!2sAyrota%20Yaz%C4%B1l%C4%B1m%20Teknolojileri!5e1!3m2!1str!2str!4v1771837876022!5m2!1str!2str"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-full w-full border-0"
+            title={t('contactMapTitle')}
+          />
+        </div>
+      </div>
+    </Section>
+  );
+}
+================================================================================
+FILE: sections/Core.tsx
+================================================================================
+
+import { Section } from '../components/Section';
+import { Card } from '../components/Card';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Core() {
+  const { t } = useLanguage();
+
+  return (
+    <Section id="core" width="wide">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionCore')}
+      </div>
+
+      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+        {t('coreTitleMain')}
+        <br />
+        <span className="text-fg/80">
+          {t('coreTitleSub')}
+        </span>
+      </h2>
+
+      <div className="mt-10 max-w-3xl">
+        <p className="text-sm md:text-base text-muted leading-relaxed">
+          {t('coreRealityLine')}
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('coreCard1Title')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('coreCard1Text')}
+          </p>
+        </Card>
+
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('coreCard2Title')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('coreCard2Text')}
+          </p>
+        </Card>
+      </div>
+
+      <p className="mt-10 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('coreShellsText')}
+      </p>
+
+      <div className="mt-16 h-px bg-line/50 max-w-md" />
+    </Section>
+  );
+}
+================================================================================
+FILE: sections/EarlyAccess.tsx
+================================================================================
+
+import { Section } from '../components/Section';
+import { Card } from '../components/Card';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function EarlyAccess() {
+  const { t } = useLanguage();
+
+  return (
+    <Section id="early-access" width="wide">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionEarlyAccess')}
+      </div>
+
+      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+        {t('earlyAccessTitle')}
+      </h2>
+
+      <p className="mt-4 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('earlyAccessIntro')}
+      </p>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('earlyAccessCard1Title')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('earlyAccessCard1Text')}
+          </p>
+        </Card>
+
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('earlyAccessCard2Title')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('earlyAccessCard2Text')}
+          </p>
+        </Card>
+      </div>
+
+      <p className="mt-10 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('earlyAccessOutro')}
+      </p>
+
+      <p className="mt-6 text-sm md:text-base text-fg/85 leading-relaxed max-w-3xl">
+        {t('earlyAccessCta')}
+      </p>
+
+      <div className="mt-16 h-px bg-line/50 max-w-md" />
+    </Section>
+  );
+}
+================================================================================
+FILE: sections/Hero.tsx
+================================================================================
+
+import { Container } from '../components/Container';
+import { usePhase } from '../lib/phaseContext';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Hero() {
+  const phase = usePhase();
+  const unsettled = phase === 'orientation' || phase === 'drift';
+  const { t } = useLanguage();
+
+  return (
+    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
+      <div
+        className={`absolute inset-0 transition-opacity duration-700 ${
+          unsettled ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{
+          background:
+            'radial-gradient(80% 60% at 60% 40%, rgba(75,107,136,0.12), transparent 70%)',
+        }}
+      />
+
+      <Container className="pt-28 relative">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-xs tracking-widest text-muted">
+            {t('sectionHero')}
+          </div>
+
+          <div className="mt-8 text-[11px] tracking-[0.24em] uppercase text-fg/45">
+            {t('heroMetaLine')}
+          </div>
+
+          <h1 className="mt-4 text-3xl md:text-5xl font-medium leading-[1.08]">
+            {t('heroTitleMain')}
+            <br />
+            <span className="text-fg/80">
+              {t('heroTitleSub')}
+            </span>
+          </h1>
+
+          <p className="mt-6 text-sm md:text-base text-fg/85 max-w-2xl leading-relaxed">
+            {t('heroLead')}
+          </p>
+
+          <p className="mt-6 text-sm md:text-base text-muted leading-relaxed max-w-2xl">
+            {t('heroParagraph')}
+          </p>
+
+          <div className="mt-10 h-px bg-line/60 max-w-md" />
+        </div>
+      </Container>
+    </section>
+  );
+}
+================================================================================
+FILE: sections/Provisioning.tsx
+================================================================================
+
+import { Section } from '../components/Section';
+import { Card } from '../components/Card';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Provisioning() {
+  const { t } = useLanguage();
+
+  return (
+    <Section id="provisioning" width="wide">
+      <div className="text-xs tracking-widest text-muted">
+        {t('sectionProvisioning')}
+      </div>
+
+      <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+        {t('provisioningTitle')}
+      </h2>
+
+      <p className="mt-4 text-sm md:text-base text-muted leading-relaxed max-w-3xl">
+        {t('provisioningIntro')}
+      </p>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('provisioningEmbeddedTitle')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('provisioningEmbeddedText')}
+          </p>
+        </Card>
+
+        <Card>
+          <h3 className="text-sm font-medium text-fg">
+            {t('provisioningSdkTitle')}
+          </h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">
+            {t('provisioningSdkText')}
+          </p>
+        </Card>
+      </div>
+
+      <p className="mt-10 text-sm text-muted max-w-3xl">
+        {t('provisioningCloudNote')}
+      </p>
+
+      <div className="mt-16 h-px bg-line/50 max-w-md" />
+    </Section>
+  );
+}

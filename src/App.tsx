@@ -14,7 +14,8 @@ import { EarlyAccess } from './sections/EarlyAccess';
 
 import Privacy from './pages/Privacy';
 import { ScrollToHash } from './components/ScrollToHash';
-
+import { Product } from './sections/Product';
+import Ilber from './pages/Ilber';
 export default function App() {
   return (
     <div className="min-h-screen bg-bg text-fg font-sans relative">
@@ -31,6 +32,7 @@ export default function App() {
               <Approach />
               <Core />
               <Capabilities />
+              <Product />
               <Provisioning />
               <EarlyAccess />
               <Contact />
@@ -40,6 +42,7 @@ export default function App() {
         />
 
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/ilber" element={<Ilber />} />
       </Routes>
     </div>
   );

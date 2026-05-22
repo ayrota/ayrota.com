@@ -51,6 +51,9 @@ export function Header() {
             <Link to="/#capabilities" onClick={handleNav('capabilities')} className={navLinkClass}>
               {t('sectionCapabilities')}
             </Link>
+            <Link to="/#product" onClick={handleNav('product')} className={navLinkClass}>
+  {t('sectionProduct')}
+</Link>
             <Link to="/#provisioning" onClick={handleNav('provisioning')} className={navLinkClass}>
               {t('sectionProvisioning')}
             </Link>
