@@ -291,9 +291,6 @@ footerPrivacy: {
   tr: 'Gizlilik ve Veri Bildirimi',
 },
 
-/* --------------------
-   ÜRÜN
--------------------- */
 
 
 /* --------------------
@@ -305,84 +302,40 @@ productTitle: {
 },
 
 productIntro: {
-  en: 'İlber is an IMU data workspace for validating, repairing, analyzing, and reporting inertial sessions before navigation workflows.',
-  tr: 'İlber, ataletsel oturumları navigasyon süreçlerinden önce doğrulamak, onarmak, analiz etmek ve raporlamak için geliştirilen bir IMU veri analiz yazılımıdır.',
+  en: 'Advanced analysis and validation platform for IMU datasets.',
+  tr: 'IMU verileri için gelişmiş analiz ve doğrulama platformu.',
 },
 
 productBody: {
-  en: 'It runs quality control and repair steps before algorithm modules, then turns raw IMU sessions into reviewable technical outputs.',
-  tr: 'Algoritma modüllerinden önce kalite kontrol ve onarım adımlarını çalıştırır; ardından ham IMU verisetlerini çeşitli analizlerle değerlendirir ve teknik çıktılara dönüştürür.',
+  en: 'Inertial datasets are evaluated through spectral, motion, sensor-domain, and physical consistency analysis workflows.',
+  tr: 'Ataletsel veriler; spektral karakter, hareket yapısı, sensör davranışı ve fiziksel tutarlılık açısından analiz edilerek üretim seviyesinde değerlendirme altyapısı sağlar.',
 },
 
-productFeatureQcRepair: {
-  en: 'QC & repair',
-  tr: 'Kalite kontrol ve onarım',
+
+
+/* --------------------
+   PRODUCT / YÖRÜK
+-------------------- */
+
+yorukLabel: {
+  en: 'YÖRÜK',
+  tr: 'YÖRÜK',
 },
 
-productFeatureImport: {
-  en: 'Dataset import',
-  tr: 'Veri seti içe aktarma',
+yorukTitle: {
+  en: 'Yörük',
+  tr: 'Yörük',
 },
 
-productFeatureQc: {
-  en: 'QC validation',
-  tr: 'QC doğrulama',
+yorukIntro: {
+  en: 'Test content.',
+  tr: 'Yol Kalitesi Takip Platformu.',
+},
+yorukBody: {
+  en: 'Test content.',
+  tr: 'Deneme.',
 },
 
-productFeatureRepair: {
-  en: 'Signal repair',
-  tr: 'Sinyal onarımı',
-},
-
-productFeatureConsistency: {
-  en: 'Consistency analysis',
-  tr: 'Tutarlılık analizi',
-},
-
-productFeatureCadence: {
-  en: 'Cadence analysis',
-  tr: 'Ritim analizi',
-},
-
-productFeatureSpectral: {
-  en: 'Spectral analysis',
-  tr: 'Spektral analiz',
-},
-
-productFeatureSensorDomain: {
-  en: 'Sensor-domain analysis',
-  tr: 'Sensor domain analizi',
-},
-
-productFeaturePhysical: {
-  en: 'Physical checks',
-  tr: 'Fiziksel kontrol',
-},
-
-productFeatureWindow: {
-  en: 'Window analysis',
-  tr: 'Pencere analizi',
-},
-
-productFeatureMotion: {
-  en: 'Motion analysis',
-  tr: 'Hareket analizi',
-},
-
-productFeatureReport: {
-  en: 'Session reports',
-  tr: 'Oturum raporu',
-},
-
-productPreviewLabel: {
-  en: 'Ilber Competencies',
-  tr: 'İlber Yetkinlikleri',
-},
-
-productCta: {
-  en: 'Try İlber',
-  tr: 'İlber’i Dene',
-},
 
 /* --------------------
    PRIVACY / DATA NOTICE

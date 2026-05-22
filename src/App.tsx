@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import { BackgroundField } from './components/BackgroundField';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Header } from './components/header';
+import { Footer } from './components/footer';
 
 import { Hero } from './sections/Hero';
 import { Approach } from './sections/Approach';
@@ -16,11 +16,18 @@ import Privacy from './pages/Privacy';
 import { ScrollToHash } from './components/ScrollToHash';
 import { Product } from './sections/Product';
 import Ilber from './pages/Ilber';
+
 export default function App() {
+  const location = useLocation();
+
+  const isIlberPage = location.pathname === '/ilber';
+
   return (
     <div className="min-h-screen bg-bg text-fg font-sans relative">
       <BackgroundField />
-      <Header />
+
+      {!isIlberPage && <Header />}
+
       <ScrollToHash />
 
       <Routes>
@@ -42,7 +49,15 @@ export default function App() {
         />
 
         <Route path="/privacy" element={<Privacy />} />
-        <Route path="/ilber" element={<Ilber />} />
+
+        <Route
+          path="/ilber"
+          element={
+            <main className="relative z-10">
+              <Ilber />
+            </main>
+          }
+        />
       </Routes>
     </div>
   );
