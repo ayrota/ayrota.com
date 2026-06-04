@@ -15,28 +15,6 @@ export function Contact() {
         {t('contactTitle')}
       </h2>
 
-      {/* Internship Priority Block */}
-      <div className="mt-10 rounded-2xl border border-line/60 bg-panel/40 p-6 md:p-8 backdrop-blur-sm">
-        <h3 className="text-xl md:text-2xl font-semibold">
-          {t('internshipTitle')}
-        </h3>
-
-        <p className="mt-3 text-sm text-muted max-w-md">
-          {t('internshipDescription')}
-        </p>
-
-        <a
-          href="https://forms.gle/Hp6EFHUxp3ZaJgzK7"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex items-center justify-center rounded-xl
-                     border border-line bg-fg text-bg
-                     px-6 py-3 text-sm font-medium
-                     transition hover:opacity-90"
-        >
-          {t('contactInternshipCta')}
-        </a>
-      </div>
 
       {/* Corporate Contact Block */}
       <div className="mt-14 border-t border-line/50 pt-12">
