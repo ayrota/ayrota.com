@@ -15,7 +15,6 @@ import { EarlyAccess } from './sections/EarlyAccess';
 import Privacy from './pages/Privacy';
 import { ScrollToHash } from './components/ScrollToHash';
 import { Product } from './sections/Product';
-import Ilber from './pages/Ilber';
 
 export default function App() {
   const location = useLocation();
@@ -50,14 +49,6 @@ export default function App() {
 
         <Route path="/privacy" element={<Privacy />} />
 
-        <Route
-          path="/ilber"
-          element={
-            <main className="relative z-10">
-              <Ilber />
-            </main>
-          }
-        />
       </Routes>
     </div>
   );
