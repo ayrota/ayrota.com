@@ -1,98 +1,155 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Container } from './Container';
-import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../lib/LanguageContext';
-import { scrollToSection } from '../lib/scrollToSection';
+
+type NavItem = {
+  label: string;
+  items: string[];
+};
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    label: 'ÜRÜNLER',
+    items: ['ALKON', 'KARGAH', 'YAYA', 'YÖRÜK', 'İLBER'],
+  },
+  {
+    label: 'ENDÜSTRİLER',
+    items: ['Savunma', 'Sivil', 'Çift Kullanım', 'Akademik'],
+  },
+  {
+    label: 'TEKNOLOJİ',
+    items: [
+      'Sensör Füzyonu',
+      'Ataletsel Navigasyon',
+      'AI Kestirim',
+      'Gömülü Mimari',
+    ],
+  },
+  {
+    label: 'ŞİRKET',
+    items: ['Hakkımızda', 'Kariyer', 'Haberler', 'İletişim'],
+  },
+  {
+    label: 'KAYNAKLAR',
+    items: ['Dokümantasyon', 'Blog', 'Etkinlikler'],
+  },
+];
 
 export function Header() {
-  const { lang, setLang, t } = useLanguage();
-  const location = useLocation();
+  const { lang, setLang } = useLanguage();
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-  const navLinkClass = 'transition-colors text-muted hover:text-fg';
-
-  const langButton = (l: 'en' | 'tr') =>
-    `text-xs tracking-wide ${lang === l ? 'text-fg' : 'text-muted hover:text-fg'}`;
-
-  const handleNav = (id: string) => (e: React.MouseEvent) => {
-    // Home'daysak: Router'a bırakmadan scroll'u garanti et
-    if (location.pathname === '/') {
-      e.preventDefault();
-      // URL hash'i güncelle (back/forward için)
-      window.history.pushState(null, '', `/#${id}`);
-      scrollToSection(id, 96);
-    }
-  };
+  const langButtonClass = (target: 'tr' | 'en') =>
+    [
+      'text-[11px] tracking-[0.18em] transition-colors',
+      lang === target ? 'text-fg' : 'text-muted hover:text-fg',
+    ].join(' ');
 
   return (
-    <header className="fixed top-0 w-full z-50">
-      <div className="bg-bg/95 backdrop-blur border-b border-line/70">
-        <Container className="py-4 flex items-center justify-between">
+    <header className="fixed left-0 top-0 z-50 w-full">
+      <div className="border-b border-line/50 bg-bg/85 backdrop-blur-xl">
+        <Container className="flex h-20 items-center">
           <Link
             to="/#hero"
-            onClick={handleNav('hero')}
-            aria-label="Go to top"
-            className="inline-flex items-center gap-3"
+            aria-label="Ayrota ana sayfa"
+            className="group inline-flex items-center gap-4"
           >
-            <img src="/icon.png" alt="Ayrota logo" className="h-6 w-auto" />
-            <span
-              className="text-[13px] font-extrabold tracking-[0.12em]"
-              style={{ fontFamily: 'Arial', color: '#D7E3F1' }}
-            >
-              ayrota
+            <img
+              src="/icon.png"
+              alt="Ayrota Logo"
+              className="h-10 w-10 object-contain opacity-90 transition-opacity group-hover:opacity-100"
+            />
+
+            <span className="text-[22px] font-semibold tracking-[0.28em] text-fg">
+              AYROTA
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm">
-            <Link to="/#approach" onClick={handleNav('approach')} className={navLinkClass}>
-              {t('sectionApproach')}
-            </Link>
-            <Link to="/#core" onClick={handleNav('core')} className={navLinkClass}>
-              {t('sectionCore')}
-            </Link>
-            <Link to="/#capabilities" onClick={handleNav('capabilities')} className={navLinkClass}>
-              {t('sectionCapabilities')}
-            </Link>
-            <Link to="/#product" onClick={handleNav('product')} className={navLinkClass}>
-  {t('sectionProduct')}
-</Link>
-            <Link to="/#provisioning" onClick={handleNav('provisioning')} className={navLinkClass}>
-              {t('sectionProvisioning')}
-            </Link>
-            <Link
-              to="/#early-access"
-              onClick={handleNav('early-access')}
-              className={navLinkClass}
-            >
-              {t('sectionEarlyAccess')}
-            </Link>
-            <Link to="/#contact" onClick={handleNav('contact')} className={navLinkClass}>
-              {t('sectionContact')}
-            </Link>
+          <div className="ml-auto flex items-center gap-20">
+            <nav className="hidden items-center gap-12 lg:flex">
+              {NAV_ITEMS.map((item) => (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setActiveMenu(item.label)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <button
+                    type="button"
+                    className={[
+                      'text-[12px] font-medium tracking-[0.16em] transition-colors',
+                      activeMenu === item.label
+                        ? 'text-fg'
+                        : 'text-muted hover:text-fg',
+                    ].join(' ')}
+                  >
+                    {item.label}
+                  </button>
 
-            <div className="flex items-center gap-1 ml-2">
-              <button onClick={() => setLang('en')} className={langButton('en')} aria-label="Switch to English">
-                EN
-              </button>
-              <span className="text-muted text-xs">·</span>
-              <button onClick={() => setLang('tr')} className={langButton('tr')} aria-label="Switch to Turkish">
+                  {activeMenu === item.label && (
+                    <div className="absolute left-0 top-full pt-6">
+                      <div className="flex flex-col gap-3">
+                        {item.items.map((subItem) => (
+                          <Link
+                            key={subItem}
+                            to="#"
+                            className="group flex items-center gap-3 whitespace-nowrap"
+                          >
+                            <span className="h-px w-0 bg-fg/70 transition-all duration-300 group-hover:w-5" />
+
+                            <span className="text-[13px] font-medium tracking-[0.08em] text-fg/65 transition-colors group-hover:text-fg">
+                              {subItem}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            <div className="hidden items-center gap-3 lg:flex">
+              <button
+                type="button"
+                onClick={() => setLang('tr')}
+                className={langButtonClass('tr')}
+              >
                 TR
               </button>
-            </div>
-          </nav>
 
-          <div className="md:hidden flex items-center gap-3">
-            <div className="flex items-center gap-1">
-              <button onClick={() => setLang('tr')} className={langButton('tr')}>TR</button>
-              <span className="text-muted text-xs">·</span>
-              <button onClick={() => setLang('en')} className={langButton('en')}>EN</button>
+              <span className="h-3 w-px bg-line/80" />
+
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={langButtonClass('en')}
+              >
+                EN
+              </button>
             </div>
 
-            <Link
-              to="/#contact"
-              onClick={handleNav('contact')}
-              className="rounded-md border border-line/70 bg-panel/40 px-3 py-1.5 text-sm text-fg backdrop-blur"
-            >
-              {t('sectionContact')}
-            </Link>
+            <div className="flex items-center gap-3 lg:hidden">
+              <button
+                type="button"
+                onClick={() => setLang('tr')}
+                className={langButtonClass('tr')}
+              >
+                TR
+              </button>
+
+              <span className="text-muted">/</span>
+
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={langButtonClass('en')}
+              >
+                EN
+              </button>
+            </div>
           </div>
         </Container>
       </div>

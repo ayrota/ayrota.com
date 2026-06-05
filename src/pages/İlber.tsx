@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Section } from '../components/Section';
 import { Footer } from '../components/footer';
 import { IlberCadenceMock } from '../components/IlberMock';
-import { CapabilityCard } from '../components/CapabilityCard';
 import { useLanguage } from '../lib/LanguageContext';
 
 export default function Ilber() {
