@@ -55,100 +55,94 @@ export default function Ilber() {
       </Section>
 
       <Section
-        id="ilber-modules"
-        width="wide"
-        className="py-12 border-t border-line/20"
+  id="ilber-modules"
+  width="wide"
+  className="py-16 border-t border-line/20"
+>
+  <div className="text-xs tracking-widest text-muted uppercase">
+    {t('ilberModulesKicker')}
+  </div>
+
+  <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+    {t('ilberModulesTitle')}
+  </h2>
+
+  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
+    {t('ilberModulesIntro')}
+  </p>
+
+  <div className="mt-10 grid gap-5 lg:grid-cols-2">
+    {[
+      {
+        title: t('ilberDataLayerTitle'),
+        text: t('ilberDataLayerText'),
+        items: [
+          t('ilberQcTitle'),
+          t('ilberRepairTitle'),
+          t('ilberSensorDomainTitle'),
+          t('ilberSensorHealthTitle'),
+          t('ilberGnssTitle'),
+          t('ilberSpectralTitle'),
+        ],
+      },
+      {
+        title: t('ilberMotionLayerTitle'),
+        text: t('ilberMotionLayerText'),
+        items: [
+          t('ilberPhysicalTitle'),
+          t('ilberConsistencyTitle'),
+          t('ilberCadenceTitle'),
+          t('ilberWindowTitle'),
+          t('ilberMotionTitle'),
+        ],
+      },
+      {
+        title: t('ilberFlightLayerTitle'),
+        text: t('ilberFlightLayerText'),
+        items: [
+          t('ilberFlightPeriodicityTitle'),
+          t('ilberFlightStateTitle'),
+          t('ilberFlightStabilityTitle'),
+          t('ilberTrajectoryTitle'),
+        ],
+      },
+      {
+        title: t('ilberReportLayerTitle'),
+        text: t('ilberReportLayerText'),
+        items: [
+          t('ilberSessionReportTitle'),
+          t('ilberQualitySummary'),
+        ],
+      },
+    ].map((group) => (
+      <div
+        key={group.title}
+        className="rounded-2xl border border-line/60 bg-panel/40 p-7 backdrop-blur shadow-soft"
       >
-        <div className="text-xs tracking-widest text-muted uppercase">
-          {t('ilberModulesKicker')}
+    
+
+        <h3 className="mt-3 text-xl font-medium text-fg">
+          {group.title}
+        </h3>
+
+        <p className="mt-3 text-sm leading-relaxed text-muted">
+          {group.text}
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {group.items.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-line/60 bg-bg/40 px-3 py-1.5 text-xs text-muted"
+            >
+              {item}
+            </span>
+          ))}
         </div>
-
-        <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
-          {t('ilberModulesTitle')}
-        </h2>
-
-        <div className="mt-10 grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <CapabilityCard
-            title={t('ilberQcTitle')}
-            description={t('ilberQcDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberRepairTitle')}
-            description={t('ilberRepairDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberSensorDomainTitle')}
-            description={t('ilberSensorDomainDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberSensorHealthTitle')}
-            description={t('ilberSensorHealthDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberGnssTitle')}
-            description={t('ilberGnssDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberSpectralTitle')}
-            description={t('ilberSpectralDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberPhysicalTitle')}
-            description={t('ilberPhysicalDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberConsistencyTitle')}
-            description={t('ilberConsistencyDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberCadenceTitle')}
-            description={t('ilberCadenceDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberWindowTitle')}
-            description={t('ilberWindowDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberMotionTitle')}
-            description={t('ilberMotionDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberFlightPeriodicityTitle')}
-            description={t('ilberFlightPeriodicityDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberFlightStateTitle')}
-            description={t('ilberFlightStateDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberFlightStabilityTitle')}
-            description={t('ilberFlightStabilityDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberTrajectoryTitle')}
-            description={t('ilberTrajectoryDescription')}
-          />
-
-          <CapabilityCard
-            title={t('ilberSessionReportTitle')}
-            description={t('ilberSessionReportDescription')}
-          />
-        </div>
-      </Section>
+      </div>
+    ))}
+  </div>
+</Section>
 
       <Section
         id="sample-report"
