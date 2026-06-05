@@ -16,6 +16,8 @@ import Privacy from './pages/Privacy';
 import { ScrollToHash } from './components/ScrollToHash';
 import { Product } from './sections/Product';
 
+import Ilber from './pages/İlber';
+
 export default function App() {
   const location = useLocation();
 
@@ -49,7 +51,9 @@ export default function App() {
 
         <Route path="/privacy" element={<Privacy />} />
 
+        <Route path="/ilber" element={<Ilber />} />
+
       </Routes>
     </div>
   );
-}
+} 
