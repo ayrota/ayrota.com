@@ -1,115 +1,199 @@
-import { Section } from '../components/Section';
-import { Footer } from '../components/footer'; 
-import { IlberCadenceMock } from '../components/IlberMock';
-import { CapabilityCard } from '../components/CapabilityCard';
 import { Link } from 'react-router-dom';
 
+import { Section } from '../components/Section';
+import { Footer } from '../components/footer';
+import { IlberCadenceMock } from '../components/IlberMock';
+import { CapabilityCard } from '../components/CapabilityCard';
+import { useLanguage } from '../lib/LanguageContext';
+
 export default function Ilber() {
+  const { t } = useLanguage();
+
   return (
     <main className="relative z-10 pt-28">
-      {/* Hero / Giriş Bölümü */}
       <Section id="ilber-hero" width="wide" className="py-20">
         <div className="max-w-4xl">
-          <span className="block text-xs font-semibold tracking-widest text-muted uppercase">
-            IMU Data Quality Assurance Platform
-          </span>
+          <div className="text-xs tracking-widest text-muted uppercase">
+            {t('ilberHeroKicker')}
+          </div>
+
           <h1 className="mt-5 text-5xl font-medium tracking-tight text-fg md:text-7xl">
-            İlber
+            {t('ilberHeroTitle')}
           </h1>
+
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted">
-            IMU verilerini algoritma geliştirme sürecine girmeden önce doğrulayan, analiz eden ve raporlayan kalite güvence platformu.
+            {t('ilberHeroLead')}
           </p>
+
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            İlber; zaman tutarlılığı, sensör sağlığı, sinyal kalitesi ve hareket davranışını birlikte değerlendirerek veri kaynaklı problemleri erken aşamada görünür hale getirir.
+            {t('ilberHeroText')}
           </p>
         </div>
       </Section>
 
-      {/* Kısa Değer Önerisi */}
-      <Section id="ilber-problem" width="wide" className="py-14 border-t border-line/20">
+      <Section
+        id="ilber-problem"
+        width="wide"
+        className="py-14 border-t border-line/20"
+      >
         <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-start">
           <div>
-            <span className="block text-xs font-semibold tracking-widest text-muted uppercase">
-              Veri Odaklı Güvence Katmanı
-            </span>
+            <div className="text-xs tracking-widest text-muted uppercase">
+              {t('ilberTrustKicker')}
+            </div>
+
             <h2 className="mt-4 text-2xl font-medium leading-tight text-fg md:text-3xl">
-              Sensör verisini güvenilir hale getirin.
+              {t('ilberTrustTitle')}
             </h2>
           </div>
+
           <div className="space-y-5 text-sm leading-relaxed text-muted">
-            <p>
-              Saha verilerindeki kopmalar, zaman damgası problemleri, doygunluklar ve gürültü artışları çoğu zaman algoritma hatası gibi yorumlanır.
-            </p>
-            <p>
-              İlber, bu ayrımı netleştirerek ekiplerin ham veriden kaynaklanan problemleri daha erken görmesini ve geliştirme sürecini daha kontrollü yürütmesini sağlar.
-            </p>
+            <p>{t('ilberTrustText1')}</p>
+            <p>{t('ilberTrustText2')}</p>
           </div>
         </div>
       </Section>
 
-      {/* Platform Modülleri */}
-      <Section id="ilber-modules" width="wide" className="py-12 border-t border-line/20">
-        <span className="block text-xs font-semibold tracking-widest text-muted uppercase">
-          Analiz Altyapısı
-        </span>
-        <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight text-fg">
-          Platform Modülleri
+      <Section
+        id="ilber-modules"
+        width="wide"
+        className="py-12 border-t border-line/20"
+      >
+        <div className="text-xs tracking-widest text-muted uppercase">
+          {t('ilberModulesKicker')}
+        </div>
+
+        <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
+          {t('ilberModulesTitle')}
         </h2>
-        
-        {/* grid-cols-1 eklenerek mobil uyumluluk garanti altına alındı */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 items-start">
-          <CapabilityCard title="QC – Kalite Kontrol" description="Veri henüz işlenmeden önce eksik veri, timestamp bozuklukları ve sensör kayıt tutarlılığı kontrollerini yaparak ham verinin analizde kullanılabilirliğini denetler." />
-          <CapabilityCard title="Repair – Onarım" description="QC aşamasında tespit edilen veri problemlerini işleyerek veriyi analiz süreçleri için daha hazır ve tutarlı hale getirir." />
-          <CapabilityCard title="Sensör Domain Analizi" description="Doğrudan sensör sinyalinin kalitesini değerlendirir; örnekleme frekansı, RMS seviyeleri, gürültü miktarı ve sensör davranışını inceler." />
-          <CapabilityCard title="Sensör Sağlık Analizi" description="Sensörlerin kayıt boyunca yapısal bütünlüğünü denetler; doygunluk, clipping, dropout ve anormal ölçüm davranışlarını görünür hale getirir." />
-          <CapabilityCard title="GNSS Quality Analysis" description="GNSS alıcısından gelen verilerin güvenilirliğini ve konum doğruluğunu değerlendirir; fix type, HDOP, VDOP ve sinyal kalitesi gibi göstergeleri inceler." />
-          <CapabilityCard title="Spectral Analiz" description="Ham sinyalin frekans içeriğini analiz eder; baskın frekansları, gürültü bantlarını ve periyodik davranışları ortaya çıkarır." />
-          <CapabilityCard title="Physical Checks – Fiziksel Kontroller" description="Ölçümlerin fiziksel olarak anlamlı ve beklenen davranışlarla uyumlu olup olmadığını değerlendirir." />
-          <CapabilityCard title="Consistency – Tutarlılık Analizi" description="Kayıtlar, oturumlar ve datasetler arasındaki benzerlikleri analiz ederek davranış ve veri tutarlılığını ölçer." />
-          <CapabilityCard title="Cadence Analizi" description="Periyodik hareketlerin ritim karakteristiğini, baskın frekansını ve ritim kararlılığını değerlendirir." />
-          <CapabilityCard title="Window Analizi" description="Ham zaman serilerini küçük zaman pencerelerine ayırarak ileri seviye analizler için temel özellikleri üretir." />
-          <CapabilityCard title="Motion Analizi" description="Hareket segmentlerini belirleyerek aktivite davranışlarını sınıflandırır." />
-          <CapabilityCard title="Flight Periodicity Analysis" description="Uçuş verilerindeki periyodik titreşim davranışlarını ve frekans karakteristiklerini analiz eder." />
-          <CapabilityCard title="Flight State Classification" description="Uçuş operasyonlarını farklı durumlara ayırarak davranış analizi gerçekleştirir." />
-          <CapabilityCard title="Flight Stability Analysis" description="Uçuş sırasında platformun kararlılığını ve yönelim değişkenliğini değerlendirir." />
-          <CapabilityCard title="Trajectory Analysis" description="Gerçekleşen hareketin rota karakteristiğini ve sapmalarını analiz eder." />
-          <CapabilityCard title="Session Report" description="Tüm analiz sonuçlarını tek bir kalite güvence raporu altında birleştirir." />
+
+        <div className="mt-10 grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <CapabilityCard
+            title={t('ilberQcTitle')}
+            description={t('ilberQcDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberRepairTitle')}
+            description={t('ilberRepairDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberSensorDomainTitle')}
+            description={t('ilberSensorDomainDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberSensorHealthTitle')}
+            description={t('ilberSensorHealthDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberGnssTitle')}
+            description={t('ilberGnssDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberSpectralTitle')}
+            description={t('ilberSpectralDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberPhysicalTitle')}
+            description={t('ilberPhysicalDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberConsistencyTitle')}
+            description={t('ilberConsistencyDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberCadenceTitle')}
+            description={t('ilberCadenceDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberWindowTitle')}
+            description={t('ilberWindowDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberMotionTitle')}
+            description={t('ilberMotionDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberFlightPeriodicityTitle')}
+            description={t('ilberFlightPeriodicityDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberFlightStateTitle')}
+            description={t('ilberFlightStateDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberFlightStabilityTitle')}
+            description={t('ilberFlightStabilityDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberTrajectoryTitle')}
+            description={t('ilberTrajectoryDescription')}
+          />
+
+          <CapabilityCard
+            title={t('ilberSessionReportTitle')}
+            description={t('ilberSessionReportDescription')}
+          />
         </div>
       </Section>
 
-      {/* Örnek Rapor Görünümü */}
-      <Section id="sample-report" width="wide" className="py-16 border-t border-line/20">
+      <Section
+        id="sample-report"
+        width="wide"
+        className="py-16 border-t border-line/20"
+      >
         <div className="mx-auto max-w-4xl">
           <div className="mb-10">
-            <span className="block text-xs font-semibold tracking-widest text-muted uppercase">
-              Platform Interface Demonstration
-            </span>
+            <p className="text-xs tracking-widest text-muted uppercase">
+              {t('ilberSampleKicker')}
+            </p>
+
             <h2 className="mt-3 text-3xl font-medium text-fg">
-              İlber Analiz Modülü Çıktı Raporu Örneği
+              {t('ilberSampleTitle')}
             </h2>
+
             <p className="mt-4 text-sm text-muted leading-relaxed">
-              Aşağıda, İlber’in ritim kararlılığı analiz modülünü temsil eden örnek bir raporlama ekranı yer almaktadır.
+              {t('ilberSampleText')}
             </p>
           </div>
+
           <IlberCadenceMock />
         </div>
       </Section>
 
-      {/* CTA / Kapanış Bölümü */}
-      <Section id="ilber-cta" width="wide" className="py-16 border-t border-line/20 bg-panel/10">
+      <Section
+        id="ilber-cta"
+        width="wide"
+        className="py-16 border-t border-line/20 bg-panel/10"
+      >
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl md:text-3xl font-medium text-fg">
-            IMU verisini algoritmadan önce doğrulayın.
+            {t('ilberCtaTitle')}
           </h2>
+
           <p className="mt-5 text-sm leading-relaxed text-muted max-w-2xl mx-auto">
-            İlber; navigasyon, PDR, UAV, robotik ve sensör füzyonu geliştiren ekipler için standartlaştırılmış veri kalite güvence katmanı sunar.
+            {t('ilberCtaText')}
           </p>
+
           <div className="mt-8">
-            <Link 
-              to="/#contact" 
-              className="inline-flex rounded-md border border-line bg-fg px-6 py-3 text-sm font-medium text-bg transition-all hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
+            <Link
+              to="/#contact"
+              className="inline-flex rounded-md border border-line bg-fg px-6 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-95"
             >
-              İletişime Geçin
+              {t('ilberCtaButton')}
             </Link>
           </div>
         </div>

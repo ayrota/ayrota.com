@@ -336,6 +336,235 @@ yorukBody: {
   tr: 'Deneme.',
 },
 
+/* --------------------
+   ILBER PAGE
+-------------------- */
+ilberHeroKicker: {
+  en: 'IMU Data Quality Assurance Platform',
+  tr: 'IMU Veri Kalite Güvence Platformu',
+},
+
+ilberHeroTitle: {
+  en: 'İlber',
+  tr: 'İlber',
+},
+
+ilberHeroLead: {
+  en: 'A quality assurance platform that validates, analyzes, and reports IMU data before it enters the algorithm development process.',
+  tr: 'IMU verilerini algoritma geliştirme sürecine girmeden önce doğrulayan, analiz eden ve raporlayan kalite güvence platformu.',
+},
+
+ilberHeroText: {
+  en: 'İlber evaluates timing consistency, sensor health, signal quality, and motion behavior together to make data-related problems visible at an early stage.',
+  tr: 'İlber; zaman tutarlılığı, sensör sağlığı, sinyal kalitesi ve hareket davranışını birlikte değerlendirerek veri kaynaklı problemleri erken aşamada görünür hale getirir.',
+},
+
+ilberTrustKicker: {
+  en: 'Data-centric assurance layer',
+  tr: 'Veri Odaklı Güvence Katmanı',
+},
+
+ilberTrustTitle: {
+  en: 'Make sensor data reliable.',
+  tr: 'Sensör verisini güvenilir hale getirin.',
+},
+
+ilberTrustText1: {
+  en: 'Dropouts, timestamp issues, saturation, and noise increases in field data are often interpreted as algorithmic failures.',
+  tr: 'Saha verilerindeki kopmalar, zaman damgası problemleri, doygunluklar ve gürültü artışları çoğu zaman algoritma hatası gibi yorumlanır.',
+},
+
+ilberTrustText2: {
+  en: 'İlber clarifies this distinction, helping teams identify data-originated problems earlier and manage development more controllably.',
+  tr: 'İlber, bu ayrımı netleştirerek ekiplerin ham veriden kaynaklanan problemleri daha erken görmesini ve geliştirme sürecini daha kontrollü yürütmesini sağlar.',
+},
+
+ilberModulesKicker: {
+  en: 'Analysis infrastructure',
+  tr: 'Analiz Altyapısı',
+},
+
+ilberModulesTitle: {
+  en: 'Platform Modules',
+  tr: 'Platform Modülleri',
+},
+
+ilberSampleKicker: {
+  en: 'Platform Interface Demonstration',
+  tr: 'Platform Arayüz Gösterimi',
+},
+
+ilberSampleTitle: {
+  en: 'Sample İlber Analysis Module Report',
+  tr: 'İlber Analiz Modülü Çıktı Raporu Örneği',
+},
+
+ilberSampleText: {
+  en: 'Below is a representative reporting screen for İlber’s cadence stability analysis module.',
+  tr: 'Aşağıda, İlber’in ritim kararlılığı analiz modülünü temsil eden örnek bir raporlama ekranı yer almaktadır.',
+},
+
+ilberCtaTitle: {
+  en: 'Validate IMU data before the algorithm.',
+  tr: 'IMU verisini algoritmadan önce doğrulayın.',
+},
+
+ilberCtaText: {
+  en: 'İlber provides a standardized data quality assurance layer for teams developing navigation, PDR, UAV, robotics, and sensor fusion systems.',
+  tr: 'İlber; navigasyon, PDR, UAV, robotik ve sensör füzyonu geliştiren ekipler için standartlaştırılmış veri kalite güvence katmanı sunar.',
+},
+
+ilberCtaButton: {
+  en: 'Get in touch',
+  tr: 'İletişime Geçin',
+},
+
+/* --------------------
+   ILBER MODULES
+-------------------- */
+ilberQcTitle: {
+  en: 'Quality Control',
+  tr: 'Kalite Kontrol',
+},
+ilberQcDescription: {
+  en: 'Validates missing samples, timestamp consistency, and sensor record integrity before analysis.',
+  tr: 'Veri henüz işlenmeden önce eksik veri, timestamp bozuklukları ve sensör kayıt tutarlılığı kontrollerini yaparak ham verinin analizde kullanılabilirliğini denetler.',
+},
+
+ilberRepairTitle: {
+  en: 'Repair',
+  tr: 'Onarım',
+},
+ilberRepairDescription: {
+  en: 'Processes issues detected during QC and prepares the dataset for downstream analysis workflows.',
+  tr: 'QC aşamasında tespit edilen veri problemlerini işleyerek veriyi analiz süreçleri için daha hazır ve tutarlı hale getirir.',
+},
+
+ilberSensorDomainTitle: {
+  en: 'Sensor Domain Analysis',
+  tr: 'Sensör Domain Analizi',
+},
+ilberSensorDomainDescription: {
+  en: 'Evaluates sensor signal quality through sampling frequency, RMS levels, noise characteristics, and sensor behavior.',
+  tr: 'Doğrudan sensör sinyalinin kalitesini değerlendirir; örnekleme frekansı, RMS seviyeleri, gürültü miktarı ve sensör davranışını inceler.',
+},
+
+ilberSensorHealthTitle: {
+  en: 'Sensor Health Analysis',
+  tr: 'Sensör Sağlık Analizi',
+},
+ilberSensorHealthDescription: {
+  en: 'Monitors saturation, clipping, dropout events, and abnormal measurement behavior throughout recordings.',
+  tr: 'Sensörlerin kayıt boyunca yapısal bütünlüğünü denetler; doygunluk, clipping, dropout ve anormal ölçüm davranışlarını görünür hale getirir.',
+},
+
+ilberGnssTitle: {
+  en: 'GNSS Quality Analysis',
+  tr: 'GNSS Kalite Analizi',
+},
+ilberGnssDescription: {
+  en: 'Evaluates positioning reliability using fix type, HDOP, VDOP, and signal quality indicators.',
+  tr: 'GNSS alıcısından gelen verilerin güvenilirliğini ve konum doğruluğunu değerlendirir; fix type, HDOP, VDOP ve sinyal kalitesi gibi göstergeleri inceler.',
+},
+
+ilberSpectralTitle: {
+  en: 'Spectral Analysis',
+  tr: 'Spektral Analiz',
+},
+ilberSpectralDescription: {
+  en: 'Analyzes frequency-domain characteristics, dominant frequencies, noise bands, and periodic behavior.',
+  tr: 'Ham sinyalin frekans içeriğini analiz eder; baskın frekansları, gürültü bantlarını ve periyodik davranışları ortaya çıkarır.',
+},
+
+ilberPhysicalTitle: {
+  en: 'Physical Consistency Checks',
+  tr: 'Fiziksel Tutarlılık Kontrolleri',
+},
+ilberPhysicalDescription: {
+  en: 'Verifies whether measurements remain physically meaningful and consistent with expected behavior.',
+  tr: 'Ölçümlerin fiziksel olarak anlamlı ve beklenen davranışlarla uyumlu olup olmadığını değerlendirir.',
+},
+
+ilberConsistencyTitle: {
+  en: 'Consistency Analysis',
+  tr: 'Tutarlılık Analizi',
+},
+ilberConsistencyDescription: {
+  en: 'Measures similarity and repeatability across runs, sessions, and datasets.',
+  tr: 'Kayıtlar, oturumlar ve datasetler arasındaki benzerlikleri analiz ederek davranış ve veri tutarlılığını ölçer.',
+},
+
+ilberCadenceTitle: {
+  en: 'Cadence Analysis',
+  tr: 'Ritim Analizi',
+},
+ilberCadenceDescription: {
+  en: 'Evaluates rhythm stability, dominant frequency, and periodic motion characteristics.',
+  tr: 'Periyodik hareketlerin ritim karakteristiğini, baskın frekansını ve ritim kararlılığını değerlendirir.',
+},
+
+ilberWindowTitle: {
+  en: 'Window Analysis',
+  tr: 'Pencere Analizi',
+},
+ilberWindowDescription: {
+  en: 'Divides time-series data into windows and extracts features for higher-level analysis.',
+  tr: 'Ham zaman serilerini küçük zaman pencerelerine ayırarak ileri seviye analizler için temel özellikleri üretir.',
+},
+
+ilberMotionTitle: {
+  en: 'Motion Analysis',
+  tr: 'Hareket Analizi',
+},
+ilberMotionDescription: {
+  en: 'Identifies motion segments and classifies activity behavior patterns.',
+  tr: 'Hareket segmentlerini belirleyerek aktivite davranışlarını sınıflandırır.',
+},
+
+ilberFlightPeriodicityTitle: {
+  en: 'Flight Periodicity Analysis',
+  tr: 'Uçuş Periyodiklik Analizi',
+},
+ilberFlightPeriodicityDescription: {
+  en: 'Analyzes periodic vibration signatures and frequency-domain behavior in flight data.',
+  tr: 'Uçuş verilerindeki periyodik titreşim davranışlarını ve frekans karakteristiklerini analiz eder.',
+},
+
+ilberFlightStateTitle: {
+  en: 'Flight State Classification',
+  tr: 'Uçuş Durumu Sınıflandırması',
+},
+ilberFlightStateDescription: {
+  en: 'Classifies flight operations into interpretable operational states.',
+  tr: 'Uçuş operasyonlarını farklı durumlara ayırarak davranış analizi gerçekleştirir.',
+},
+
+ilberFlightStabilityTitle: {
+  en: 'Flight Stability Analysis',
+  tr: 'Uçuş Kararlılık Analizi',
+},
+ilberFlightStabilityDescription: {
+  en: 'Evaluates attitude stability and platform behavior during flight operations.',
+  tr: 'Uçuş sırasında platformun kararlılığını ve yönelim değişkenliğini değerlendirir.',
+},
+
+ilberTrajectoryTitle: {
+  en: 'Trajectory Analysis',
+  tr: 'Rota Analizi',
+},
+ilberTrajectoryDescription: {
+  en: 'Analyzes route characteristics, motion patterns, and trajectory deviations.',
+  tr: 'Gerçekleşen hareketin rota karakteristiğini ve sapmalarını analiz eder.',
+},
+
+ilberSessionReportTitle: {
+  en: 'Session Report',
+  tr: 'Oturum Raporu',
+},
+ilberSessionReportDescription: {
+  en: 'Combines all analysis outputs into a unified quality assurance report.',
+  tr: 'Tüm analiz sonuçlarını tek bir kalite güvence raporu altında birleştirir.',
+},
 
 /* --------------------
    PRIVACY / DATA NOTICE
@@ -421,5 +650,9 @@ contactMapTitle: {
 },
 
 } as const;
+
+
+
+
 
 export type TranslationKey = keyof typeof translations;
