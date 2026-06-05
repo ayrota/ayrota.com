@@ -2,6 +2,69 @@ export type Language = 'en' | 'tr';
 
 export const translations = {
 
+ /* --------------------
+   NEW HOME / HERO
+-------------------- */
+homeHeroKicker: {
+  en: 'INERTIAL NAVIGATION SYSTEMS',
+  tr: 'ATALETSEL NAVİGASYON SİSTEMLERİ',
+},
+
+homeHeroTitle: {
+  en: 'We develop navigation intelligence for autonomous systems.',
+  tr: 'Otonom sistemler için navigasyon zekası geliştiriyoruz.',
+},
+
+homeHeroLead: {
+  en: 'Ayrota develops AI-assisted solutions that provide position, orientation, and motion estimation for autonomous systems in challenging environments where GNSS is insufficient or unavailable.',
+  tr: 'Ayrota, GNSS’in yetersiz veya kullanılamadığı zorlu ortamlarda otonom sistemlere konum, yönelim ve hareket kestirimi sağlayan yapay zeka destekli çözümler geliştirir.',
+},
+
+homeCapabilityNavigation: {
+  en: 'Inertial Navigation',
+  tr: 'Ataletsel Navigasyon',
+},
+
+homeCapabilityFusion: {
+  en: 'Sensor Fusion',
+  tr: 'Sensör Füzyonu',
+},
+
+homeCapabilityAi: {
+  en: 'AI-assisted Estimation',
+  tr: 'Yapay Zeka Destekli Kestirim',
+},
+
+homeCapabilityEmbedded: {
+  en: 'Embedded Systems',
+  tr: 'Gömülü Sistemler',
+},
+
+homeCapabilityAutonomy: {
+  en: 'Autonomous Platforms',
+  tr: 'Otonom Platformlar',
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --------------------
    SECTION LABELS (GLOBAL)
 -------------------- */

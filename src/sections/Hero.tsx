@@ -1,53 +1,94 @@
-import { Container } from '../components/Container';
-import { usePhase } from '../lib/phaseContext';
 import { useLanguage } from '../lib/LanguageContext';
 
 export function Hero() {
-  const phase = usePhase();
-  const unsettled = phase === 'orientation' || phase === 'drift';
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      <div
-        className={`absolute inset-0 transition-opacity duration-700 ${
-          unsettled ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          background:
-            'radial-gradient(80% 60% at 60% 40%, rgba(75,107,136,0.12), transparent 70%)',
-        }}
+    <section
+      id="hero"
+      className="relative min-h-screen overflow-hidden bg-bg"
+    >
+      <img
+        src="/hero-navigation.jpeg"
+        alt="Ayrota autonomous navigation field"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
-      <Container className="pt-28 relative">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-xs tracking-widest text-muted">
-            {t('sectionHero')}
+      <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/70 to-bg/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
+
+      <div className="relative z-10 min-h-screen">
+        <div className="w-full px-6 md:px-10">
+          <div className="mx-auto max-w-[1440px] pt-[120px]">
+            <div className="max-w-2xl">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="h-px w-8 bg-cyan-300/80" />
+
+                <span className="text-[11px] font-medium tracking-[0.22em] text-fg/70">
+                  {t('homeHeroKicker')}
+                </span>
+              </div>
+
+              <h1 className="text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-fg md:text-[88px]">
+                {t('homeHeroTitle')}
+              </h1>
+
+              <p className="mt-10 max-w-xl text-[18px] leading-9 text-fg/65">
+                {t('homeHeroLead')}
+              </p>
+            </div>
+
+            <div className="mt-28">
+              <div className="grid grid-cols-2 gap-6 border-t border-fg/10 pt-8 md:grid-cols-5">
+                <Capability
+                  number="01"
+                  label={t('homeCapabilityNavigation')}
+                />
+
+                <Capability
+                  number="02"
+                  label={t('homeCapabilityFusion')}
+                />
+
+                <Capability
+                  number="03"
+                  label={t('homeCapabilityAi')}
+                />
+
+                <Capability
+                  number="04"
+                  label={t('homeCapabilityEmbedded')}
+                />
+
+                <Capability
+                  number="05"
+                  label={t('homeCapabilityAutonomy')}
+                />
+              </div>
+            </div>
           </div>
-
-          <div className="mt-8 text-[11px] tracking-[0.24em] uppercase text-fg/45">
-            {t('heroMetaLine')}
-          </div>
-
-          <h1 className="mt-4 text-3xl md:text-5xl font-medium leading-[1.08]">
-            {t('heroTitleMain')}
-            <br />
-            <span className="text-fg/80">
-              {t('heroTitleSub')}
-            </span>
-          </h1>
-
-          <p className="mt-6 text-sm md:text-base text-fg/85 max-w-2xl leading-relaxed">
-            {t('heroLead')}
-          </p>
-
-          <p className="mt-6 text-sm md:text-base text-muted leading-relaxed max-w-2xl">
-            {t('heroParagraph')}
-          </p>
-
-          <div className="mt-10 h-px bg-line/60 max-w-md" />
         </div>
-      </Container>
+      </div>
     </section>
+  );
+}
+
+function Capability({
+  number,
+  label,
+}: {
+  number: string;
+  label: string;
+}) {
+  return (
+    <div className="border-l border-fg/10 pl-6">
+      <div className="text-[11px] tracking-[0.22em] text-fg/35">
+        {number}
+      </div>
+
+      <div className="mt-4 text-[18px] font-medium leading-tight text-fg/85">
+        {label}
+      </div>
+    </div>
   );
 }
