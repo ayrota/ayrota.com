@@ -45,6 +45,85 @@ homeCapabilityAutonomy: {
   tr: 'Otonom Platformlar',
 },
 
+/* --------------------
+   NEW / PRODUCTS
+-------------------- */
+productsFlagshipKicker: {
+  en: 'Flagship Product',
+  tr: 'Lider Ürünümüz',
+},
+
+productsAlkonLead: {
+  en: 'Advanced navigation for autonomous systems. Engineered for mission-critical performance in GNSS-denied environments.',
+  tr: 'Otonom sistemler için geliştirilen, GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
+},
+
+productsAlkonFeatureImu: {
+  en: 'IMU-only navigation',
+  tr: 'IMU odaklı navigasyon',
+},
+
+productsAlkonFeatureGnss: {
+  en: 'Operation in GNSS-denied environments',
+  tr: 'GNSS olmayan ortamlarda çalışma',
+},
+
+productsAlkonFeatureDynamic: {
+  en: 'Robust estimation in dynamic conditions',
+  tr: 'Dinamik koşullarda dayanıklı kestirim',
+},
+
+productsAlkonFeatureRealtime: {
+  en: 'Real-time, low-latency output',
+  tr: 'Gerçek zamanlı, düşük gecikmeli çıktı',
+},
+
+productsExploreAlkon: {
+  en: 'EXPLORE ALKON',
+  tr: 'ALKON’U KEŞFET',
+},
+
+productsTechnicalImu: {
+  en: 'Inertial Navigation',
+  tr: 'Ataletsel Navigasyon',
+},
+
+productsTechnicalAi: {
+  en: 'Assisted Estimation',
+  tr: 'Destekli Kestirim',
+},
+
+productsTechnicalRealtime: {
+  en: 'Real-time Output',
+  tr: 'Gerçek Zamanlı Çıktı',
+},
+
+productsTechnicalEmbedded: {
+  en: 'Embedded Integration',
+  tr: 'Gömülü Entegrasyon',
+},
+
+productsOtherTitle: {
+  en: 'OTHER PRODUCTS',
+  tr: 'DİĞER ÜRÜNLER',
+},
+
+
+
+productsYorukDescription: {
+  en: 'Road quality monitoring platform.',
+  tr: 'Araç Filolarına Özel Rota Analitik Platformu.',
+},
+
+productsIlberDescription: {
+  en: 'IMU data quality assurance platform.',
+  tr: 'IMU Veri Kalite Güvence Platformu.',
+},
+
+productsYayaDescription: {
+  en: 'Pedestrian Dead Reckoning software.',
+  tr: 'Yaya Kestirimli Konumlama Yazılımı.',
+},
 
 
 

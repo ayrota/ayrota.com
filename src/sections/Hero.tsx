@@ -9,7 +9,7 @@ export function Hero() {
       className="relative min-h-screen overflow-hidden bg-bg"
     >
       <img
-        src="/hero-navigation.jpeg"
+        src="/hero.png"
         alt="Ayrota autonomous navigation field"
         className="absolute inset-0 h-full w-full object-cover"
       />
@@ -29,7 +29,7 @@ export function Hero() {
                 </span>
               </div>
 
-              <h1 className="text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-fg md:text-[88px]">
+              <h1 className="text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-fg md:text-[83px]">
                 {t('homeHeroTitle')}
               </h1>
 

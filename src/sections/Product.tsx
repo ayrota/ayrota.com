@@ -1,72 +1,127 @@
 import { Link } from 'react-router-dom';
-
-import { Section } from '../components/Section';
-import { Card } from '../components/Card';
 import { useLanguage } from '../lib/LanguageContext';
 
-export function Product() {
+const ALKON_FEATURE_KEYS = [
+  'productsAlkonFeatureImu',
+  'productsAlkonFeatureGnss',
+  'productsAlkonFeatureDynamic',
+  'productsAlkonFeatureRealtime',
+];
+
+const OTHER_PRODUCTS = [
+  {
+    name: 'YÖRÜK',
+    description: 'productsYorukDescription',
+    image: '/products/yoruk.png',
+  },
+  {
+    name: 'İLBER',
+    description: 'productsIlberDescription',
+    image: '/products/ilber.png',
+  },
+  {
+    name: 'YAYA',
+    description: 'productsYayaDescription',
+    image: '/products/yaya.png',
+  },
+];
+
+export function Products() {
   const { t } = useLanguage();
 
   return (
-    <Section id="product" width="wide">
-      <div className="text-xs tracking-widest text-muted">
-        {t('sectionProduct')}
-      </div>
+    <section
+  id="products"
+  className="relative overflow-hidden border-t border-fg/10 bg-bg pt-8 pb-24"
+>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(80,145,190,0.10),transparent_42%)]" />
 
-      <div className="mt-6 grid gap-8 lg:grid-cols-2">
-        {/* İLBER */}
-        <Card>
-          <div className="flex h-full flex-col">
-
-            <h2 className="mt-5 text-2xl md:text-3xl font-medium leading-tight">
-              {t('productTitle')}
-            </h2>
-
-            <p className="mt-4 text-sm md:text-base text-muted leading-relaxed">
-              {t('productIntro')}
-            </p>
-
-            <div className="mt-8 border-l border-line/60 pl-5">
-              <p className="text-sm text-muted leading-relaxed">
-                {t('productBody')}
-              </p>
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="grid min-h-[460px] border-b border-fg/10 md:grid-cols-[0.85fr_1.65fr]">
+          <div className="border-r border-fg/10 py-8 pr-8">
+            <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
+              {t('productsFlagshipKicker')}
             </div>
 
-            <div className="mt-8">
+            <h2 className="mt-4 text-5xl font-semibold tracking-[0.18em] text-fg">
+              ALKON
+            </h2>
+
+            <p className="mt-5 max-w-xs text-sm leading-6 text-fg/60">
+              {t('productsAlkonLead')}
+            </p>
+
+            <ul className="mt-7 space-y-3">
+              {ALKON_FEATURE_KEYS.map((key) => (
+                <li
+                  key={key}
+                  className="flex items-center gap-3 text-[13px] text-fg/70"
+                >
+                  <span className="text-cyan-300/80">✓</span>
+                  <span>{t(key)}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              to="#"
+              className="mt-8 inline-flex items-center gap-8 border border-fg/25 px-5 py-3 text-[11px] font-semibold tracking-[0.08em] text-fg/85 transition hover:border-fg/60 hover:bg-fg/5"
+            >
+              {t('productsExploreAlkon')}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+
+          <div className="relative min-h-[420px] bg-bg/20">
+            <img
+              src="/products/alkon-visual.png"
+              alt="ALKON platform visualization"
+              className="absolute inset-0 h-full w-full object-cover opacity-85"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-r from-bg/45 via-transparent to-bg/25" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg/35 via-transparent to-bg/15" />
+          </div>
+        </div>
+
+        <div className="mt-8 border-b border-fg/10 pb-8">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="text-[11px] font-semibold tracking-[0.22em] text-fg/55">
+              {t('productsOtherTitle')}
+            </div>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {OTHER_PRODUCTS.map((product) => (
               <Link
-                to="/ilber"
-                className="inline-flex items-center rounded-lg border border-line/70 bg-panel/50 px-5 py-2.5 text-sm text-fg backdrop-blur transition hover:bg-panel/80"
+                key={product.name}
+                to="#"
+                className="group relative min-h-[150px] overflow-hidden border border-fg/10 bg-panel/20 p-6 transition hover:border-fg/30 hover:bg-panel/35"
               >
-                {t('productCta')}
+                <img
+                  src={product.image}
+                  alt={`${product.name} visualization`}
+                  className="absolute left-4 top-1/2 h-[100px] w-[120px] -translate-y-1/2 object-contain opacity-45 transition group-hover:opacity-65"
+                />
+
+                <div className="relative ml-[120px]">
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-fg">
+                    {product.name}
+                  </h3>
+
+                  <p className="mt-3 max-w-[190px] text-sm leading-6 text-fg/55">
+                    {t(product.description)}
+                  </p>
+                </div>
+
+                <div className="absolute bottom-5 right-5 text-fg/35 transition group-hover:translate-x-1 group-hover:text-fg">
+                  →
+                </div>
               </Link>
-            </div>
+            ))}
           </div>
-        </Card>
-
-        {/* YÖRÜK */}
-        <Card>
-          <div className="flex h-full flex-col">
-
-
-            <h2 className="mt-5 text-2xl md:text-3xl font-medium leading-tight">
-              {t('yorukTitle')}
-            </h2>
-
-            <p className="mt-4 text-sm md:text-base text-muted leading-relaxed">
-              {t('yorukIntro')}
-            </p>
-
-            <div className="mt-8 border-l border-line/60 pl-5">
-              <p className="text-sm text-muted leading-relaxed">
-                {t('yorukBody')}
-              </p>
-            </div>
-
-          </div>
-        </Card>
+        </div>
       </div>
-
-      <div className="mt-16 h-px bg-line/50 max-w-md" />
-    </Section>
+    </section>
   );
 }

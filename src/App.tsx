@@ -14,7 +14,7 @@ import { EarlyAccess } from './sections/EarlyAccess';
 
 import Privacy from './pages/Privacy';
 import { ScrollToHash } from './components/ScrollToHash';
-import { Product } from './sections/Product';
+import { Products } from './sections/Product';
 
 import Ilber from './pages/İlber';
 
@@ -37,10 +37,10 @@ export default function App() {
           element={
             <main className="relative z-10">
               <Hero />
+              <Products />
               <Approach />
               <Core />
               <Capabilities />
-              <Product />
               <Provisioning />
               <EarlyAccess />
               <Contact />
