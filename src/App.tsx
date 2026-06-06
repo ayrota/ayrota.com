@@ -3,28 +3,26 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { BackgroundField } from './components/BackgroundField';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
+import { ScrollToHash } from './components/ScrollToHash';
 
 import { Hero } from './sections/Hero';
+import { Products } from './sections/Product';
 import { Approach } from './sections/Approach';
+import { Core } from './sections/Core';
 import { Capabilities } from './sections/Capabilities';
 import { Provisioning } from './sections/Provisioning';
-import { Contact } from './sections/Contact';
-import { Core } from './sections/Core';
 import { EarlyAccess } from './sections/EarlyAccess';
+import { Contact } from './sections/Contact';
 
 import Privacy from './pages/Privacy';
-import { ScrollToHash } from './components/ScrollToHash';
-import { Products } from './sections/Product';
-
 import Ilber from './pages/İlber';
 
 export default function App() {
   const location = useLocation();
-
   const isIlberPage = location.pathname === '/ilber';
 
   return (
-    <div className="min-h-screen bg-bg text-fg font-sans relative">
+    <div className="relative min-h-screen bg-bg font-sans text-fg">
       <BackgroundField />
 
       {!isIlberPage && <Header />}
@@ -50,10 +48,8 @@ export default function App() {
         />
 
         <Route path="/privacy" element={<Privacy />} />
-
         <Route path="/ilber" element={<Ilber />} />
-
       </Routes>
     </div>
   );
-} 
+}
