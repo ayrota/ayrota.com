@@ -274,48 +274,7 @@ footerPrivacy: {
 },
 
 
-/* --------------------
-   PRODUCT / ILBER
--------------------- */
-productTitle: {
-  en: 'İlber',
-  tr: 'İlber',
-},
 
-productIntro: {
-  en: 'Advanced analysis and validation platform for IMU datasets.',
-  tr: 'IMU verileri için gelişmiş analiz ve doğrulama platformu.',
-},
-
-productBody: {
-  en: 'Inertial datasets are evaluated through spectral, motion, sensor-domain, and physical consistency analysis workflows.',
-  tr: 'Ataletsel veriler; spektral karakter, hareket yapısı, sensör davranışı ve fiziksel tutarlılık açısından analiz edilerek üretim seviyesinde değerlendirme altyapısı sağlar.',
-},
-
-
-
-/* --------------------
-   PRODUCT / YÖRÜK
--------------------- */
-
-yorukLabel: {
-  en: 'YÖRÜK',
-  tr: 'YÖRÜK',
-},
-
-yorukTitle: {
-  en: 'Yörük',
-  tr: 'Yörük',
-},
-
-yorukIntro: {
-  en: 'Test content.',
-  tr: 'Yol Kalitesi Takip Platformu.',
-},
-yorukBody: {
-  en: 'Test content.',
-  tr: 'Deneme.',
-},
 
 /* --------------------
    ILBER PAGE

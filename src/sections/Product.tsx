@@ -15,16 +15,19 @@ const OTHER_PRODUCTS = [
     name: 'YÖRÜK',
     description: 'productsYorukDescription',
     image: '/products/yoruk.png',
+    href: '/yoruk',
   },
   {
     name: 'İLBER',
     description: 'productsIlberDescription',
     image: '/products/ilber.png',
+    href: '/ilber',
   },
   {
     name: 'YAYA',
     description: 'productsYayaDescription',
     image: '/products/yaya.png',
+    href: '/yaya',
   },
 ];
 
@@ -67,7 +70,7 @@ export function Products() {
               </ul>
 
               <Link
-                to="#"
+                to="/alkon"
                 className="mt-8 inline-flex items-center gap-8 border border-fg/25 px-5 py-3 text-[11px] font-semibold tracking-[0.08em] text-fg/85 transition hover:border-fg/60 hover:bg-fg/5"
               >
                 {t('productsExploreAlkon')}
@@ -100,7 +103,7 @@ export function Products() {
               {OTHER_PRODUCTS.map((product) => (
                 <Link
                   key={product.name}
-                  to="#"
+                  to={product.href}
                   className="group relative min-h-[150px] overflow-hidden border border-fg/10 bg-panel/20 p-6 transition hover:border-fg/30 hover:bg-panel/35"
                 >
                   <img

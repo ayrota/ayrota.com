@@ -4,19 +4,33 @@ import { Link } from 'react-router-dom';
 import { Container } from './Container';
 import { useLanguage } from '../lib/LanguageContext';
 
+type NavSubItem = {
+  label: string;
+  href: string;
+};
+
 type NavItem = {
   label: string;
-  items: string[];
+  items: NavSubItem[];
 };
 
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'ÜRÜNLER',
-    items: ['ALKON', 'KARGAH', 'YAYA', 'YÖRÜK', 'İLBER'],
+    items: [
+      { label: 'ALKON', href: '/#products' },
+      { label: 'KARARGAH', href: '/#products' },
+      { label: 'YAYA', href: '/#products' },
+      { label: 'YÖRÜK', href: '/#products' },
+      { label: 'İLBER', href: '/ilber' },
+    ],
   },
   {
     label: 'ŞİRKET',
-    items: ['Hakkımızda', 'İletişim'],
+    items: [
+      { label: 'Hakkımızda', href: '/#hero' },
+      { label: 'İletişim', href: '/#contact' },
+    ],
   },
 ];
 
@@ -76,14 +90,14 @@ export function Header() {
                       <div className="flex flex-col gap-3">
                         {item.items.map((subItem) => (
                           <Link
-                            key={subItem}
-                            to="#"
+                            key={subItem.label}
+                            to={subItem.href}
                             className="group flex items-center gap-3 whitespace-nowrap"
                           >
                             <span className="h-px w-0 bg-fg/70 transition-all duration-300 group-hover:w-5" />
 
                             <span className="text-[13px] font-medium tracking-[0.08em] text-fg/65 transition-colors group-hover:text-fg">
-                              {subItem}
+                              {subItem.label}
                             </span>
                           </Link>
                         ))}
