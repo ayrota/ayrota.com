@@ -1,8 +1,4 @@
-import type { ReactNode } from 'react';
-
-import { Counter } from '../components/Counter';
 import { useLanguage } from '../lib/LanguageContext';
-import { COMPANY, developmentYears } from '../lib/company';
 
 export function Hero() {
   const { t } = useLanguage();
@@ -10,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-bg"
+      className="relative overflow-hidden bg-bg"
     >
       <img
         src="/hero.png"
@@ -21,9 +17,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/70 to-bg/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
 
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 min-h-[82vh]">
         <div className="w-full px-6 md:px-10">
-          <div className="mx-auto max-w-[1440px] pt-[120px]">
+          <div className="mx-auto max-w-[1440px] pt-[120px] pb-10">
             <div className="max-w-2xl">
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-8 bg-cyan-300/80" />
@@ -42,35 +38,12 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="mt-24">
-              <div className="grid grid-cols-1 border-t border-fg/10 pt-8 md:grid-cols-3">
-                <Metric
-                  value={
-                    <Counter
-                      value={developmentYears}
-                      suffix="+"
-                    />
-                  }
-                  label={t('homeMetricYears')}
-                />
-
-                <Metric
-                  value={
-                    <Counter
-                      value={COMPANY.products.length}
-                    />
-                  }
-                  label={t('homeMetricProducts')}
-                />
-
-                <Metric
-                  value={
-                    <Counter
-                      value={COMPANY.coreArchitectures}
-                    />
-                  }
-                  label={t('homeMetricCore')}
-                />
+            <div className="mt-16 border-t border-fg/10 pt-4">
+              <div className="grid gap-4 md:grid-cols-4">
+                <HeroPillar label={t('heroPillarNavigation')} />
+                <HeroPillar label={t('heroPillarEstimation')} />
+                <HeroPillar label={t('heroPillarFusion')} />
+                <HeroPillar label={t('heroPillarIntegration')} />
               </div>
             </div>
           </div>
@@ -80,20 +53,14 @@ export function Hero() {
   );
 }
 
-function Metric({
-  value,
+function HeroPillar({
   label,
 }: {
-  value: ReactNode;
   label: string;
 }) {
   return (
-    <div className="border-l border-fg/10 pl-8 py-2">
-      <div className="text-[54px] font-semibold leading-none tracking-[-0.04em] text-fg">
-        {value}
-      </div>
-
-      <div className="mt-4 text-[13px] font-medium text-fg/50">
+    <div className="border-l border-fg/10 pl-6 py-1">
+      <div className="text-[11px] font-medium tracking-[0.18em] text-fg/45">
         {label}
       </div>
     </div>

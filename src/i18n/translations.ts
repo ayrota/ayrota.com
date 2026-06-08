@@ -12,7 +12,7 @@ homeHeroKicker: {
 
 homeHeroTitle: {
   en: 'We develop navigation intelligence for autonomous systems.',
-  tr: 'Otonom sistemler için navigasyon zekası geliştiriyoruz.',
+  tr: 'Otonom sistemler için navigasyon zekası',
 },
 
 homeHeroLead: {
@@ -20,29 +20,24 @@ homeHeroLead: {
   tr: 'Ayrota, GNSS’in yetersiz veya kullanılamadığı zorlu ortamlarda otonom sistemlere konum, yönelim ve hareket kestirimi sağlayan yapay zeka destekli çözümler geliştirir.',
 },
 
-homeMetricYears: {
-  en: 'Years',
-  tr: 'Yıl',
+heroPillarNavigation: {
+  en: 'NAVIGATION',
+  tr: 'NAVİGASYON',
 },
 
-homeMetricProducts: {
-  en: 'Products',
-  tr: 'Ürün',
+heroPillarEstimation: {
+  en: 'ESTIMATION',
+  tr: 'KESTİRİM',
 },
 
-homeMetricCore: {
-  en: 'Core Architecture',
-  tr: 'Çekirdek Mimari',
+heroPillarFusion: {
+  en: 'SENSOR FUSION',
+  tr: 'SENSÖR FÜZYONU',
 },
 
-homeMetricFounded: {
-  en: 'Founded',
-  tr: 'Kuruluş',
-},
-
-homeMetricGrowth: {
-  en: 'Expansion Potential',
-  tr: 'Gelişim Alanı',
+heroPillarIntegration: {
+  en: 'SOFTWARE INTEGRATION',
+  tr: 'YAZILIM ENTEGRASYONU',
 },
 
 /* --------------------
@@ -125,26 +120,17 @@ productsYayaDescription: {
   tr: 'Yaya Kestirimli Konumlama Yazılımı.',
 },
 
-
-/* --------------------
-   HOME / PLATFORMS
--------------------- */
 /* --------------------
    HOME / PLATFORMS
 -------------------- */
 platformsKicker: {
-  en: 'PLATFORMS',
-  tr: 'PLATFORMLAR',
-},
-
-platformsTitle: {
-  en: 'Designed for a wide range of platforms.',
-  tr: 'Geniş bir platform yelpazesi için tasarlanır.',
+  en: 'SOLUTION AREAS',
+  tr: 'ÇÖZÜM ALANLARI',
 },
 
 platformsLead: {
-  en: 'Ayrota technologies are structured for systems that require navigation, estimation, and motion intelligence in challenging environments.',
-  tr: 'Ayrota teknolojileri; zorlu ortamlarda navigasyon, kestirim ve hareket zekası gerektiren sistemler için yapılandırılır.',
+  en: 'Ayrota technologies are designed around navigation, estimation, data reliability, and software integration needs across autonomous and intelligent systems.',
+  tr: 'Ayrota teknolojileri; otonom ve akıllı sistemlerde navigasyon, kestirim, veri güvenilirliği ve yazılım entegrasyonu ihtiyaçları etrafında yapılandırılır.',
 },
 
 platformsGroundTitle: {
@@ -153,8 +139,8 @@ platformsGroundTitle: {
 },
 
 platformsGroundText: {
-  en: 'Ground vehicles, mobile platforms, and field robotics.',
-  tr: 'Kara araçları, mobil platformlar ve saha robotikleri.',
+  en: 'Software layers for ground vehicles, mobile platforms, and field robotics.',
+  tr: 'Kara araçları, mobil platformlar ve saha robotikleri için yazılım katmanları.',
 },
 
 platformsAirTitle: {
@@ -163,30 +149,74 @@ platformsAirTitle: {
 },
 
 platformsAirText: {
-  en: 'UAVs and aerial platforms requiring reliable motion estimation.',
-  tr: 'Güvenilir hareket kestirimi gerektiren UAV ve hava platformları.',
+  en: 'Navigation and estimation workflows for UAVs and aerial platforms.',
+  tr: 'UAV ve hava platformları için navigasyon ve kestirim iş akışları.',
 },
 
-platformsRoboticsTitle: {
-  en: 'Robotics',
-  tr: 'Robotik',
+platformsSmartTitle: {
+  en: 'Smart Platforms',
+  tr: 'Akıllı Platformlar',
 },
 
-platformsRoboticsText: {
-  en: 'Research, industrial robotics, and sensor-fusion based autonomy workflows.',
-  tr: 'Araştırma, endüstriyel robotik ve sensör füzyonu tabanlı otonomi akışları.',
+platformsSmartText: {
+  en: 'Sensor-driven systems that require motion awareness and autonomy logic.',
+  tr: 'Hareket farkındalığı ve otonomi mantığı gerektiren sensör tabanlı sistemler.',
 },
 
-platformsEmbeddedTitle: {
-  en: 'Embedded Systems',
-  tr: 'Gömülü Sistemler',
+platformsEndToEndTitle: {
+  en: 'End-to-End Solutions',
+  tr: 'Uçtan Uca Çözümler',
 },
 
-platformsEmbeddedText: {
-  en: 'Edge devices, constrained compute environments, and real-time software stacks.',
-  tr: 'Edge cihazlar, kaynak kısıtlı çalışma ortamları ve gerçek zamanlı yazılım yığınları.',
+platformsEndToEndText: {
+  en: 'End-to-end software solutions from sensor data to navigation output.',
+  tr: 'Sensör verisinden operasyonel yazılıma uçtan uca çözüm.',
 },
 
+
+/* --------------------
+   NEW / PROBLEM
+-------------------- */
+
+problemKicker: {
+  en: 'THE PROBLEM',
+  tr: 'PROBLEM ALANI',
+},
+
+problemLead: {
+  en: 'Autonomous systems often depend on external positioning sources. When those references become unreliable, maintaining continuous and trustworthy state estimation becomes a critical engineering challenge.',
+  tr: 'Otonom sistemler çoğu zaman harici konumlama kaynaklarına bağımlıdır. Bu referanslar güvenilirliğini kaybettiğinde, sürekli ve güvenilir durum kestirimi sağlamak kritik bir mühendislik problemine dönüşür.',
+},
+
+problemDeniedTitle: {
+  en: 'GNSS-Denied Environments',
+  tr: 'GNSS Olmayan Ortamlar',
+},
+
+problemDeniedText: {
+  en: 'Positioning signals may be degraded, blocked, or completely unavailable.',
+  tr: 'Konumlama sinyalleri zayıflayabilir, engellenebilir veya tamamen kaybolabilir.',
+},
+
+problemDynamicTitle: {
+  en: 'Dynamic Motion',
+  tr: 'Dinamik Hareket',
+},
+
+problemDynamicText: {
+  en: 'Rapidly changing motion profiles increase estimation complexity.',
+  tr: 'Hızla değişen hareket profilleri kestirim karmaşıklığını artırır.',
+},
+
+problemReliableTitle: {
+  en: 'Continuous Estimation',
+  tr: 'Sürekli Kestirim',
+},
+
+problemReliableText: {
+  en: 'Systems require reliable navigation outputs even when conditions deteriorate.',
+  tr: 'Koşullar kötüleştiğinde bile sistemler güvenilir navigasyon çıktısına ihtiyaç duyar.',
+},
 
 
 
@@ -279,6 +309,65 @@ footerPrivacy: {
 /* --------------------
    ILBER PAGE
 -------------------- */
+ilberFeatureDataDropout: {
+  en: 'Makes data dropouts visible',
+  tr: 'Veri kopmalarını görünür yapar',
+},
+
+ilberFeatureTimestamp: {
+  en: 'Detects timestamp and sampling issues',
+  tr: 'Zaman damgası ve örnekleme problemlerini yakalar',
+},
+
+ilberFeatureSensorHealth: {
+  en: 'Analyzes sensor health and signal quality',
+  tr: 'Sensör sağlığı ve sinyal kalitesini analiz eder',
+},
+
+ilberFeatureSessionReport: {
+  en: 'Produces session-level quality reports',
+  tr: 'Oturum bazlı kalite raporu üretir',
+},
+
+ilberMainStatement: {
+  en: 'What looks like an algorithm failure may actually be a data problem.',
+  tr: 'Algoritma hatası sandığınız şey, veri hatası olabilir.',
+},
+
+ilberMainStatementText: {
+  en: 'İlber helps teams separate data-originated problems from algorithmic behavior before development time is spent debugging the wrong layer.',
+  tr: 'İlber, ekiplerin geliştirme süresini yanlış katmanda hata arayarak harcamadan önce veri kaynaklı problemleri algoritmik davranıştan ayırmasına yardımcı olur.',
+},
+
+ilberCheckTitle: {
+  en: 'Check',
+  tr: 'Kontrol Et',
+},
+
+ilberCheckText: {
+  en: 'Validates raw IMU records for timing, continuity, format, and basic integrity.',
+  tr: 'Ham IMU kayıtlarını zaman, süreklilik, format ve temel bütünlük açısından doğrular.',
+},
+
+ilberAnalyzeTitle: {
+  en: 'Analyze',
+  tr: 'Analiz Et',
+},
+
+ilberAnalyzeText: {
+  en: 'Inspects noise, saturation, spectral behavior, motion structure, and consistency.',
+  tr: 'Gürültü, doygunluk, spektral davranış, hareket yapısı ve tutarlılığı inceler.',
+},
+
+ilberReportTitle: {
+  en: 'Report',
+  tr: 'Raporla',
+},
+
+ilberReportText: {
+  en: 'Generates session-level summaries that make data quality traceable and reviewable.',
+  tr: 'Veri kalitesini izlenebilir ve incelenebilir hale getiren oturum bazlı özetler üretir.',
+},
 ilberHeroKicker: {
   en: 'IMU Data Quality Assurance Platform',
   tr: 'IMU Veri Kalite Güvence Platformu',
@@ -294,33 +383,27 @@ ilberHeroLead: {
   tr: 'IMU verilerini algoritma geliştirme sürecine girmeden önce doğrulayan, analiz eden ve raporlayan kalite güvence platformu.',
 },
 
-ilberHeroText: {
-  en: 'İlber evaluates timing consistency, sensor health, signal quality, and motion behavior together to make data-related problems visible at an early stage.',
-  tr: 'İlber; zaman tutarlılığı, sensör sağlığı, sinyal kalitesi ve hareket davranışını birlikte değerlendirerek veri kaynaklı problemleri erken aşamada görünür hale getirir.',
+ilberCtaTitle: {
+  en: 'Validate IMU data before the algorithm.',
+  tr: 'IMU verisini algoritmadan önce doğrulayın.',
 },
 
+ilberCtaText: {
+  en: 'İlber provides a standardized data quality assurance layer for teams developing navigation, UAV, robotics, and sensor fusion systems.',
+  tr: 'İlber; navigasyon, UAV, robotik ve sensör füzyonu geliştiren ekipler için standartlaştırılmış veri kalite güvence katmanı sunar.',
+},
+
+ilberCtaButton: {
+  en: 'Get in touch',
+  tr: 'İletişime Geçin',
+},
 ilberTrustKicker: {
-  en: 'Data-centric assurance layer',
-  tr: 'Veri Odaklı Güvence Katmanı',
-},
-
-ilberTrustTitle: {
-  en: 'Make sensor data reliable.',
-  tr: 'Sensör verisini güvenilir hale getirir.',
-},
-
-ilberTrustText1: {
-  en: 'Dropouts, timestamp issues, saturation, and noise increases in field data are often interpreted as algorithmic failures.',
-  tr: 'Saha verilerindeki kopmalar, zaman damgası problemleri, doygunluklar ve gürültü artışları çoğu zaman algoritma hatası gibi yorumlanır.',
-},
-
-ilberTrustText2: {
-  en: 'İlber clarifies this distinction, helping teams identify data-originated problems earlier and manage development more controllably.',
-  tr: 'İlber, bu ayrımı netleştirerek ekiplerin ham veriden kaynaklanan problemleri daha erken görmesini ve geliştirme sürecini daha kontrollü yürütmesini sağlar.',
+  en: 'THE CHALLENGE',
+  tr: 'PROBLEM',
 },
 
 ilberModulesKicker: {
-  en: 'Analysis infrastructure',
+  en: 'Analysis Infrastructure',
   tr: 'Analiz Altyapısı',
 },
 
@@ -330,33 +413,18 @@ ilberModulesTitle: {
 },
 
 ilberSampleKicker: {
-  en: 'Platform Interface Demonstration',
-  tr: 'Platform Arayüz Gösterimi',
+  en: 'Platform Interface',
+  tr: 'Platform Arayüzü',
 },
 
 ilberSampleTitle: {
-  en: 'Sample İlber Analysis Module Report',
-  tr: 'İlber Analiz Modülü Çıktı Raporu Örneği',
+  en: 'Sample Analysis Report',
+  tr: 'Örnek Analiz Raporu',
 },
 
 ilberSampleText: {
-  en: 'Below is a representative reporting screen for İlber’s cadence stability analysis module.',
-  tr: 'Aşağıda, İlber’in ritim kararlılığı analiz modülünü temsil eden örnek bir raporlama ekranı yer almaktadır.',
-},
-
-ilberCtaTitle: {
-  en: 'Validate IMU data before the algorithm.',
-  tr: 'IMU verisini algoritmadan önce doğrulayın.',
-},
-
-ilberCtaText: {
-  en: 'İlber provides a standardized data quality assurance layer for teams developing navigation, PDR, UAV, robotics, and sensor fusion systems.',
-  tr: 'İlber; navigasyon, PDR, UAV, robotik ve sensör füzyonu geliştiren ekipler için standartlaştırılmış veri kalite güvence katmanı sunar.',
-},
-
-ilberCtaButton: {
-  en: 'Get in touch',
-  tr: 'İletişime Geçin',
+  en: 'A representative output from İlber’s IMU data analysis workflow.',
+  tr: 'İlber’in IMU veri analizini temsil eden örnek bir sayfa.',
 },
 
 /* --------------------

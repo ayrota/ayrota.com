@@ -1,196 +1,291 @@
 import { Link } from 'react-router-dom';
 
-import { Section } from '../components/Section';
 import { Footer } from '../components/footer';
 import { IlberCadenceMock } from '../components/IlberMock';
+import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
+
+const ILBER_FEATURE_KEYS = [
+  'ilberFeatureDataDropout',
+  'ilberFeatureTimestamp',
+  'ilberFeatureSensorHealth',
+  'ilberFeatureSessionReport',
+];
+
+const VALUE_CARDS = [
+  {
+    number: '01',
+    title: 'ilberCheckTitle',
+    text: 'ilberCheckText',
+  },
+  {
+    number: '02',
+    title: 'ilberAnalyzeTitle',
+    text: 'ilberAnalyzeText',
+  },
+  {
+    number: '03',
+    title: 'ilberReportTitle',
+    text: 'ilberReportText',
+  },
+];
+
+const MODULE_GROUPS = [
+  {
+    title: 'ilberDataLayerTitle',
+    items: [
+      'ilberQcTitle',
+      'ilberRepairTitle',
+      'ilberSensorDomainTitle',
+      'ilberSensorHealthTitle',
+      'ilberGnssTitle',
+      'ilberSpectralTitle',
+    ],
+  },
+  {
+    title: 'ilberMotionLayerTitle',
+    items: [
+      'ilberPhysicalTitle',
+      'ilberConsistencyTitle',
+      'ilberCadenceTitle',
+      'ilberWindowTitle',
+      'ilberMotionTitle',
+    ],
+  },
+  {
+    title: 'ilberFlightLayerTitle',
+    items: [
+      'ilberFlightPeriodicityTitle',
+      'ilberFlightStateTitle',
+      'ilberFlightStabilityTitle',
+      'ilberTrajectoryTitle',
+    ],
+  },
+  {
+    title: 'ilberReportLayerTitle',
+    items: ['ilberSessionReportTitle', 'ilberQualitySummary'],
+  },
+];
 
 export default function Ilber() {
   const { t } = useLanguage();
 
   return (
-    <main className="relative z-10 pt-28">
-      <Section id="ilber-hero" width="wide" className="py-20">
-        <div className="max-w-4xl">
-          <div className="text-xs tracking-widest text-muted uppercase">
-            {t('ilberHeroKicker')}
-          </div>
-
-          <h1 className="mt-5 text-5xl font-medium tracking-tight text-fg md:text-7xl">
-            {t('ilberHeroTitle')}
-          </h1>
-
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted">
-            {t('ilberHeroLead')}
-          </p>
-
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            {t('ilberHeroText')}
-          </p>
-        </div>
-      </Section>
-
-      <Section
-        id="ilber-problem"
-        width="wide"
-        className="py-14 border-t border-line/20"
+    <main className="relative z-10 bg-bg text-fg">
+      <section
+        id="ilber-hero"
+        className="relative overflow-hidden border-b border-fg/10 bg-bg pt-24 pb-12"
       >
-        <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-start">
-          <div>
-            <div className="text-xs tracking-widest text-muted uppercase">
-              {t('ilberTrustKicker')}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_24%,rgba(80,145,190,0.14),transparent_42%)]" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid min-h-[460px] border-b border-fg/10 md:grid-cols-[0.85fr_1.65fr]">
+              <div className="border-r border-fg/10 py-8 pr-8">
+                <Link
+                  to="/#products"
+                  className="text-[11px] font-semibold tracking-[0.18em] text-fg/45 transition hover:text-fg"
+                >
+                  ← AYROTA
+                </Link>
+
+                <div className="mt-10 text-[10px] font-semibold tracking-[0.22em] text-fg/45">
+                  {t('ilberHeroKicker')}
+                </div>
+
+                <h1 className="mt-4 text-6xl font-semibold leading-none tracking-[-0.06em] text-fg md:text-[104px]">
+                  {t('ilberHeroTitle')}
+                </h1>
+
+                <p className="mt-6 max-w-sm text-sm leading-7 text-fg/60">
+                  {t('ilberHeroLead')}
+                </p>
+
+                <ul className="mt-7 space-y-3">
+                  {ILBER_FEATURE_KEYS.map((key) => (
+                    <li
+                      key={key}
+                      className="flex items-center gap-3 text-[13px] text-fg/70"
+                    >
+                      <span className="text-cyan-300/80">✓</span>
+                      <span>{t(key)}</span>
+                    </li>
+                  ))}
+                </ul>
+
+              </div>
+
+              <div className="relative min-h-[420px] bg-bg/20">
+                <img
+                  src="/products/ilber.png"
+                  alt="İlber platform visualization"
+                  className="absolute inset-0 h-full w-full object-cover opacity-85"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-r from-bg/45 via-transparent to-bg/25" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/35 via-transparent to-bg/15" />
+              </div>
             </div>
-
-            <h2 className="mt-4 text-2xl font-medium leading-tight text-fg md:text-3xl">
-              {t('ilberTrustTitle')}
-            </h2>
-          </div>
-
-          <div className="space-y-5 text-sm leading-relaxed text-muted">
-            <p>{t('ilberTrustText1')}</p>
-            <p>{t('ilberTrustText2')}</p>
-          </div>
+          </Reveal>
         </div>
-      </Section>
+      </section>
 
-      <Section
-  id="ilber-modules"
-  width="wide"
-  className="py-16 border-t border-line/20"
->
-  <div className="text-xs tracking-widest text-muted uppercase">
-    {t('ilberModulesKicker')}
-  </div>
+      <section className="relative overflow-hidden border-b border-fg/10 bg-bg py-12">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="border-b border-fg/10 pb-10">
+              <div className="max-w-4xl">
+                <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
+                  {t('ilberTrustKicker')}
+                </div>
 
-  <h2 className="mt-4 text-2xl md:text-3xl font-medium leading-tight">
-    {t('ilberModulesTitle')}
-  </h2>
+                <h2 className="mt-5 max-w-4xl text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-fg md:text-6xl">
+                  {t('ilberMainStatement')}
+                </h2>
 
-  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
-    {t('ilberModulesIntro')}
-  </p>
+                <p className="mt-8 max-w-3xl text-base leading-8 text-fg/60">
+                  {t('ilberMainStatementText')}
+                </p>
+              </div>
+            </div>
+          </Reveal>
 
-  <div className="mt-10 grid gap-5 lg:grid-cols-2">
-    {[
-      {
-        title: t('ilberDataLayerTitle'),
-        text: t('ilberDataLayerText'),
-        items: [
-          t('ilberQcTitle'),
-          t('ilberRepairTitle'),
-          t('ilberSensorDomainTitle'),
-          t('ilberSensorHealthTitle'),
-          t('ilberGnssTitle'),
-          t('ilberSpectralTitle'),
-        ],
-      },
-      {
-        title: t('ilberMotionLayerTitle'),
-        text: t('ilberMotionLayerText'),
-        items: [
-          t('ilberPhysicalTitle'),
-          t('ilberConsistencyTitle'),
-          t('ilberCadenceTitle'),
-          t('ilberWindowTitle'),
-          t('ilberMotionTitle'),
-        ],
-      },
-      {
-        title: t('ilberFlightLayerTitle'),
-        text: t('ilberFlightLayerText'),
-        items: [
-          t('ilberFlightPeriodicityTitle'),
-          t('ilberFlightStateTitle'),
-          t('ilberFlightStabilityTitle'),
-          t('ilberTrajectoryTitle'),
-        ],
-      },
-      {
-        title: t('ilberReportLayerTitle'),
-        text: t('ilberReportLayerText'),
-        items: [
-          t('ilberSessionReportTitle'),
-          t('ilberQualitySummary'),
-        ],
-      },
-    ].map((group) => (
-      <div
-        key={group.title}
-        className="rounded-2xl border border-line/60 bg-panel/40 p-7 backdrop-blur shadow-soft"
+          <Reveal delay={0.12}>
+            <div className="mt-8 grid gap-5 border-b border-fg/10 pb-8 md:grid-cols-3">
+              {VALUE_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="min-h-[180px] border border-fg/10 bg-panel/20 p-6 transition hover:border-fg/25 hover:bg-panel/30"
+                >
+                  <div className="text-[11px] font-semibold tracking-[0.18em] text-fg/35">
+                    {card.number}
+                  </div>
+
+                  <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-fg">
+                    {t(card.title)}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-fg/55">
+                    {t(card.text)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section
+        id="ilber-modules"
+        className="relative overflow-hidden border-b border-fg/10 bg-bg py-12"
       >
-    
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(80,145,190,0.10),transparent_42%)]" />
 
-        <h3 className="mt-3 text-xl font-medium text-fg">
-          {group.title}
-        </h3>
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="mb-10 max-w-3xl">
+              <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
+                {t('ilberModulesKicker')}
+              </div>
 
-        <p className="mt-3 text-sm leading-relaxed text-muted">
-          {group.text}
-        </p>
+              <h2 className="mt-4 text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-fg md:text-6xl">
+                {t('ilberModulesTitle')}
+              </h2>
 
-        <div className="mt-6 flex flex-wrap gap-2">
-          {group.items.map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-line/60 bg-bg/40 px-3 py-1.5 text-xs text-muted"
-            >
-              {item}
-            </span>
-          ))}
+              <p className="mt-6 max-w-xl text-sm leading-7 text-fg/60">
+                {t('ilberModulesIntro')}
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {MODULE_GROUPS.map((group, index) => (
+              <Reveal key={group.title} delay={index * 0.08}>
+                <div className="min-h-[210px] border border-fg/10 bg-panel/20 p-7 backdrop-blur transition hover:border-fg/25 hover:bg-panel/30">
+                  <div className="text-[11px] font-semibold tracking-[0.18em] text-fg/35">
+                    0{index + 1}
+                  </div>
+
+                  <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-fg">
+                    {t(group.title)}
+                  </h3>
+
+                  <div className="mt-7 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="border border-fg/10 bg-bg/40 px-3 py-1.5 text-xs text-fg/55"
+                      >
+                        {t(item)}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-</Section>
+      </section>
 
-      <Section
+      <section
         id="sample-report"
-        width="wide"
-        className="py-16 border-t border-line/20"
+        className="relative overflow-hidden border-b border-fg/10 bg-bg py-12"
       >
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-10">
-            <p className="text-xs tracking-widest text-muted uppercase">
-              {t('ilberSampleKicker')}
-            </p>
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="mb-10 max-w-3xl">
+              <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
+                {t('ilberSampleKicker')}
+              </div>
 
-            <h2 className="mt-3 text-3xl font-medium text-fg">
-              {t('ilberSampleTitle')}
-            </h2>
+              <h2 className="mt-4 text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-fg md:text-6xl">
+                {t('ilberSampleTitle')}
+              </h2>
 
-            <p className="mt-4 text-sm text-muted leading-relaxed">
-              {t('ilberSampleText')}
-            </p>
-          </div>
+              <p className="mt-6 max-w-xl text-sm leading-7 text-fg/60">
+                {t('ilberSampleText')}
+              </p>
+            </div>
+          </Reveal>
 
-          <IlberCadenceMock />
+          <Reveal delay={0.12}>
+            <div className="border border-fg/10 bg-panel/20 p-4 backdrop-blur md:p-6">
+              <IlberCadenceMock />
+            </div>
+          </Reveal>
         </div>
-      </Section>
+      </section>
 
-      <Section
+      <section
         id="ilber-cta"
-        width="wide"
-        className="py-16 border-t border-line/20 bg-panel/10"
+        className="relative overflow-hidden border-b border-fg/10 bg-bg py-12"
       >
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl md:text-3xl font-medium text-fg">
-            {t('ilberCtaTitle')}
-          </h2>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(80,145,190,0.12),transparent_44%)]" />
 
-          <p className="mt-5 text-sm leading-relaxed text-muted max-w-2xl mx-auto">
-            {t('ilberCtaText')}
-          </p>
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+              <div>
+                <h2 className="max-w-3xl text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-fg md:text-6xl">
+                  {t('ilberCtaTitle')}
+                </h2>
 
-          <div className="mt-8">
-            <Link
-              to="/#contact"
-              className="inline-flex rounded-md border border-line bg-fg px-6 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-95"
-            >
-              {t('ilberCtaButton')}
-            </Link>
-          </div>
+                <p className="mt-6 max-w-2xl text-base leading-8 text-fg/60">
+                  {t('ilberCtaText')}
+                </p>
+              </div>
+
+              <Link
+                to="/#contact"
+                className="inline-flex items-center justify-center gap-6 border border-fg/25 px-6 py-3 text-[12px] font-semibold tracking-[0.1em] text-fg/85 transition hover:border-fg/60 hover:bg-fg/5"
+              >
+                {t('ilberCtaButton')}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
         </div>
-      </Section>
+      </section>
 
       <Footer />
     </main>
