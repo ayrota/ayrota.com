@@ -7,6 +7,7 @@ import { ScrollToHash } from './components/ScrollToHash';
 
 import { Hero } from './sections/Hero';
 import { Products } from './sections/Product';
+import { Platforms } from './sections/Platforms.tsx';
 import { Contact } from './sections/Contact';
 
 import Privacy from './pages/Privacy';
@@ -31,6 +32,7 @@ export default function App() {
             <main className="relative z-10">
               <Hero />
               <Products />
+              <Platforms />
               <Contact />
               <Footer />
             </main>

@@ -126,9 +126,66 @@ productsYayaDescription: {
 },
 
 
+/* --------------------
+   HOME / PLATFORMS
+-------------------- */
+/* --------------------
+   HOME / PLATFORMS
+-------------------- */
+platformsKicker: {
+  en: 'PLATFORMS',
+  tr: 'PLATFORMLAR',
+},
 
+platformsTitle: {
+  en: 'Designed for a wide range of platforms.',
+  tr: 'Geniş bir platform yelpazesi için tasarlanır.',
+},
 
+platformsLead: {
+  en: 'Ayrota technologies are structured for systems that require navigation, estimation, and motion intelligence in challenging environments.',
+  tr: 'Ayrota teknolojileri; zorlu ortamlarda navigasyon, kestirim ve hareket zekası gerektiren sistemler için yapılandırılır.',
+},
 
+platformsGroundTitle: {
+  en: 'Ground Systems',
+  tr: 'Kara Sistemleri',
+},
+
+platformsGroundText: {
+  en: 'Ground vehicles, mobile platforms, and field robotics.',
+  tr: 'Kara araçları, mobil platformlar ve saha robotikleri.',
+},
+
+platformsAirTitle: {
+  en: 'Air Systems',
+  tr: 'Hava Sistemleri',
+},
+
+platformsAirText: {
+  en: 'UAVs and aerial platforms requiring reliable motion estimation.',
+  tr: 'Güvenilir hareket kestirimi gerektiren UAV ve hava platformları.',
+},
+
+platformsRoboticsTitle: {
+  en: 'Robotics',
+  tr: 'Robotik',
+},
+
+platformsRoboticsText: {
+  en: 'Research, industrial robotics, and sensor-fusion based autonomy workflows.',
+  tr: 'Araştırma, endüstriyel robotik ve sensör füzyonu tabanlı otonomi akışları.',
+},
+
+platformsEmbeddedTitle: {
+  en: 'Embedded Systems',
+  tr: 'Gömülü Sistemler',
+},
+
+platformsEmbeddedText: {
+  en: 'Edge devices, constrained compute environments, and real-time software stacks.',
+  tr: 'Edge cihazlar, kaynak kısıtlı çalışma ortamları ve gerçek zamanlı yazılım yığınları.',
+},
 
 
 

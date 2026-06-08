@@ -39,8 +39,7 @@ export function Contact() {
                 className="grid gap-6"
               >
                 <input type="text" name="_gotcha" className="hidden" />
-                <input type="hidden" name="_redirect" value="/#contact" />
-
+<input type="hidden" name="_redirect" value="/" />
                 <Field label={t('contactLabelOrg')}>
                   <input
                     type="text"
