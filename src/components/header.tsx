@@ -16,7 +16,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'ŞİRKET',
-    items: ['Hakkımızda', 'Kariyer', 'İletişim'],
+    items: ['Hakkımızda', 'İletişim'],
   },
 ];
 

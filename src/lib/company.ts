@@ -10,7 +10,6 @@ export const COMPANY = {
 
   coreArchitectures: 1,
 
-  growthPotential: '∞',
 };
 
 export const developmentYears =
