@@ -1,4 +1,8 @@
+import type { ReactNode } from 'react';
+
+import { Counter } from '../components/Counter';
 import { useLanguage } from '../lib/LanguageContext';
+import { COMPANY, developmentYears } from '../lib/company';
 
 export function Hero() {
   const { t } = useLanguage();
@@ -38,31 +42,34 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="mt-28">
-              <div className="grid grid-cols-2 gap-6 border-t border-fg/10 pt-8 md:grid-cols-5">
-                <Capability
-                  number="01"
-                  label={t('homeCapabilityNavigation')}
+            <div className="mt-24">
+              <div className="grid grid-cols-1 border-t border-fg/10 pt-8 md:grid-cols-3">
+                <Metric
+                  value={
+                    <Counter
+                      value={developmentYears}
+                      suffix="+"
+                    />
+                  }
+                  label={t('homeMetricYears')}
                 />
 
-                <Capability
-                  number="02"
-                  label={t('homeCapabilityFusion')}
+                <Metric
+                  value={
+                    <Counter
+                      value={COMPANY.products.length}
+                    />
+                  }
+                  label={t('homeMetricProducts')}
                 />
 
-                <Capability
-                  number="03"
-                  label={t('homeCapabilityAi')}
-                />
-
-                <Capability
-                  number="04"
-                  label={t('homeCapabilityEmbedded')}
-                />
-
-                <Capability
-                  number="05"
-                  label={t('homeCapabilityAutonomy')}
+                <Metric
+                  value={
+                    <Counter
+                      value={COMPANY.coreArchitectures}
+                    />
+                  }
+                  label={t('homeMetricCore')}
                 />
               </div>
             </div>
@@ -73,20 +80,20 @@ export function Hero() {
   );
 }
 
-function Capability({
-  number,
+function Metric({
+  value,
   label,
 }: {
-  number: string;
+  value: ReactNode;
   label: string;
 }) {
   return (
-    <div className="border-l border-fg/10 pl-6">
-      <div className="text-[11px] tracking-[0.22em] text-fg/35">
-        {number}
+    <div className="border-l border-fg/10 pl-8 py-2">
+      <div className="text-[54px] font-semibold leading-none tracking-[-0.04em] text-fg">
+        {value}
       </div>
 
-      <div className="mt-4 text-[18px] font-medium leading-tight text-fg/85">
+      <div className="mt-4 text-[13px] font-medium text-fg/50">
         {label}
       </div>
     </div>

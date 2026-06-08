@@ -7,11 +7,6 @@ import { ScrollToHash } from './components/ScrollToHash';
 
 import { Hero } from './sections/Hero';
 import { Products } from './sections/Product';
-import { Approach } from './sections/Approach';
-import { Core } from './sections/Core';
-import { Capabilities } from './sections/Capabilities';
-import { Provisioning } from './sections/Provisioning';
-import { EarlyAccess } from './sections/EarlyAccess';
 import { Contact } from './sections/Contact';
 
 import Privacy from './pages/Privacy';
@@ -36,11 +31,6 @@ export default function App() {
             <main className="relative z-10">
               <Hero />
               <Products />
-              <Approach />
-              <Core />
-              <Capabilities />
-              <Provisioning />
-              <EarlyAccess />
               <Contact />
               <Footer />
             </main>

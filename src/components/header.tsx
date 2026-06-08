@@ -15,25 +15,8 @@ const NAV_ITEMS: NavItem[] = [
     items: ['ALKON', 'KARGAH', 'YAYA', 'YÖRÜK', 'İLBER'],
   },
   {
-    label: 'ENDÜSTRİLER',
-    items: ['Savunma', 'Sivil', 'Çift Kullanım', 'Akademik'],
-  },
-  {
-    label: 'TEKNOLOJİ',
-    items: [
-      'Sensör Füzyonu',
-      'Ataletsel Navigasyon',
-      'AI Kestirim',
-      'Gömülü Mimari',
-    ],
-  },
-  {
     label: 'ŞİRKET',
-    items: ['Hakkımızda', 'Kariyer', 'Haberler', 'İletişim'],
-  },
-  {
-    label: 'KAYNAKLAR',
-    items: ['Dokümantasyon', 'Blog', 'Etkinlikler'],
+    items: ['Hakkımızda', 'Kariyer', 'İletişim'],
   },
 ];
 
