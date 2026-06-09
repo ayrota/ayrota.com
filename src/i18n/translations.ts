@@ -373,6 +373,306 @@ ilberFinalCtaAccent: {
   tr: 'Analizi yapalım.',
 },
 
+
+/* --------------------
+   ALKON PAGE
+-------------------- */
+
+alkonHeroStatement: {
+  en: 'Navigation without assuming GNSS.',
+  tr: 'GNSS varsaymadan navigasyon.',
+},
+
+alkonHeroText: {
+  en: 'ALKON is an IMU-focused navigation core designed to support autonomous systems when external positioning references become unreliable or unavailable.',
+  tr: 'ALKON, harici konumlama referansları güvenilir olmadığında veya tamamen kaybolduğunda otonom sistemleri desteklemek için geliştirilen IMU odaklı navigasyon çekirdeğidir.',
+},
+
+alkonMiniImu: {
+  en: 'IMU-only.',
+  tr: 'IMU odaklı',
+},
+
+alkonMiniGnss: {
+  en: 'GNSS-denied.',
+  tr: 'GNSS olmayan ortamlar',
+},
+
+alkonMiniDrift: {
+  en: 'Bounded drift.',
+  tr: 'Kontrollü sapma',
+},
+
+alkonMiniRealtime: {
+  en: 'Real-time.',
+  tr: 'Gerçek zamanlı',
+},
+
+alkonScopeTitle: {
+  en: 'TECHNICAL SCOPE',
+  tr: 'TEKNİK KAPSAM',
+},
+
+alkonScopeImuOnly: {
+  en: 'IMU-only navigation',
+  tr: 'IMU odaklı navigasyon',
+},
+
+alkonScopeGnssDenied: {
+  en: 'GNSS-denied operation',
+  tr: 'GNSS olmayan ortamda çalışma',
+},
+
+alkonScopeBoundedDrift: {
+  en: 'Bounded drift behaviour',
+  tr: 'Kontrollü sapma davranışı',
+},
+
+alkonScopeRealtime: {
+  en: 'Real-time output',
+  tr: 'Gerçek zamanlı çıktı',
+},
+
+alkonScopeResidualLearning: {
+  en: 'Residual learning correction',
+  tr: 'Artık hata öğrenimi',
+},
+
+alkonScopePhysics: {
+  en: 'Physics-consistent modelling',
+  tr: 'Fizik tutarlı modelleme',
+},
+
+alkonScopeIntegration: {
+  en: 'MAVLink / ROS integration',
+  tr: 'MAVLink / ROS entegrasyonu',
+},
+
+alkonScopeMission: {
+  en: 'Mission-level interface',
+  tr: 'Görev seviyesi arayüz',
+},
+
+alkonScopeEmbedded: {
+  en: 'Embedded deployment',
+  tr: 'Gömülü dağıtım',
+},
+
+alkonScopeValidation: {
+  en: 'Validation workflow',
+  tr: 'Doğrulama iş akışı',
+},
+
+alkonHowItWorks: {
+  en: 'HOW IT WORKS',
+  tr: 'NASIL ÇALIŞIR?',
+},
+
+alkonWorkflowInputTitle: {
+  en: 'Read inertial data.',
+  tr: 'Ataletsel veriyi alır.',
+},
+
+alkonWorkflowInputText: {
+  en: 'Receives raw IMU measurements from the target platform.',
+  tr: 'Hedef platformdan ham IMU ölçümlerini alır.',
+},
+
+alkonWorkflowEstimateTitle: {
+  en: 'Estimate motion.',
+  tr: 'Hareketi kestirir.',
+},
+
+alkonWorkflowEstimateText: {
+  en: 'Combines inertial propagation with learned residual correction.',
+  tr: 'Ataletsel yayılımı öğrenilmiş artık hata düzeltmesiyle birleştirir.',
+},
+
+alkonWorkflowBoundTitle: {
+  en: 'Control drift.',
+  tr: 'Sapmayı kontrol eder.',
+},
+
+alkonWorkflowBoundText: {
+  en: 'Keeps error growth predictable within characterised operating limits.',
+  tr: 'Hata büyümesini tanımlı çalışma sınırları içinde öngörülebilir tutar.',
+},
+
+alkonWorkflowIntegrateTitle: {
+  en: 'Integrate with systems.',
+  tr: 'Sistemlere entegre olur.',
+},
+
+alkonWorkflowIntegrateText: {
+  en: 'Provides navigation outputs to higher-level mission and control layers.',
+  tr: 'Üst seviye görev ve kontrol katmanlarına navigasyon çıktısı sağlar.',
+},
+
+alkonFinalCtaTitle: {
+  en: 'Evaluate GNSS-denied navigation.',
+  tr: 'GNSS olmayan navigasyonu değerlendirin.',
+},
+
+alkonFinalCtaAccent: {
+  en: 'Start with a technical pilot.',
+  tr: 'Teknik pilotla başlayın.',
+},
+
+alkonCtaButton: {
+  en: 'REQUEST PILOT',
+  tr: 'PİLOT TALEP ET',
+},
+
+
+/* --------------------
+   YAYA PAGE
+-------------------- */
+
+yayaHeroStatement: {
+  en: 'Pedestrian positioning when GNSS is unavailable.',
+  tr: 'GNSS olmadığında yaya konum kestirimi.',
+},
+
+yayaHeroText: {
+  en: 'YAYA is a pedestrian dead reckoning software layer that estimates pedestrian motion and position from inertial signals in indoor or GNSS-limited environments.',
+  tr: 'YAYA, kapalı veya GNSS’in sınırlı olduğu ortamlarda ataletsel sinyallerden yaya hareketini ve konumunu kestiren PDR yazılım katmanıdır.',
+},
+
+yayaMiniPdr: {
+  en: 'PDR.',
+  tr: 'PDR',
+},
+
+yayaMiniIndoor: {
+  en: 'Indoor.',
+  tr: 'Kapalı alan',
+},
+
+yayaMiniImu: {
+  en: 'IMU-based.',
+  tr: 'IMU tabanlı',
+},
+
+yayaMiniRealtime: {
+  en: 'Real-time.',
+  tr: 'Gerçek zamanlı',
+},
+
+yayaScopeTitle: {
+  en: 'TECHNICAL SCOPE',
+  tr: 'TEKNİK KAPSAM',
+},
+
+yayaScopePdr: {
+  en: 'Pedestrian dead reckoning',
+  tr: 'Yaya kestirimli konumlama',
+},
+
+yayaScopeStep: {
+  en: 'Step detection',
+  tr: 'Adım tespiti',
+},
+
+yayaScopeHeading: {
+  en: 'Heading estimation',
+  tr: 'Yönelim kestirimi',
+},
+
+yayaScopeImu: {
+  en: 'IMU-based motion input',
+  tr: 'IMU tabanlı hareket girdisi',
+},
+
+yayaScopeIndoor: {
+  en: 'Indoor positioning',
+  tr: 'Kapalı alan konumlama',
+},
+
+yayaScopeMotion: {
+  en: 'Motion classification',
+  tr: 'Hareket sınıflandırma',
+},
+
+yayaScopeCorrection: {
+  en: 'Drift correction logic',
+  tr: 'Sapma düzeltme mantığı',
+},
+
+yayaScopeRealtime: {
+  en: 'Real-time output',
+  tr: 'Gerçek zamanlı çıktı',
+},
+
+yayaScopeMobile: {
+  en: 'Mobile integration',
+  tr: 'Mobil entegrasyon',
+},
+
+yayaScopeValidation: {
+  en: 'Validation workflow',
+  tr: 'Doğrulama iş akışı',
+},
+
+yayaHowItWorks: {
+  en: 'HOW IT WORKS',
+  tr: 'NASIL ÇALIŞIR?',
+},
+
+yayaWorkflowInputTitle: {
+  en: 'Read motion signals.',
+  tr: 'Hareket sinyallerini alır.',
+},
+
+yayaWorkflowInputText: {
+  en: 'Receives inertial measurements from mobile or wearable sensors.',
+  tr: 'Mobil veya giyilebilir sensörlerden ataletsel ölçümleri alır.',
+},
+
+yayaWorkflowDetectTitle: {
+  en: 'Detect pedestrian motion.',
+  tr: 'Yaya hareketini algılar.',
+},
+
+yayaWorkflowDetectText: {
+  en: 'Identifies walking patterns, step events, and motion phases.',
+  tr: 'Yürüme örüntülerini, adım olaylarını ve hareket fazlarını belirler.',
+},
+
+yayaWorkflowEstimateTitle: {
+  en: 'Estimate position.',
+  tr: 'Konumu kestirir.',
+},
+
+yayaWorkflowEstimateText: {
+  en: 'Uses PDR logic to estimate pedestrian displacement and direction.',
+  tr: 'PDR mantığıyla yaya yer değiştirmesini ve yönünü kestirir.',
+},
+
+yayaWorkflowOutputTitle: {
+  en: 'Deliver navigation output.',
+  tr: 'Navigasyon çıktısı üretir.',
+},
+
+yayaWorkflowOutputText: {
+  en: 'Provides position and movement outputs for higher-level applications.',
+  tr: 'Üst seviye uygulamalar için konum ve hareket çıktıları sağlar.',
+},
+
+yayaFinalCtaTitle: {
+  en: 'Evaluate indoor pedestrian positioning.',
+  tr: 'Kapalı alan yaya konumlamasını değerlendirin.',
+},
+
+yayaFinalCtaAccent: {
+  en: 'Start with a technical pilot.',
+  tr: 'Teknik pilotla başlayın.',
+},
+
+yayaCtaButton: {
+  en: 'REQUEST PILOT',
+  tr: 'PİLOT TALEP ET',
+},
+
 /* --------------------
    PRIVACY / DATA NOTICE
 -------------------- */

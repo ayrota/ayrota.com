@@ -13,6 +13,7 @@ import { Problem } from './sections/Problem';
 
 import Privacy from './pages/Privacy';
 import Ilber from './pages/İlber';
+import Alkon from './pages/Alkon';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
 
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/ilber" element={<Ilber />} />
+        <Route path="/alkon" element={<Alkon />} />
       </Routes>
     </div>
   );
