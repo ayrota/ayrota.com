@@ -22,7 +22,7 @@ export function Problem() {
   return (
     <section
       id="problem"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg py-24"
+      className="relative overflow-hidden border-t border-fg/10 bg-bg py-10"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(80,145,190,0.08),transparent_42%)]" />
 
@@ -42,8 +42,8 @@ export function Problem() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="mt-8 border-b border-fg/10 pb-8">
-            <div className="grid gap-5 md:grid-cols-3">
+          <div className="mt-8">
+  <div className="grid gap-10 md:grid-cols-3">
               {PROBLEM_ITEMS.map((item, index) => (
                 <div
                   key={item.title}

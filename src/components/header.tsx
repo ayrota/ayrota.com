@@ -28,7 +28,7 @@ const NAV_ITEMS: NavItem[] = [
   {
     label: 'ŞİRKET',
     items: [
-      { label: 'Hakkımızda', href: '/#hero' },
+      { label: 'Anasayfa', href: '/#hero' },
       { label: 'İletişim', href: '/#contact' },
     ],
   },

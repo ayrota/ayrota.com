@@ -54,7 +54,7 @@ export function Platforms() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="mt-8 grid gap-5 border-b border-fg/10 pb-8 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-8 grid gap-5 border-fg/10 pb-8 md:grid-cols-2 xl:grid-cols-4">
             {PLATFORM_ITEMS.map((item) => (
               <div
                 key={item.title}

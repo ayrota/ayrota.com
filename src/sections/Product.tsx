@@ -92,7 +92,7 @@ export function Products() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="mt-8 border-b border-fg/10 pb-8">
+          <div className="mt-8 ">
             <div className="mb-4 flex items-center justify-between">
               <div className="text-[11px] font-semibold tracking-[0.22em] text-fg/55">
                 {t('productsOtherTitle')}

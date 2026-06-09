@@ -220,38 +220,6 @@ problemReliableText: {
 
 
 
-
-
-
-
-
-
-
-sectionApproach: {
-  en: 'Approach',
-  tr: 'Yaklaşım',
-},
-
-sectionCore: {
-  en: 'Core',
-  tr: 'Çekirdek Yapı',
-},
-
-sectionProvisioning: {
-  en: 'Provisioning',
-  tr: 'Erişim ve Kullanım',
-},
-
-sectionEarlyAccess: {
-  en: 'Early Access',
-  tr: 'Erken Erişim',
-},
-
-sectionContact: {
-  en: 'Contact',
-  tr: 'İletişim',
-},
-
 /* --------------------
    CONTACT
 -------------------- */
@@ -309,252 +277,102 @@ footerPrivacy: {
 /* --------------------
    ILBER PAGE
 -------------------- */
-ilberFeatureDataDropout: {
-  en: 'Makes data dropouts visible',
-  tr: 'Veri kopmalarını görünür yapar',
+ilberHeroStatement: {
+  en: 'Learn whether your IMU data is reliable.',
+  tr: 'IMU verinizin güvenilir olup olmadığını öğrenin',
 },
 
-ilberFeatureTimestamp: {
-  en: 'Detects timestamp and sampling issues',
-  tr: 'Zaman damgası ve örnekleme problemlerini yakalar',
+ilberHeroText: {
+  en: 'İlber analyzes your data end-to-end, detects critical problems, and delivers engineering-ready quality reports.',
+  tr: 'İlber, verinizi tüm yönleriyle analiz eder, kritik problemleri tespit eder ve mühendislik raporuyla size sunar.',
 },
 
-ilberFeatureSensorHealth: {
-  en: 'Analyzes sensor health and signal quality',
-  tr: 'Sensör sağlığı ve sinyal kalitesini analiz eder',
-},
-
-ilberFeatureSessionReport: {
-  en: 'Produces session-level quality reports',
-  tr: 'Oturum bazlı kalite raporu üretir',
-},
-
-ilberMainStatement: {
-  en: 'What looks like an algorithm failure may actually be a data problem.',
-  tr: 'Algoritma hatası sandığınız şey, veri hatası olabilir.',
-},
-
-ilberMainStatementText: {
-  en: 'İlber helps teams separate data-originated problems from algorithmic behavior before development time is spent debugging the wrong layer.',
-  tr: 'İlber, ekiplerin geliştirme süresini yanlış katmanda hata arayarak harcamadan önce veri kaynaklı problemleri algoritmik davranıştan ayırmasına yardımcı olur.',
-},
-
-ilberCheckTitle: {
-  en: 'Check',
-  tr: 'Kontrol Et',
-},
-
-ilberCheckText: {
-  en: 'Validates raw IMU records for timing, continuity, format, and basic integrity.',
-  tr: 'Ham IMU kayıtlarını zaman, süreklilik, format ve temel bütünlük açısından doğrular.',
-},
-
-ilberAnalyzeTitle: {
-  en: 'Analyze',
-  tr: 'Analiz Et',
-},
-
-ilberAnalyzeText: {
-  en: 'Inspects noise, saturation, spectral behavior, motion structure, and consistency.',
-  tr: 'Gürültü, doygunluk, spektral davranış, hareket yapısı ve tutarlılığı inceler.',
-},
-
-ilberReportTitle: {
-  en: 'Report',
-  tr: 'Raporla',
-},
-
-ilberReportText: {
-  en: 'Generates session-level summaries that make data quality traceable and reviewable.',
-  tr: 'Veri kalitesini izlenebilir ve incelenebilir hale getiren oturum bazlı özetler üretir.',
-},
-ilberHeroKicker: {
-  en: 'IMU Data Quality Assurance Platform',
-  tr: 'IMU Veri Kalite Güvence Platformu',
-},
-
-ilberHeroTitle: {
-  en: 'İlber',
-  tr: 'İlber',
-},
-
-ilberHeroLead: {
-  en: 'A quality assurance platform that validates, analyzes, and reports IMU data before it enters the algorithm development process.',
-  tr: 'IMU verilerini algoritma geliştirme sürecine girmeden önce doğrulayan, analiz eden ve raporlayan kalite güvence platformu.',
-},
-
-ilberCtaTitle: {
-  en: 'Validate IMU data before the algorithm.',
-  tr: 'IMU verisini algoritmadan önce doğrulayın.',
-},
-
-ilberCtaText: {
-  en: 'İlber provides a standardized data quality assurance layer for teams developing navigation, UAV, robotics, and sensor fusion systems.',
-  tr: 'İlber; navigasyon, UAV, robotik ve sensör füzyonu geliştiren ekipler için standartlaştırılmış veri kalite güvence katmanı sunar.',
-},
-
-ilberCtaButton: {
-  en: 'Get in touch',
-  tr: 'İletişime Geçin',
-},
-ilberTrustKicker: {
-  en: 'THE CHALLENGE',
-  tr: 'PROBLEM',
-},
-
-ilberModulesKicker: {
-  en: 'Analysis Infrastructure',
-  tr: 'Analiz Altyapısı',
-},
-
-ilberModulesTitle: {
-  en: 'Platform Modules',
-  tr: 'Platform Modülleri',
-},
-
-ilberSampleKicker: {
-  en: 'Platform Interface',
-  tr: 'Platform Arayüzü',
-},
-
-ilberSampleTitle: {
-  en: 'Sample Analysis Report',
-  tr: 'Örnek Analiz Raporu',
-},
-
-ilberSampleText: {
-  en: 'A representative output from İlber’s IMU data analysis workflow.',
-  tr: 'İlber’in IMU veri analizini temsil eden örnek bir sayfa.',
-},
-
-/* --------------------
-   İLBER MODULES
--------------------- */
-ilberModulesIntro: {
-  en: 'İlber combines the quality assurance workflow from raw data to reporting under layered analysis capabilities.',
-  tr: 'İlber, ham veriden rapora uzanan kalite güvence sürecini farklı analiz katmanları altında birleştirir.',
-},
-
-ilberDataLayerTitle: {
-  en: 'Data Assurance Layer',
-  tr: 'Veri Güvence Katmanı',
-},
-ilberDataLayerText: {
-  en: 'Evaluates the reliability of IMU and supporting sensor records before analysis.',
-  tr: 'IMU ve destekleyici sensör kayıtlarının analiz öncesi güvenilirliğini değerlendirir.',
-},
-
-ilberMotionLayerTitle: {
-  en: 'Motion and Consistency Layer',
-  tr: 'Hareket ve Tutarlılık Katmanı',
-},
-ilberMotionLayerText: {
-  en: 'Analyzes motion structure, rhythm behavior, segmentation, and consistency across recordings.',
-  tr: 'Hareket yapısını, ritim davranışını, segmentasyonu ve kayıtlar arası tutarlılığı analiz eder.',
-},
-
-ilberFlightLayerTitle: {
-  en: 'Flight Analysis Layer',
-  tr: 'Uçuş Analiz Katmanı',
-},
-ilberFlightLayerText: {
-  en: 'Evaluates periodicity, flight states, stability, and trajectory behavior for UAV and dynamic platforms.',
-  tr: 'UAV ve dinamik platformlar için periyodiklik, uçuş durumları, kararlılık ve rota davranışlarını değerlendirir.',
-},
-
-ilberReportLayerTitle: {
-  en: 'Reporting and Traceability',
-  tr: 'Raporlama ve İzlenebilirlik',
-},
-ilberReportLayerText: {
-  en: 'Consolidates analysis outputs into session-level quality assurance reports.',
-  tr: 'Tüm analiz çıktılarını oturum bazlı kalite güvence raporları altında birleştirir.',
+ilberSendData: {
+  en: 'Contact us to send your data for evaluation.',
+  tr: 'Analiz için iletişim',
 },
 
 
-ilberQualitySummary: {
-  en: 'Quality Summary',
-  tr: 'Kalite Özeti',
-},
-ilberQcTitle: {
+ilberMiniDetect: {
   en: 'Quality Control',
-  tr: 'Kalite Kontrol',
+  tr: 'Kalite kontrol',
 },
 
-ilberRepairTitle: {
+ilberMiniAnalyze: {
+  en: 'Analyze',
+  tr: 'Analiz',
+},
+
+ilberMiniRepair: {
   en: 'Repair',
   tr: 'Onarım',
 },
 
-ilberSensorDomainTitle: {
-  en: 'Sensor Domain Analysis',
-  tr: 'Sensör Domain Analizi',
+ilberMiniValidate: {
+  en: 'Report',
+  tr: 'Rapor',
 },
 
-ilberSensorHealthTitle: {
-  en: 'Sensor Health Analysis',
-  tr: 'Sensör Sağlık Analizi',
+ilberAnalysisScope: {
+  en: 'ANALYSIS SCOPE',
+  tr: 'ANALİZ KAPSAMIMIZ',
 },
 
-ilberGnssTitle: {
-  en: 'GNSS Quality Analysis',
-  tr: 'GNSS Kalite Analizi',
+ilberHowItWorks: {
+  en: 'HOW IT WORKS',
+  tr: 'NASIL ÇALIŞIR?',
 },
 
-ilberSpectralTitle: {
-  en: 'Spectral Analysis',
-  tr: 'Spektral Analiz',
+ilberWorkflowSendTitle: {
+  en: 'Send your data.',
+  tr: 'Veri Analizi .',
 },
 
-ilberPhysicalTitle: {
-  en: 'Physical Consistency Checks',
-  tr: 'Fiziksel Tutarlılık Kontrolleri',
+ilberWorkflowSendText: {
+  en: 'Share your IMU dataset securely for technical review.',
+  tr: 'IMU veri setinizi güvenli şekilde bize iletin.',
 },
 
-ilberConsistencyTitle: {
-  en: 'Consistency Analysis',
-  tr: 'Tutarlılık Analizi',
+ilberWorkflowAnalyzeTitle: {
+  en: 'We analyze it.',
+  tr: 'Analizi  yapalım.',
 },
 
-ilberCadenceTitle: {
-  en: 'Cadence Analysis',
-  tr: 'Ritim Analizi',
+ilberWorkflowAnalyzeText: {
+  en: 'Your data is evaluated through İlber analysis modules.',
+  tr: 'Veriniz İlber analiz modülleriyle değerlendirilir.',
 },
 
-ilberWindowTitle: {
-  en: 'Window Analysis',
-  tr: 'Pencere Analizi',
+ilberWorkflowReportTitle: {
+  en: 'Receive your report.',
+  tr: 'Raporunuzu alın.',
 },
 
-ilberMotionTitle: {
-  en: 'Motion Analysis',
-  tr: 'Hareket Analizi',
+ilberWorkflowReportText: {
+  en: 'Get a structured engineering report with quality findings.',
+  tr: 'Kalite bulgularını içeren mühendislik raporunuzu alın.',
 },
 
-ilberFlightPeriodicityTitle: {
-  en: 'Flight Periodicity Analysis',
-  tr: 'Uçuş Periyodiklik Analizi',
+ilberWorkflowPreventTitle: {
+  en: 'See problems early.',
+  tr: 'Problemleri erken görün.',
 },
 
-ilberFlightStateTitle: {
-  en: 'Flight State Classification',
-  tr: 'Uçuş Durumu Sınıflandırması',
+ilberWorkflowPreventText: {
+  en: 'Reduce debugging time before algorithm development begins.',
+  tr: 'Algoritma geliştirme başlamadan hata ayıklama süresini azaltın.',
 },
 
-ilberFlightStabilityTitle: {
-  en: 'Flight Stability Analysis',
-  tr: 'Uçuş Kararlılık Analizi',
+ilberFinalCtaTitle: {
+  en: 'Send your data.',
+  tr: 'Verinizi gönderin.',
 },
 
-ilberTrajectoryTitle: {
-  en: 'Trajectory Analysis',
-  tr: 'Rota Analizi',
+ilberFinalCtaAccent: {
+  en: 'Let us analyze it.',
+  tr: 'Analizi yapalım.',
 },
 
-ilberSessionReportTitle: {
-  en: 'Session Report',
-  tr: 'Oturum Raporu',
-},
 /* --------------------
    PRIVACY / DATA NOTICE
 -------------------- */
