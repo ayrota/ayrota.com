@@ -277,6 +277,9 @@ footerPrivacy: {
 /* --------------------
    ILBER PAGE
 -------------------- */
+/* --------------------
+   ILBER PAGE
+-------------------- */
 ilberHeroStatement: {
   en: 'Learn whether your IMU data is reliable.',
   tr: 'IMU verinizin güvenilir olup olmadığını öğrenin',
@@ -291,7 +294,6 @@ ilberSendData: {
   en: 'Contact us to send your data for evaluation.',
   tr: 'Analiz için iletişim',
 },
-
 
 ilberMiniDetect: {
   en: 'Quality Control',
@@ -318,6 +320,56 @@ ilberAnalysisScope: {
   tr: 'ANALİZ KAPSAMIMIZ',
 },
 
+ilberRepairTitle: {
+  en: 'Repair',
+  tr: 'Onarım',
+},
+
+ilberSensorDomainTitle: {
+  en: 'Sensor Domain Analysis',
+  tr: 'Sensör Domain Analizi',
+},
+
+ilberSensorHealthTitle: {
+  en: 'Sensor Health Analysis',
+  tr: 'Sensör Sağlık Analizi',
+},
+
+ilberGnssTitle: {
+  en: 'GNSS Quality Analysis',
+  tr: 'GNSS Kalite Analizi',
+},
+
+ilberSpectralTitle: {
+  en: 'Spectral Analysis',
+  tr: 'Spektral Analiz',
+},
+
+ilberPhysicalTitle: {
+  en: 'Physical Consistency Checks',
+  tr: 'Fiziksel Tutarlılık Kontrolleri',
+},
+
+ilberConsistencyTitle: {
+  en: 'Consistency Analysis',
+  tr: 'Tutarlılık Analizi',
+},
+
+ilberCadenceTitle: {
+  en: 'Cadence Analysis',
+  tr: 'Ritim Analizi',
+},
+
+ilberMotionTitle: {
+  en: 'Motion Analysis',
+  tr: 'Hareket Analizi',
+},
+
+ilberSessionReportTitle: {
+  en: 'Session Report',
+  tr: 'Oturum Raporu',
+},
+
 ilberHowItWorks: {
   en: 'HOW IT WORKS',
   tr: 'NASIL ÇALIŞIR?',
@@ -325,17 +377,17 @@ ilberHowItWorks: {
 
 ilberWorkflowSendTitle: {
   en: 'Send your data.',
-  tr: 'Veri Analizi .',
+  tr: 'Verinizi gönderin.',
 },
 
 ilberWorkflowSendText: {
   en: 'Share your IMU dataset securely for technical review.',
-  tr: 'IMU veri setinizi güvenli şekilde bize iletin.',
+  tr: 'IMU veri setinizi güvenli şekilde teknik inceleme için iletin.',
 },
 
 ilberWorkflowAnalyzeTitle: {
   en: 'We analyze it.',
-  tr: 'Analizi  yapalım.',
+  tr: 'Analiz edelim.',
 },
 
 ilberWorkflowAnalyzeText: {
@@ -350,7 +402,7 @@ ilberWorkflowReportTitle: {
 
 ilberWorkflowReportText: {
   en: 'Get a structured engineering report with quality findings.',
-  tr: 'Kalite bulgularını içeren mühendislik raporunuzu alın.',
+  tr: 'Kalite bulgularını içeren yapılandırılmış mühendislik raporunuzu alın.',
 },
 
 ilberWorkflowPreventTitle: {
@@ -360,7 +412,7 @@ ilberWorkflowPreventTitle: {
 
 ilberWorkflowPreventText: {
   en: 'Reduce debugging time before algorithm development begins.',
-  tr: 'Algoritma geliştirme başlamadan hata ayıklama süresini azaltın.',
+  tr: 'Algoritma geliştirme başlamadan önce hata ayıklama süresini azaltın.',
 },
 
 ilberFinalCtaTitle: {
@@ -372,7 +424,6 @@ ilberFinalCtaAccent: {
   en: 'Let us analyze it.',
   tr: 'Analizi yapalım.',
 },
-
 
 /* --------------------
    ALKON PAGE

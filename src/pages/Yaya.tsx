@@ -2,79 +2,75 @@ import { Link } from 'react-router-dom';
 
 import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
-import type { TranslationKey } from '../i18n/translations';
 import { useLanguage } from '../lib/LanguageContext';
 
-const ANALYSIS_SCOPE_ITEMS: {
-  label: TranslationKey;
-  icon: string;
-}[] = [
+const YAYA_SCOPE_ITEMS = [
   {
-    label: 'ilberRepairTitle',
-    icon: '↻',
+    label: 'yayaScopePdr',
+    icon: '⌾',
   },
   {
-    label: 'ilberSensorDomainTitle',
-    icon: '▧',
+    label: 'yayaScopeStep',
+    icon: '⟡',
   },
   {
-    label: 'ilberSensorHealthTitle',
+    label: 'yayaScopeHeading',
+    icon: '⌖',
+  },
+  {
+    label: 'yayaScopeImu',
     icon: '⌁',
   },
   {
-    label: 'ilberGnssTitle',
+    label: 'yayaScopeIndoor',
     icon: '◇',
   },
   {
-    label: 'ilberSpectralTitle',
-    icon: '▥',
-  },
-  {
-    label: 'ilberPhysicalTitle',
-    icon: '⬡',
-  },
-  {
-    label: 'ilberConsistencyTitle',
-    icon: '↗',
-  },
-  {
-    label: 'ilberCadenceTitle',
+    label: 'yayaScopeMotion',
     icon: '∿',
   },
   {
-    label: 'ilberMotionTitle',
-    icon: '⌬',
+    label: 'yayaScopeCorrection',
+    icon: '↻',
   },
   {
-    label: 'ilberSessionReportTitle',
-    icon: '□',
+    label: 'yayaScopeRealtime',
+    icon: '↯',
+  },
+  {
+    label: 'yayaScopeMobile',
+    icon: '▣',
+  },
+  {
+    label: 'yayaScopeValidation',
+    icon: '✓',
   },
 ];
 
 const WORKFLOW_ITEMS = [
   {
     number: '01',
-    title: 'ilberWorkflowSendTitle',
-    text: 'ilberWorkflowSendText',
+    title: 'yayaWorkflowInputTitle',
+    text: 'yayaWorkflowInputText',
   },
   {
     number: '02',
-    title: 'ilberWorkflowAnalyzeTitle',
-    text: 'ilberWorkflowAnalyzeText',
+    title: 'yayaWorkflowDetectTitle',
+    text: 'yayaWorkflowDetectText',
   },
   {
     number: '03',
-    title: 'ilberWorkflowReportTitle',
-    text: 'ilberWorkflowReportText',
+    title: 'yayaWorkflowEstimateTitle',
+    text: 'yayaWorkflowEstimateText',
   },
   {
     number: '04',
-    title: 'ilberWorkflowPreventTitle',
-    text: 'ilberWorkflowPreventText',
+    title: 'yayaWorkflowOutputTitle',
+    text: 'yayaWorkflowOutputText',
   },
 ];
 
-export default function Ilber() {
+export default function Yaya() {
   const { t } = useLanguage();
 
   return (
@@ -93,30 +89,30 @@ export default function Ilber() {
                   ← AYROTA
                 </Link>
 
-                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
-                  İLBER
+                <div className="mt-12 text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  YAYA
                 </div>
 
-                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-                  {t('ilberHeroStatement')}
+                <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
+                  {t('yayaHeroStatement')}
                 </h1>
 
                 <p className="mt-7 max-w-xl text-base leading-8 text-fg/58">
-                  {t('ilberHeroText')}
+                  {t('yayaHeroText')}
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-fg/60">
-                  <span>{t('ilberMiniDetect')}</span>
-                  <span>{t('ilberMiniRepair')}</span>
-                  <span>{t('ilberMiniAnalyze')}</span>
-                  <span>{t('ilberMiniValidate')}</span>
+                  <span>{t('yayaMiniPdr')}</span>
+                  <span>{t('yayaMiniIndoor')}</span>
+                  <span>{t('yayaMiniImu')}</span>
+                  <span>{t('yayaMiniRealtime')}</span>
                 </div>
               </div>
 
               <div className="relative overflow-hidden shadow-2xl shadow-black/30">
                 <img
-                  src="/products/ilber-report.png"
-                  alt="İlber session report interface"
+                  src="/products/yaya-report.png"
+                  alt="YAYA pedestrian dead reckoning interface"
                   className="w-full object-cover opacity-95"
                 />
 
@@ -128,30 +124,30 @@ export default function Ilber() {
       </section>
 
       <section
-        id="analysis-scope"
+        id="yaya-scope"
         className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
       >
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('ilberAnalysisScope')}
+              {t('yayaScopeTitle')}
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {ANALYSIS_SCOPE_ITEMS.map((item) => (
-  <div
-    key={item.label}
-    className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-  >
-    <div className="text-3xl leading-none text-blue-500">
-      {item.icon}
-    </div>
+              {YAYA_SCOPE_ITEMS.map((item) => (
+                <div
+                  key={item.label}
+                  className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
+                >
+                  <div className="text-3xl leading-none text-blue-500">
+                    {item.icon}
+                  </div>
 
-    <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-      {t(item.label)}
-    </div>
-  </div>
-))}
+                  <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
+                    {t(item.label)}
+                  </div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -161,7 +157,7 @@ export default function Ilber() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('ilberHowItWorks')}
+              {t('yayaHowItWorks')}
             </div>
 
             <div className="mt-10 grid gap-10 md:grid-cols-4">
@@ -191,9 +187,9 @@ export default function Ilber() {
         <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
           <Reveal>
             <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('ilberFinalCtaTitle')}
+              {t('yayaFinalCtaTitle')}
               <span className="block text-blue-500">
-                {t('ilberFinalCtaAccent')}
+                {t('yayaFinalCtaAccent')}
               </span>
             </h2>
 
@@ -201,7 +197,7 @@ export default function Ilber() {
               to="/#contact"
               className="mt-10 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
             >
-              {t('ilberSendData')}
+              {t('yayaCtaButton')}
               <span aria-hidden>→</span>
             </Link>
           </Reveal>
