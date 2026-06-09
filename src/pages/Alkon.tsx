@@ -202,9 +202,7 @@ export default function Alkon() {
             </Link>
           </Reveal>
         </div>
-      </section> 
-
-
+      </section>
 
       <Footer />
     </main>
