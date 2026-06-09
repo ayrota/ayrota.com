@@ -426,6 +426,154 @@ ilberFinalCtaAccent: {
 },
 
 /* --------------------
+   YORUK PAGE
+-------------------- */
+yorukHeroStatement: {
+  en: 'Route analytics for vehicle fleets.',
+  tr: 'Araç filolarına özel rota analitiği.',
+},
+
+yorukHeroText: {
+  en: 'YÖRÜK analyzes IMU-supported vehicle data to reveal road health, route quality, vibration events, and operational patterns across fleet routes.',
+  tr: 'YÖRÜK, IMU destekli araç verilerini analiz ederek filo rotalarında yol sağlık durumu, rota kalitesi, titreşim olayları ve operasyonel örüntüleri görünür hale getirir.',
+},
+
+yorukMiniFleet: {
+  en: 'Fleet analytics',
+  tr: 'Filo analitiği',
+},
+
+yorukMiniRoute: {
+  en: 'Route quality',
+  tr: 'Rota kalitesi',
+},
+
+yorukMiniRoadHealth: {
+  en: 'Road health',
+  tr: 'Yol sağlığı',
+},
+
+yorukMiniImu: {
+  en: 'IMU-supported',
+  tr: 'IMU destekli',
+},
+
+yorukScopeTitle: {
+  en: 'TECHNICAL SCOPE',
+  tr: 'TEKNİK KAPSAM',
+},
+
+yorukScopeFleet: {
+  en: 'Fleet data analytics',
+  tr: 'Filo veri analitiği',
+},
+
+yorukScopeRoute: {
+  en: 'Route quality analysis',
+  tr: 'Rota kalite analizi',
+},
+
+yorukScopeRoadHealth: {
+  en: 'Road health monitoring',
+  tr: 'Yol sağlık durumu izleme',
+},
+
+yorukScopeImu: {
+  en: 'IMU-supported sensing',
+  tr: 'IMU destekli algılama',
+},
+
+yorukScopeAnomaly: {
+  en: 'Road anomaly detection',
+  tr: 'Yol anomalisi tespiti',
+},
+
+yorukScopeVibration: {
+  en: 'Vibration event analysis',
+  tr: 'Titreşim olayı analizi',
+},
+
+yorukScopeSurface: {
+  en: 'Surface condition signals',
+  tr: 'Yüzey durumu sinyalleri',
+},
+
+yorukScopeMap: {
+  en: 'Route map visualization',
+  tr: 'Rota haritası görselleştirme',
+},
+
+yorukScopeReport: {
+  en: 'Operational reporting',
+  tr: 'Operasyonel raporlama',
+},
+
+yorukScopeDashboard: {
+  en: 'Fleet dashboard',
+  tr: 'Filo paneli',
+},
+
+yorukHowItWorks: {
+  en: 'HOW IT WORKS',
+  tr: 'NASIL ÇALIŞIR?',
+},
+
+yorukWorkflowCollectTitle: {
+  en: 'Collect vehicle data.',
+  tr: 'Araç verisini toplar.',
+},
+
+yorukWorkflowCollectText: {
+  en: 'Receives route, motion, and IMU-supported signals from fleet vehicles.',
+  tr: 'Filo araçlarından rota, hareket ve IMU destekli sinyalleri alır.',
+},
+
+yorukWorkflowAnalyzeTitle: {
+  en: 'Analyze road signals.',
+  tr: 'Yol sinyallerini analiz eder.',
+},
+
+yorukWorkflowAnalyzeText: {
+  en: 'Detects vibration, anomaly, and motion patterns along the route.',
+  tr: 'Rota boyunca titreşim, anomali ve hareket örüntülerini tespit eder.',
+},
+
+yorukWorkflowMapTitle: {
+  en: 'Map route quality.',
+  tr: 'Rota kalitesini haritalar.',
+},
+
+yorukWorkflowMapText: {
+  en: 'Turns vehicle motion signals into route-level road quality insights.',
+  tr: 'Araç hareket sinyallerini rota seviyesinde yol kalite içgörülerine dönüştürür.',
+},
+
+yorukWorkflowReportTitle: {
+  en: 'Report fleet insights.',
+  tr: 'Filo içgörülerini raporlar.',
+},
+
+yorukWorkflowReportText: {
+  en: 'Produces operational outputs for maintenance, planning, and route evaluation.',
+  tr: 'Bakım, planlama ve rota değerlendirmesi için operasyonel çıktılar üretir.',
+},
+
+yorukFinalCtaTitle: {
+  en: 'Evaluate your fleet routes.',
+  tr: 'Filo rotalarınızı değerlendirin.',
+},
+
+yorukFinalCtaAccent: {
+  en: 'See road health from motion data.',
+  tr: 'Yol sağlığını hareket verisinden görün.',
+},
+
+yorukCtaButton: {
+  en: 'REQUEST PILOT',
+  tr: 'PİLOT TALEP ET',
+},
+
+/* --------------------
    ALKON PAGE
 -------------------- */
 

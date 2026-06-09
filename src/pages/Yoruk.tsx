@@ -3,74 +3,52 @@ import { Link } from 'react-router-dom';
 import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
+import type { TranslationKey } from '../i18n/translations';
 
-const ALKON_SCOPE_ITEMS = [
-  {
-    label: 'alkonScopeImuOnly',
-    icon: '⌁',
-  },
-  {
-    label: 'alkonScopeGnssDenied',
-    icon: '◇',
-  },
-  {
-    label: 'alkonScopeBoundedDrift',
-    icon: '∿',
-  },
-  {
-    label: 'alkonScopeRealtime',
-    icon: '↯',
-  },
-  {
-    label: 'alkonScopeResidualLearning',
-    icon: '◌',
-  },
-  {
-    label: 'alkonScopePhysics',
-    icon: '⬡',
-  },
-  {
-    label: 'alkonScopeIntegration',
-    icon: '⇄',
-  },
-  {
-    label: 'alkonScopeMission',
-    icon: '⌖',
-  },
-  {
-    label: 'alkonScopeEmbedded',
-    icon: '▣',
-  },
-  {
-    label: 'alkonScopeValidation',
-    icon: '✓',
-  },
+const YORUK_SCOPE_ITEMS: {
+  label: TranslationKey;
+  icon: string;
+}[] = [
+  { label: 'yorukScopeFleet', icon: '▣' },
+  { label: 'yorukScopeRoute', icon: '⌁' },
+  { label: 'yorukScopeRoadHealth', icon: '◇' },
+  { label: 'yorukScopeImu', icon: '∿' },
+  { label: 'yorukScopeAnomaly', icon: '↯' },
+  { label: 'yorukScopeVibration', icon: '⌬' },
+  { label: 'yorukScopeSurface', icon: '▧' },
+  { label: 'yorukScopeMap', icon: '⌖' },
+  { label: 'yorukScopeReport', icon: '□' },
+  { label: 'yorukScopeDashboard', icon: '◌' },
 ];
 
-const WORKFLOW_ITEMS = [
+const WORKFLOW_ITEMS: {
+  number: string;
+  title: TranslationKey;
+  text: TranslationKey;
+}[] = [
   {
     number: '01',
-    title: 'alkonWorkflowInputTitle',
-    text: 'alkonWorkflowInputText',
+    title: 'yorukWorkflowCollectTitle',
+    text: 'yorukWorkflowCollectText',
   },
   {
     number: '02',
-    title: 'alkonWorkflowEstimateTitle',
-    text: 'alkonWorkflowEstimateText',
+    title: 'yorukWorkflowAnalyzeTitle',
+    text: 'yorukWorkflowAnalyzeText',
   },
   {
     number: '03',
-    title: 'alkonWorkflowBoundTitle',
-    text: 'alkonWorkflowBoundText',
+    title: 'yorukWorkflowMapTitle',
+    text: 'yorukWorkflowMapText',
   },
   {
     number: '04',
-    title: 'alkonWorkflowIntegrateTitle',
-    text: 'alkonWorkflowIntegrateText',
+    title: 'yorukWorkflowReportTitle',
+    text: 'yorukWorkflowReportText',
   },
 ];
 
-export default function Alkon() {
+export default function Yoruk() {
   const { t } = useLanguage();
 
   return (
@@ -90,29 +68,29 @@ export default function Alkon() {
                 </Link>
 
                 <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
-                  ALKON
+                  YÖRÜK
                 </div>
 
-                <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-                  {t('alkonHeroStatement')}
+                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
+                  {t('yorukHeroStatement')}
                 </h1>
 
                 <p className="mt-7 max-w-xl text-base leading-8 text-fg/58">
-                  {t('alkonHeroText')}
+                  {t('yorukHeroText')}
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-fg/60">
-                  <span>{t('alkonMiniImu')}</span>
-                  <span>{t('alkonMiniGnss')}</span>
-                  <span>{t('alkonMiniDrift')}</span>
-                  <span>{t('alkonMiniRealtime')}</span>
+                  <span>{t('yorukMiniFleet')}</span>
+                  <span>{t('yorukMiniRoute')}</span>
+                  <span>{t('yorukMiniRoadHealth')}</span>
+                  <span>{t('yorukMiniImu')}</span>
                 </div>
               </div>
 
               <div className="relative overflow-hidden shadow-2xl shadow-black/30">
                 <img
-                  src="/products/alkon-report.png"
-                  alt="ALKON navigation core interface"
+                  src="/products/yoruk-report.png"
+                  alt="Yörük route analytics interface"
                   className="w-full object-cover opacity-95"
                 />
 
@@ -124,30 +102,30 @@ export default function Alkon() {
       </section>
 
       <section
-        id="alkon-scope"
+        id="yoruk-scope"
         className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
       >
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('alkonScopeTitle')}
+              {t('yorukScopeTitle')}
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {ALKON_SCOPE_ITEMS.map((item) => (
-  <div
-    key={item.label}
-    className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-  >
-    <div className="text-3xl leading-none text-blue-500">
-      {item.icon}
-    </div>
+              {YORUK_SCOPE_ITEMS.map((item) => (
+                <div
+                  key={item.label}
+                  className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
+                >
+                  <div className="text-3xl leading-none text-blue-500">
+                    {item.icon}
+                  </div>
 
-    <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-      {t(item.label)}
-    </div>
-  </div>
-))}
+                  <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
+                    {t(item.label)}
+                  </div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -157,7 +135,7 @@ export default function Alkon() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('alkonHowItWorks')}
+              {t('yorukHowItWorks')}
             </div>
 
             <div className="mt-10 grid gap-10 md:grid-cols-4">
@@ -187,24 +165,22 @@ export default function Alkon() {
         <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
           <Reveal>
             <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('alkonFinalCtaTitle')}
+              {t('yorukFinalCtaTitle')}
               <span className="block text-blue-500">
-                {t('alkonFinalCtaAccent')}
+                {t('yorukFinalCtaAccent')}
               </span>
             </h2>
 
             <Link
               to="/#contact"
-              className="mt-11 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+              className="mt-10 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
             >
-              {t('alkonCtaButton')}
+              {t('yorukCtaButton')}
               <span aria-hidden>→</span>
             </Link>
           </Reveal>
         </div>
-      </section> 
-
-
+      </section>
 
       <Footer />
     </main>

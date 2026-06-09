@@ -15,6 +15,7 @@ import Privacy from './pages/Privacy';
 import Ilber from './pages/İlber';
 import Alkon from './pages/Alkon';
 import Yaya from './pages/Yaya';
+import Yoruk from './pages/Yoruk';
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/ilber" element={<Ilber />} />
         <Route path="/alkon" element={<Alkon />} />
         <Route path="/yaya" element={<Yaya />} />
+        <Route path="/yoruk" element={<Yoruk />} />
       </Routes>
     </div>
   );

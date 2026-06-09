@@ -20,7 +20,7 @@ const NAV_ITEMS: NavItem[] = [
     items: [
       { label: 'ALKON', href: '/alkon' },
       { label: 'YAYA', href: '/yaya' },
-      { label: 'YÖRÜK', href: '/#products' },
+      { label: 'YÖRÜK', href: '/yoruk' },
       { label: 'İLBER', href: '/ilber' },
     ],
   },
