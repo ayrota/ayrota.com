@@ -6,51 +6,64 @@ export const translations = {
    NEW HOME / HERO
 -------------------- */
 homeHeroKicker: {
-  en: 'INERTIAL NAVIGATION SYSTEMS',
-  tr: 'ATALETSEL NAVİGASYON SİSTEMLERİ',
+  en: 'IMU-ONLY NAVIGATION SYSTEMS',
+  tr: 'IMU TABANLI NAVİGASYON SİSTEMLERİ',
 },
 
 homeHeroTitle: {
-  en: 'We develop navigation intelligence for autonomous systems.',
-  tr: 'Otonom sistemler için navigasyon zekası',
+  en: 'Inertial Navigation Without External References',
+  tr: 'Harici Kaynaklardan Bağımsız Ataletsel Navigasyon',
 },
 
 homeHeroLead: {
-  en: 'Ayrota develops AI-assisted solutions that provide position, orientation, and motion estimation for autonomous systems in challenging environments where GNSS is insufficient or unavailable.',
-  tr: 'Ayrota, GNSS’in yetersiz veya kullanılamadığı zorlu ortamlarda otonom sistemlere konum, yönelim ve hareket kestirimi sağlayan yapay zeka destekli çözümler geliştirir.',
+  en: 'Ayrota develops navigation solutions based solely on inertial measurements for environments where GNSS is inaccessible or unreliable.',
+  tr: 'Ayrota, GNSS’in erişilemediği veya güvenilir olmadığı ortamlarda, yalnızca ataletsel ölçümlere dayalı navigasyon çözümleri geliştirir.',
 },
 
 heroPillarNavigation: {
-  en: 'NAVIGATION',
-  tr: 'NAVİGASYON',
+  en: 'IMU ONLY',
+  tr: 'IMU TABANLI',
 },
 
 heroPillarEstimation: {
-  en: 'ESTIMATION',
-  tr: 'KESTİRİM',
+  en: 'LOW SWaP-C',
+  tr: 'DÜŞÜK SWaP-C',
 },
 
 heroPillarFusion: {
-  en: 'SENSOR FUSION',
-  tr: 'SENSÖR FÜZYONU',
+  en: 'END-TO-END SOLUTION',
+  tr: 'UÇTAN UCA ÇÖZÜM',
 },
 
 heroPillarIntegration: {
-  en: 'SOFTWARE INTEGRATION',
-  tr: 'YAZILIM ENTEGRASYONU',
+  en: 'EXTERNAL REFERENCE INDEPENDENT',
+  tr: 'HARİCİ KAYNAK BAĞIMSIZ',
 },
 
 /* --------------------
-   NEW / PRODUCTS
+   PRODUCTS
 -------------------- */
-productsFlagshipKicker: {
-  en: 'Flagship Product',
-  tr: 'Lider Ürünümüz',
+
+productsKicker: {
+  en: 'PRODUCTS & SOLUTIONS',
+  tr: 'ÜRÜNLER VE ÇÖZÜMLER',
 },
 
+productsTitle: {
+  en: 'Navigation products for autonomous systems.',
+  tr: 'Otonom sistemler için navigasyon çözümleri.',
+},
+
+productsLead: {
+  en: 'Software-defined navigation products built around inertial estimation, GNSS-independent operation and practical system integration.',
+  tr: 'Ataletsel kestirim, GNSS bağımsız çalışma ve pratik sistem entegrasyonu etrafında şekillenen navigasyon ürünleri.',
+},
+
+
+
 productsAlkonLead: {
-  en: 'Advanced navigation for autonomous systems. Engineered for mission-critical performance in GNSS-denied environments.',
-  tr: 'Otonom sistemler için geliştirilen, GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
+  en: 'Engineered for mission-critical performance in GNSS-denied environments.',
+  tr: 'GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
 },
 
 productsAlkonFeatureImu: {
@@ -74,8 +87,8 @@ productsAlkonFeatureRealtime: {
 },
 
 productsExploreAlkon: {
-  en: 'EXPLORE ALKON',
-  tr: 'ALKON’U KEŞFET',
+  en: 'EXPLORE KOMAN',
+  tr: 'KOMAN’I KEŞFET',
 },
 
 productsTechnicalImu: {
@@ -98,26 +111,20 @@ productsTechnicalEmbedded: {
   tr: 'Gömülü Entegrasyon',
 },
 
-productsOtherTitle: {
-  en: 'OTHER PRODUCTS',
-  tr: 'DİĞER ÜRÜNLER',
-},
-
-
 
 productsYorukDescription: {
-  en: 'Road quality monitoring platform.',
-  tr: 'Araç Filolarına Özel Rota Analitik Platformu.',
+  en: 'Route analytics platform for vehicle fleets.',
+  tr: 'Araç filolarına özel rota analitik platformu.',
 },
 
 productsIlberDescription: {
   en: 'IMU data quality assurance platform.',
-  tr: 'IMU Veri Kalite Güvence Platformu.',
+  tr: 'IMU veri kalite güvence platformu.',
 },
 
 productsYayaDescription: {
-  en: 'Pedestrian Dead Reckoning software.',
-  tr: 'Yaya Kestirimli Konumlama Yazılımı.',
+  en: 'Pedestrian dead reckoning software.',
+  tr: 'Yaya kestirimli konumlama yazılımı.',
 },
 
 /* --------------------
@@ -179,46 +186,104 @@ platformsEndToEndText: {
 -------------------- */
 
 problemKicker: {
-  en: 'THE PROBLEM',
-  tr: 'PROBLEM ALANI',
+  en: 'WHY INERTIAL NAVIGATION?',
+  tr: 'NEDEN ATALETSEL NAVİGASYON?',
+},
+
+problemTitle: {
+  en: 'Beyond GNSS: The Navigation Challenge',
+  tr: 'GNSS’in Ötesinde Navigasyon',
 },
 
 problemLead: {
-  en: 'Autonomous systems often depend on external positioning sources. When those references become unreliable, maintaining continuous and trustworthy state estimation becomes a critical engineering challenge.',
-  tr: 'Otonom sistemler çoğu zaman harici konumlama kaynaklarına bağımlıdır. Bu referanslar güvenilirliğini kaybettiğinde, sürekli ve güvenilir durum kestirimi sağlamak kritik bir mühendislik problemine dönüşür.',
+  en: 'In many operational environments, GNSS signals can become weak or unavailable, posing significant challenges for navigation.',
+  tr: 'Zorlu operasyonel ortamlarda GNSS erişimi kesintiye uğrayabilir. LiDAR tabanlı yaklaşımlar ise ek donanım, maliyet ve entegrasyon gerektirir.',
 },
 
-problemDeniedTitle: {
-  en: 'GNSS-Denied Environments',
-  tr: 'GNSS Olmayan Ortamlar',
+problemSecondLead: {
+  en: 'Ayrota provides reliable positioning and orientation with an inertial core that leverages only inertial measurements, without the need for complex sensor stacks.',
+  tr: 'Ayrota, yalnızca IMU ölçümlerinden yararlanan navigasyon çekirdeğiyle karmaşık ve maliyetli çözümlere ihtiyaç duymadan güvenilir konumlama ve yönelim sağlar.',
 },
 
-problemDeniedText: {
-  en: 'Positioning signals may be degraded, blocked, or completely unavailable.',
-  tr: 'Konumlama sinyalleri zayıflayabilir, engellenebilir veya tamamen kaybolabilir.',
+problemFlowGnssTitle: {
+  en: 'GNSS WEAK / LOST',
+  tr: 'GNSS ZAYIF / YOK',
 },
 
-problemDynamicTitle: {
-  en: 'Dynamic Motion',
-  tr: 'Dinamik Hareket',
+problemFlowGnssSubtitle: {
+  en: 'Tunnel, canyon, mine, urban canyon, jammer or spoofing conditions.',
+  tr: 'Tünel, kanyon, maden, şehir içi, jammer veya spoofing koşulları.',
 },
 
-problemDynamicText: {
-  en: 'Rapidly changing motion profiles increase estimation complexity.',
-  tr: 'Hızla değişen hareket profilleri kestirim karmaşıklığını artırır.',
+problemFlowSensorTitle: {
+  en: 'COMPLEX SENSOR STACK',
+  tr: 'KARMAŞIK SENSÖR YIĞINI',
 },
 
-problemReliableTitle: {
-  en: 'Continuous Estimation',
-  tr: 'Sürekli Kestirim',
+problemFlowSensorSubtitle: {
+  en: 'Camera, LiDAR, and additional hardware introduce cost and integration burden.',
+  tr: 'Kamera, LiDAR ve ek donanımlar maliyet ve entegrasyon yükü oluşturur.',
 },
 
-problemReliableText: {
-  en: 'Systems require reliable navigation outputs even when conditions deteriorate.',
-  tr: 'Koşullar kötüleştiğinde bile sistemler güvenilir navigasyon çıktısına ihtiyaç duyar.',
+problemFlowCoreTitle: {
+  en: 'AYROTA INERTIAL CORE',
+  tr: 'AYROTA ATALETSEL ÇEKİRDEK',
 },
 
+problemFlowCoreSubtitle: {
+  en: 'Inertial navigation core optimized for low SWaP-C.',
+  tr: 'Düşük SWaP-C için optimize edilmiş ataletsel navigasyon çekirdeği.',
+},
 
+problemFlowNavTitle: {
+  en: 'CONTINUOUS NAVIGATION',
+  tr: 'KESİNTİSİZ NAVİGASYON',
+},
+
+problemFlowNavSubtitle: {
+  en: 'Position, orientation, and motion estimation when external references degrade.',
+  tr: 'Harici referanslar bozulduğunda konum, yönelim ve hareket kestirimi.',
+},
+
+problemValueGnssTitle: {
+  en: 'GNSS-independent operation',
+  tr: 'GNSS bağımsız çalışma',
+},
+
+problemValueGnssText: {
+  en: 'Navigation continuity when external positioning is unavailable or unreliable.',
+  tr: 'Harici konumlama kullanılamadığında veya güvenilir olmadığında navigasyon sürekliliği.',
+},
+
+problemValueCostTitle: {
+  en: 'Lower integration burden',
+  tr: 'Daha düşük entegrasyon yükü',
+},
+
+problemValueCostText: {
+  en: 'Reduced dependency on costly perception hardware for every platform.',
+  tr: 'Her platform için pahalı algılama donanımlarına bağımlılığı azaltan yaklaşım.',
+},
+
+problemValueRealtimeTitle: {
+  en: 'Real-time estimation',
+  tr: 'Gerçek zamanlı kestirim',
+},
+
+problemValueRealtimeText: {
+  en: 'Low-latency motion estimation for operational and embedded systems.',
+  tr: 'Operasyonel ve gömülü sistemler için düşük gecikmeli hareket kestirimi.',
+},
+
+problemValuePlatformTitle: {
+  en: 'Platform adaptability',
+  tr: 'Platform uyumluluğu',
+},
+
+problemValuePlatformText: {
+  en: 'A software-centered navigation layer adaptable to different vehicle and system classes.',
+  tr: 'Farklı araç ve sistem sınıflarına uyarlanabilir yazılım odaklı navigasyon katmanı.',
+},
 
 /* --------------------
    CONTACT
@@ -583,8 +648,8 @@ alkonHeroStatement: {
 },
 
 alkonHeroText: {
-  en: 'ALKON is an IMU-focused navigation core designed to support autonomous systems when external positioning references become unreliable or unavailable.',
-  tr: 'ALKON, harici konumlama referansları güvenilir olmadığında veya tamamen kaybolduğunda otonom sistemleri desteklemek için geliştirilen IMU odaklı navigasyon çekirdeğidir.',
+  en: 'KOMAN is an IMU-focused navigation core designed to support autonomous systems when external positioning references become unreliable or unavailable.',
+  tr: 'KOMAN, harici konumlama referansları güvenilir olmadığında veya tamamen kaybolduğunda otonom sistemleri desteklemek için geliştirilen IMU odaklı navigasyon çekirdeğidir.',
 },
 
 alkonMiniImu: {

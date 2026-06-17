@@ -90,7 +90,7 @@ export default function Alkon() {
                 </Link>
 
                 <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
-                  ALKON
+                  KOMAN
                 </div>
 
                 <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">

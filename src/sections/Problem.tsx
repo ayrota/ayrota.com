@@ -1,18 +1,27 @@
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
-const PROBLEM_ITEMS = [
+const FLOW_ITEMS = [
   {
-    title: 'problemDeniedTitle',
-    text: 'problemDeniedText',
+    title: 'problemFlowGnssTitle',
+    subtitle: 'problemFlowGnssSubtitle',
+    image: '/problem/gnss-lost.png',
   },
   {
-    title: 'problemDynamicTitle',
-    text: 'problemDynamicText',
+    title: 'problemFlowSensorTitle',
+    subtitle: 'problemFlowSensorSubtitle',
+    image: '/problem/sensor-cost.png',
   },
   {
-    title: 'problemReliableTitle',
-    text: 'problemReliableText',
+    title: 'problemFlowCoreTitle',
+    subtitle: 'problemFlowCoreSubtitle',
+    image: '/problem/ayrota-core.png',
+    active: true,
+  },
+  {
+    title: 'problemFlowNavTitle',
+    subtitle: 'problemFlowNavSubtitle',
+    image: '/problem/continuous-nav.png',
   },
 ];
 
@@ -22,49 +31,83 @@ export function Problem() {
   return (
     <section
       id="problem"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg py-10"
+      className="relative min-h-screen overflow-hidden border-t border-fg/10 bg-bg"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(80,145,190,0.08),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(56,189,248,0.10),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.0),rgba(5,10,18,0.55))]" />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
-        <Reveal>
-          <div className="border-b border-fg/10 pb-12">
-            <div className="max-w-4xl">
-              <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
-                {t('problemKicker')}
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="mx-auto w-full max-w-[1500px] px-6 py-16 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr] lg:items-center">
+              <div>
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="h-px w-8 bg-cyan-300/80" />
+
+                  <span className="text-[11px] font-medium tracking-[0.22em] text-fg/60">
+                    {t('problemKicker')}
+                  </span>
+                </div>
+
+                <h2 className="max-w-4xl text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[68px]">
+                  {t('problemTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-2xl text-[17px] leading-9 text-fg/64">
+                  {t('problemLead')}
+                </p>
+
+                <p className="mt-6 max-w-2xl text-[16px] leading-9 text-fg/52">
+                  {t('problemSecondLead')}
+                </p>
               </div>
 
-              <p className="mt-8 max-w-3xl text-base leading-8 text-fg/60">
-                {t('problemLead')}
-              </p>
-            </div>
-          </div>
-        </Reveal>
+              <div className="grid gap-6 md:grid-cols-4">
+                {FLOW_ITEMS.map((item, index) => (
+                  <div key={item.title} className="relative">
+                    {index !== 0 && (
+                      <div className="absolute -left-5 top-1/2 hidden -translate-y-1/2 text-2xl text-cyan-300/70 md:block">
+                        ›
+                      </div>
+                    )}
 
-        <Reveal delay={0.12}>
-          <div className="mt-8">
-  <div className="grid gap-10 md:grid-cols-3">
-              {PROBLEM_ITEMS.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="min-h-[180px] border border-fg/10 bg-panel/20 p-6 transition hover:border-fg/25 hover:bg-panel/30"
-                >
-                  <div className="text-[11px] font-semibold tracking-[0.18em] text-fg/35">
-                    0{index + 1}
+                    <div
+                      className={[
+                        'flex h-[500px] flex-col overflow-hidden border bg-panel/20 backdrop-blur transition',
+                        item.active
+                          ? 'border-cyan-300/70 shadow-[0_0_38px_rgba(34,211,238,0.18)]'
+                          : 'border-fg/10 hover:border-fg/25',
+                      ].join(' ')}
+                    >
+                      <div className="h-64 flex-shrink-0 border-b border-fg/10 bg-bg/30">
+                        <img
+                          src={item.image}
+                          alt={t(item.title)}
+                          className="h-full w-full object-cover object-center opacity-95"
+                        />
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6 text-center">
+                        <h3
+                          className={[
+                            'flex min-h-[72px] items-center justify-center text-[14px] font-semibold leading-6 tracking-[0.16em]',
+                            item.active ? 'text-cyan-300' : 'text-fg/72',
+                          ].join(' ')}
+                        >
+                          {t(item.title)}
+                        </h3>
+
+                        <p className="mt-5 flex-1 text-[15px] leading-7 text-fg/48">
+                          {t(item.subtitle)}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-
-                  <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-fg">
-                    {t(item.title)}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-fg/55">
-                    {t(item.text)}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

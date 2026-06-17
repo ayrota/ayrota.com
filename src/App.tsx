@@ -7,15 +7,14 @@ import { ScrollToHash } from './components/ScrollToHash';
 
 import { Hero } from './sections/Hero';
 import { Products } from './sections/Product';
-import { Platforms } from './sections/Platforms';
 import { Contact } from './sections/Contact';
 import { Problem } from './sections/Problem';
 
 import Privacy from './pages/Privacy';
 import Ilber from './pages/İlber';
-import Alkon from './pages/Alkon';
 import Yaya from './pages/Yaya';
 import Yoruk from './pages/Yoruk';
+import Koman from './pages/Koman';
 
 export default function App() {
   return (
@@ -34,7 +33,6 @@ export default function App() {
               <Hero />
               <Problem />
               <Products />
-              <Platforms />
               <Contact />
               <Footer />
             </main>
@@ -43,7 +41,7 @@ export default function App() {
 
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/ilber" element={<Ilber />} />
-        <Route path="/alkon" element={<Alkon />} />
+        <Route path="/koman" element={<Koman />} />
         <Route path="/yaya" element={<Yaya />} />
         <Route path="/yoruk" element={<Yoruk />} />
       </Routes>
