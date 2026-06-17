@@ -4,9 +4,9 @@ import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
 const KOMAN_FEATURE_KEYS = [
-  'productsAlkonFeatureImu',
-  'productsAlkonFeatureGnss',
-  'productsAlkonFeatureDynamic',
+  'productsKomanFeatureImu',
+  'productsKomanFeatureGnss',
+  'productsKomanFeatureDynamic',
 ];
 
 const OTHER_PRODUCTS = [
@@ -61,7 +61,7 @@ export function Products() {
               </h2>
 
               <p className="mt-8 max-w-sm text-[17px] leading-9 text-fg/66">
-                {t('productsAlkonLead')}
+                {t('productsKomanLead')}
               </p>
 
               <ul className="mt-10 space-y-4">
@@ -77,17 +77,17 @@ export function Products() {
               </ul>
 
               <Link
-                to="/alkon"
+                to="/koman"
                 className="mt-10 inline-flex items-center gap-10 border border-fg/30 px-7 py-4 text-[12px] font-semibold tracking-[0.12em] text-fg/90 transition hover:border-cyan-300/60 hover:bg-cyan-300/5 hover:text-fg"
               >
-                {t('productsExploreAlkon')}
+                {t('productsExploreKoman')}
                 <span aria-hidden>→</span>
               </Link>
             </div>
 
             <div className="relative min-h-[430px] overflow-hidden rounded-md border border-fg/10 shadow-[0_0_40px_rgba(34,211,238,0.04)]">
               <img
-                src="/products/alkon-visual.png"
+                src="/products/koman-visual.png"
                 alt="KOMAN platform visualization"
                 className="absolute inset-0 h-full w-full object-cover object-center opacity-100"
               />

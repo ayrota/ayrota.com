@@ -4,54 +4,38 @@ import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
-const YAYA_SCOPE_ITEMS = [
+const YAYA_SCOPE_GROUPS = [
   {
-    label: 'yayaScopePdr',
-    icon: '⌾',
+    title: 'yayaNavigationGroupTitle',
+    items: [
+      'yayaCapabilityPdr',
+      'yayaCapabilityPositioning',
+      'yayaCapabilityHeading',
+    ],
   },
   {
-    label: 'yayaScopeStep',
-    icon: '⟡',
+    title: 'yayaMotionGroupTitle',
+    items: [
+      'yayaCapabilityStepDetection',
+      'yayaCapabilityMotionClassification',
+      'yayaCapabilityDriftControl',
+    ],
   },
   {
-    label: 'yayaScopeHeading',
-    icon: '⌖',
-  },
-  {
-    label: 'yayaScopeImu',
-    icon: '⌁',
-  },
-  {
-    label: 'yayaScopeIndoor',
-    icon: '◇',
-  },
-  {
-    label: 'yayaScopeMotion',
-    icon: '∿',
-  },
-  {
-    label: 'yayaScopeCorrection',
-    icon: '↻',
-  },
-  {
-    label: 'yayaScopeRealtime',
-    icon: '↯',
-  },
-  {
-    label: 'yayaScopeMobile',
-    icon: '▣',
-  },
-  {
-    label: 'yayaScopeValidation',
-    icon: '✓',
+    title: 'yayaIntegrationGroupTitle',
+    items: [
+      'yayaCapabilityMobile',
+      'yayaCapabilityRealtime',
+      'yayaCapabilityApplicationOutput',
+    ],
   },
 ];
 
 const WORKFLOW_ITEMS = [
   {
     number: '01',
-    title: 'yayaWorkflowInputTitle',
-    text: 'yayaWorkflowInputText',
+    title: 'yayaWorkflowSenseTitle',
+    text: 'yayaWorkflowSenseText',
   },
   {
     number: '02',
@@ -89,7 +73,7 @@ export default function Yaya() {
                   ← AYROTA
                 </Link>
 
-                <div className="mt-12 text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
                   YAYA
                 </div>
 
@@ -125,29 +109,50 @@ export default function Yaya() {
 
       <section
         id="yaya-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
+        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('yayaScopeTitle')}
-            </div>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {YAYA_SCOPE_ITEMS.map((item) => (
-                <div
-                  key={item.label}
-                  className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-                >
-                  <div className="text-3xl leading-none text-blue-500">
-                    {item.icon}
-                  </div>
-
-                  <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-                    {t(item.label)}
-                  </div>
+            <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yayaScopeTitle')}
                 </div>
-              ))}
+
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-6xl">
+                  {t('yayaScopeMainTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('yayaScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {YAYA_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-7 transition hover:bg-panel/20 md:p-8"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/70 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
@@ -178,29 +183,14 @@ export default function Yaya() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
+          <Link
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20">
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-[radial-gradient(ellipse_at_bottom,rgba(30,90,255,0.28),transparent_62%)]" />
-
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('yayaFinalCtaTitle')}
-              <span className="block text-blue-500">
-                {t('yayaFinalCtaAccent')}
-              </span>
-            </h2>
-
-            <Link
-              to="/#contact"
-              className="mt-10 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
-            >
-              {t('yayaCtaButton')}
-              <span aria-hidden>→</span>
-            </Link>
-          </Reveal>
+            to="/#contact"
+            className="mt-10 mx-auto flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+          >
+            {t('yayaCtaButton')}
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </section>
 

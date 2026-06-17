@@ -2,7 +2,7 @@ export const COMPANY = {
   foundedYear: 2024,
 
   products: [
-    'ALKON',
+    'KOMAN',
     'İLBER',
     'YÖRÜK',
     'YAYA',

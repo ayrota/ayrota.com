@@ -63,32 +63,32 @@ productsLead: {
 
 
 
-productsAlkonLead: {
+productsKomanLead: {
   en: 'Engineered for mission-critical performance in GNSS-denied environments.',
   tr: 'GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
 },
 
-productsAlkonFeatureImu: {
+productsKomanFeatureImu: {
   en: 'IMU-only navigation',
   tr: 'IMU odaklı navigasyon',
 },
 
-productsAlkonFeatureGnss: {
+productsKomanFeatureGnss: {
   en: 'Operation in GNSS-denied environments',
   tr: 'GNSS olmayan ortamlarda çalışma',
 },
 
-productsAlkonFeatureDynamic: {
+productsKomanFeatureDynamic: {
   en: 'Robust estimation in dynamic conditions',
   tr: 'Dinamik koşullarda dayanıklı kestirim',
 },
 
-productsAlkonFeatureRealtime: {
+productsKomanFeatureRealtime: {
   en: 'Real-time, low-latency output',
   tr: 'Gerçek zamanlı, düşük gecikmeli çıktı',
 },
 
-productsExploreAlkon: {
+productsExploreKoman: {
   en: 'EXPLORE KOMAN',
   tr: 'KOMAN’I KEŞFET',
 },
@@ -130,7 +130,7 @@ productsYayaDescription: {
 },
 
 /* --------------------
-   HOME / PLATFORMS
+   PLATFORMS
 -------------------- */
 platformsKicker: {
   en: 'SOLUTION AREAS',
@@ -184,7 +184,7 @@ platformsEndToEndText: {
 
 
 /* --------------------
-   NEW / PROBLEM
+   PROBLEM
 -------------------- */
 
 problemKicker: {
@@ -223,8 +223,8 @@ problemFlowSensorTitle: {
 },
 
 problemFlowSensorSubtitle: {
-  en: 'Traditional approaches attempt to solve this loss with additional cameras or LiDARs that introduce heavy processing load, but can be blocked by environmental obstacles.',
-  tr: 'Geleneksel yöntemler bu kaybı ek kameralar veya yoğun işlem yükü getiren LiDARlarla çözmeye çalışsa da çevresel engellere takılabilir.',
+  en: 'Solutions with additional sensors like cameras or LiDARs can address this but add significant cost.',
+  tr: 'Kayıp ek kameralar veya yoğun işlem yükü getiren LiDARlarla çözülebilir ancak ek maliyet artar.',
 },
 
 problemFlowCoreTitle: {
@@ -334,12 +334,6 @@ footerPrivacy: {
   tr: 'Gizlilik ve Veri Bildirimi',
 },
 
-
-
-
-/* --------------------
-   ILBER PAGE
--------------------- */
 /* --------------------
    ILBER PAGE
 -------------------- */
@@ -354,8 +348,8 @@ ilberHeroText: {
 },
 
 ilberSendData: {
-  en: 'Contact us to send your data for evaluation.',
-  tr: 'Analiz için iletişim',
+  en: 'CONTACT US',
+  tr: 'İLETİŞİME GEÇ',
 },
 
 ilberMiniDetect: {
@@ -381,6 +375,46 @@ ilberMiniValidate: {
 ilberAnalysisScope: {
   en: 'ANALYSIS SCOPE',
   tr: 'ANALİZ KAPSAMIMIZ',
+},
+
+ilberAnalysisScopeTitle: {
+  en: 'Your IMU session is analyzed across measurable quality layers.',
+  tr: 'IMU oturumunuz ölçülebilir kalite katmanlarıyla analiz edilir.',
+},
+
+ilberAnalysisScopeText: {
+  en: 'İlber evaluates data integrity, sensor reliability and navigation quality together to determine whether your dataset is suitable for engineering use.',
+  tr: 'İlber; veri bütünlüğünü, sensör güvenilirliğini ve navigasyon kalitesini birlikte değerlendirerek veri setinizin mühendislik kullanımı için uygun olup olmadığını gösterir.',
+},
+
+ilberIntegrityGroupTitle: {
+  en: 'Data Integrity',
+  tr: 'Veri Bütünlüğü',
+},
+
+ilberIntegrityGroupText: {
+  en: 'Missing samples, timing problems and internal inconsistencies are detected before they affect algorithm development.',
+  tr: 'Eksik örnekler, zamanlama problemleri ve iç tutarsızlıklar algoritma geliştirmeyi etkilemeden önce tespit edilir.',
+},
+
+ilberSensorGroupTitle: {
+  en: 'Sensor Reliability',
+  tr: 'Sensör Güvenilirliği',
+},
+
+ilberSensorGroupText: {
+  en: 'IMU signals are checked for physical validity, stability and sensor-level degradation.',
+  tr: 'IMU sinyalleri fiziksel geçerlilik, kararlılık ve sensör seviyesindeki bozulmalar açısından incelenir.',
+},
+
+ilberNavigationGroupTitle: {
+  en: 'Advanced Analysis',
+  tr: 'İleri Analizler',
+},
+
+ilberNavigationGroupText: {
+  en: 'GNSS quality, motion behaviour and frequency-domain characteristics are analyzed to reveal session-level risks.',
+  tr: 'GNSS kalitesi, hareket davranışı ve frekans alanı karakteristikleri analiz edilerek oturum seviyesindeki riskler ortaya çıkarılır.',
 },
 
 ilberRepairTitle: {
@@ -472,6 +506,11 @@ ilberWorkflowPreventTitle: {
   en: 'See problems early.',
   tr: 'Problemleri erken görün.',
 },
+exampleAnalyses: {
+  en: 'Example Analyses',
+  tr: 'Örnek Analizler',
+
+},
 
 ilberWorkflowPreventText: {
   en: 'Reduce debugging time before algorithm development begins.',
@@ -487,18 +526,18 @@ ilberFinalCtaAccent: {
   en: 'Let us analyze it.',
   tr: 'Analizi yapalım.',
 },
-
 /* --------------------
    YORUK PAGE
 -------------------- */
+
 yorukHeroStatement: {
-  en: 'Route analytics for vehicle fleets.',
-  tr: 'Araç filolarına özel rota analitiği.',
+  en: 'Route intelligence from vehicle motion.',
+  tr: 'Araç hareketinden rota zekâsı.',
 },
 
 yorukHeroText: {
-  en: 'YÖRÜK analyzes IMU-supported vehicle data to reveal road health, route quality, vibration events, and operational patterns across fleet routes.',
-  tr: 'YÖRÜK, IMU destekli araç verilerini analiz ederek filo rotalarında yol sağlık durumu, rota kalitesi, titreşim olayları ve operasyonel örüntüleri görünür hale getirir.',
+  en: 'YÖRÜK analyzes IMU-supported vehicle motion data to reveal road health, route quality, vibration events and operational patterns across fleet routes.',
+  tr: 'YÖRÜK, IMU destekli araç hareket verilerini analiz ederek filo rotalarında yol sağlığını, rota kalitesini, titreşim olaylarını ve operasyonel örüntüleri görünür hale getirir.',
 },
 
 yorukMiniFleet: {
@@ -522,58 +561,78 @@ yorukMiniImu: {
 },
 
 yorukScopeTitle: {
-  en: 'TECHNICAL SCOPE',
-  tr: 'TEKNİK KAPSAM',
+  en: 'SYSTEM CAPABILITIES',
+  tr: 'SİSTEM KABİLİYETLERİ',
 },
 
-yorukScopeFleet: {
-  en: 'Fleet data analytics',
-  tr: 'Filo veri analitiği',
+yorukScopeMainTitle: {
+  en: 'Built for fleet-scale road intelligence.',
+  tr: 'Filo ölçeğinde yol zekâsı için tasarlandı.',
 },
 
-yorukScopeRoute: {
+yorukScopeText: {
+  en: 'YÖRÜK turns vehicle motion and inertial signals into route-level insights for road health monitoring, operational reporting and fleet decision support.',
+  tr: 'YÖRÜK; araç hareketi ve ataletsel sinyalleri yol sağlığı izleme, operasyonel raporlama ve filo karar desteği için rota seviyesinde içgörülere dönüştürür.',
+},
+
+yorukRoadGroupTitle: {
+  en: 'Road Intelligence',
+  tr: 'Yol Zekâsı',
+},
+
+yorukSignalGroupTitle: {
+  en: 'Signal Analysis',
+  tr: 'Sinyal Analizi',
+},
+
+yorukFleetGroupTitle: {
+  en: 'Fleet Operations',
+  tr: 'Yolcu Güvenliği',
+},
+
+yorukCapabilityRoadHealth: {
+  en: 'Road health monitoring',
+  tr: 'Yol sağlığı izleme',
+},
+
+yorukCapabilityRouteQuality: {
   en: 'Route quality analysis',
   tr: 'Rota kalite analizi',
 },
 
-yorukScopeRoadHealth: {
-  en: 'Road health monitoring',
-  tr: 'Yol sağlık durumu izleme',
-},
-
-yorukScopeImu: {
-  en: 'IMU-supported sensing',
-  tr: 'IMU destekli algılama',
-},
-
-yorukScopeAnomaly: {
-  en: 'Road anomaly detection',
-  tr: 'Yol anomalisi tespiti',
-},
-
-yorukScopeVibration: {
-  en: 'Vibration event analysis',
-  tr: 'Titreşim olayı analizi',
-},
-
-yorukScopeSurface: {
+yorukCapabilitySurfaceCondition: {
   en: 'Surface condition signals',
   tr: 'Yüzey durumu sinyalleri',
 },
 
-yorukScopeMap: {
+yorukCapabilityImuSensing: {
+  en: 'IMU-supported sensing',
+  tr: 'IMU destekli algılama',
+},
+
+yorukCapabilityVibration: {
+  en: 'Vibration event analysis',
+  tr: 'Titreşim olayı analizi',
+},
+
+yorukCapabilityAnomaly: {
+  en: 'Road anomaly detection',
+  tr: 'Yol anomalisi tespiti',
+},
+
+yorukCapabilityFleetAnalytics: {
+  en: 'Driver tracking',
+  tr: 'Sürücü Takip',
+},
+
+yorukCapabilityMapVisualization: {
   en: 'Route map visualization',
   tr: 'Rota haritası görselleştirme',
 },
 
-yorukScopeReport: {
-  en: 'Operational reporting',
-  tr: 'Operasyonel raporlama',
-},
-
-yorukScopeDashboard: {
-  en: 'Fleet dashboard',
-  tr: 'Filo paneli',
+yorukCapabilityDashboard: {
+  en: 'Operational dashboard',
+  tr: 'Admin paneli',
 },
 
 yorukHowItWorks: {
@@ -587,7 +646,7 @@ yorukWorkflowCollectTitle: {
 },
 
 yorukWorkflowCollectText: {
-  en: 'Receives route, motion, and IMU-supported signals from fleet vehicles.',
+  en: 'Receives route, motion and IMU-supported signals from fleet vehicles.',
   tr: 'Filo araçlarından rota, hareket ve IMU destekli sinyalleri alır.',
 },
 
@@ -597,7 +656,7 @@ yorukWorkflowAnalyzeTitle: {
 },
 
 yorukWorkflowAnalyzeText: {
-  en: 'Detects vibration, anomaly, and motion patterns along the route.',
+  en: 'Detects vibration, anomaly and motion patterns along the route.',
   tr: 'Rota boyunca titreşim, anomali ve hareket örüntülerini tespit eder.',
 },
 
@@ -617,7 +676,7 @@ yorukWorkflowReportTitle: {
 },
 
 yorukWorkflowReportText: {
-  en: 'Produces operational outputs for maintenance, planning, and route evaluation.',
+  en: 'Produces operational outputs for maintenance, planning and route evaluation.',
   tr: 'Bakım, planlama ve rota değerlendirmesi için operasyonel çıktılar üretir.',
 },
 
@@ -632,160 +691,174 @@ yorukFinalCtaAccent: {
 },
 
 yorukCtaButton: {
-  en: 'REQUEST PILOT',
-  tr: 'PİLOT TALEP ET',
+  en: 'CONTACT US',
+  tr: 'İLETİŞİME GEÇ',
 },
 
 /* --------------------
-   ALKON PAGE
+   Koman PAGE
 -------------------- */
 
-alkonHeroStatement: {
+komanHeroStatement: {
   en: 'Navigation without assuming GNSS.',
   tr: 'GNSS varsaymadan navigasyon.',
 },
 
-alkonHeroText: {
-  en: 'KOMAN is an IMU-focused navigation core designed to support autonomous systems when external positioning references become unreliable or unavailable.',
-  tr: 'KOMAN, harici konumlama referansları güvenilir olmadığında veya tamamen kaybolduğunda otonom sistemleri desteklemek için geliştirilen IMU odaklı navigasyon çekirdeğidir.',
+komanHeroText: {
+  en: 'KOMAN is an autonomous aerial system designed to maintain navigation and mission awareness when GNSS signals become unavailable, unreliable or intentionally disrupted.',
+  tr: 'KOMAN, GNSS sinyallerinin kaybolduğu, güvenilmez hale geldiği veya kasıtlı olarak engellendiği ortamlarda navigasyon ve görev farkındalığını sürdürebilmek için geliştirilen otonom hava sistemidir.',
 },
 
-alkonMiniImu: {
-  en: 'IMU-only.',
-  tr: 'IMU odaklı',
+komanMiniImu: {
+  en: 'IMU-based.',
+  tr: 'IMU tabanlı',
 },
 
-alkonMiniGnss: {
+komanMiniGnss: {
   en: 'GNSS-denied.',
   tr: 'GNSS olmayan ortamlar',
 },
 
-alkonMiniDrift: {
-  en: 'Bounded drift.',
-  tr: 'Kontrollü sapma',
+komanMiniAutonomy: {
+  en: 'Autonomous.',
+  tr: 'Otonom',
 },
 
-alkonMiniRealtime: {
+komanMiniRealtime: {
   en: 'Real-time.',
   tr: 'Gerçek zamanlı',
 },
 
-alkonScopeTitle: {
-  en: 'TECHNICAL SCOPE',
-  tr: 'TEKNİK KAPSAM',
+komanScopeTitle: {
+  en: 'SYSTEM CAPABILITIES',
+  tr: 'SİSTEM KABİLİYETLERİ',
 },
 
-alkonScopeImuOnly: {
-  en: 'IMU-only navigation',
-  tr: 'IMU odaklı navigasyon',
+komanScopeMainTitle: {
+  en: 'Built for GNSS-denied autonomous operation.',
+  tr: 'GNSS olmayan ortamlarda otonom görevler için tasarlandı.',
 },
 
-alkonScopeGnssDenied: {
-  en: 'GNSS-denied operation',
-  tr: 'GNSS olmayan ortamda çalışma',
+komanScopeText: {
+  en: 'KOMAN combines autonomous flight, IMU-based navigation and ground control capabilities into a single operational system for environments where external positioning references cannot be trusted.',
+  tr: 'KOMAN; harici konumlama referanslarının güvenilemediği ortamlarda görev yapmak üzere geliştirilen otonom uçuş, IMU tabanlı navigasyon ve yer kontrol yeteneklerini tek bir sistemde bir araya getirir.',
 },
 
-alkonScopeBoundedDrift: {
-  en: 'Bounded drift behaviour',
-  tr: 'Kontrollü sapma davranışı',
+komanNavigationGroupTitle: {
+  en: 'Navigation',
+  tr: 'Navigasyon',
 },
 
-alkonScopeRealtime: {
-  en: 'Real-time output',
-  tr: 'Gerçek zamanlı çıktı',
+komanAutonomyGroupTitle: {
+  en: 'Autonomy',
+  tr: 'Otonomi',
 },
 
-alkonScopeResidualLearning: {
-  en: 'Residual learning correction',
-  tr: 'Artık hata öğrenimi',
+komanGroundControlGroupTitle: {
+  en: 'Ground Control',
+  tr: 'Yer Kontrol',
 },
 
-alkonScopePhysics: {
-  en: 'Physics-consistent modelling',
-  tr: 'Fizik tutarlı modelleme',
+komanCapabilityPositioning: {
+  en: 'IMU-based position estimation',
+  tr: 'IMU tabanlı konum kestirimi',
 },
 
-alkonScopeIntegration: {
-  en: 'MAVLink / ROS integration',
-  tr: 'MAVLink / ROS entegrasyonu',
+komanCapabilityHeading: {
+  en: 'Heading estimation',
+  tr: 'Yön kestirimi',
 },
 
-alkonScopeMission: {
-  en: 'Mission-level interface',
-  tr: 'Görev seviyesi arayüz',
+komanCapabilityGnssDenied: {
+  en: 'GNSS-denied navigation',
+  tr: 'GNSS olmayan ortamda navigasyon',
 },
 
-alkonScopeEmbedded: {
-  en: 'Embedded deployment',
-  tr: 'Gömülü dağıtım',
+komanCapabilityAutonomy: {
+  en: 'Autonomous mission execution',
+  tr: 'Otonom görev icrası',
 },
 
-alkonScopeValidation: {
-  en: 'Validation workflow',
-  tr: 'Doğrulama iş akışı',
+komanCapabilityWaypoint: {
+  en: 'Waypoint navigation',
+  tr: 'Waypoint navigasyonu',
 },
 
-alkonHowItWorks: {
+komanCapabilityRealtime: {
+  en: 'Real-time operation',
+  tr: 'Gerçek zamanlı operasyon',
+},
+
+komanCapabilityGroundControl: {
+  en: 'Ground control integration',
+  tr: 'Yer kontrol entegrasyonu',
+},
+
+komanCapabilityMission: {
+  en: 'Mission planning',
+  tr: 'Görev planlama',
+},
+
+
+komanHowItWorks: {
   en: 'HOW IT WORKS',
   tr: 'NASIL ÇALIŞIR?',
 },
 
-alkonWorkflowInputTitle: {
-  en: 'Read inertial data.',
-  tr: 'Ataletsel veriyi alır.',
+komanWorkflowSenseTitle: {
+  en: 'Sense motion.',
+  tr: 'Hareketi algılar.',
 },
 
-alkonWorkflowInputText: {
-  en: 'Receives raw IMU measurements from the target platform.',
-  tr: 'Hedef platformdan ham IMU ölçümlerini alır.',
+komanWorkflowSenseText: {
+  en: 'Collects inertial measurements from onboard sensors throughout the mission.',
+  tr: 'Görev boyunca dahili sensörlerden ataletsel ölçümler toplar.',
 },
 
-alkonWorkflowEstimateTitle: {
-  en: 'Estimate motion.',
-  tr: 'Hareketi kestirir.',
+komanWorkflowEstimateTitle: {
+  en: 'Estimate position.',
+  tr: 'Konumu kestirir.',
 },
 
-alkonWorkflowEstimateText: {
-  en: 'Combines inertial propagation with learned residual correction.',
-  tr: 'Ataletsel yayılımı öğrenilmiş artık hata düzeltmesiyle birleştirir.',
+komanWorkflowEstimateText: {
+  en: 'Processes inertial data to estimate position, heading and displacement when GNSS is unavailable.',
+  tr: 'GNSS bulunmadığında konum, yön ve yer değiştirme kestirimi yapar.',
 },
 
-alkonWorkflowBoundTitle: {
-  en: 'Control drift.',
-  tr: 'Sapmayı kontrol eder.',
+komanWorkflowNavigateTitle: {
+  en: 'Navigate autonomously.',
+  tr: 'Otonom ilerler.',
 },
 
-alkonWorkflowBoundText: {
-  en: 'Keeps error growth predictable within characterised operating limits.',
-  tr: 'Hata büyümesini tanımlı çalışma sınırları içinde öngörülebilir tutar.',
+komanWorkflowNavigateText: {
+  en: 'Uses estimated navigation states to execute waypoint and mission objectives.',
+  tr: 'Waypoint ve görev hedeflerini gerçekleştirmek için navigasyon çıktıları kullanılır.',
 },
 
-alkonWorkflowIntegrateTitle: {
-  en: 'Integrate with systems.',
-  tr: 'Sistemlere entegre olur.',
+komanWorkflowMonitorTitle: {
+  en: 'Monitor the mission.',
+  tr: 'Görevi izler.',
 },
 
-alkonWorkflowIntegrateText: {
-  en: 'Provides navigation outputs to higher-level mission and control layers.',
-  tr: 'Üst seviye görev ve kontrol katmanlarına navigasyon çıktısı sağlar.',
+komanWorkflowMonitorText: {
+  en: 'Streams telemetry and mission status to the ground control interface in real time.',
+  tr: 'Telemetri ve görev durumunu gerçek zamanlı olarak yer kontrol arayüzüne aktarır.',
 },
 
-alkonFinalCtaTitle: {
-  en: 'Evaluate GNSS-denied navigation.',
-  tr: 'GNSS olmayan navigasyonu değerlendirin.',
+komanFinalCtaTitle: {
+  en: 'Evaluate GNSS-denied operations.',
+  tr: 'GNSS olmayan operasyonları değerlendirin.',
 },
 
-alkonFinalCtaAccent: {
-  en: 'Start with a technical pilot.',
-  tr: 'Teknik pilotla başlayın.',
+komanFinalCtaAccent: {
+  en: 'Start with a technical demonstration.',
+  tr: 'Teknik demonstrasyonla başlayın.',
 },
 
-alkonCtaButton: {
-  en: 'REQUEST PILOT',
-  tr: 'PİLOT TALEP ET',
+komanCtaButton: {
+  en: 'CONTACT US',
+  tr: 'İLETİŞİME GEÇ',
 },
-
-
 /* --------------------
    YAYA PAGE
 -------------------- */
@@ -796,8 +869,8 @@ yayaHeroStatement: {
 },
 
 yayaHeroText: {
-  en: 'YAYA is a pedestrian dead reckoning software layer that estimates pedestrian motion and position from inertial signals in indoor or GNSS-limited environments.',
-  tr: 'YAYA, kapalı veya GNSS’in sınırlı olduğu ortamlarda ataletsel sinyallerden yaya hareketini ve konumunu kestiren PDR yazılım katmanıdır.',
+  en: 'YAYA is a pedestrian navigation layer that estimates motion, heading and position from inertial signals in indoor or GNSS-limited environments.',
+  tr: 'YAYA, kapalı alanlarda veya GNSS’in sınırlı olduğu ortamlarda ataletsel sinyallerden hareket, yön ve konum kestirimi yapan yaya navigasyon katmanıdır.',
 },
 
 yayaMiniPdr: {
@@ -821,58 +894,78 @@ yayaMiniRealtime: {
 },
 
 yayaScopeTitle: {
-  en: 'TECHNICAL SCOPE',
-  tr: 'TEKNİK KAPSAM',
+  en: 'SYSTEM CAPABILITIES',
+  tr: 'SİSTEM KABİLİYETLERİ',
 },
 
-yayaScopePdr: {
+yayaScopeMainTitle: {
+  en: 'Built for GNSS-limited pedestrian navigation.',
+  tr: 'GNSS sınırlı ortamlarda yaya navigasyonu için tasarlandı.',
+},
+
+yayaScopeText: {
+  en: 'YAYA combines pedestrian dead reckoning, inertial motion analysis and real-time positioning output into a software layer for indoor and GNSS-limited navigation use cases.',
+  tr: 'YAYA; kapalı alan ve GNSS sınırlı navigasyon senaryoları için yaya kestirimli konumlama, ataletsel hareket analizi ve gerçek zamanlı konum çıktısını tek bir yazılım katmanında birleştirir.',
+},
+
+yayaNavigationGroupTitle: {
+  en: 'Navigation',
+  tr: 'Navigasyon',
+},
+
+yayaMotionGroupTitle: {
+  en: 'Motion Analysis',
+  tr: 'Hareket Analizi',
+},
+
+yayaIntegrationGroupTitle: {
+  en: 'Integration',
+  tr: 'Entegrasyon',
+},
+
+yayaCapabilityPdr: {
   en: 'Pedestrian dead reckoning',
   tr: 'Yaya kestirimli konumlama',
 },
 
-yayaScopeStep: {
+yayaCapabilityPositioning: {
+  en: 'IMU-based position estimation',
+  tr: 'IMU tabanlı konum kestirimi',
+},
+
+yayaCapabilityHeading: {
+  en: 'Heading estimation',
+  tr: 'Yön kestirimi',
+},
+
+yayaCapabilityStepDetection: {
   en: 'Step detection',
   tr: 'Adım tespiti',
 },
 
-yayaScopeHeading: {
-  en: 'Heading estimation',
-  tr: 'Yönelim kestirimi',
-},
-
-yayaScopeImu: {
-  en: 'IMU-based motion input',
-  tr: 'IMU tabanlı hareket girdisi',
-},
-
-yayaScopeIndoor: {
-  en: 'Indoor positioning',
-  tr: 'Kapalı alan konumlama',
-},
-
-yayaScopeMotion: {
+yayaCapabilityMotionClassification: {
   en: 'Motion classification',
   tr: 'Hareket sınıflandırma',
 },
 
-yayaScopeCorrection: {
-  en: 'Drift correction logic',
-  tr: 'Sapma düzeltme mantığı',
+yayaCapabilityDriftControl: {
+  en: 'Drift control logic',
+  tr: 'Sapma kontrol mantığı',
 },
 
-yayaScopeRealtime: {
-  en: 'Real-time output',
-  tr: 'Gerçek zamanlı çıktı',
-},
-
-yayaScopeMobile: {
+yayaCapabilityMobile: {
   en: 'Mobile integration',
   tr: 'Mobil entegrasyon',
 },
 
-yayaScopeValidation: {
-  en: 'Validation workflow',
-  tr: 'Doğrulama iş akışı',
+yayaCapabilityRealtime: {
+  en: 'Real-time positioning output',
+  tr: 'Gerçek zamanlı konum çıktısı',
+},
+
+yayaCapabilityApplicationOutput: {
+  en: 'Application-level navigation output',
+  tr: 'Uygulama seviyesi navigasyon çıktısı',
 },
 
 yayaHowItWorks: {
@@ -880,24 +973,24 @@ yayaHowItWorks: {
   tr: 'NASIL ÇALIŞIR?',
 },
 
-yayaWorkflowInputTitle: {
-  en: 'Read motion signals.',
-  tr: 'Hareket sinyallerini alır.',
+yayaWorkflowSenseTitle: {
+  en: 'Sense motion.',
+  tr: 'Hareketi algılar.',
 },
 
-yayaWorkflowInputText: {
-  en: 'Receives inertial measurements from mobile or wearable sensors.',
-  tr: 'Mobil veya giyilebilir sensörlerden ataletsel ölçümleri alır.',
+yayaWorkflowSenseText: {
+  en: 'Collects inertial measurements from mobile or wearable sensors during pedestrian movement.',
+  tr: 'Yaya hareketi sırasında mobil veya giyilebilir sensörlerden ataletsel ölçümler toplar.',
 },
 
 yayaWorkflowDetectTitle: {
-  en: 'Detect pedestrian motion.',
-  tr: 'Yaya hareketini algılar.',
+  en: 'Detect steps.',
+  tr: 'Adımları tespit eder.',
 },
 
 yayaWorkflowDetectText: {
-  en: 'Identifies walking patterns, step events, and motion phases.',
-  tr: 'Yürüme örüntülerini, adım olaylarını ve hareket fazlarını belirler.',
+  en: 'Identifies step events, walking patterns and motion phases from inertial signals.',
+  tr: 'Ataletsel sinyallerden adım olaylarını, yürüme örüntülerini ve hareket fazlarını belirler.',
 },
 
 yayaWorkflowEstimateTitle: {
@@ -906,8 +999,8 @@ yayaWorkflowEstimateTitle: {
 },
 
 yayaWorkflowEstimateText: {
-  en: 'Uses PDR logic to estimate pedestrian displacement and direction.',
-  tr: 'PDR mantığıyla yaya yer değiştirmesini ve yönünü kestirir.',
+  en: 'Uses PDR logic to estimate pedestrian displacement, heading and position over time.',
+  tr: 'PDR mantığıyla yaya yer değiştirmesini, yönünü ve zamana bağlı konumunu kestirir.',
 },
 
 yayaWorkflowOutputTitle: {
@@ -916,23 +1009,23 @@ yayaWorkflowOutputTitle: {
 },
 
 yayaWorkflowOutputText: {
-  en: 'Provides position and movement outputs for higher-level applications.',
-  tr: 'Üst seviye uygulamalar için konum ve hareket çıktıları sağlar.',
+  en: 'Provides real-time positioning and movement outputs for higher-level applications.',
+  tr: 'Üst seviye uygulamalar için gerçek zamanlı konum ve hareket çıktıları sağlar.',
 },
 
 yayaFinalCtaTitle: {
-  en: 'Evaluate indoor pedestrian positioning.',
-  tr: 'Kapalı alan yaya konumlamasını değerlendirin.',
+  en: 'Evaluate indoor pedestrian navigation.',
+  tr: 'Kapalı alan yaya navigasyonunu değerlendirin.',
 },
 
 yayaFinalCtaAccent: {
-  en: 'Start with a technical pilot.',
-  tr: 'Teknik pilotla başlayın.',
+  en: 'Start with a technical demonstration.',
+  tr: 'Teknik demonstrasyonla başlayın.',
 },
 
 yayaCtaButton: {
-  en: 'REQUEST PILOT',
-  tr: 'PİLOT TALEP ET',
+  en: 'CONTACT US',
+  tr: 'İLETİŞİME GEÇ',
 },
 
 /* --------------------
