@@ -3,22 +3,26 @@ import { useLanguage } from '../lib/LanguageContext';
 
 const FLOW_ITEMS = [
   {
+    step: '01',
     title: 'problemFlowGnssTitle',
     subtitle: 'problemFlowGnssSubtitle',
     image: '/problem/gnss-lost.png',
   },
   {
+    step: '02',
     title: 'problemFlowSensorTitle',
     subtitle: 'problemFlowSensorSubtitle',
     image: '/problem/sensor-cost.png',
   },
   {
+    step: '03',
     title: 'problemFlowCoreTitle',
     subtitle: 'problemFlowCoreSubtitle',
     image: '/problem/ayrota-core.png',
     active: true,
   },
   {
+    step: '04',
     title: 'problemFlowNavTitle',
     subtitle: 'problemFlowNavSubtitle',
     image: '/problem/continuous-nav.png',
@@ -29,11 +33,8 @@ export function Problem() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="problem"
-      className="relative min-h-screen overflow-hidden border-t border-fg/10 bg-bg"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(56,189,248,0.10),transparent_42%)]" />
+    <section id="problem" className="relative min-h-screen overflow-hidden bg-bg">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(56,189,248,0.03),transparent_55%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.0),rgba(5,10,18,0.55))]" />
 
       <div className="relative z-10 flex min-h-screen items-center">
@@ -43,7 +44,6 @@ export function Problem() {
               <div>
                 <div className="mb-6 flex items-center gap-3">
                   <span className="h-px w-8 bg-cyan-300/80" />
-
                   <span className="text-[11px] font-medium tracking-[0.22em] text-fg/60">
                     {t('problemKicker')}
                   </span>
@@ -66,19 +66,23 @@ export function Problem() {
                 {FLOW_ITEMS.map((item, index) => (
                   <div key={item.title} className="relative">
                     {index !== 0 && (
-                      <div className="absolute -left-5 top-1/2 hidden -translate-y-1/2 text-2xl text-cyan-300/70 md:block">
+                      <div className="absolute -left-5 top-1/2 z-20 hidden -translate-y-1/2 text-3xl text-cyan-300/70 md:block">
                         ›
                       </div>
                     )}
 
                     <div
                       className={[
-                        'flex h-[500px] flex-col overflow-hidden border bg-panel/20 backdrop-blur transition',
+                        'relative flex h-[560px] flex-col overflow-hidden rounded-2xl border bg-panel/20 backdrop-blur transition',
                         item.active
                           ? 'border-cyan-300/70 shadow-[0_0_38px_rgba(34,211,238,0.18)]'
                           : 'border-fg/10 hover:border-fg/25',
                       ].join(' ')}
                     >
+                      <div className="absolute left-7 top-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/80 text-[15px] font-semibold text-cyan-200">
+                        {item.step}
+                      </div>
+
                       <div className="h-64 flex-shrink-0 border-b border-fg/10 bg-bg/30">
                         <img
                           src={item.image}
@@ -90,14 +94,14 @@ export function Problem() {
                       <div className="flex flex-1 flex-col p-6 text-center">
                         <h3
                           className={[
-                            'flex min-h-[72px] items-center justify-center text-[14px] font-semibold leading-6 tracking-[0.16em]',
-                            item.active ? 'text-cyan-300' : 'text-fg/72',
+                            'flex min-h-[60 px] items-center justify-center text-[15px] font-semibold leading-6 tracking-[0.08em]',
+                            item.active ? 'text-cyan-300' : 'text-fg/84',
                           ].join(' ')}
                         >
                           {t(item.title)}
                         </h3>
 
-                        <p className="mt-5 flex-1 text-[15px] leading-7 text-fg/48">
+                        <p className="mt-4 flex-1 text-[15px] leading-7 text-fg/56">
                           {t(item.subtitle)}
                         </p>
                       </div>

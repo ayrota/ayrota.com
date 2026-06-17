@@ -2,42 +2,44 @@ export type Language = 'en' | 'tr';
 
 export const translations = {
 
- /* --------------------
-   NEW HOME / HERO
+/* --------------------
+   HERO
 -------------------- */
+
 homeHeroKicker: {
-  en: 'IMU-ONLY NAVIGATION SYSTEMS',
+  en: 'IMU-BASED NAVIGATION SYSTEMS',
   tr: 'IMU TABANLI NAVİGASYON SİSTEMLERİ',
 },
 
 homeHeroTitle: {
-  en: 'Inertial Navigation Without External References',
+  en: 'Inertial Navigation Independent from External Sources',
   tr: 'Harici Kaynaklardan Bağımsız Ataletsel Navigasyon',
 },
 
 homeHeroLead: {
-  en: 'Ayrota develops navigation solutions based solely on inertial measurements for environments where GNSS is inaccessible or unreliable.',
+  en: 'Ayrota develops navigation solutions based solely on inertial measurements for environments where GNSS is unavailable or unreliable.',
   tr: 'Ayrota, GNSS’in erişilemediği veya güvenilir olmadığı ortamlarda, yalnızca ataletsel ölçümlere dayalı navigasyon çözümleri geliştirir.',
 },
 
-heroPillarNavigation: {
-  en: 'IMU ONLY',
+
+heroPillarImu: {
+  en: 'IMU BASED',
   tr: 'IMU TABANLI',
 },
 
-heroPillarEstimation: {
+heroPillarSwapc: {
   en: 'LOW SWaP-C',
   tr: 'DÜŞÜK SWaP-C',
 },
 
-heroPillarFusion: {
+heroPillarEndToEnd: {
   en: 'END-TO-END SOLUTION',
   tr: 'UÇTAN UCA ÇÖZÜM',
 },
 
-heroPillarIntegration: {
-  en: 'EXTERNAL REFERENCE INDEPENDENT',
-  tr: 'HARİCİ KAYNAK BAĞIMSIZ',
+heroPillarIndependent: {
+  en: 'GNSS-INDEPENDENT',
+  tr: 'GNSS İHTİYACI OLMADAN',
 },
 
 /* --------------------
@@ -186,131 +188,127 @@ platformsEndToEndText: {
 -------------------- */
 
 problemKicker: {
-  en: 'WHY INERTIAL NAVIGATION?',
-  tr: 'NEDEN ATALETSEL NAVİGASYON?',
+  en: 'INERTIAL NAVIGATION',
+  tr: 'ATALETSEL NAVİGASYON',
 },
 
 problemTitle: {
-  en: 'Beyond GNSS: The Navigation Challenge',
-  tr: 'GNSS’in Ötesinde Navigasyon',
+  en: 'The foundation of independent navigation',
+  tr: 'Bağımsız Navigasyonun Temeli',
 },
 
 problemLead: {
-  en: 'In many operational environments, GNSS signals can become weak or unavailable, posing significant challenges for navigation.',
-  tr: 'Zorlu operasyonel ortamlarda GNSS erişimi kesintiye uğrayabilir. LiDAR tabanlı yaklaşımlar ise ek donanım, maliyet ve entegrasyon gerektirir.',
+  en: 'Inertial navigation enables the maintenance of position, orientation, and motion awareness without reliance on external references. It forms the fundamental layer that preserves a system’s situational awareness when GNSS access is interrupted or environmental conditions challenge sensing systems.',
+  tr: 'Ataletsel navigasyon, harici referanslara ihtiyaç duymadan konum, yönelim ve hareket bilgisinin sürdürülmesini sağlar. GNSS erişiminin kesintiye uğradığı veya çevresel koşulların algılama sistemlerini zorladığı durumlarda, sistemin hareket farkındalığını koruyan temel katmanı oluşturur.',
 },
 
 problemSecondLead: {
-  en: 'Ayrota provides reliable positioning and orientation with an inertial core that leverages only inertial measurements, without the need for complex sensor stacks.',
-  tr: 'Ayrota, yalnızca IMU ölçümlerinden yararlanan navigasyon çekirdeğiyle karmaşık ve maliyetli çözümlere ihtiyaç duymadan güvenilir konumlama ve yönelim sağlar.',
+  en: 'Ayrota delivers navigation continuity with an IMU centered inertial core, without relying on complex and costly sensor stacks.',
+  tr: 'Ayrota, IMU odaklı ataletsel navigasyon çekirdeğiyle karmaşık ve maliyetli sensör yığınlarına ihtiyaç duymadan navigasyon sürekliliği sağlar.',
 },
 
 problemFlowGnssTitle: {
-  en: 'GNSS WEAK / LOST',
-  tr: 'GNSS ZAYIF / YOK',
+  en: 'GNSS IS LOST',
+  tr: 'GNSS KAYBOLUR',
 },
 
 problemFlowGnssSubtitle: {
-  en: 'Tunnel, canyon, mine, urban canyon, jammer or spoofing conditions.',
-  tr: 'Tünel, kanyon, maden, şehir içi, jammer veya spoofing koşulları.',
+  en: 'When a vehicle enters a challenging environment, GNSS can be lost or spoofed.',
+  tr: 'Araç zorlu bir sahaya girdiğinde, GNSS kesilebilir veya yanıltılabilir.',
 },
 
 problemFlowSensorTitle: {
-  en: 'COMPLEX SENSOR STACK',
-  tr: 'KARMAŞIK SENSÖR YIĞINI',
+  en: 'MORE SENSORS REQUIRED',
+  tr: 'DAHA FAZLA SENSÖR GEREKİR ',
 },
 
 problemFlowSensorSubtitle: {
-  en: 'Camera, LiDAR, and additional hardware introduce cost and integration burden.',
-  tr: 'Kamera, LiDAR ve ek donanımlar maliyet ve entegrasyon yükü oluşturur.',
+  en: 'Traditional approaches attempt to solve this loss with additional cameras or LiDARs that introduce heavy processing load, but can be blocked by environmental obstacles.',
+  tr: 'Geleneksel yöntemler bu kaybı ek kameralar veya yoğun işlem yükü getiren LiDARlarla çözmeye çalışsa da çevresel engellere takılabilir.',
 },
 
 problemFlowCoreTitle: {
-  en: 'AYROTA INERTIAL CORE',
-  tr: 'AYROTA ATALETSEL ÇEKİRDEK',
+  en: 'INERTIAL CORE',
+  tr: 'ATALETSEL ÇEKİRDEK',
 },
 
 problemFlowCoreSubtitle: {
-  en: 'Inertial navigation core optimized for low SWaP-C.',
-  tr: 'Düşük SWaP-C için optimize edilmiş ataletsel navigasyon çekirdeği.',
+  en: 'Ayrota’s inertial core is designed to provide continuous navigation in GNSS-denied environments, using only IMU data and advanced estimation algorithms.',
+  tr: 'Ayrota optimize edilmiş düşük SWaP-C mimarisiyle IMU tabanlı navigasyon sunar.',
 },
 
 problemFlowNavTitle: {
-  en: 'CONTINUOUS NAVIGATION',
-  tr: 'KESİNTİSİZ NAVİGASYON',
+  en: 'NAVIGATION CONTINUES',
+  tr: 'NAVİGASYON DEVAM EDER',
 },
 
 problemFlowNavSubtitle: {
-  en: 'Position, orientation, and motion estimation when external references degrade.',
-  tr: 'Harici referanslar bozulduğunda konum, yönelim ve hareket kestirimi.',
-},
-
-problemValueGnssTitle: {
-  en: 'GNSS-independent operation',
-  tr: 'GNSS bağımsız çalışma',
-},
-
-problemValueGnssText: {
-  en: 'Navigation continuity when external positioning is unavailable or unreliable.',
-  tr: 'Harici konumlama kullanılamadığında veya güvenilir olmadığında navigasyon sürekliliği.',
-},
-
-problemValueCostTitle: {
-  en: 'Lower integration burden',
-  tr: 'Daha düşük entegrasyon yükü',
-},
-
-problemValueCostText: {
-  en: 'Reduced dependency on costly perception hardware for every platform.',
-  tr: 'Her platform için pahalı algılama donanımlarına bağımlılığı azaltan yaklaşım.',
-},
-
-problemValueRealtimeTitle: {
-  en: 'Real-time estimation',
-  tr: 'Gerçek zamanlı kestirim',
-},
-
-problemValueRealtimeText: {
-  en: 'Low-latency motion estimation for operational and embedded systems.',
-  tr: 'Operasyonel ve gömülü sistemler için düşük gecikmeli hareket kestirimi.',
-},
-
-problemValuePlatformTitle: {
-  en: 'Platform adaptability',
-  tr: 'Platform uyumluluğu',
-},
-
-problemValuePlatformText: {
-  en: 'A software-centered navigation layer adaptable to different vehicle and system classes.',
-  tr: 'Farklı araç ve sistem sınıflarına uyarlanabilir yazılım odaklı navigasyon katmanı.',
+  en: 'This allows for seamless position, orientation, and motion estimation without reliance on external references.',
+  tr: 'Bu sayede harici dış referanslara ihtiyaç duyulmadan konum, yönelim ve hareket kestirimi kusursuzca tahmin edilir.',
 },
 
 /* --------------------
    CONTACT
 -------------------- */
+
+contactKicker: {
+  en: 'CONTACT',
+  tr: 'İLETİŞİM',
+},
+
 contactTitle: {
   en: 'Get in touch',
   tr: 'İletişime geçin',
 },
 
+corporateContactTitle: {
+  en: 'Corporate contact',
+  tr: 'Kurumsal iletişim',
+},
+
+corporateContactDescription: {
+  en: 'Use the form for partnerships, pilot studies, evaluation access, and corporate inquiries.',
+  tr: 'İş birlikleri, pilot çalışmalar, değerlendirme erişimi ve kurumsal konular için formu kullanın.',
+},
+
 contactLabelOrg: {
-  en: 'Person / Organization',
-  tr: 'Kişi / Kurum',
+  en: 'PERSON / ORGANIZATION',
+  tr: 'KİŞİ / KURUM',
 },
 
 contactLabelEmail: {
-  en: 'Contact email',
-  tr: 'İletişim e-postası',
+  en: 'CONTACT EMAIL',
+  tr: 'İLETİŞİM E-POSTASI',
 },
 
 contactLabelMessage: {
-  en: 'Your message',
-  tr: 'Mesajınız',
+  en: 'MESSAGE',
+  tr: 'MESAJINIZ',
+},
+
+contactPlaceholderOrg: {
+  en: 'Enter your name or organization',
+  tr: 'Kurum / kişi adınızı girin',
+},
+
+contactPlaceholderEmail: {
+  en: 'Enter your email address',
+  tr: 'E-posta adresinizi girin',
+},
+
+contactPlaceholderMessage: {
+  en: 'Write your message here...',
+  tr: 'Mesajınızı buraya yazın...',
 },
 
 contactSubmit: {
-  en: 'Send message',
-  tr: 'Mesajı gönder',
+  en: 'SEND MESSAGE',
+  tr: 'MESAJ GÖNDER',
+},
+
+contactMapTitle: {
+  en: 'Ayrota office location',
+  tr: 'Ayrota ofis konumu',
 },
 
 /* --------------------
@@ -1005,20 +1003,6 @@ contactInternshipCta: {
   tr: 'Google Form Üzerinden Başvur',
 },
 
-corporateContactTitle: {
-  en: 'Corporate Contact',
-  tr: 'Kurumsal İletişim',
-},
-
-corporateContactDescription: {
-  en: 'For partnerships, pilot studies, evaluation access, and corporate matters, please use the form below.',
-  tr: 'İş birlikleri, pilot çalışmalar, değerlendirme erişimi ve kurumsal konular için lütfen aşağıdaki formu kullanın.',
-},
-
-contactMapTitle: {
-  en: 'Ayrota Location',
-  tr: 'Ayrota Konumu',
-},
 
 } as const;
 
