@@ -31,16 +31,11 @@ const ANALYSIS_SCOPE_GROUPS: {
       'ilberGnssTitle',
       'ilberSpectralTitle',
       'ilberMotionTitle',
-      'ilberSessionReportTitle',
     ],
   },
 ];
 
-const WORKFLOW_ITEMS: {
-  number: string;
-  title: TranslationKey;
-  text: TranslationKey;
-}[] = [
+const WORKFLOW_ITEMS = [
   {
     number: '01',
     title: 'ilberWorkflowSendTitle',
@@ -68,10 +63,12 @@ export default function Ilber() {
 
   return (
     <main className="relative z-10 bg-bg text-fg">
-      <section className="relative overflow-hidden bg-bg pt-28 pb-14">
+
+      {/* HERO */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(30,90,255,0.18),transparent_42%)]" />
 
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center">
               <div>
@@ -86,7 +83,7 @@ export default function Ilber() {
                   İLBER
                 </div>
 
-                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
+                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] md:text-7xl">
                   {t('ilberHeroStatement')}
                 </h1>
 
@@ -108,7 +105,6 @@ export default function Ilber() {
                   alt="İlber session report interface"
                   className="w-full object-cover opacity-95"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-t from-bg/15 via-transparent to-transparent" />
               </div>
             </div>
@@ -116,11 +112,12 @@ export default function Ilber() {
         </div>
       </section>
 
+      {/* ANALYSIS */}
       <section
         id="analysis-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20"
+        className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg"
       >
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
               <div>
@@ -128,7 +125,7 @@ export default function Ilber() {
                   {t('ilberAnalysisScope')}
                 </div>
 
-                <h2 className="mt-6 max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-6xl">
+                <h2 className="mt-6 max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] md:text-6xl">
                   {t('ilberAnalysisScopeTitle')}
                 </h2>
 
@@ -141,11 +138,11 @@ export default function Ilber() {
                 {ANALYSIS_SCOPE_GROUPS.map((group) => (
                   <div
                     key={group.title}
-                    className="border border-fg/10 bg-panel/10 p-7 transition hover:bg-panel/20 md:p-8"
+                    className="border border-fg/10 bg-panel/10 p-8 transition hover:bg-panel/20"
                   >
                     <div className="grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
                       <div>
-                        <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        <h3 className="text-2xl font-semibold tracking-[-0.04em]">
                           {t(group.title)}
                         </h3>
 
@@ -173,8 +170,9 @@ export default function Ilber() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-16">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      {/* WORKFLOW */}
+      <section className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
               {t('ilberHowItWorks')}
@@ -187,7 +185,7 @@ export default function Ilber() {
                     {item.number}
                   </div>
 
-                  <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em] text-fg">
+                  <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em]">
                     {t(item.title)}
                   </h3>
 
@@ -201,10 +199,10 @@ export default function Ilber() {
 
           <Link
             to="/#contact"
-            className="mt-10 mx-auto flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+            className="mx-auto mt-16 flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
           >
             {t('ilberSendData')}
-            <span aria-hidden>→</span>
+            <span>→</span>
           </Link>
         </div>
       </section>

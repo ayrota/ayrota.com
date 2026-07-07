@@ -337,194 +337,180 @@ footerPrivacy: {
 /* --------------------
    ILBER PAGE
 -------------------- */
+/* --------------------
+   ILBER PAGE - UPDATED
+-------------------- */
+
 ilberHeroStatement: {
-  en: 'Learn whether your IMU data is reliable.',
-  tr: 'IMU verinizin güvenilir olup olmadığını öğrenin',
+  en: 'Turn your IMU logs into engineering reports.',
+  tr: 'IMU verilerinizi mühendislik raporlarına dönüştürün.',
 },
 
 ilberHeroText: {
-  en: 'İlber analyzes your data end-to-end, detects critical problems, and delivers engineering-ready quality reports.',
-  tr: 'İlber, verinizi tüm yönleriyle analiz eder, kritik problemleri tespit eder ve mühendislik raporuyla size sunar.',
+  en: 'İlber is Ayrota’s technical analysis and reporting service for IMU datasets. We analyze your data, identify quality and sensor-related issues, and deliver customer-specific engineering reports.',
+  tr: 'İlber; IMU veri setleri için geliştirilen teknik analiz ve raporlama hizmetidir.',
 },
 
 ilberSendData: {
-  en: 'CONTACT US',
-  tr: 'İLETİŞİME GEÇ',
+  en: 'REQUEST A TECHNICAL REVIEW',
+  tr: 'TEKNİK GÖRÜŞME TALEP ET',
 },
 
 ilberMiniDetect: {
-  en: 'Quality Control',
-  tr: 'Kalite kontrol',
-},
-
-ilberMiniAnalyze: {
-  en: 'Analyze',
-  tr: 'Analiz',
+  en: 'Data Quality',
+  tr: 'Veri Kalitesi',
 },
 
 ilberMiniRepair: {
-  en: 'Repair',
-  tr: 'Onarım',
+  en: 'Sensor Health',
+  tr: 'Sensör Sağlığı',
+},
+
+ilberMiniAnalyze: {
+  en: 'Engineering Analysis',
+  tr: 'Mühendislik Analizi',
 },
 
 ilberMiniValidate: {
-  en: 'Report',
-  tr: 'Rapor',
+  en: 'Custom Report',
+  tr: 'Müşteriye Özel Rapor',
 },
 
 ilberAnalysisScope: {
-  en: 'ANALYSIS SCOPE',
-  tr: 'ANALİZ KAPSAMIMIZ',
+  en: 'SCOPE',
+  tr: 'İlber KAPSAMI',
 },
 
 ilberAnalysisScopeTitle: {
-  en: 'Your IMU session is analyzed across measurable quality layers.',
-  tr: 'IMU oturumunuz ölçülebilir kalite katmanlarıyla analiz edilir.',
+  en: 'We analyze your IMU data.',
+  tr: 'IMU verilerinizi analiz ediyoruz.',
 },
 
 ilberAnalysisScopeText: {
-  en: 'İlber evaluates data integrity, sensor reliability and navigation quality together to determine whether your dataset is suitable for engineering use.',
-  tr: 'İlber; veri bütünlüğünü, sensör güvenilirliğini ve navigasyon kalitesini birlikte değerlendirerek veri setinizin mühendislik kullanımı için uygun olup olmadığını gösterir.',
+  en: 'İlber evaluates IMU datasets across data integrity, sensor reliability and motion-related quality layers. The analysis scope is customized according to each customer’s data structure, test scenario and engineering needs.',
+  tr: 'İlber; IMU veri setlerini veri bütünlüğü, sensör güvenilirliği ve hareket kaynaklı kalite katmanları üzerinden değerlendirir. Analiz kapsamı her müşterinin veri yapısına, test senaryosuna ve mühendislik ihtiyacına göre özelleştirilir.',
 },
 
 ilberIntegrityGroupTitle: {
-  en: 'Data Integrity',
-  tr: 'Veri Bütünlüğü',
-},
-
-ilberIntegrityGroupText: {
-  en: 'Missing samples, timing problems and internal inconsistencies are detected before they affect algorithm development.',
-  tr: 'Eksik örnekler, zamanlama problemleri ve iç tutarsızlıklar algoritma geliştirmeyi etkilemeden önce tespit edilir.',
+  en: 'Data Quality & Integrity',
+  tr: 'Veri Kalitesi ve Bütünlüğü',
 },
 
 ilberSensorGroupTitle: {
-  en: 'Sensor Reliability',
-  tr: 'Sensör Güvenilirliği',
-},
-
-ilberSensorGroupText: {
-  en: 'IMU signals are checked for physical validity, stability and sensor-level degradation.',
-  tr: 'IMU sinyalleri fiziksel geçerlilik, kararlılık ve sensör seviyesindeki bozulmalar açısından incelenir.',
+  en: 'Sensor Health & Signal Behavior',
+  tr: 'Sensör Sağlığı ve Sinyal Davranışı',
 },
 
 ilberNavigationGroupTitle: {
-  en: 'Advanced Analysis',
-  tr: 'İleri Analizler',
-},
-
-ilberNavigationGroupText: {
-  en: 'GNSS quality, motion behaviour and frequency-domain characteristics are analyzed to reveal session-level risks.',
-  tr: 'GNSS kalitesi, hareket davranışı ve frekans alanı karakteristikleri analiz edilerek oturum seviyesindeki riskler ortaya çıkarılır.',
+  en: 'Motion, Flight & Consistency Analysis',
+  tr: 'Hareket, Uçuş ve Tutarlılık Analizi',
 },
 
 ilberRepairTitle: {
-  en: 'Repair',
-  tr: 'Onarım',
-},
-
-ilberSensorDomainTitle: {
-  en: 'Sensor Domain Analysis',
-  tr: 'Sensör Domain Analizi',
-},
-
-ilberSensorHealthTitle: {
-  en: 'Sensor Health Analysis',
-  tr: 'Sensör Sağlık Analizi',
-},
-
-ilberGnssTitle: {
-  en: 'GNSS Quality Analysis',
-  tr: 'GNSS Kalite Analizi',
-},
-
-ilberSpectralTitle: {
-  en: 'Spectral Analysis',
-  tr: 'Spektral Analiz',
-},
-
-ilberPhysicalTitle: {
-  en: 'Physical Consistency Checks',
-  tr: 'Fiziksel Tutarlılık Kontrolleri',
+  en: 'Missing Data & Timing Checks',
+  tr: 'Eksik Veri ve Zamanlama Kontrolleri',
 },
 
 ilberConsistencyTitle: {
-  en: 'Consistency Analysis',
-  tr: 'Tutarlılık Analizi',
+  en: 'Run-to-Run Consistency',
+  tr: 'Testler Arası Tutarlılık',
 },
 
 ilberCadenceTitle: {
-  en: 'Cadence Analysis',
-  tr: 'Ritim Analizi',
+  en: 'Dataset Suitability Review',
+  tr: 'Veri Seti Uygunluk Değerlendirmesi',
+},
+
+ilberSensorDomainTitle: {
+  en: 'IMU Signal Quality',
+  tr: 'IMU Sinyal Kalitesi',
+},
+
+ilberSensorHealthTitle: {
+  en: 'Sensor Anomaly Detection',
+  tr: 'Sensör Anomali Tespiti',
+},
+
+ilberPhysicalTitle: {
+  en: 'Physical Plausibility Checks',
+  tr: 'Fiziksel Uygunluk Kontrolleri',
+},
+
+ilberGnssTitle: {
+  en: 'GNSS / INS Data Review',
+  tr: 'GNSS / INS Veri İncelemesi',
+},
+
+ilberSpectralTitle: {
+  en: 'Noise & Spectral Analysis',
+  tr: 'Gürültü ve Spektral Analiz',
 },
 
 ilberMotionTitle: {
-  en: 'Motion Analysis',
-  tr: 'Hareket Analizi',
+  en: 'Motion / Flight Behavior Analysis',
+  tr: 'Hareket / Uçuş Davranışı Analizi',
 },
 
-ilberSessionReportTitle: {
-  en: 'Session Report',
-  tr: 'Oturum Raporu',
-},
+
 
 ilberHowItWorks: {
   en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR?',
+  tr: 'İlber NASIL ÇALIŞIR?',
 },
 
 ilberWorkflowSendTitle: {
-  en: 'Send your data.',
-  tr: 'Verinizi gönderin.',
+  en: 'Share your dataset.',
+  tr: 'Veri setinizi paylaşın.',
 },
 
 ilberWorkflowSendText: {
-  en: 'Share your IMU dataset securely for technical review.',
-  tr: 'IMU veri setinizi güvenli şekilde teknik inceleme için iletin.',
+  en: 'Send your IMU, INS or UAV flight logs for technical review.',
+  tr: 'IMU, INS veya UAV uçuş loglarınızı teknik inceleme için paylaşın.',
 },
 
 ilberWorkflowAnalyzeTitle: {
   en: 'We analyze it.',
-  tr: 'Analiz edelim.',
+  tr: 'Analizi gerçekleştirelim.',
 },
 
 ilberWorkflowAnalyzeText: {
-  en: 'Your data is evaluated through İlber analysis modules.',
-  tr: 'Veriniz İlber analiz modülleriyle değerlendirilir.',
+  en: 'Ayrota evaluates your data through İlber’s engineering analysis workflow.',
+  tr: 'Ayrota, verinizi İlber’in mühendislik analiz süreciyle değerlendirir.',
 },
 
 ilberWorkflowReportTitle: {
   en: 'Receive your report.',
-  tr: 'Raporunuzu alın.',
+  tr: 'Raporunuzu teslim alın.',
 },
 
 ilberWorkflowReportText: {
-  en: 'Get a structured engineering report with quality findings.',
-  tr: 'Kalite bulgularını içeren yapılandırılmış mühendislik raporunuzu alın.',
+  en: 'You receive a customer-specific PDF report with findings, plots and engineering comments.',
+  tr: 'Bulgular, grafikler ve mühendislik yorumları içeren müşteriye özel PDF rapor teslim edilir.',
 },
 
 ilberWorkflowPreventTitle: {
-  en: 'See problems early.',
-  tr: 'Problemleri erken görün.',
-},
-exampleAnalyses: {
-  en: 'Example Analyses',
-  tr: 'Örnek Analizler',
-
+  en: 'Decide faster.',
+  tr: 'Daha hızlı karar alın.',
 },
 
 ilberWorkflowPreventText: {
-  en: 'Reduce debugging time before algorithm development begins.',
-  tr: 'Algoritma geliştirme başlamadan önce hata ayıklama süresini azaltın.',
+  en: 'Identify data-related issues before they are misinterpreted as algorithm or software problems.',
+  tr: 'Veri kaynaklı problemleri algoritma veya yazılım hatası olarak değerlendirmeden önce görün.',
+},
+
+exampleAnalyses: {
+  en: 'Example Analyses',
+  tr: 'Örnek Analizler',
 },
 
 ilberFinalCtaTitle: {
-  en: 'Send your data.',
-  tr: 'Verinizi gönderin.',
+  en: 'Have IMU or flight logs?',
+  tr: 'IMU veya uçuş loglarınız mı var?',
 },
 
 ilberFinalCtaAccent: {
-  en: 'Let us analyze it.',
-  tr: 'Analizi yapalım.',
+  en: 'Let us turn them into an engineering report.',
+  tr: 'Bunları mühendislik raporuna dönüştürelim.',
 },
 /* --------------------
    YORUK PAGE
