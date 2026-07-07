@@ -517,48 +517,48 @@ ilberFinalCtaAccent: {
 -------------------- */
 
 yorukHeroStatement: {
-  en: 'Route intelligence from vehicle motion.',
-  tr: 'Araç hareketinden rota zekâsı.',
+  en: 'Turn your vehicle fleet into a mobile sensor network.',
+  tr: 'Araç filonuzu mobil sensör ağına dönüştürün.',
 },
 
 yorukHeroText: {
-  en: 'YÖRÜK analyzes IMU-supported vehicle motion data to reveal road health, route quality, vibration events and operational patterns across fleet routes.',
-  tr: 'YÖRÜK, IMU destekli araç hareket verilerini analiz ederek filo rotalarında yol sağlığını, rota kalitesini, titreşim olaylarını ve operasyonel örüntüleri görünür hale getirir.',
+  en: 'YÖRÜK is a road and driving analytics platform that leverages mobile device GPS and IMU signals to generate insights on road quality, route comfort, driving safety, and driver attention/fatigue risk through mobile camera data.',
+  tr: 'YÖRÜK, Mobil cihaz GPS ve IMU sinyalleriyle yol kalitesi, rota konforu, mobil kamera ile sürücü dikkat/uyku riski analizi üretmeyi hedefleyen yol ve sürüş analitiği platformu.',
 },
 
 yorukMiniFleet: {
-  en: 'Fleet analytics',
-  tr: 'Filo analitiği',
+  en: 'Fleet Operations',
+  tr: 'Filo Operasyonları',
 },
 
 yorukMiniRoute: {
-  en: 'Route quality',
-  tr: 'Rota kalitesi',
+  en: 'Road Quality',
+  tr: 'Yol Kalitesi',
 },
 
 yorukMiniRoadHealth: {
-  en: 'Road health',
-  tr: 'Yol sağlığı',
+  en: 'Driving Safety',
+  tr: 'Sürüş Güvenliği',
 },
 
 yorukMiniImu: {
-  en: 'IMU-supported',
-  tr: 'IMU destekli',
+  en: 'GPS + IMU Analytics',
+  tr: 'GPS + IMU Analitiği',
 },
 
 yorukScopeTitle: {
-  en: 'SYSTEM CAPABILITIES',
-  tr: 'SİSTEM KABİLİYETLERİ',
+  en: 'PLATFORM CAPABILITIES',
+  tr: 'PLATFORM YETENEKLERİ',
 },
 
 yorukScopeMainTitle: {
-  en: 'Built for fleet-scale road intelligence.',
-  tr: 'Filo ölçeğinde yol zekâsı için tasarlandı.',
+  en: 'Road and driving analytics from existing vehicles.',
+  tr: 'Mevcut araçlardan yol ve sürüş analitiği.',
 },
 
 yorukScopeText: {
-  en: 'YÖRÜK turns vehicle motion and inertial signals into route-level insights for road health monitoring, operational reporting and fleet decision support.',
-  tr: 'YÖRÜK; araç hareketi ve ataletsel sinyalleri yol sağlığı izleme, operasyonel raporlama ve filo karar desteği için rota seviyesinde içgörülere dönüştürür.',
+  en: 'YÖRÜK turns existing vehicles into mobile data sources and helps organizations analyze road quality, route performance, driving behavior and operational risk from one platform.',
+  tr: 'YÖRÜK, mevcut araçları mobil veri kaynaklarına dönüştürerek yol kalitesi, rota performansı, sürüş davranışı ve operasyonel riskleri tek platformda analiz eder.',
 },
 
 yorukRoadGroupTitle: {
@@ -567,120 +567,119 @@ yorukRoadGroupTitle: {
 },
 
 yorukSignalGroupTitle: {
-  en: 'Signal Analysis',
-  tr: 'Sinyal Analizi',
+  en: 'Vehicle Motion Analytics',
+  tr: 'Araç Hareket Analitiği',
 },
 
 yorukFleetGroupTitle: {
-  en: 'Fleet Operations',
-  tr: 'Yolcu Güvenliği',
+  en: 'Operational Decision Support',
+  tr: 'Operasyonel Karar Desteği',
 },
 
 yorukCapabilityRoadHealth: {
-  en: 'Road health monitoring',
-  tr: 'Yol sağlığı izleme',
+  en: 'Road condition analysis',
+  tr: 'Yol durumu analizi',
 },
 
 yorukCapabilityRouteQuality: {
-  en: 'Route quality analysis',
-  tr: 'Rota kalite analizi',
+  en: 'Route and segment evaluation',
+  tr: 'Rota ve segment değerlendirmesi',
 },
 
 yorukCapabilitySurfaceCondition: {
-  en: 'Surface condition signals',
-  tr: 'Yüzey durumu sinyalleri',
+  en: 'Road quality and comfort scoring',
+  tr: 'Yol kalitesi ve konfor skorlama',
 },
 
 yorukCapabilityImuSensing: {
-  en: 'IMU-supported sensing',
-  tr: 'IMU destekli algılama',
+  en: 'GPS and IMU data collection',
+  tr: 'GPS ve IMU veri toplama',
 },
 
 yorukCapabilityVibration: {
-  en: 'Vibration event analysis',
-  tr: 'Titreşim olayı analizi',
+  en: 'Motion and vibration analysis',
+  tr: 'Hareket ve titreşim analizi',
 },
 
 yorukCapabilityAnomaly: {
-  en: 'Road anomaly detection',
-  tr: 'Yol anomalisi tespiti',
+  en: 'Driving behavior insights',
+  tr: 'Sürüş davranışı içgörüleri',
 },
 
 yorukCapabilityFleetAnalytics: {
-  en: 'Driver tracking',
-  tr: 'Sürücü Takip',
+  en: 'Fleet and route performance analytics',
+  tr: 'Filo ve rota performans analitiği',
 },
 
 yorukCapabilityMapVisualization: {
-  en: 'Route map visualization',
-  tr: 'Rota haritası görselleştirme',
+  en: 'Live map visualization',
+  tr: 'Canlı harita görselleştirme',
 },
 
 yorukCapabilityDashboard: {
-  en: 'Operational dashboard',
-  tr: 'Admin paneli',
+  en: 'Analytics dashboard and reports',
+  tr: 'Analiz paneli ve raporlar',
 },
 
 yorukHowItWorks: {
   en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR?',
+  tr: 'NASIL ÇALIŞIR',
 },
 
 yorukWorkflowCollectTitle: {
-  en: 'Collect vehicle data.',
-  tr: 'Araç verisini toplar.',
+  en: 'Collect data.',
+  tr: 'Veri Topla.',
 },
 
 yorukWorkflowCollectText: {
-  en: 'Receives route, motion and IMU-supported signals from fleet vehicles.',
-  tr: 'Filo araçlarından rota, hareket ve IMU destekli sinyalleri alır.',
+  en: 'Vehicles collect GPS and IMU data during their daily operations through tablet-based trip recording.',
+  tr: 'Araçlar günlük operasyonları sırasında tablet tabanlı sefer kaydı ile GPS ve IMU verisi toplar.',
 },
 
 yorukWorkflowAnalyzeTitle: {
-  en: 'Analyze road signals.',
-  tr: 'Yol sinyallerini analiz eder.',
+  en: 'Analyze motion.',
+  tr: 'Hareketi Analiz Et.',
 },
 
 yorukWorkflowAnalyzeText: {
-  en: 'Detects vibration, anomaly and motion patterns along the route.',
-  tr: 'Rota boyunca titreşim, anomali ve hareket örüntülerini tespit eder.',
+  en: 'YÖRÜK processes vehicle motion signals to evaluate road condition, ride comfort, driving safety and route performance.',
+  tr: 'YÖRÜK, araç hareket sinyallerini işleyerek yol durumu, sürüş konforu, sürüş güvenliği ve rota performansını değerlendirir.',
 },
 
 yorukWorkflowMapTitle: {
-  en: 'Map route quality.',
-  tr: 'Rota kalitesini haritalar.',
+  en: 'Visualize insights.',
+  tr: 'İçgörüleri Görselleştir.',
 },
 
 yorukWorkflowMapText: {
-  en: 'Turns vehicle motion signals into route-level road quality insights.',
-  tr: 'Araç hareket sinyallerini rota seviyesinde yol kalite içgörülerine dönüştürür.',
+  en: 'Road quality, risky segments, route performance and operational indicators are displayed through maps and dashboards.',
+  tr: 'Yol kalitesi, riskli segmentler, rota performansı ve operasyonel göstergeler haritalar ve paneller üzerinden görüntülenir.',
 },
 
 yorukWorkflowReportTitle: {
-  en: 'Report fleet insights.',
-  tr: 'Filo içgörülerini raporlar.',
+  en: 'Support decisions.',
+  tr: 'Kararları Destekle.',
 },
 
 yorukWorkflowReportText: {
-  en: 'Produces operational outputs for maintenance, planning and route evaluation.',
-  tr: 'Bakım, planlama ve rota değerlendirmesi için operasyonel çıktılar üretir.',
+  en: 'Reports help teams prioritize maintenance, improve driving safety, compare routes and manage operational risks.',
+  tr: 'Raporlar; bakım önceliklendirme, sürüş güvenliğini iyileştirme, rota karşılaştırma ve operasyonel risk yönetimi süreçlerini destekler.',
 },
 
 yorukFinalCtaTitle: {
-  en: 'Evaluate your fleet routes.',
-  tr: 'Filo rotalarınızı değerlendirin.',
+  en: 'Create road and driving analytics from your existing fleet.',
+  tr: 'Mevcut filonuzdan yol ve sürüş analitiği üretin.',
 },
 
 yorukFinalCtaAccent: {
-  en: 'See road health from motion data.',
-  tr: 'Yol sağlığını hareket verisinden görün.',
+  en: 'Use daily vehicle operations to understand road quality, comfort, safety and performance.',
+  tr: 'Günlük araç operasyonlarınızı yol kalitesi, konfor, güvenlik ve performans içgörülerine dönüştürün.',
 },
 
 yorukCtaButton: {
-  en: 'CONTACT US',
-  tr: 'İLETİŞİME GEÇ',
+  en: 'REQUEST A PILOT',
+  tr: 'PİLOT TALEP ET',
 },
-
 /* --------------------
    Koman PAGE
 -------------------- */

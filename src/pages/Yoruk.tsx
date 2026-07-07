@@ -67,10 +67,10 @@ export default function Yoruk() {
 
   return (
     <main className="relative z-10 bg-bg text-fg">
-      <section className="relative overflow-hidden bg-bg pt-28 pb-14">
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(30,90,255,0.18),transparent_42%)]" />
 
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center">
               <div>
@@ -117,9 +117,9 @@ export default function Yoruk() {
 
       <section
         id="yoruk-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20"
+        className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg"
       >
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
               <div>
@@ -140,7 +140,7 @@ export default function Yoruk() {
                 {YORUK_SCOPE_GROUPS.map((group) => (
                   <div
                     key={group.title}
-                    className="border border-fg/10 bg-panel/10 p-7 transition hover:bg-panel/20 md:p-8"
+                    className="border border-fg/10 bg-panel/10 p-8 transition hover:bg-panel/20"
                   >
                     <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
                       <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
@@ -166,8 +166,8 @@ export default function Yoruk() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-16">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      <section className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
               {t('yorukHowItWorks')}
@@ -191,18 +191,16 @@ export default function Yoruk() {
               ))}
             </div>
           </Reveal>
-          <Link
 
+          <Link
             to="/#contact"
-            className="mt-10 mx-auto flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+            className="mx-auto mt-16 flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
           >
             {t('yorukCtaButton')}
             <span aria-hidden>→</span>
           </Link>
         </div>
       </section>
-
-
 
       <Footer />
     </main>
