@@ -5,32 +5,32 @@ import { Reveal } from '../components/RevealSection';
 import type { TranslationKey } from '../i18n/translations';
 import { useLanguage } from '../lib/LanguageContext';
 
-const YAYA_SCOPE_GROUPS: {
+const ALKON_SCOPE_GROUPS: {
   title: TranslationKey;
   items: TranslationKey[];
 }[] = [
   {
-    title: 'yayaNavigationGroupTitle',
+    title: 'alkonNavigationGroupTitle',
     items: [
-      'yayaCapabilityPdr',
-      'yayaCapabilityRelativeMovement',
-      'yayaCapabilityIndoorNavigation',
+      'alkonCapabilityInertialNavigation',
+      'alkonCapabilityPositioning',
+      'alkonCapabilityHeading',
     ],
   },
   {
-    title: 'yayaMotionGroupTitle',
+    title: 'alkonMissionGroupTitle',
     items: [
-      'yayaCapabilityStepDetection',
-      'yayaCapabilityMovementPatterns',
-      'yayaCapabilityMovementAnalytics',
+      'alkonCapabilityMissionPlanning',
+      'alkonCapabilityMissionExecution',
+      'alkonCapabilityWaypoint',
     ],
   },
   {
-    title: 'yayaIntegrationGroupTitle',
+    title: 'alkonIntegrationGroupTitle',
     items: [
-      'yayaCapabilityMobile',
-      'yayaCapabilityMapContext',
-      'yayaCapabilityApplicationOutput',
+      'alkonCapabilityAutonomousPlatforms',
+      'alkonCapabilityGroundControl',
+      'alkonCapabilityMavlink',
     ],
   },
 ];
@@ -42,27 +42,27 @@ const WORKFLOW_ITEMS: {
 }[] = [
   {
     number: '01',
-    title: 'yayaWorkflowSenseTitle',
-    text: 'yayaWorkflowSenseText',
+    title: 'alkonWorkflowSenseTitle',
+    text: 'alkonWorkflowSenseText',
   },
   {
     number: '02',
-    title: 'yayaWorkflowEstimateTitle',
-    text: 'yayaWorkflowEstimateText',
+    title: 'alkonWorkflowNavigateTitle',
+    text: 'alkonWorkflowNavigateText',
   },
   {
     number: '03',
-    title: 'yayaWorkflowContextTitle',
-    text: 'yayaWorkflowContextText',
+    title: 'alkonWorkflowPlanTitle',
+    text: 'alkonWorkflowPlanText',
   },
   {
     number: '04',
-    title: 'yayaWorkflowInsightTitle',
-    text: 'yayaWorkflowInsightText',
+    title: 'alkonWorkflowExecuteTitle',
+    text: 'alkonWorkflowExecuteText',
   },
 ];
 
-export default function Yaya() {
+export default function Alkon() {
   const { t } = useLanguage();
 
   return (
@@ -83,33 +83,33 @@ export default function Yaya() {
                 </Link>
 
                 <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
-                  YAYA
+                  ALKON
                 </div>
 
                 <div className="mt-4 text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
-                  {t('yayaProductCategory')}
+                  {t('alkonProductCategory')}
                 </div>
 
                 <h1 className="mt-6 max-w-[680px] text-4xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[62px]">
-                  {t('yayaHeroStatement')}
+                  {t('alkonHeroStatement')}
                 </h1>
 
                 <p className="mt-7 max-w-[610px] text-base leading-8 text-fg/58">
-                  {t('yayaHeroText')}
+                  {t('alkonHeroText')}
                 </p>
 
-                <div className="mt-10 flex max-w-[650px] flex-wrap gap-x-8 gap-y-4 text-[12px] font-medium tracking-[0.04em] text-fg/52">
-                  <span>{t('yayaMiniPdr')}</span>
-                  <span>{t('yayaMiniIndoor')}</span>
-                  <span>{t('yayaMiniMovement')}</span>
-                  <span>{t('yayaMiniMobile')}</span>
+                <div className="mt-10 flex max-w-[620px] flex-wrap gap-x-8 gap-y-4 text-[12px] font-medium tracking-[0.04em] text-fg/52">
+                  <span>{t('alkonMiniNavigation')}</span>
+                  <span>{t('alkonMiniMission')}</span>
+                  <span>{t('alkonMiniAutonomy')}</span>
+                  <span>{t('alkonMiniIntegration')}</span>
                 </div>
               </div>
 
               <div className="relative min-h-[430px] overflow-hidden border border-fg/10 bg-panel/10 shadow-2xl shadow-black/30 md:min-h-[520px]">
                 <img
-                  src="/products/yaya.png"
-                  alt="Yaya indoor movement and navigation"
+                  src="/products/alkon.png"
+                  alt="Alkon autonomous navigation and mission system"
                   className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
                 />
 
@@ -120,9 +120,9 @@ export default function Yaya() {
         </div>
       </section>
 
-      {/* CAPABILITIES */}
+      {/* SYSTEM CAPABILITIES */}
       <section
-        id="yaya-capabilities"
+        id="alkon-capabilities"
         className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24"
       >
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
@@ -130,20 +130,20 @@ export default function Yaya() {
             <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr]">
               <div>
                 <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-                  {t('yayaScopeTitle')}
+                  {t('alkonScopeTitle')}
                 </div>
 
                 <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[56px]">
-                  {t('yayaScopeMainTitle')}
+                  {t('alkonScopeMainTitle')}
                 </h2>
 
                 <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
-                  {t('yayaScopeText')}
+                  {t('alkonScopeText')}
                 </p>
               </div>
 
               <div className="space-y-5">
-                {YAYA_SCOPE_GROUPS.map((group) => (
+                {ALKON_SCOPE_GROUPS.map((group) => (
                   <div
                     key={group.title}
                     className="border border-fg/10 bg-panel/10 p-7 transition hover:border-fg/20 hover:bg-panel/20 md:p-8"
@@ -177,11 +177,11 @@ export default function Yaya() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('yayaHowItWorks')}
+              {t('alkonHowItWorks')}
             </div>
 
             <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
-              {t('yayaHowItWorksTitle')}
+              {t('alkonHowItWorksTitle')}
             </h2>
 
             <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -208,39 +208,6 @@ export default function Yaya() {
         </div>
       </section>
 
-      {/* APPLICATIONS */}
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-          <Reveal>
-            <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-              <div>
-                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-                  {t('yayaApplicationsKicker')}
-                </div>
-
-                <h2 className="mt-6 max-w-[580px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
-                  {t('yayaApplicationsTitle')}
-                </h2>
-              </div>
-
-              <div className="grid gap-px border border-fg/10 bg-fg/10 md:grid-cols-2">
-                <ApplicationItem
-                  number="01"
-                  title={t('yayaApplicationHospital')}
-                  text={t('yayaApplicationHospitalText')}
-                />
-
-                <ApplicationItem
-                  number="02"
-                  title={t('yayaApplicationDepot')}
-                  text={t('yayaApplicationDepotText')}
-                />
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="border-t border-fg/10 bg-bg py-16 md:py-20">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
@@ -248,15 +215,15 @@ export default function Yaya() {
             <div className="flex flex-col gap-10 border-t border-fg/10 pt-12 md:flex-row md:items-end md:justify-between">
               <div>
                 <div className="text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
-                  YAYA
+                  ALKON
                 </div>
 
                 <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.045em] text-fg md:text-[42px]">
-                  {t('yayaFinalCtaTitle')}
+                  {t('alkonFinalCtaTitle')}
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-base leading-8 text-fg/55">
-                  {t('yayaFinalCtaText')}
+                  {t('alkonFinalCtaText')}
                 </p>
               </div>
 
@@ -264,7 +231,7 @@ export default function Yaya() {
                 to="/#contact"
                 className="flex w-fit flex-shrink-0 items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
               >
-                {t('yayaCtaButton')}
+                {t('alkonCtaButton')}
                 <span aria-hidden>→</span>
               </Link>
             </div>
@@ -274,31 +241,5 @@ export default function Yaya() {
 
       <Footer />
     </main>
-  );
-}
-
-function ApplicationItem({
-  number,
-  title,
-  text,
-}: {
-  number: string;
-  title: string;
-  text: string;
-}) {
-  return (
-    <div className="min-h-[260px] bg-bg p-7">
-      <div className="text-sm font-semibold text-blue-500">
-        {number}
-      </div>
-
-      <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-fg">
-        {title}
-      </h3>
-
-      <p className="mt-5 text-sm leading-7 text-fg/55">
-        {text}
-      </p>
-    </div>
   );
 }

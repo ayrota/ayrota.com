@@ -33,8 +33,12 @@ export function Problem() {
   const { t } = useLanguage();
 
   return (
-    <section id="problem" className="relative min-h-screen overflow-hidden bg-bg">
+    <section
+      id="technology"
+      className="relative min-h-screen overflow-hidden bg-bg"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(56,189,248,0.03),transparent_55%)]" />
+
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.0),rgba(5,10,18,0.55))]" />
 
       <div className="relative z-10 flex min-h-screen items-center">
@@ -44,6 +48,7 @@ export function Problem() {
               <div>
                 <div className="mb-6 flex items-center gap-3">
                   <span className="h-px w-8 bg-cyan-300/80" />
+
                   <span className="text-[11px] font-medium tracking-[0.22em] text-fg/60">
                     {t('problemKicker')}
                   </span>
@@ -64,7 +69,10 @@ export function Problem() {
 
               <div className="grid gap-6 md:grid-cols-4">
                 {FLOW_ITEMS.map((item, index) => (
-                  <div key={item.title} className="relative">
+                  <div
+                    key={item.title}
+                    className="relative"
+                  >
                     {index !== 0 && (
                       <div className="absolute -left-5 top-1/2 z-20 hidden -translate-y-1/2 text-3xl text-cyan-300/70 md:block">
                         ›
@@ -94,8 +102,10 @@ export function Problem() {
                       <div className="flex flex-1 flex-col p-6 text-center">
                         <h3
                           className={[
-                            'flex min-h-[60 px] items-center justify-center text-[15px] font-semibold leading-6 tracking-[0.08em]',
-                            item.active ? 'text-cyan-300' : 'text-fg/84',
+                            'flex min-h-[60px] items-center justify-center text-[15px] font-semibold leading-6 tracking-[0.08em]',
+                            item.active
+                              ? 'text-cyan-300'
+                              : 'text-fg/84',
                           ].join(' ')}
                         >
                           {t(item.title)}

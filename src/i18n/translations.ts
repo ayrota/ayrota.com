@@ -1,1091 +1,1149 @@
 export type Language = 'en' | 'tr';
 
 export const translations = {
+  /* --------------------
+     HERO
+  -------------------- */
 
-/* --------------------
-   HERO
+  homeHeroKicker: {
+    en: 'INERTIAL INTELLIGENCE',
+    tr: 'ATALETSEL ZEKA',
+  },
+
+  homeHeroTitle: {
+    en: 'Inertial Intelligence for Systems in Motion',
+    tr: 'Hareket Eden Sistemler İçin Ataletsel Zeka',
+  },
+
+  homeHeroLead: {
+    en: 'Ayrota turns IMU-based navigation and motion analytics technologies into solutions for autonomous systems, vehicles and indoor operations.',
+    tr: 'Ayrota, IMU tabanlı navigasyon ve hareket analizi teknolojilerini otonom sistemler, araçlar ve kapalı alan operasyonları için çözümlere dönüştürür.',
+  },
+
+  heroPillarImu: {
+    en: 'NAVIGATION',
+    tr: 'NAVİGASYON',
+  },
+
+  heroPillarSwapc: {
+    en: 'SENSOR ENGINEERING',
+    tr: 'SENSÖR MÜHENDİSLİĞİ',
+  },
+
+  heroPillarEndToEnd: {
+    en: 'MOTION ANALYTICS',
+    tr: 'HAREKET ANALİZİ',
+  },
+
+  heroPillarIndependent: {
+    en: 'EMBEDDED INTEGRATION',
+    tr: 'GÖMÜLÜ ENTEGRASYON',
+  },
+
+  /* --------------------
+     PRODUCTS
+  -------------------- */
+
+  productsKicker: {
+    en: 'PRODUCTS',
+    tr: 'ÜRÜNLER',
+  },
+
+  productsTitle: {
+    en: 'Inertial Technology Built for Real Operations',
+    tr: 'Gerçek Operasyonlar İçin Ataletsel Teknoloji',
+  },
+
+  productsLead: {
+    en: 'Ayrota brings its inertial navigation and motion intelligence capabilities into autonomous systems, vehicle operations and indoor environments.',
+    tr: 'Ayrota, ataletsel navigasyon ve hareket analizi kabiliyetlerini otonom sistemlere, araç operasyonlarına ve kapalı alan uygulamalarına taşır.',
+  },
+
+  productsAlkonEyebrow: {
+    en: 'AUTONOMOUS NAVIGATION & MISSION SYSTEM',
+    tr: 'OTONOM NAVİGASYON VE GÖREV SİSTEMİ',
+  },
+
+  productsAlkonDescription: {
+    en: 'Alkon supports autonomous platforms operating where GNSS is unavailable or unreliable. It combines inertial navigation with mission planning and mission execution in a single software system.',
+    tr: 'Alkon, GNSS’in kullanılamadığı veya güvenilir olmadığı ortamlarda çalışan otonom platformlar için geliştirilmiştir. Ataletsel navigasyonu görev planlama ve görev icrası ile tek bir yazılım sistemi içinde bir araya getirir.',
+  },
+
+  productsYorukEyebrow: {
+    en: 'VEHICLE & ROAD INTELLIGENCE',
+    tr: 'ARAÇ VE YOL ZEKASI',
+  },
+
+  productsYorukDescription: {
+    en: 'Yoruk turns sensor data collected from moving vehicles into road condition, driving behaviour and operational insights for fleets, municipalities and transportation operations.',
+    tr: 'Yörük, hareket halindeki araçlardan toplanan sensör verisini yol durumu, sürüş davranışı ve operasyonel içgörülere dönüştürür. Filo, belediye ve ulaşım operasyonlarının veriye dayalı olarak değerlendirilmesini destekler.',
+  },
+
+  productsYayaEyebrow: {
+    en: 'INDOOR MOVEMENT & NAVIGATION',
+    tr: 'KAPALI ALAN HAREKET VE NAVİGASYON',
+  },
+
+  productsYayaDescription: {
+    en: 'Yaya uses mobile inertial sensing to understand pedestrian movement where GNSS cannot be used. It supports indoor navigation and movement analytics for hospitals, warehouses and large facilities.',
+    tr: 'Yaya, GNSS’in kullanılamadığı kapalı alanlarda yaya hareketini mobil ataletsel sensörlerle anlamlandırır. Hastane, depo ve büyük tesislerde kapalı alan navigasyonu ve hareket analizi uygulamalarını destekler.',
+  },
+
+  productsExplore: {
+    en: 'EXPLORE',
+    tr: 'İNCELE',
+  },
+
+  /* --------------------
+   APPLICATIONS
 -------------------- */
 
-homeHeroKicker: {
-  en: 'IMU-BASED NAVIGATION SYSTEMS',
-  tr: 'IMU TABANLI NAVİGASYON SİSTEMLERİ',
-},
-
-homeHeroTitle: {
-  en: 'Inertial Navigation Independent from External Sources',
-  tr: 'Harici Kaynaklardan Bağımsız Ataletsel Navigasyon',
-},
-
-homeHeroLead: {
-  en: 'Ayrota develops navigation solutions based solely on inertial measurements for environments where GNSS is unavailable or unreliable.',
-  tr: 'Ayrota, GNSS’in erişilemediği veya güvenilir olmadığı ortamlarda, yalnızca ataletsel ölçümlere dayalı navigasyon çözümleri geliştirir.',
-},
-
-
-heroPillarImu: {
-  en: 'IMU BASED',
-  tr: 'IMU TABANLI',
-},
-
-heroPillarSwapc: {
-  en: 'LOW SWaP-C',
-  tr: 'DÜŞÜK SWaP-C',
-},
-
-heroPillarEndToEnd: {
-  en: 'END-TO-END SOLUTION',
-  tr: 'UÇTAN UCA ÇÖZÜM',
-},
-
-heroPillarIndependent: {
-  en: 'GNSS-INDEPENDENT',
-  tr: 'GNSS İHTİYACI OLMADAN',
-},
-
-/* --------------------
-   PRODUCTS
--------------------- */
-
-productsKicker: {
-  en: 'PRODUCTS & SOLUTIONS',
-  tr: 'ÜRÜNLER VE ÇÖZÜMLER',
-},
-
-productsTitle: {
-  en: 'Navigation products for autonomous systems.',
-  tr: 'Otonom sistemler için navigasyon çözümleri.',
-},
-
-productsLead: {
-  en: 'Software-defined navigation products built around inertial estimation, GNSS-independent operation and practical system integration.',
-  tr: 'Ataletsel kestirim, GNSS bağımsız çalışma ve pratik sistem entegrasyonu etrafında şekillenen navigasyon ürünleri.',
-},
-
-
-
-productsKomanLead: {
-  en: 'Engineered for mission-critical performance in GNSS-denied environments.',
-  tr: 'GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
-},
-
-productsKomanFeatureImu: {
-  en: 'IMU-only navigation',
-  tr: 'IMU odaklı navigasyon',
-},
-
-productsKomanFeatureGnss: {
-  en: 'Operation in GNSS-denied environments',
-  tr: 'GNSS olmayan ortamlarda çalışma',
-},
-
-productsKomanFeatureDynamic: {
-  en: 'Robust estimation in dynamic conditions',
-  tr: 'Dinamik koşullarda dayanıklı kestirim',
-},
-
-productsKomanFeatureRealtime: {
-  en: 'Real-time, low-latency output',
-  tr: 'Gerçek zamanlı, düşük gecikmeli çıktı',
-},
-
-productsExploreKoman: {
-  en: 'EXPLORE KOMAN',
-  tr: 'KOMAN’I KEŞFET',
-},
-
-productsTechnicalImu: {
-  en: 'Inertial Navigation',
-  tr: 'Ataletsel Navigasyon',
-},
-
-productsTechnicalAi: {
-  en: 'Assisted Estimation',
-  tr: 'Destekli Kestirim',
-},
-
-productsTechnicalRealtime: {
-  en: 'Real-time Output',
-  tr: 'Gerçek Zamanlı Çıktı',
-},
-
-productsTechnicalEmbedded: {
-  en: 'Embedded Integration',
-  tr: 'Gömülü Entegrasyon',
-},
-
-
-productsYorukDescription: {
-  en: 'Route analytics platform for vehicle fleets.',
-  tr: 'Araç filolarına özel rota analitik platformu.',
-},
-
-productsIlberDescription: {
-  en: 'IMU data quality assurance platform.',
-  tr: 'IMU veri kalite güvence platformu.',
-},
-
-productsYayaDescription: {
-  en: 'Pedestrian dead reckoning software.',
-  tr: 'Yaya kestirimli konumlama yazılımı.',
-},
-
-/* --------------------
-   PLATFORMS
--------------------- */
 platformsKicker: {
-  en: 'SOLUTION AREAS',
-  tr: 'ÇÖZÜM ALANLARI',
+  en: 'APPLICATIONS',
+  tr: 'KULLANIM ALANLARI',
 },
 
 platformsLead: {
-  en: 'Ayrota technologies are designed around navigation, estimation, data reliability, and software integration needs across autonomous and intelligent systems.',
-  tr: 'Ayrota teknolojileri; otonom ve akıllı sistemlerde navigasyon, kestirim, veri güvenilirliği ve yazılım entegrasyonu ihtiyaçları etrafında yapılandırılır.',
+  en: 'Ayrota technologies adapt to different motion, navigation and operational intelligence requirements.',
+  tr: 'Ayrota teknolojileri, farklı hareket, navigasyon ve operasyonel analiz ihtiyaçlarına uyarlanır.',
 },
 
-platformsGroundTitle: {
-  en: 'Ground Systems',
-  tr: 'Kara Sistemleri',
+platformsAutonomyTitle: {
+  en: 'Autonomous Systems',
+  tr: 'Otonom Sistemler',
 },
 
-platformsGroundText: {
-  en: 'Software layers for ground vehicles, mobile platforms, and field robotics.',
-  tr: 'Kara araçları, mobil platformlar ve saha robotikleri için yazılım katmanları.',
+platformsAutonomyText: {
+  en: 'Navigation and mission capabilities for GNSS-constrained operations.',
+  tr: 'GNSS kısıtlı operasyonlar için navigasyon ve görev kabiliyetleri.',
 },
 
-platformsAirTitle: {
-  en: 'Air Systems',
-  tr: 'Hava Sistemleri',
+platformsRoadTitle: {
+  en: 'Road & Fleet',
+  tr: 'Yol ve Filo',
 },
 
-platformsAirText: {
-  en: 'Navigation and estimation workflows for UAVs and aerial platforms.',
-  tr: 'UAV ve hava platformları için navigasyon ve kestirim iş akışları.',
+platformsRoadText: {
+  en: 'Road condition, driving and vehicle motion analytics.',
+  tr: 'Yol durumu, sürüş ve araç hareket analizi.',
 },
 
-platformsSmartTitle: {
-  en: 'Smart Platforms',
-  tr: 'Akıllı Platformlar',
+platformsIndoorTitle: {
+  en: 'Indoor Environments',
+  tr: 'Kapalı Alanlar',
 },
 
-platformsSmartText: {
-  en: 'Sensor-driven systems that require motion awareness and autonomy logic.',
-  tr: 'Hareket farkındalığı ve otonomi mantığı gerektiren sensör tabanlı sistemler.',
+platformsIndoorText: {
+  en: 'Pedestrian navigation and movement analysis where GNSS is unavailable.',
+  tr: 'GNSS erişiminin olmadığı ortamlarda yaya navigasyonu ve hareket analizi.',
 },
 
-platformsEndToEndTitle: {
-  en: 'End-to-End Solutions',
-  tr: 'Uçtan Uca Çözümler',
+platformsEngineeringTitle: {
+  en: 'Engineering',
+  tr: 'Mühendislik',
 },
 
-platformsEndToEndText: {
-  en: 'End-to-end software solutions from sensor data to navigation output.',
-  tr: 'Sensör verisinden operasyonel yazılıma uçtan uca çözüm.',
+platformsEngineeringText: {
+  en: 'IMU analysis, navigation development and system integration.',
+  tr: 'IMU analizi, navigasyon geliştirme ve sistem entegrasyonu.',
 },
 
+  /* --------------------
+     CORE TECHNOLOGY
+  -------------------- */
 
-/* --------------------
-   PROBLEM
--------------------- */
+  problemKicker: {
+    en: 'CORE TECHNOLOGY',
+    tr: 'ÇEKİRDEK TEKNOLOJİ',
+  },
 
-problemKicker: {
-  en: 'INERTIAL NAVIGATION',
-  tr: 'ATALETSEL NAVİGASYON',
-},
-
-problemTitle: {
-  en: 'The foundation of independent navigation',
-  tr: 'Bağımsız Navigasyonun Temeli',
-},
-
-problemLead: {
-  en: 'Inertial navigation enables the maintenance of position, orientation, and motion awareness without reliance on external references. It forms the fundamental layer that preserves a system’s situational awareness when GNSS access is interrupted or environmental conditions challenge sensing systems.',
-  tr: 'Ataletsel navigasyon, harici referanslara ihtiyaç duymadan konum, yönelim ve hareket bilgisinin sürdürülmesini sağlar. GNSS erişiminin kesintiye uğradığı veya çevresel koşulların algılama sistemlerini zorladığı durumlarda, sistemin hareket farkındalığını koruyan temel katmanı oluşturur.',
-},
-
-problemSecondLead: {
-  en: 'Ayrota delivers navigation continuity with an IMU centered inertial core, without relying on complex and costly sensor stacks.',
-  tr: 'Ayrota, IMU odaklı ataletsel navigasyon çekirdeğiyle karmaşık ve maliyetli sensör yığınlarına ihtiyaç duymadan navigasyon sürekliliği sağlar.',
-},
-
-problemFlowGnssTitle: {
-  en: 'GNSS IS LOST',
-  tr: 'GNSS KAYBOLUR',
-},
-
-problemFlowGnssSubtitle: {
-  en: 'When a vehicle enters a challenging environment, GNSS can be lost or spoofed.',
-  tr: 'Araç zorlu bir sahaya girdiğinde, GNSS kesilebilir veya yanıltılabilir.',
-},
-
-problemFlowSensorTitle: {
-  en: 'MORE SENSORS REQUIRED',
-  tr: 'DAHA FAZLA SENSÖR GEREKİR ',
-},
-
-problemFlowSensorSubtitle: {
-  en: 'Solutions with additional sensors like cameras or LiDARs can address this but add significant cost.',
-  tr: 'Kayıp ek kameralar veya yoğun işlem yükü getiren LiDARlarla çözülebilir ancak ek maliyet artar.',
-},
-
-problemFlowCoreTitle: {
-  en: 'INERTIAL CORE',
-  tr: 'ATALETSEL ÇEKİRDEK',
-},
-
-problemFlowCoreSubtitle: {
-  en: 'Ayrota’s inertial core is designed to provide continuous navigation in GNSS-denied environments, using only IMU data and advanced estimation algorithms.',
-  tr: 'Ayrota optimize edilmiş düşük SWaP-C mimarisiyle IMU tabanlı navigasyon sunar.',
-},
-
-problemFlowNavTitle: {
-  en: 'NAVIGATION CONTINUES',
-  tr: 'NAVİGASYON DEVAM EDER',
-},
-
-problemFlowNavSubtitle: {
-  en: 'This allows for seamless position, orientation, and motion estimation without reliance on external references.',
-  tr: 'Bu sayede harici dış referanslara ihtiyaç duyulmadan konum, yönelim ve hareket kestirimi kusursuzca tahmin edilir.',
-},
-
-/* --------------------
-   CONTACT
--------------------- */
-
-contactKicker: {
-  en: 'CONTACT',
-  tr: 'İLETİŞİM',
-},
-
-contactTitle: {
-  en: 'Get in touch',
-  tr: 'İletişime geçin',
-},
-
-corporateContactTitle: {
-  en: 'Corporate contact',
-  tr: 'Kurumsal iletişim',
-},
-
-corporateContactDescription: {
-  en: 'Use the form for partnerships, pilot studies, evaluation access, and corporate inquiries.',
-  tr: 'İş birlikleri, pilot çalışmalar, değerlendirme erişimi ve kurumsal konular için formu kullanın.',
-},
-
-contactLabelOrg: {
-  en: 'PERSON / ORGANIZATION',
-  tr: 'KİŞİ / KURUM',
-},
-
-contactLabelEmail: {
-  en: 'CONTACT EMAIL',
-  tr: 'İLETİŞİM E-POSTASI',
-},
-
-contactLabelMessage: {
-  en: 'MESSAGE',
-  tr: 'MESAJINIZ',
-},
-
-contactPlaceholderOrg: {
-  en: 'Enter your name or organization',
-  tr: 'Kurum / kişi adınızı girin',
-},
-
-contactPlaceholderEmail: {
-  en: 'Enter your email address',
-  tr: 'E-posta adresinizi girin',
-},
-
-contactPlaceholderMessage: {
-  en: 'Write your message here...',
-  tr: 'Mesajınızı buraya yazın...',
-},
-
-contactSubmit: {
-  en: 'SEND MESSAGE',
-  tr: 'MESAJ GÖNDER',
-},
-
-contactMapTitle: {
-  en: 'Ayrota office location',
-  tr: 'Ayrota ofis konumu',
-},
-
-/* --------------------
-   FOOTER
--------------------- */
-footerCopyright: {
-  en: '© {{year}} Ayrota',
-  tr: '© {{year}} Ayrota',
-},
-
-footerTaglineLine1: {
-  en: 'Inertial navigation systems under active development.',
-  tr: 'Aktif olarak geliştirilen ataletsel navigasyon sistemleri.',
-},
-
-footerTaglineLine2: {
-  en: 'Evaluation and collaboration paths available where appropriate.',
-  tr: 'Uygun durumlarda değerlendirme ve iş birliği yolları açıktır.',
-},
-
-footerPrivacy: {
-  en: 'Privacy & Data Notice',
-  tr: 'Gizlilik ve Veri Bildirimi',
-},
-
-/* --------------------
-   ILBER PAGE
--------------------- */
-/* --------------------
-   ILBER PAGE - UPDATED
--------------------- */
-
-ilberHeroStatement: {
-  en: 'Turn your IMU logs into engineering reports.',
-  tr: 'IMU verilerinizi mühendislik raporlarına dönüştürün.',
-},
-
-ilberHeroText: {
-  en: 'İlber is Ayrota’s technical analysis and reporting service for IMU datasets. We analyze your data, identify quality and sensor-related issues, and deliver customer-specific engineering reports.',
-  tr: 'İlber; IMU veri setleri için geliştirilen teknik analiz ve raporlama hizmetidir.',
-},
-
-ilberSendData: {
-  en: 'REQUEST A TECHNICAL REVIEW',
-  tr: 'TEKNİK GÖRÜŞME TALEP ET',
-},
-
-ilberMiniDetect: {
-  en: 'Data Quality',
-  tr: 'Veri Kalitesi',
-},
-
-ilberMiniRepair: {
-  en: 'Sensor Health',
-  tr: 'Sensör Sağlığı',
-},
-
-ilberMiniAnalyze: {
-  en: 'Engineering Analysis',
-  tr: 'Mühendislik Analizi',
-},
-
-ilberMiniValidate: {
-  en: 'Custom Report',
-  tr: 'Müşteriye Özel Rapor',
-},
-
-ilberAnalysisScope: {
-  en: 'SCOPE',
-  tr: 'İlber KAPSAMI',
-},
-
-ilberAnalysisScopeTitle: {
-  en: 'We analyze your IMU data.',
-  tr: 'IMU verilerinizi analiz ediyoruz.',
-},
-
-ilberAnalysisScopeText: {
-  en: 'İlber evaluates IMU datasets across data integrity, sensor reliability and motion-related quality layers. The analysis scope is customized according to each customer’s data structure, test scenario and engineering needs.',
-  tr: 'İlber; IMU veri setlerini veri bütünlüğü, sensör güvenilirliği ve hareket kaynaklı kalite katmanları üzerinden değerlendirir. Analiz kapsamı her müşterinin veri yapısına, test senaryosuna ve mühendislik ihtiyacına göre özelleştirilir.',
-},
-
-ilberIntegrityGroupTitle: {
-  en: 'Data Quality & Integrity',
-  tr: 'Veri Kalitesi ve Bütünlüğü',
-},
-
-ilberSensorGroupTitle: {
-  en: 'Sensor Health & Signal Behavior',
-  tr: 'Sensör Sağlığı ve Sinyal Davranışı',
-},
-
-ilberNavigationGroupTitle: {
-  en: 'Motion, Flight & Consistency Analysis',
-  tr: 'Hareket, Uçuş ve Tutarlılık Analizi',
-},
-
-ilberRepairTitle: {
-  en: 'Missing Data & Timing Checks',
-  tr: 'Eksik Veri ve Zamanlama Kontrolleri',
-},
-
-ilberConsistencyTitle: {
-  en: 'Run-to-Run Consistency',
-  tr: 'Testler Arası Tutarlılık',
-},
-
-ilberCadenceTitle: {
-  en: 'Dataset Suitability Review',
-  tr: 'Veri Seti Uygunluk Değerlendirmesi',
-},
-
-ilberSensorDomainTitle: {
-  en: 'IMU Signal Quality',
-  tr: 'IMU Sinyal Kalitesi',
-},
-
-ilberSensorHealthTitle: {
-  en: 'Sensor Anomaly Detection',
-  tr: 'Sensör Anomali Tespiti',
-},
-
-ilberPhysicalTitle: {
-  en: 'Physical Plausibility Checks',
-  tr: 'Fiziksel Uygunluk Kontrolleri',
-},
-
-ilberGnssTitle: {
-  en: 'GNSS / INS Data Review',
-  tr: 'GNSS / INS Veri İncelemesi',
-},
-
-ilberSpectralTitle: {
-  en: 'Noise & Spectral Analysis',
-  tr: 'Gürültü ve Spektral Analiz',
-},
-
-ilberMotionTitle: {
-  en: 'Motion / Flight Behavior Analysis',
-  tr: 'Hareket / Uçuş Davranışı Analizi',
-},
-
-
-
-ilberHowItWorks: {
-  en: 'HOW IT WORKS',
-  tr: 'İlber NASIL ÇALIŞIR?',
-},
-
-ilberWorkflowSendTitle: {
-  en: 'Share your dataset.',
-  tr: 'Veri setinizi paylaşın.',
-},
-
-ilberWorkflowSendText: {
-  en: 'Send your IMU, INS or UAV flight logs for technical review.',
-  tr: 'IMU, INS veya UAV uçuş loglarınızı teknik inceleme için paylaşın.',
-},
-
-ilberWorkflowAnalyzeTitle: {
-  en: 'We analyze it.',
-  tr: 'Analizi gerçekleştirelim.',
-},
-
-ilberWorkflowAnalyzeText: {
-  en: 'Ayrota evaluates your data through İlber’s engineering analysis workflow.',
-  tr: 'Ayrota, verinizi İlber’in mühendislik analiz süreciyle değerlendirir.',
-},
-
-ilberWorkflowReportTitle: {
-  en: 'Receive your report.',
-  tr: 'Raporunuzu teslim alın.',
-},
-
-ilberWorkflowReportText: {
-  en: 'You receive a customer-specific PDF report with findings, plots and engineering comments.',
-  tr: 'Bulgular, grafikler ve mühendislik yorumları içeren müşteriye özel PDF rapor teslim edilir.',
-},
-
-ilberWorkflowPreventTitle: {
-  en: 'Decide faster.',
-  tr: 'Daha hızlı karar alın.',
-},
-
-ilberWorkflowPreventText: {
-  en: 'Identify data-related issues before they are misinterpreted as algorithm or software problems.',
-  tr: 'Veri kaynaklı problemleri algoritma veya yazılım hatası olarak değerlendirmeden önce görün.',
-},
-
-exampleAnalyses: {
-  en: 'Example Analyses',
-  tr: 'Örnek Analizler',
-},
-
-ilberFinalCtaTitle: {
-  en: 'Have IMU or flight logs?',
-  tr: 'IMU veya uçuş loglarınız mı var?',
-},
-
-ilberFinalCtaAccent: {
-  en: 'Let us turn them into an engineering report.',
-  tr: 'Bunları mühendislik raporuna dönüştürelim.',
-},
-/* --------------------
-   YORUK PAGE
--------------------- */
-
-yorukHeroStatement: {
-  en: 'Turn your vehicle fleet into a mobile sensor network.',
-  tr: 'Araç filonuzu mobil sensör ağına dönüştürün.',
-},
-
-yorukHeroText: {
-  en: 'YÖRÜK is a road and driving analytics platform that leverages mobile device GPS and IMU signals to generate insights on road quality, route comfort, driving safety, and driver attention/fatigue risk through mobile camera data.',
-  tr: 'YÖRÜK, Mobil cihaz GPS ve IMU sinyalleriyle yol kalitesi, rota konforu, mobil kamera ile sürücü dikkat/uyku riski analizi üretmeyi hedefleyen yol ve sürüş analitiği platformu.',
-},
-
-yorukMiniFleet: {
-  en: 'Fleet Operations',
-  tr: 'Filo Operasyonları',
-},
-
-yorukMiniRoute: {
-  en: 'Road Quality',
-  tr: 'Yol Kalitesi',
-},
-
-yorukMiniRoadHealth: {
-  en: 'Driving Safety',
-  tr: 'Sürüş Güvenliği',
-},
-
-yorukMiniImu: {
-  en: 'GPS + IMU Analytics',
-  tr: 'GPS + IMU Analitiği',
-},
-
-yorukScopeTitle: {
-  en: 'PLATFORM CAPABILITIES',
-  tr: 'PLATFORM YETENEKLERİ',
-},
-
-yorukScopeMainTitle: {
-  en: 'Road and driving analytics from existing vehicles.',
-  tr: 'Mevcut araçlardan yol ve sürüş analitiği.',
-},
-
-yorukScopeText: {
-  en: 'YÖRÜK turns existing vehicles into mobile data sources and helps organizations analyze road quality, route performance, driving behavior and operational risk from one platform.',
-  tr: 'YÖRÜK, mevcut araçları mobil veri kaynaklarına dönüştürerek yol kalitesi, rota performansı, sürüş davranışı ve operasyonel riskleri tek platformda analiz eder.',
-},
-
-yorukRoadGroupTitle: {
-  en: 'Road Intelligence',
-  tr: 'Yol Zekâsı',
-},
-
-yorukSignalGroupTitle: {
-  en: 'Vehicle Motion Analytics',
-  tr: 'Araç Hareket Analitiği',
-},
-
-yorukFleetGroupTitle: {
-  en: 'Operational Decision Support',
-  tr: 'Operasyonel Karar Desteği',
-},
-
-yorukCapabilityRoadHealth: {
-  en: 'Road condition analysis',
-  tr: 'Yol durumu analizi',
-},
-
-yorukCapabilityRouteQuality: {
-  en: 'Route and segment evaluation',
-  tr: 'Rota ve segment değerlendirmesi',
-},
-
-yorukCapabilitySurfaceCondition: {
-  en: 'Road quality and comfort scoring',
-  tr: 'Yol kalitesi ve konfor skorlama',
-},
-
-yorukCapabilityImuSensing: {
-  en: 'GPS and IMU data collection',
-  tr: 'GPS ve IMU veri toplama',
-},
-
-yorukCapabilityVibration: {
-  en: 'Motion and vibration analysis',
-  tr: 'Hareket ve titreşim analizi',
-},
-
-yorukCapabilityAnomaly: {
-  en: 'Driving behavior insights',
-  tr: 'Sürüş davranışı içgörüleri',
-},
-
-yorukCapabilityFleetAnalytics: {
-  en: 'Fleet and route performance analytics',
-  tr: 'Filo ve rota performans analitiği',
-},
-
-yorukCapabilityMapVisualization: {
-  en: 'Live map visualization',
-  tr: 'Canlı harita görselleştirme',
-},
-
-yorukCapabilityDashboard: {
-  en: 'Analytics dashboard and reports',
-  tr: 'Analiz paneli ve raporlar',
-},
-
-yorukHowItWorks: {
-  en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR',
-},
-
-yorukWorkflowCollectTitle: {
-  en: 'Collect data.',
-  tr: 'Veri Topla.',
-},
-
-yorukWorkflowCollectText: {
-  en: 'Vehicles collect GPS and IMU data during their daily operations through tablet-based trip recording.',
-  tr: 'Araçlar günlük operasyonları sırasında tablet tabanlı sefer kaydı ile GPS ve IMU verisi toplar.',
-},
-
-yorukWorkflowAnalyzeTitle: {
-  en: 'Analyze motion.',
-  tr: 'Hareketi Analiz Et.',
-},
-
-yorukWorkflowAnalyzeText: {
-  en: 'YÖRÜK processes vehicle motion signals to evaluate road condition, ride comfort, driving safety and route performance.',
-  tr: 'YÖRÜK, araç hareket sinyallerini işleyerek yol durumu, sürüş konforu, sürüş güvenliği ve rota performansını değerlendirir.',
-},
-
-yorukWorkflowMapTitle: {
-  en: 'Visualize insights.',
-  tr: 'İçgörüleri Görselleştir.',
-},
-
-yorukWorkflowMapText: {
-  en: 'Road quality, risky segments, route performance and operational indicators are displayed through maps and dashboards.',
-  tr: 'Yol kalitesi, riskli segmentler, rota performansı ve operasyonel göstergeler haritalar ve paneller üzerinden görüntülenir.',
-},
-
-yorukWorkflowReportTitle: {
-  en: 'Support decisions.',
-  tr: 'Kararları Destekle.',
-},
-
-yorukWorkflowReportText: {
-  en: 'Reports help teams prioritize maintenance, improve driving safety, compare routes and manage operational risks.',
-  tr: 'Raporlar; bakım önceliklendirme, sürüş güvenliğini iyileştirme, rota karşılaştırma ve operasyonel risk yönetimi süreçlerini destekler.',
-},
-
-yorukFinalCtaTitle: {
-  en: 'Create road and driving analytics from your existing fleet.',
-  tr: 'Mevcut filonuzdan yol ve sürüş analitiği üretin.',
-},
-
-yorukFinalCtaAccent: {
-  en: 'Use daily vehicle operations to understand road quality, comfort, safety and performance.',
-  tr: 'Günlük araç operasyonlarınızı yol kalitesi, konfor, güvenlik ve performans içgörülerine dönüştürün.',
-},
-
-yorukCtaButton: {
-  en: 'REQUEST A PILOT',
-  tr: 'PİLOT TALEP ET',
-},
-/* --------------------
-   Koman PAGE
--------------------- */
-
-komanHeroStatement: {
-  en: 'Navigation without assuming GNSS.',
-  tr: 'GNSS varsaymadan navigasyon.',
-},
-
-komanHeroText: {
-  en: 'KOMAN is an autonomous aerial system designed to maintain navigation and mission awareness when GNSS signals become unavailable, unreliable or intentionally disrupted.',
-  tr: 'KOMAN, GNSS sinyallerinin kaybolduğu, güvenilmez hale geldiği veya kasıtlı olarak engellendiği ortamlarda navigasyon ve görev farkındalığını sürdürebilmek için geliştirilen otonom hava sistemidir.',
-},
-
-komanMiniImu: {
-  en: 'IMU-based.',
-  tr: 'IMU tabanlı',
-},
-
-komanMiniGnss: {
-  en: 'GNSS-denied.',
-  tr: 'GNSS olmayan ortamlar',
-},
-
-komanMiniAutonomy: {
-  en: 'Autonomous.',
-  tr: 'Otonom',
-},
-
-komanMiniRealtime: {
-  en: 'Real-time.',
-  tr: 'Gerçek zamanlı',
-},
-
-komanScopeTitle: {
-  en: 'SYSTEM CAPABILITIES',
-  tr: 'SİSTEM KABİLİYETLERİ',
-},
-
-komanScopeMainTitle: {
-  en: 'Built for GNSS-denied autonomous operation.',
-  tr: 'GNSS olmayan ortamlarda otonom görevler için tasarlandı.',
-},
-
-komanScopeText: {
-  en: 'KOMAN combines autonomous flight, IMU-based navigation and ground control capabilities into a single operational system for environments where external positioning references cannot be trusted.',
-  tr: 'KOMAN; harici konumlama referanslarının güvenilemediği ortamlarda görev yapmak üzere geliştirilen otonom uçuş, IMU tabanlı navigasyon ve yer kontrol yeteneklerini tek bir sistemde bir araya getirir.',
-},
-
-komanNavigationGroupTitle: {
-  en: 'Navigation',
-  tr: 'Navigasyon',
-},
-
-komanAutonomyGroupTitle: {
-  en: 'Autonomy',
-  tr: 'Otonomi',
-},
-
-komanGroundControlGroupTitle: {
-  en: 'Ground Control',
-  tr: 'Yer Kontrol',
-},
-
-komanCapabilityPositioning: {
-  en: 'IMU-based position estimation',
-  tr: 'IMU tabanlı konum kestirimi',
-},
-
-komanCapabilityHeading: {
-  en: 'Heading estimation',
-  tr: 'Yön kestirimi',
-},
-
-komanCapabilityGnssDenied: {
-  en: 'GNSS-denied navigation',
-  tr: 'GNSS olmayan ortamda navigasyon',
-},
-
-komanCapabilityAutonomy: {
-  en: 'Autonomous mission execution',
-  tr: 'Otonom görev icrası',
-},
-
-komanCapabilityWaypoint: {
-  en: 'Waypoint navigation',
-  tr: 'Waypoint navigasyonu',
-},
-
-komanCapabilityRealtime: {
-  en: 'Real-time operation',
-  tr: 'Gerçek zamanlı operasyon',
-},
-
-komanCapabilityGroundControl: {
-  en: 'Ground control integration',
-  tr: 'Yer kontrol entegrasyonu',
-},
-
-komanCapabilityMission: {
-  en: 'Mission planning',
-  tr: 'Görev planlama',
-},
-
-
-komanHowItWorks: {
-  en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR?',
-},
-
-komanWorkflowSenseTitle: {
-  en: 'Sense motion.',
-  tr: 'Hareketi algılar.',
-},
-
-komanWorkflowSenseText: {
-  en: 'Collects inertial measurements from onboard sensors throughout the mission.',
-  tr: 'Görev boyunca dahili sensörlerden ataletsel ölçümler toplar.',
-},
-
-komanWorkflowEstimateTitle: {
-  en: 'Estimate position.',
-  tr: 'Konumu kestirir.',
-},
-
-komanWorkflowEstimateText: {
-  en: 'Processes inertial data to estimate position, heading and displacement when GNSS is unavailable.',
-  tr: 'GNSS bulunmadığında konum, yön ve yer değiştirme kestirimi yapar.',
-},
-
-komanWorkflowNavigateTitle: {
-  en: 'Navigate autonomously.',
-  tr: 'Otonom ilerler.',
-},
-
-komanWorkflowNavigateText: {
-  en: 'Uses estimated navigation states to execute waypoint and mission objectives.',
-  tr: 'Waypoint ve görev hedeflerini gerçekleştirmek için navigasyon çıktıları kullanılır.',
-},
-
-komanWorkflowMonitorTitle: {
-  en: 'Monitor the mission.',
-  tr: 'Görevi izler.',
-},
-
-komanWorkflowMonitorText: {
-  en: 'Streams telemetry and mission status to the ground control interface in real time.',
-  tr: 'Telemetri ve görev durumunu gerçek zamanlı olarak yer kontrol arayüzüne aktarır.',
-},
-
-komanFinalCtaTitle: {
-  en: 'Evaluate GNSS-denied operations.',
-  tr: 'GNSS olmayan operasyonları değerlendirin.',
-},
-
-komanFinalCtaAccent: {
-  en: 'Start with a technical demonstration.',
-  tr: 'Teknik demonstrasyonla başlayın.',
-},
-
-komanCtaButton: {
-  en: 'CONTACT US',
-  tr: 'İLETİŞİME GEÇ',
-},
-/* --------------------
-   YAYA PAGE
--------------------- */
-
-yayaHeroStatement: {
-  en: 'Pedestrian positioning when GNSS is unavailable.',
-  tr: 'GNSS olmadığında yaya konum kestirimi.',
-},
-
-yayaHeroText: {
-  en: 'YAYA is a pedestrian navigation layer that estimates motion, heading and position from inertial signals in indoor or GNSS-limited environments.',
-  tr: 'YAYA, kapalı alanlarda veya GNSS’in sınırlı olduğu ortamlarda ataletsel sinyallerden hareket, yön ve konum kestirimi yapan yaya navigasyon katmanıdır.',
-},
-
-yayaMiniPdr: {
-  en: 'PDR.',
-  tr: 'PDR',
-},
-
-yayaMiniIndoor: {
-  en: 'Indoor.',
-  tr: 'Kapalı alan',
-},
-
-yayaMiniImu: {
-  en: 'IMU-based.',
-  tr: 'IMU tabanlı',
-},
-
-yayaMiniRealtime: {
-  en: 'Real-time.',
-  tr: 'Gerçek zamanlı',
-},
-
-yayaScopeTitle: {
-  en: 'SYSTEM CAPABILITIES',
-  tr: 'SİSTEM KABİLİYETLERİ',
-},
-
-yayaScopeMainTitle: {
-  en: 'Built for GNSS-limited pedestrian navigation.',
-  tr: 'GNSS sınırlı ortamlarda yaya navigasyonu için tasarlandı.',
-},
-
-yayaScopeText: {
-  en: 'YAYA combines pedestrian dead reckoning, inertial motion analysis and real-time positioning output into a software layer for indoor and GNSS-limited navigation use cases.',
-  tr: 'YAYA; kapalı alan ve GNSS sınırlı navigasyon senaryoları için yaya kestirimli konumlama, ataletsel hareket analizi ve gerçek zamanlı konum çıktısını tek bir yazılım katmanında birleştirir.',
-},
-
-yayaNavigationGroupTitle: {
-  en: 'Navigation',
-  tr: 'Navigasyon',
-},
-
-yayaMotionGroupTitle: {
-  en: 'Motion Analysis',
-  tr: 'Hareket Analizi',
-},
-
-yayaIntegrationGroupTitle: {
-  en: 'Integration',
-  tr: 'Entegrasyon',
-},
-
-yayaCapabilityPdr: {
-  en: 'Pedestrian dead reckoning',
-  tr: 'Yaya kestirimli konumlama',
-},
-
-yayaCapabilityPositioning: {
-  en: 'IMU-based position estimation',
-  tr: 'IMU tabanlı konum kestirimi',
-},
-
-yayaCapabilityHeading: {
-  en: 'Heading estimation',
-  tr: 'Yön kestirimi',
-},
-
-yayaCapabilityStepDetection: {
-  en: 'Step detection',
-  tr: 'Adım tespiti',
-},
-
-yayaCapabilityMotionClassification: {
-  en: 'Motion classification',
-  tr: 'Hareket sınıflandırma',
-},
-
-yayaCapabilityDriftControl: {
-  en: 'Drift control logic',
-  tr: 'Sapma kontrol mantığı',
-},
-
-yayaCapabilityMobile: {
-  en: 'Mobile integration',
-  tr: 'Mobil entegrasyon',
-},
-
-yayaCapabilityRealtime: {
-  en: 'Real-time positioning output',
-  tr: 'Gerçek zamanlı konum çıktısı',
-},
-
-yayaCapabilityApplicationOutput: {
-  en: 'Application-level navigation output',
-  tr: 'Uygulama seviyesi navigasyon çıktısı',
-},
-
-yayaHowItWorks: {
-  en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR?',
-},
-
-yayaWorkflowSenseTitle: {
-  en: 'Sense motion.',
-  tr: 'Hareketi algılar.',
-},
-
-yayaWorkflowSenseText: {
-  en: 'Collects inertial measurements from mobile or wearable sensors during pedestrian movement.',
-  tr: 'Yaya hareketi sırasında mobil veya giyilebilir sensörlerden ataletsel ölçümler toplar.',
-},
-
-yayaWorkflowDetectTitle: {
-  en: 'Detect steps.',
-  tr: 'Adımları tespit eder.',
-},
-
-yayaWorkflowDetectText: {
-  en: 'Identifies step events, walking patterns and motion phases from inertial signals.',
-  tr: 'Ataletsel sinyallerden adım olaylarını, yürüme örüntülerini ve hareket fazlarını belirler.',
-},
-
-yayaWorkflowEstimateTitle: {
-  en: 'Estimate position.',
-  tr: 'Konumu kestirir.',
-},
-
-yayaWorkflowEstimateText: {
-  en: 'Uses PDR logic to estimate pedestrian displacement, heading and position over time.',
-  tr: 'PDR mantığıyla yaya yer değiştirmesini, yönünü ve zamana bağlı konumunu kestirir.',
-},
-
-yayaWorkflowOutputTitle: {
-  en: 'Deliver navigation output.',
-  tr: 'Navigasyon çıktısı üretir.',
-},
-
-yayaWorkflowOutputText: {
-  en: 'Provides real-time positioning and movement outputs for higher-level applications.',
-  tr: 'Üst seviye uygulamalar için gerçek zamanlı konum ve hareket çıktıları sağlar.',
-},
-
-yayaFinalCtaTitle: {
-  en: 'Evaluate indoor pedestrian navigation.',
-  tr: 'Kapalı alan yaya navigasyonunu değerlendirin.',
-},
-
-yayaFinalCtaAccent: {
-  en: 'Start with a technical demonstration.',
-  tr: 'Teknik demonstrasyonla başlayın.',
-},
+  problemTitle: {
+    en: 'The foundation of inertial intelligence',
+    tr: 'Ataletsel Zekanın Temeli',
+  },
 
-yayaCtaButton: {
-  en: 'CONTACT US',
-  tr: 'İLETİŞİME GEÇ',
-},
-
-/* --------------------
-   PRIVACY / DATA NOTICE
--------------------- */
-privacyTitle: {
-  en: 'Privacy & Data Notice',
-  tr: 'Gizlilik ve Veri Bildirimi',
-},
-
-privacyIntro: {
-  en: 'Ayrota collects limited personal data solely for evaluation purposes.',
-  tr: 'Ayrota, yalnızca değerlendirme amacıyla sınırlı kişisel veri toplar.',
-},
-
-privacyParagraph1: {
-  en: 'Data collected via the contact form may include organization or project name, contact email address, and high-level inquiry context.',
-  tr: 'İletişim formu aracılığıyla; kurum veya proje adı, iletişim e-posta adresi ve talebe ilişkin yüksek seviyeli bağlam bilgileri toplanabilir.',
-},
-
-privacyParagraph2: {
-  en: 'This website does not perform tracking, profiling, or marketing analytics.',
-  tr: 'Bu web sitesinde izleme, profilleme veya pazarlama amaçlı analiz yapılmamaktadır.',
-},
-
-privacyParagraph3: {
-  en: 'Form submissions are processed through a third-party form handling service (Basin) and stored securely for review.',
-  tr: 'Form iletileri, üçüncü taraf bir form hizmeti (Basin) üzerinden işlenir ve değerlendirme amacıyla güvenli şekilde saklanır.',
-},
+  problemLead: {
+    en: 'Ayrota’s technology core is a shared engineering foundation that turns IMU data into navigation, motion estimation and operational insight.',
+    tr: 'Ayrota’nın teknoloji çekirdeği, IMU verisini navigasyon, hareket kestirimi ve operasyonel içgörüye dönüştüren ortak mühendislik altyapısıdır.',
+  },
 
-privacyParagraph4: {
-  en: 'Personal data is retained only as long as necessary to assess potential engagement and is deleted periodically.',
-  tr: 'Kişisel veriler, olası bir iş birliğini değerlendirmek için gerekli süre boyunca saklanır ve düzenli olarak silinir.',
-},
-
-privacyParagraph5: {
-  en: 'Where applicable, data handling complies with KVKK and GDPR.',
-  tr: 'Veri işleme süreçleri, uygulanabilir olduğu ölçüde KVKK ve GDPR ile uyumludur.',
-},
-
-privacyConsent: {
-  en: 'By submitting the contact form, you acknowledge and consent to this data processing for evaluation purposes.',
-  tr: 'İletişim formunu göndererek, bu veri işleme sürecini değerlendirme amacıyla kabul etmiş sayılırsınız.',
-},
+  problemSecondLead: {
+    en: 'The same core is adapted across autonomous systems, vehicles and indoor applications.',
+    tr: 'Bu çekirdek; otonom sistemler, araçlar ve kapalı alan uygulamalarında farklı ürünlere uyarlanır.',
+  },
 
-privacyCookieTitle: {
-  en: 'Cookie Notice',
-  tr: 'Çerez Bildirimi',
-},
-
-privacyCookieText: {
-  en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
-  tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
-},
+  problemFlowGnssTitle: {
+    en: 'IMU DATA',
+    tr: 'IMU VERİSİ',
+  },
 
-internshipTitle: {
-  en: 'Internship Applications',
-  tr: 'Staj Başvuruları',
-},
+  problemFlowGnssSubtitle: {
+    en: 'Inertial measurements capture system motion and provide the base input for estimation and analysis.',
+    tr: 'Ataletsel ölçümler sistem hareketini yakalar ve kestirim ile analiz katmanları için temel veriyi oluşturur.',
+  },
 
-internshipDescription: {
-  en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
-  tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir. Lütfen aşağıdaki bağlantıyı kullanın.',
-},
+  problemFlowSensorTitle: {
+    en: 'SENSOR ENGINEERING',
+    tr: 'SENSÖR MÜHENDİSLİĞİ',
+  },
 
-contactInternshipCta: {
-  en: 'Apply via Google Form',
-  tr: 'Google Form Üzerinden Başvur',
-},
+  problemFlowSensorSubtitle: {
+    en: 'Sensor behaviour, data quality, timing and motion characteristics are evaluated at engineering level.',
+    tr: 'Sensör davranışı, veri kalitesi, zamanlama ve hareket karakteristikleri mühendislik seviyesinde değerlendirilir.',
+  },
 
+  problemFlowCoreTitle: {
+    en: 'INERTIAL CORE',
+    tr: 'ATALETSEL ÇEKİRDEK',
+  },
 
+  problemFlowCoreSubtitle: {
+    en: 'A shared software and algorithm foundation supports navigation, motion estimation and movement analytics.',
+    tr: 'Ortak yazılım ve algoritma altyapısı; navigasyon, hareket kestirimi ve hareket analizi kabiliyetlerini destekler.',
+  },
+
+  problemFlowNavTitle: {
+    en: 'APPLICATION LAYER',
+    tr: 'UYGULAMA KATMANI',
+  },
+
+  problemFlowNavSubtitle: {
+    en: 'Core capabilities are integrated into autonomous platforms, vehicle operations and indoor applications.',
+    tr: 'Çekirdek kabiliyetler otonom platformlara, araç operasyonlarına ve kapalı alan uygulamalarına entegre edilir.',
+  },
+
+  /* --------------------
+     CONTACT
+  -------------------- */
+
+  contactKicker: {
+    en: 'CONTACT',
+    tr: 'İLETİŞİM',
+  },
+
+  contactTitle: {
+    en: 'Get in touch',
+    tr: 'İletişime geçin',
+  },
+
+  corporateContactTitle: {
+    en: 'Corporate contact',
+    tr: 'Kurumsal iletişim',
+  },
+
+  corporateContactDescription: {
+    en: 'Use the form for partnerships, pilot studies, evaluation access, and corporate inquiries.',
+    tr: 'İş birlikleri, teknik değerlendirmeler ve kurumsal talepler için formu kullanın.',
+  },
+
+  contactLabelOrg: {
+    en: 'PERSON / ORGANIZATION',
+    tr: 'KİŞİ / KURUM',
+  },
+
+  contactLabelEmail: {
+    en: 'CONTACT EMAIL',
+    tr: 'İLETİŞİM E-POSTASI',
+  },
+
+  contactLabelMessage: {
+    en: 'MESSAGE',
+    tr: 'MESAJINIZ',
+  },
+
+  contactPlaceholderOrg: {
+    en: 'Enter your name or organization',
+    tr: 'Kurum / kişi adınızı girin',
+  },
+
+  contactPlaceholderEmail: {
+    en: 'Enter your email address',
+    tr: 'E-posta adresinizi girin',
+  },
+
+  contactPlaceholderMessage: {
+    en: 'Write your message here...',
+    tr: 'Mesajınızı buraya yazın...',
+  },
+
+  contactSubmit: {
+    en: 'SEND MESSAGE',
+    tr: 'MESAJ GÖNDER',
+  },
+
+  contactMapTitle: {
+    en: 'Ayrota office location',
+    tr: 'Ayrota ofis konumu',
+  },
+
+  /* --------------------
+     FOOTER
+  -------------------- */
+
+  footerCopyright: {
+    en: '© {{year}} Ayrota',
+    tr: '© {{year}} Ayrota',
+  },
+
+  footerDescription: {
+    en: 'Inertial navigation and motion intelligence for autonomous systems, vehicles and indoor operations.',
+    tr: 'Otonom sistemler, araçlar ve kapalı alan operasyonları için ataletsel navigasyon ve hareket zekası.',
+  },
+
+  footerPrivacy: {
+    en: 'Privacy & Data Notice',
+    tr: 'Gizlilik ve Veri Bildirimi',
+  },
+
+  /* --------------------
+     ILBER PAGE
+  -------------------- */
+
+  ilberHeroStatement: {
+    en: 'Turn your IMU logs into engineering reports.',
+    tr: 'IMU verilerinizi mühendislik raporlarına dönüştürün.',
+  },
+
+  ilberHeroText: {
+    en: 'İlber is Ayrota’s technical analysis and reporting service for IMU datasets. We analyze your data, identify quality and sensor-related issues, and deliver customer-specific engineering reports.',
+    tr: 'İlber, IMU veri setleri için teknik analiz ve raporlama hizmetidir. Veriyi analiz eder, veri kalitesi ve sensör kaynaklı sorunları belirler ve ihtiyaca özel mühendislik raporları üretir.',
+  },
+
+  ilberSendData: {
+    en: 'REQUEST A TECHNICAL REVIEW',
+    tr: 'TEKNİK GÖRÜŞME TALEP ET',
+  },
+
+  ilberMiniDetect: {
+    en: 'Data Quality',
+    tr: 'Veri Kalitesi',
+  },
+
+  ilberMiniRepair: {
+    en: 'Sensor Health',
+    tr: 'Sensör Sağlığı',
+  },
+
+  ilberMiniAnalyze: {
+    en: 'Engineering Analysis',
+    tr: 'Mühendislik Analizi',
+  },
+
+  ilberMiniValidate: {
+    en: 'Custom Report',
+    tr: 'İhtiyaca Özel Rapor',
+  },
+
+  ilberAnalysisScope: {
+    en: 'SCOPE',
+    tr: 'İLBER KAPSAMI',
+  },
+
+  ilberAnalysisScopeTitle: {
+    en: 'We analyze your IMU data.',
+    tr: 'IMU verilerinizi analiz ediyoruz.',
+  },
+
+  ilberAnalysisScopeText: {
+    en: 'İlber evaluates IMU datasets across data integrity, sensor reliability and motion-related quality layers. The analysis scope is customized according to each customer’s data structure, test scenario and engineering needs.',
+    tr: 'İlber; IMU veri setlerini veri bütünlüğü, sensör güvenilirliği ve hareket kaynaklı kalite katmanları üzerinden değerlendirir. Analiz kapsamı, veri yapısına, test senaryosuna ve mühendislik ihtiyacına göre özelleştirilir.',
+  },
+
+  ilberIntegrityGroupTitle: {
+    en: 'Data Quality & Integrity',
+    tr: 'Veri Kalitesi ve Bütünlüğü',
+  },
+
+  ilberSensorGroupTitle: {
+    en: 'Sensor Health & Signal Behavior',
+    tr: 'Sensör Sağlığı ve Sinyal Davranışı',
+  },
+
+  ilberNavigationGroupTitle: {
+    en: 'Motion, Flight & Consistency Analysis',
+    tr: 'Hareket, Uçuş ve Tutarlılık Analizi',
+  },
+
+  ilberRepairTitle: {
+    en: 'Missing Data & Timing Checks',
+    tr: 'Eksik Veri ve Zamanlama Kontrolleri',
+  },
+
+  ilberConsistencyTitle: {
+    en: 'Run-to-Run Consistency',
+    tr: 'Testler Arası Tutarlılık',
+  },
+
+  ilberCadenceTitle: {
+    en: 'Dataset Suitability Review',
+    tr: 'Veri Seti Uygunluk Değerlendirmesi',
+  },
+
+  ilberSensorDomainTitle: {
+    en: 'IMU Signal Quality',
+    tr: 'IMU Sinyal Kalitesi',
+  },
+
+  ilberSensorHealthTitle: {
+    en: 'Sensor Anomaly Detection',
+    tr: 'Sensör Anomali Tespiti',
+  },
+
+  ilberPhysicalTitle: {
+    en: 'Physical Plausibility Checks',
+    tr: 'Fiziksel Uygunluk Kontrolleri',
+  },
+
+  ilberGnssTitle: {
+    en: 'GNSS / INS Data Review',
+    tr: 'GNSS / INS Veri İncelemesi',
+  },
+
+  ilberSpectralTitle: {
+    en: 'Noise & Spectral Analysis',
+    tr: 'Gürültü ve Spektral Analiz',
+  },
+
+  ilberMotionTitle: {
+    en: 'Motion / Flight Behavior Analysis',
+    tr: 'Hareket / Uçuş Davranışı Analizi',
+  },
+
+  ilberHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'İLBER NASIL ÇALIŞIR?',
+  },
+
+  ilberWorkflowSendTitle: {
+    en: 'Share your dataset.',
+    tr: 'Veri setinizi paylaşın.',
+  },
+
+  ilberWorkflowSendText: {
+    en: 'Send your IMU, INS or UAV flight logs for technical review.',
+    tr: 'IMU, INS veya insansız hava aracı uçuş kayıtlarınızı teknik inceleme için paylaşın.',
+  },
+
+  ilberWorkflowAnalyzeTitle: {
+    en: 'We analyze it.',
+    tr: 'Analizi gerçekleştirelim.',
+  },
+
+  ilberWorkflowAnalyzeText: {
+    en: 'Ayrota evaluates your data through İlber’s engineering analysis workflow.',
+    tr: 'Ayrota, verinizi İlber’in mühendislik analiz süreciyle değerlendirir.',
+  },
+
+  ilberWorkflowReportTitle: {
+    en: 'Receive your report.',
+    tr: 'Raporunuzu teslim alın.',
+  },
+
+  ilberWorkflowReportText: {
+    en: 'You receive a customer-specific PDF report with findings, plots and engineering comments.',
+    tr: 'Bulgular, grafikler ve mühendislik yorumları içeren ihtiyaca özel PDF rapor teslim edilir.',
+  },
+
+  ilberWorkflowPreventTitle: {
+    en: 'Decide faster.',
+    tr: 'Daha hızlı karar alın.',
+  },
+
+  ilberWorkflowPreventText: {
+    en: 'Identify data-related issues before they are misinterpreted as algorithm or software problems.',
+    tr: 'Veri kaynaklı problemleri algoritma veya yazılım hatası olarak değerlendirmeden önce görün.',
+  },
+
+  exampleAnalyses: {
+    en: 'Example Analyses',
+    tr: 'Örnek Analizler',
+  },
+
+  ilberFinalCtaTitle: {
+    en: 'Have IMU or flight logs?',
+    tr: 'IMU veya uçuş kayıtlarınız mı var?',
+  },
+
+  ilberFinalCtaAccent: {
+    en: 'Let us turn them into an engineering report.',
+    tr: 'Bunları mühendislik raporuna dönüştürelim.',
+  },
+
+  /* --------------------
+     ALKON PAGE
+  -------------------- */
+
+  alkonProductCategory: {
+    en: 'AUTONOMOUS NAVIGATION & MISSION SYSTEM',
+    tr: 'OTONOM NAVİGASYON VE GÖREV SİSTEMİ',
+  },
+
+  alkonHeroStatement: {
+    en: 'Navigation and Mission Capability Where GNSS Cannot Be Relied Upon',
+    tr: 'GNSS’in Güvenilir Olmadığı Ortamlarda Navigasyon ve Görev Kabiliyeti',
+  },
+
+  alkonHeroText: {
+    en: 'Alkon brings inertial navigation, mission planning and mission execution together in a single software system for autonomous platforms.',
+    tr: 'Alkon, otonom platformlar için ataletsel navigasyon, görev planlama ve görev icrasını tek bir yazılım sistemi içinde bir araya getirir.',
+  },
+
+  alkonMiniNavigation: {
+    en: 'INERTIAL NAVIGATION',
+    tr: 'ATALETSEL NAVİGASYON',
+  },
+
+  alkonMiniMission: {
+    en: 'MISSION PLANNING',
+    tr: 'GÖREV PLANLAMA',
+  },
+
+  alkonMiniAutonomy: {
+    en: 'AUTONOMOUS OPERATION',
+    tr: 'OTONOM OPERASYON',
+  },
+
+  alkonMiniIntegration: {
+    en: 'PLATFORM INTEGRATION',
+    tr: 'PLATFORM ENTEGRASYONU',
+  },
+
+  alkonScopeTitle: {
+    en: 'SYSTEM CAPABILITIES',
+    tr: 'SİSTEM KABİLİYETLERİ',
+  },
+
+  alkonScopeMainTitle: {
+    en: 'Navigation and Mission System for Autonomous Platforms',
+    tr: 'Otonom Platformlar İçin Navigasyon ve Görev Sistemi',
+  },
+
+  alkonScopeText: {
+    en: 'Alkon combines inertial navigation outputs with mission planning, mission execution and platform integration for operations where GNSS is constrained.',
+    tr: 'Alkon, GNSS’in kısıtlı olduğu operasyonlarda ataletsel navigasyonu görev planlama, görev icrası ve platform entegrasyonu ile birleştirir.',
+  },
+
+  alkonNavigationGroupTitle: {
+    en: 'Navigation',
+    tr: 'Navigasyon',
+  },
+
+  alkonMissionGroupTitle: {
+    en: 'Mission System',
+    tr: 'Görev Sistemi',
+  },
+
+  alkonIntegrationGroupTitle: {
+    en: 'Integration',
+    tr: 'Entegrasyon',
+  },
+
+  alkonCapabilityInertialNavigation: {
+    en: 'IMU-based inertial navigation',
+    tr: 'IMU tabanlı ataletsel navigasyon',
+  },
+
+  alkonCapabilityPositioning: {
+    en: 'Position and motion estimation',
+    tr: 'Konum ve hareket kestirimi',
+  },
+
+  alkonCapabilityHeading: {
+    en: 'Heading estimation',
+    tr: 'Yön kestirimi',
+  },
+
+  alkonCapabilityMissionPlanning: {
+    en: 'Mission planning',
+    tr: 'Görev planlama',
+  },
+
+  alkonCapabilityMissionExecution: {
+    en: 'Autonomous mission execution',
+    tr: 'Otonom görev icrası',
+  },
+
+  alkonCapabilityWaypoint: {
+    en: 'Waypoint-based navigation',
+    tr: 'Rota noktası tabanlı navigasyon',
+  },
+
+  alkonCapabilityAutonomousPlatforms: {
+    en: 'Autonomous platform integration',
+    tr: 'Otonom platform entegrasyonu',
+  },
+
+  alkonCapabilityGroundControl: {
+    en: 'Ground control integration',
+    tr: 'Yer kontrol sistemi entegrasyonu',
+  },
+
+  alkonCapabilityMavlink: {
+    en: 'MAVLink-based navigation interface',
+    tr: 'MAVLink tabanlı navigasyon arayüzü',
+  },
+
+  alkonHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'NASIL ÇALIŞIR',
+  },
+
+  alkonHowItWorksTitle: {
+    en: 'From Motion to Autonomous Mission Execution',
+    tr: 'Hareketten Otonom Görev İcrasına',
+  },
+
+  alkonWorkflowSenseTitle: {
+    en: 'Sense Motion',
+    tr: 'Hareketi Algılar',
+  },
+
+  alkonWorkflowSenseText: {
+    en: 'Onboard inertial sensors provide continuous motion measurements to the navigation software.',
+    tr: 'Platform üzerindeki ataletsel sensörler, navigasyon yazılımına sürekli hareket ölçümleri sağlar.',
+  },
+
+  alkonWorkflowNavigateTitle: {
+    en: 'Estimate Navigation',
+    tr: 'Navigasyonu Kestirir',
+  },
+
+  alkonWorkflowNavigateText: {
+    en: 'Inertial measurements are processed to generate navigation states for the autonomous platform.',
+    tr: 'Ataletsel ölçümler işlenerek otonom platformun navigasyon için ihtiyaç duyduğu konum ve hareket bilgileri üretilir.',
+  },
+
+  alkonWorkflowPlanTitle: {
+    en: 'Plan the Mission',
+    tr: 'Görevi Planlar',
+  },
+
+  alkonWorkflowPlanText: {
+    en: 'Mission objectives and waypoint sequences are defined through the mission software layer.',
+    tr: 'Görev hedefleri ve rota noktaları görev yazılımı üzerinden tanımlanır.',
+  },
+
+  alkonWorkflowExecuteTitle: {
+    en: 'Execute the Mission',
+    tr: 'Görevi İcra Eder',
+  },
+
+  alkonWorkflowExecuteText: {
+    en: 'Navigation states and mission commands are delivered to the platform to support autonomous mission execution.',
+    tr: 'Navigasyon bilgileri ve görev komutları, otonom görev icrasını desteklemek üzere platforma aktarılır.',
+  },
+
+  alkonFinalCtaTitle: {
+    en: 'Evaluate Alkon for Your Platform',
+    tr: 'Alkon’u Platformunuz İçin Değerlendirin',
+  },
+
+  alkonFinalCtaText: {
+    en: 'Tell us about your platform, mission environment and navigation requirements. We can evaluate the appropriate integration approach together.',
+    tr: 'Platformunuzu, görev ortamınızı ve navigasyon ihtiyacınızı paylaşın. Uygun entegrasyon yaklaşımını birlikte değerlendirelim.',
+  },
+
+  alkonCtaButton: {
+    en: 'CONTACT US',
+    tr: 'İLETİŞİME GEÇ',
+  },
+
+  /* --------------------
+     YORUK PAGE
+  -------------------- */
+
+  yorukProductCategory: {
+    en: 'VEHICLE & ROAD INTELLIGENCE',
+    tr: 'ARAÇ VE YOL ZEKASI',
+  },
+
+  yorukHeroStatement: {
+    en: 'Turn Vehicle Motion Into Road and Driving Intelligence',
+    tr: 'Araç Hareketini Yol ve Sürüş Zekasına Dönüştürün',
+  },
+
+  yorukHeroText: {
+    en: 'Yoruk transforms GPS and IMU data collected from moving vehicles into insights on road condition, driving behaviour and operational performance.',
+    tr: 'Yörük, hareket halindeki araçlardan toplanan GPS ve IMU verisini yol durumu, sürüş davranışı ve operasyonel performansa ilişkin içgörülere dönüştürür.',
+  },
+
+  yorukMiniRoad: {
+    en: 'ROAD INTELLIGENCE',
+    tr: 'YOL ZEKASI',
+  },
+
+  yorukMiniDriving: {
+    en: 'DRIVING ANALYTICS',
+    tr: 'SÜRÜŞ ANALİZİ',
+  },
+
+  yorukMiniFleet: {
+    en: 'FLEET OPERATIONS',
+    tr: 'FİLO OPERASYONLARI',
+  },
+
+  yorukMiniSensors: {
+    en: 'GPS + IMU',
+    tr: 'GPS + IMU',
+  },
+
+  yorukScopeTitle: {
+    en: 'PLATFORM CAPABILITIES',
+    tr: 'PLATFORM KABİLİYETLERİ',
+  },
+
+  yorukScopeMainTitle: {
+    en: 'Road and Vehicle Intelligence From Existing Motion Data',
+    tr: 'Mevcut Hareket Verisinden Yol ve Araç Zekası',
+  },
+
+  yorukScopeText: {
+    en: 'Yoruk turns vehicle motion into a continuous source of information for road operations, driving analysis and fleet-level decision support.',
+    tr: 'Yörük, araç hareketini yol operasyonları, sürüş analizi ve filo seviyesinde karar desteği için sürekli bir bilgi kaynağına dönüştürür.',
+  },
+
+  yorukRoadGroupTitle: {
+    en: 'Road Intelligence',
+    tr: 'Yol Zekası',
+  },
+
+  yorukDrivingGroupTitle: {
+    en: 'Driving Intelligence',
+    tr: 'Sürüş Zekası',
+  },
+
+  yorukOperationsGroupTitle: {
+    en: 'Operational Analytics',
+    tr: 'Operasyonel Analiz',
+  },
+
+  yorukCapabilityRoadCondition: {
+    en: 'Road condition analysis',
+    tr: 'Yol durumu analizi',
+  },
+
+  yorukCapabilityRouteSegments: {
+    en: 'Route and segment comparison',
+    tr: 'Rota ve yol kesimi karşılaştırması',
+  },
+
+  yorukCapabilityMaintenance: {
+    en: 'Maintenance prioritization insights',
+    tr: 'Bakım önceliklendirme içgörüleri',
+  },
+
+  yorukCapabilityDrivingEvents: {
+    en: 'Driving risk event analysis',
+    tr: 'Riskli sürüş olayı analizi',
+  },
+
+  yorukCapabilityDrivingPatterns: {
+    en: 'Driving behaviour patterns',
+    tr: 'Sürüş davranışı örüntüleri',
+  },
+
+  yorukCapabilityMotionProfiles: {
+    en: 'Vehicle motion profiles',
+    tr: 'Araç hareket profilleri',
+  },
+
+  yorukCapabilityFleetComparison: {
+    en: 'Fleet and route comparison',
+    tr: 'Filo ve rota karşılaştırması',
+  },
+
+  yorukCapabilityMapReporting: {
+    en: 'Map-based analysis and reporting',
+    tr: 'Harita tabanlı analiz ve raporlama',
+  },
+
+  yorukCapabilityLongitudinal: {
+    en: 'Longitudinal road intelligence',
+    tr: 'Zamana yayılan yol durumu analizi',
+  },
+
+  yorukHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'NASIL ÇALIŞIR',
+  },
+
+  yorukHowItWorksTitle: {
+    en: 'From Vehicle Motion to Operational Insight',
+    tr: 'Araç Hareketinden Operasyonel İçgörüye',
+  },
+
+  yorukWorkflowCollectTitle: {
+    en: 'Collect Motion Data',
+    tr: 'Hareket Verisini Toplar',
+  },
+
+  yorukWorkflowCollectText: {
+    en: 'GPS and IMU signals are collected during normal vehicle operations using mobile sensing devices.',
+    tr: 'GPS ve IMU sinyalleri, normal araç operasyonları sırasında mobil sensör cihazları üzerinden toplanır.',
+  },
+
+  yorukWorkflowAnalyzeTitle: {
+    en: 'Analyze Movement',
+    tr: 'Hareketi Analiz Eder',
+  },
+
+  yorukWorkflowAnalyzeText: {
+    en: 'Vehicle motion signals are processed to identify road characteristics, driving events and movement patterns.',
+    tr: 'Araç hareket sinyalleri işlenerek yol özellikleri, sürüş olayları ve hareket örüntüleri belirlenir.',
+  },
+
+  yorukWorkflowContextTitle: {
+    en: 'Add Operational Context',
+    tr: 'Operasyonel Bağlam Ekler',
+  },
+
+  yorukWorkflowContextText: {
+    en: 'Motion findings are combined with route and location context to produce road- and vehicle-level intelligence.',
+    tr: 'Hareket verisinden elde edilen bulgular rota ve konum bilgileriyle birleştirilerek yol ve araç seviyesinde içgörü üretilir.',
+  },
+
+  yorukWorkflowDecisionTitle: {
+    en: 'Support Decisions',
+    tr: 'Kararları Destekler',
+  },
+
+  yorukWorkflowDecisionText: {
+    en: 'Analysis and reporting help teams prioritize road actions, compare routes and understand driving behaviour.',
+    tr: 'Analiz ve raporlama, ekiplerin yol bakım çalışmalarını önceliklendirmesine, rotaları karşılaştırmasına ve sürüş davranışını değerlendirmesine yardımcı olur.',
+  },
+
+  yorukApplicationsKicker: {
+    en: 'APPLICATIONS',
+    tr: 'KULLANIM ALANLARI',
+  },
+
+  yorukApplicationsTitle: {
+    en: 'Built for Road and Vehicle Operations',
+    tr: 'Yol ve Araç Operasyonları İçin',
+  },
+
+  yorukApplicationMunicipalities: {
+    en: 'Municipalities',
+    tr: 'Belediyeler',
+  },
+
+  yorukApplicationMunicipalitiesText: {
+    en: 'Use vehicle-generated movement data to support road inspection and maintenance prioritization.',
+    tr: 'Araçlardan üretilen hareket verisini yol inceleme ve bakım önceliklendirme süreçlerinde kullanın.',
+  },
+
+  yorukApplicationFleets: {
+    en: 'Fleets',
+    tr: 'Filolar',
+  },
+
+  yorukApplicationFleetsText: {
+    en: 'Compare routes, movement patterns and driving events across daily fleet operations.',
+    tr: 'Günlük filo operasyonlarında rotaları, hareket örüntülerini ve sürüş olaylarını karşılaştırın.',
+  },
+
+  yorukApplicationLogistics: {
+    en: 'Logistics & Transport',
+    tr: 'Lojistik ve Ulaşım',
+  },
+
+  yorukApplicationLogisticsText: {
+    en: 'Build operational insight from repeated vehicle movement across road networks.',
+    tr: 'Yol ağındaki tekrarlayan araç hareketlerinden operasyonel içgörü üretin.',
+  },
+
+  yorukFinalCtaTitle: {
+    en: 'Evaluate Yoruk for Your Vehicle Operations',
+    tr: 'Yörük’ü Araç Operasyonlarınız İçin Değerlendirin',
+  },
+
+  yorukFinalCtaText: {
+    en: 'Tell us about your vehicles, operating routes and the road or driving questions you want to understand.',
+    tr: 'Araçlarınızı, operasyon rotalarınızı ve çözmek istediğiniz yol veya sürüş problemlerini bizimle paylaşın.',
+  },
+
+  yorukCtaButton: {
+    en: 'CONTACT US',
+    tr: 'İLETİŞİME GEÇ',
+  },
+
+  /* --------------------
+     YAYA PAGE
+  -------------------- */
+
+  yayaProductCategory: {
+    en: 'INDOOR MOVEMENT & NAVIGATION',
+    tr: 'KAPALI ALAN HAREKET VE NAVİGASYON',
+  },
+
+  yayaHeroStatement: {
+    en: 'Turn Indoor Movement Into Navigation and Operational Insight',
+    tr: 'Kapalı Alan Hareketini Navigasyon ve Operasyonel İçgörüye Dönüştürün',
+  },
+
+  yayaHeroText: {
+    en: 'Yaya uses mobile IMU data to estimate pedestrian movement and turn it into indoor navigation and movement intelligence for complex facilities.',
+    tr: 'Yaya, mobil IMU verisini kullanarak yaya hareketini kestirir ve bu veriyi karmaşık tesislerde navigasyon ve hareket zekasına dönüştürür.',
+  },
+
+  yayaMiniPdr: {
+    en: 'PDR',
+    tr: 'PDR',
+  },
+
+  yayaMiniIndoor: {
+    en: 'INDOOR NAVIGATION',
+    tr: 'KAPALI ALAN NAVİGASYONU',
+  },
+
+  yayaMiniMovement: {
+    en: 'MOVEMENT ANALYTICS',
+    tr: 'HAREKET ANALİZİ',
+  },
+
+  yayaMiniMobile: {
+    en: 'MOBILE IMU',
+    tr: 'MOBİL IMU',
+  },
+
+  yayaScopeTitle: {
+    en: 'PLATFORM CAPABILITIES',
+    tr: 'PLATFORM KABİLİYETLERİ',
+  },
+
+  yayaScopeMainTitle: {
+    en: 'Indoor Movement Intelligence From Mobile Sensors',
+    tr: 'Mobil Sensörlerden Kapalı Alan Hareket Zekası',
+  },
+
+  yayaScopeText: {
+    en: 'Yaya combines pedestrian dead reckoning, movement analysis and indoor context to support navigation and operational movement use cases.',
+    tr: 'Yaya; yaya kestirimli konumlama, hareket analizi ve kapalı alan bağlamını birleştirerek navigasyon ve operasyonel hareket uygulamalarını destekler.',
+  },
+
+  yayaNavigationGroupTitle: {
+    en: 'Indoor Navigation',
+    tr: 'Kapalı Alan Navigasyonu',
+  },
+
+  yayaMotionGroupTitle: {
+    en: 'Movement Intelligence',
+    tr: 'Hareket Zekası',
+  },
+
+  yayaIntegrationGroupTitle: {
+    en: 'Application Integration',
+    tr: 'Uygulama Entegrasyonu',
+  },
+
+  yayaCapabilityPdr: {
+    en: 'Pedestrian dead reckoning',
+    tr: 'Yaya kestirimli konumlama',
+  },
+
+  yayaCapabilityRelativeMovement: {
+    en: 'Relative pedestrian movement estimation',
+    tr: 'Göreli yaya hareket kestirimi',
+  },
+
+  yayaCapabilityIndoorNavigation: {
+    en: 'Indoor navigation support',
+    tr: 'Kapalı alan navigasyon desteği',
+  },
+
+  yayaCapabilityStepDetection: {
+    en: 'Step and movement event detection',
+    tr: 'Adım ve hareket olayı tespiti',
+  },
+
+  yayaCapabilityMovementPatterns: {
+    en: 'Pedestrian movement patterns',
+    tr: 'Yaya hareket örüntüleri',
+  },
+
+  yayaCapabilityMovementAnalytics: {
+    en: 'Movement analytics',
+    tr: 'Hareket analizi',
+  },
+
+  yayaCapabilityMobile: {
+    en: 'Mobile device integration',
+    tr: 'Mobil cihaz entegrasyonu',
+  },
+
+  yayaCapabilityMapContext: {
+    en: 'Indoor map and spatial context',
+    tr: 'Kapalı alan haritası ve mekansal bağlam',
+  },
+
+  yayaCapabilityApplicationOutput: {
+    en: 'Application-level movement output',
+    tr: 'Uygulama seviyesinde hareket çıktısı',
+  },
+
+  yayaHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'NASIL ÇALIŞIR',
+  },
+
+  yayaHowItWorksTitle: {
+    en: 'From Mobile Motion to Indoor Intelligence',
+    tr: 'Mobil Hareketten Kapalı Alan Zekasına',
+  },
+
+  yayaWorkflowSenseTitle: {
+    en: 'Sense Movement',
+    tr: 'Hareketi Algılar',
+  },
+
+  yayaWorkflowSenseText: {
+    en: 'Mobile inertial sensors capture pedestrian motion during movement through indoor environments.',
+    tr: 'Mobil ataletsel sensörler, kapalı alanlarda hareket eden yayaya ait hareket verisini toplar.',
+  },
+
+  yayaWorkflowEstimateTitle: {
+    en: 'Estimate Movement',
+    tr: 'Hareketi Kestirir',
+  },
+
+  yayaWorkflowEstimateText: {
+    en: 'PDR processing estimates relative displacement and pedestrian movement from inertial signals.',
+    tr: 'PDR işleme katmanı, ataletsel sinyallerden göreli yer değiştirme ve yaya hareketini kestirir.',
+  },
+
+  yayaWorkflowContextTitle: {
+    en: 'Add Spatial Context',
+    tr: 'Mekansal Bağlam Ekler',
+  },
+
+  yayaWorkflowContextText: {
+    en: 'Movement estimates are combined with indoor spatial context to support navigation and facility-specific applications.',
+    tr: 'Hareket kestirimleri kapalı alanın mekansal bağlamıyla birleştirilerek navigasyon ve tesise özel uygulamalar desteklenir.',
+  },
+
+  yayaWorkflowInsightTitle: {
+    en: 'Create Movement Intelligence',
+    tr: 'Hareket Zekası Üretir',
+  },
+
+  yayaWorkflowInsightText: {
+    en: 'Movement data becomes navigation output and operational insight for people and facilities.',
+    tr: 'Hareket verisi, insanlar ve tesisler için navigasyon çıktısına ve operasyonel içgörüye dönüştürülür.',
+  },
+
+  yayaApplicationsKicker: {
+    en: 'APPLICATIONS',
+    tr: 'KULLANIM ALANLARI',
+  },
+
+  yayaApplicationsTitle: {
+    en: 'Built for Complex Indoor Environments',
+    tr: 'Karmaşık Kapalı Alanlar İçin',
+  },
+
+  yayaApplicationHospital: {
+    en: 'Hospitals',
+    tr: 'Hastaneler',
+  },
+
+  yayaApplicationHospitalText: {
+    en: 'Support indoor navigation and location intelligence across complex hospital environments.',
+    tr: 'Karmaşık hastane ortamlarında kapalı alan navigasyonu ve konum tabanlı hizmetleri destekleyin.',
+  },
+
+  yayaApplicationDepot: {
+    en: 'Warehouses & Depots',
+    tr: 'Depolar ve Lojistik Alanlar',
+  },
+
+  yayaApplicationDepotText: {
+    en: 'Turn personnel movement into operational movement analytics across warehouse and depot workflows.',
+    tr: 'Personel hareketini depo ve lojistik iş akışlarında operasyonel hareket analizine dönüştürün.',
+  },
+
+  yayaFinalCtaTitle: {
+    en: 'Evaluate Yaya for Your Indoor Environment',
+    tr: 'Yaya’yı Kapalı Alan Operasyonunuz İçin Değerlendirin',
+  },
+
+  yayaFinalCtaText: {
+    en: 'Tell us about your facility, target devices and the indoor movement or navigation problem you want to solve.',
+    tr: 'Tesisinizi, hedef cihazları ve çözmek istediğiniz kapalı alan hareketi veya navigasyon problemini bizimle paylaşın.',
+  },
+
+  yayaCtaButton: {
+    en: 'CONTACT US',
+    tr: 'İLETİŞİME GEÇ',
+  },
+
+  /* --------------------
+     PRIVACY / DATA NOTICE
+  -------------------- */
+
+  privacyTitle: {
+    en: 'Privacy & Data Notice',
+    tr: 'Gizlilik ve Veri Bildirimi',
+  },
+
+  privacyIntro: {
+    en: 'Ayrota collects limited personal data solely for evaluation purposes.',
+    tr: 'Ayrota, yalnızca değerlendirme amacıyla sınırlı kişisel veri toplar.',
+  },
+
+  privacyParagraph1: {
+    en: 'Data collected via the contact form may include organization or project name, contact email address, and high-level inquiry context.',
+    tr: 'İletişim formu aracılığıyla; kurum veya proje adı, iletişim e-posta adresi ve talebe ilişkin yüksek seviyeli bağlam bilgileri toplanabilir.',
+  },
+
+  privacyParagraph2: {
+    en: 'This website does not perform tracking, profiling, or marketing analytics.',
+    tr: 'Bu web sitesinde izleme, profilleme veya pazarlama amaçlı analiz yapılmamaktadır.',
+  },
+
+  privacyParagraph3: {
+    en: 'Form submissions are processed through a third-party form handling service (Basin) and stored securely for review.',
+    tr: 'Form iletileri, üçüncü taraf bir form hizmeti olan Basin üzerinden işlenir ve değerlendirme amacıyla güvenli şekilde saklanır.',
+  },
+
+  privacyParagraph4: {
+    en: 'Personal data is retained only as long as necessary to assess potential engagement and is deleted periodically.',
+    tr: 'Kişisel veriler, olası bir iş birliğini değerlendirmek için gerekli süre boyunca saklanır ve düzenli olarak silinir.',
+  },
+
+  privacyParagraph5: {
+    en: 'Where applicable, data handling complies with KVKK and GDPR.',
+    tr: 'Veri işleme süreçleri, uygulanabilir olduğu ölçüde KVKK ve GDPR ile uyumludur.',
+  },
+
+  privacyConsent: {
+    en: 'By submitting the contact form, you acknowledge and consent to this data processing for evaluation purposes.',
+    tr: 'İletişim formunu göndererek, bu veri işleme sürecini değerlendirme amacıyla kabul etmiş sayılırsınız.',
+  },
+
+  privacyCookieTitle: {
+    en: 'Cookie Notice',
+    tr: 'Çerez Bildirimi',
+  },
+
+  privacyCookieText: {
+    en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
+    tr: 'Bu web sitesinde izleme veya pazarlama amaçlı çerez kullanılmaz. Kullanılması muhtemel teknik çerezler yalnızca temel işlevsellik ve güvenlik için gereklidir.',
+  },
+
+  internshipTitle: {
+    en: 'Internship Applications',
+    tr: 'Staj Başvuruları',
+  },
+
+  internshipDescription: {
+    en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
+    tr: 'Öğrenci başvuruları yalnızca Google Form üzerinden kabul edilmektedir. Lütfen aşağıdaki bağlantıyı kullanın.',
+  },
+
+  contactInternshipCta: {
+    en: 'Apply via Google Form',
+    tr: 'Google Form Üzerinden Başvur',
+  },
 } as const;
-
-
-
-
 
 export type TranslationKey = keyof typeof translations;

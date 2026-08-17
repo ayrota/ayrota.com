@@ -12,15 +12,14 @@ import { ScrollToHash } from './components/ScrollToHash';
 
 import { Hero } from './sections/Hero';
 import { Products } from './sections/Product';
-import { Platforms } from './sections/Platforms';
 import { Contact } from './sections/Contact';
 import { Problem } from './sections/Problem';
 
 import Privacy from './pages/Privacy';
 import Ilber from './pages/İlber';
-import Alkon from './pages/Alkon';
 import Yaya from './pages/Yaya';
 import Yoruk from './pages/Yoruk';
+import Koman from './pages/Koman';
 
 export default function App() {
   return (
@@ -39,7 +38,6 @@ export default function App() {
               <Hero />
               <Problem />
               <Products />
-              <Platforms />
               <Contact />
               <Footer />
             </main>
@@ -48,13 +46,73 @@ export default function App() {
 
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/ilber" element={<Ilber />} />
-        <Route path="/alkon" element={<Alkon />} />
+        <Route path="/koman" element={<Koman />} />
         <Route path="/yaya" element={<Yaya />} />
         <Route path="/yoruk" element={<Yoruk />} />
       </Routes>
     </div>
   );
 }
+================================================================================
+FILE: index.css
+================================================================================
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: theme('colors.bg');
+  color: theme('colors.fg');
+  font-family: ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: theme('colors.fg');
+}
+
+p { margin: 0; color: theme('colors.muted'); }
+
+a {
+  color: theme('colors.fg');
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: theme('colors.accent'); }
+
+::selection {
+  background-color: theme('colors.accent');
+  color: theme('colors.bg');
+}
+
+/* Reduced motion = hard stop */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+================================================================================
+FILE: irex_src_17082026_152752.txt
+================================================================================
+
+
 ================================================================================
 FILE: main.tsx
 ================================================================================
@@ -623,7 +681,7 @@ const NAV_ITEMS: NavItem[] = [
   {
     label: 'ÜRÜNLER',
     items: [
-      { label: 'ALKON', href: '/alkon' },
+      { label: 'KOMAN', href: '/koman' },
       { label: 'YAYA', href: '/yaya' },
       { label: 'YÖRÜK', href: '/yoruk' },
       { label: 'İLBER', href: '/ilber' },
@@ -765,80 +823,95 @@ export type Language = 'en' | 'tr';
 
 export const translations = {
 
- /* --------------------
-   NEW HOME / HERO
+/* --------------------
+   HERO
 -------------------- */
+
 homeHeroKicker: {
-  en: 'INERTIAL NAVIGATION SYSTEMS',
-  tr: 'ATALETSEL NAVİGASYON SİSTEMLERİ',
+  en: 'IMU-BASED NAVIGATION SYSTEMS',
+  tr: 'IMU TABANLI NAVİGASYON SİSTEMLERİ',
 },
 
 homeHeroTitle: {
-  en: 'We develop navigation intelligence for autonomous systems.',
-  tr: 'Otonom sistemler için navigasyon zekası',
+  en: 'Inertial Navigation Independent from External Sources',
+  tr: 'Harici Kaynaklardan Bağımsız Ataletsel Navigasyon',
 },
 
 homeHeroLead: {
-  en: 'Ayrota develops AI-assisted solutions that provide position, orientation, and motion estimation for autonomous systems in challenging environments where GNSS is insufficient or unavailable.',
-  tr: 'Ayrota, GNSS’in yetersiz veya kullanılamadığı zorlu ortamlarda otonom sistemlere konum, yönelim ve hareket kestirimi sağlayan yapay zeka destekli çözümler geliştirir.',
+  en: 'Ayrota develops navigation solutions based solely on inertial measurements for environments where GNSS is unavailable or unreliable.',
+  tr: 'Ayrota, GNSS’in erişilemediği veya güvenilir olmadığı ortamlarda, yalnızca ataletsel ölçümlere dayalı navigasyon çözümleri geliştirir.',
 },
 
-heroPillarNavigation: {
-  en: 'NAVIGATION',
-  tr: 'NAVİGASYON',
+
+heroPillarImu: {
+  en: 'IMU BASED',
+  tr: 'IMU TABANLI',
 },
 
-heroPillarEstimation: {
-  en: 'ESTIMATION',
-  tr: 'KESTİRİM',
+heroPillarSwapc: {
+  en: 'LOW SWaP-C',
+  tr: 'DÜŞÜK SWaP-C',
 },
 
-heroPillarFusion: {
-  en: 'SENSOR FUSION',
-  tr: 'SENSÖR FÜZYONU',
+heroPillarEndToEnd: {
+  en: 'END-TO-END SOLUTION',
+  tr: 'UÇTAN UCA ÇÖZÜM',
 },
 
-heroPillarIntegration: {
-  en: 'SOFTWARE INTEGRATION',
-  tr: 'YAZILIM ENTEGRASYONU',
+heroPillarIndependent: {
+  en: 'GNSS-INDEPENDENT',
+  tr: 'GNSS İHTİYACI OLMADAN',
 },
 
 /* --------------------
-   NEW / PRODUCTS
+   PRODUCTS
 -------------------- */
-productsFlagshipKicker: {
-  en: 'Flagship Product',
-  tr: 'Lider Ürünümüz',
+
+productsKicker: {
+  en: 'PRODUCTS & SOLUTIONS',
+  tr: 'ÜRÜNLER VE ÇÖZÜMLER',
 },
 
-productsAlkonLead: {
-  en: 'Advanced navigation for autonomous systems. Engineered for mission-critical performance in GNSS-denied environments.',
-  tr: 'Otonom sistemler için geliştirilen, GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
+productsTitle: {
+  en: 'Navigation products for autonomous systems.',
+  tr: 'Otonom sistemler için navigasyon çözümleri.',
 },
 
-productsAlkonFeatureImu: {
+productsLead: {
+  en: 'Software-defined navigation products built around inertial estimation, GNSS-independent operation and practical system integration.',
+  tr: 'Ataletsel kestirim, GNSS bağımsız çalışma ve pratik sistem entegrasyonu etrafında şekillenen navigasyon ürünleri.',
+},
+
+
+
+productsKomanLead: {
+  en: 'Engineered for mission-critical performance in GNSS-denied environments.',
+  tr: 'GNSS’in kullanılamadığı ortamlarda görev kritik navigasyon ihtiyaçlarına odaklanan platform.',
+},
+
+productsKomanFeatureImu: {
   en: 'IMU-only navigation',
   tr: 'IMU odaklı navigasyon',
 },
 
-productsAlkonFeatureGnss: {
+productsKomanFeatureGnss: {
   en: 'Operation in GNSS-denied environments',
   tr: 'GNSS olmayan ortamlarda çalışma',
 },
 
-productsAlkonFeatureDynamic: {
+productsKomanFeatureDynamic: {
   en: 'Robust estimation in dynamic conditions',
   tr: 'Dinamik koşullarda dayanıklı kestirim',
 },
 
-productsAlkonFeatureRealtime: {
+productsKomanFeatureRealtime: {
   en: 'Real-time, low-latency output',
   tr: 'Gerçek zamanlı, düşük gecikmeli çıktı',
 },
 
-productsExploreAlkon: {
-  en: 'EXPLORE ALKON',
-  tr: 'ALKON’U KEŞFET',
+productsExploreKoman: {
+  en: 'EXPLORE KOMAN',
+  tr: 'KOMAN’I KEŞFET',
 },
 
 productsTechnicalImu: {
@@ -861,30 +934,24 @@ productsTechnicalEmbedded: {
   tr: 'Gömülü Entegrasyon',
 },
 
-productsOtherTitle: {
-  en: 'OTHER PRODUCTS',
-  tr: 'DİĞER ÜRÜNLER',
-},
-
-
 
 productsYorukDescription: {
-  en: 'Road quality monitoring platform.',
-  tr: 'Araç Filolarına Özel Rota Analitik Platformu.',
+  en: 'Route analytics platform for vehicle fleets.',
+  tr: 'Araç filolarına özel rota analitik platformu.',
 },
 
 productsIlberDescription: {
   en: 'IMU data quality assurance platform.',
-  tr: 'IMU Veri Kalite Güvence Platformu.',
+  tr: 'IMU veri kalite güvence platformu.',
 },
 
 productsYayaDescription: {
-  en: 'Pedestrian Dead Reckoning software.',
-  tr: 'Yaya Kestirimli Konumlama Yazılımı.',
+  en: 'Pedestrian dead reckoning software.',
+  tr: 'Yaya kestirimli konumlama yazılımı.',
 },
 
 /* --------------------
-   HOME / PLATFORMS
+   PLATFORMS
 -------------------- */
 platformsKicker: {
   en: 'SOLUTION AREAS',
@@ -938,77 +1005,131 @@ platformsEndToEndText: {
 
 
 /* --------------------
-   NEW / PROBLEM
+   PROBLEM
 -------------------- */
 
 problemKicker: {
-  en: 'THE PROBLEM',
-  tr: 'PROBLEM ALANI',
+  en: 'INERTIAL NAVIGATION',
+  tr: 'ATALETSEL NAVİGASYON',
+},
+
+problemTitle: {
+  en: 'The foundation of independent navigation',
+  tr: 'Bağımsız Navigasyonun Temeli',
 },
 
 problemLead: {
-  en: 'Autonomous systems often depend on external positioning sources. When those references become unreliable, maintaining continuous and trustworthy state estimation becomes a critical engineering challenge.',
-  tr: 'Otonom sistemler çoğu zaman harici konumlama kaynaklarına bağımlıdır. Bu referanslar güvenilirliğini kaybettiğinde, sürekli ve güvenilir durum kestirimi sağlamak kritik bir mühendislik problemine dönüşür.',
+  en: 'Inertial navigation enables the maintenance of position, orientation, and motion awareness without reliance on external references. It forms the fundamental layer that preserves a system’s situational awareness when GNSS access is interrupted or environmental conditions challenge sensing systems.',
+  tr: 'Ataletsel navigasyon, harici referanslara ihtiyaç duymadan konum, yönelim ve hareket bilgisinin sürdürülmesini sağlar. GNSS erişiminin kesintiye uğradığı veya çevresel koşulların algılama sistemlerini zorladığı durumlarda, sistemin hareket farkındalığını koruyan temel katmanı oluşturur.',
 },
 
-problemDeniedTitle: {
-  en: 'GNSS-Denied Environments',
-  tr: 'GNSS Olmayan Ortamlar',
+problemSecondLead: {
+  en: 'Ayrota delivers navigation continuity with an IMU centered inertial core, without relying on complex and costly sensor stacks.',
+  tr: 'Ayrota, IMU odaklı ataletsel navigasyon çekirdeğiyle karmaşık ve maliyetli sensör yığınlarına ihtiyaç duymadan navigasyon sürekliliği sağlar.',
 },
 
-problemDeniedText: {
-  en: 'Positioning signals may be degraded, blocked, or completely unavailable.',
-  tr: 'Konumlama sinyalleri zayıflayabilir, engellenebilir veya tamamen kaybolabilir.',
+problemFlowGnssTitle: {
+  en: 'GNSS IS LOST',
+  tr: 'GNSS KAYBOLUR',
 },
 
-problemDynamicTitle: {
-  en: 'Dynamic Motion',
-  tr: 'Dinamik Hareket',
+problemFlowGnssSubtitle: {
+  en: 'When a vehicle enters a challenging environment, GNSS can be lost or spoofed.',
+  tr: 'Araç zorlu bir sahaya girdiğinde, GNSS kesilebilir veya yanıltılabilir.',
 },
 
-problemDynamicText: {
-  en: 'Rapidly changing motion profiles increase estimation complexity.',
-  tr: 'Hızla değişen hareket profilleri kestirim karmaşıklığını artırır.',
+problemFlowSensorTitle: {
+  en: 'MORE SENSORS REQUIRED',
+  tr: 'DAHA FAZLA SENSÖR GEREKİR ',
 },
 
-problemReliableTitle: {
-  en: 'Continuous Estimation',
-  tr: 'Sürekli Kestirim',
+problemFlowSensorSubtitle: {
+  en: 'Solutions with additional sensors like cameras or LiDARs can address this but add significant cost.',
+  tr: 'Kayıp ek kameralar veya yoğun işlem yükü getiren LiDARlarla çözülebilir ancak ek maliyet artar.',
 },
 
-problemReliableText: {
-  en: 'Systems require reliable navigation outputs even when conditions deteriorate.',
-  tr: 'Koşullar kötüleştiğinde bile sistemler güvenilir navigasyon çıktısına ihtiyaç duyar.',
+problemFlowCoreTitle: {
+  en: 'INERTIAL CORE',
+  tr: 'ATALETSEL ÇEKİRDEK',
 },
 
+problemFlowCoreSubtitle: {
+  en: 'Ayrota’s inertial core is designed to provide continuous navigation in GNSS-denied environments, using only IMU data and advanced estimation algorithms.',
+  tr: 'Ayrota optimize edilmiş düşük SWaP-C mimarisiyle IMU tabanlı navigasyon sunar.',
+},
 
+problemFlowNavTitle: {
+  en: 'NAVIGATION CONTINUES',
+  tr: 'NAVİGASYON DEVAM EDER',
+},
+
+problemFlowNavSubtitle: {
+  en: 'This allows for seamless position, orientation, and motion estimation without reliance on external references.',
+  tr: 'Bu sayede harici dış referanslara ihtiyaç duyulmadan konum, yönelim ve hareket kestirimi kusursuzca tahmin edilir.',
+},
 
 /* --------------------
    CONTACT
 -------------------- */
+
+contactKicker: {
+  en: 'CONTACT',
+  tr: 'İLETİŞİM',
+},
+
 contactTitle: {
   en: 'Get in touch',
   tr: 'İletişime geçin',
 },
 
+corporateContactTitle: {
+  en: 'Corporate contact',
+  tr: 'Kurumsal iletişim',
+},
+
+corporateContactDescription: {
+  en: 'Use the form for partnerships, pilot studies, evaluation access, and corporate inquiries.',
+  tr: 'İş birlikleri, pilot çalışmalar, değerlendirme erişimi ve kurumsal konular için formu kullanın.',
+},
+
 contactLabelOrg: {
-  en: 'Person / Organization',
-  tr: 'Kişi / Kurum',
+  en: 'PERSON / ORGANIZATION',
+  tr: 'KİŞİ / KURUM',
 },
 
 contactLabelEmail: {
-  en: 'Contact email',
-  tr: 'İletişim e-postası',
+  en: 'CONTACT EMAIL',
+  tr: 'İLETİŞİM E-POSTASI',
 },
 
 contactLabelMessage: {
-  en: 'Your message',
-  tr: 'Mesajınız',
+  en: 'MESSAGE',
+  tr: 'MESAJINIZ',
+},
+
+contactPlaceholderOrg: {
+  en: 'Enter your name or organization',
+  tr: 'Kurum / kişi adınızı girin',
+},
+
+contactPlaceholderEmail: {
+  en: 'Enter your email address',
+  tr: 'E-posta adresinizi girin',
+},
+
+contactPlaceholderMessage: {
+  en: 'Write your message here...',
+  tr: 'Mesajınızı buraya yazın...',
 },
 
 contactSubmit: {
-  en: 'Send message',
-  tr: 'Mesajı gönder',
+  en: 'SEND MESSAGE',
+  tr: 'MESAJ GÖNDER',
+},
+
+contactMapTitle: {
+  en: 'Ayrota office location',
+  tr: 'Ayrota ofis konumu',
 },
 
 /* --------------------
@@ -1034,458 +1155,516 @@ footerPrivacy: {
   tr: 'Gizlilik ve Veri Bildirimi',
 },
 
-
-
-
 /* --------------------
    ILBER PAGE
 -------------------- */
 /* --------------------
-   ILBER PAGE
+   ILBER PAGE - UPDATED
 -------------------- */
+
 ilberHeroStatement: {
-  en: 'Learn whether your IMU data is reliable.',
-  tr: 'IMU verinizin güvenilir olup olmadığını öğrenin',
+  en: 'Turn your IMU logs into engineering reports.',
+  tr: 'IMU verilerinizi mühendislik raporlarına dönüştürün.',
 },
 
 ilberHeroText: {
-  en: 'İlber analyzes your data end-to-end, detects critical problems, and delivers engineering-ready quality reports.',
-  tr: 'İlber, verinizi tüm yönleriyle analiz eder, kritik problemleri tespit eder ve mühendislik raporuyla size sunar.',
+  en: 'İlber is Ayrota’s technical analysis and reporting service for IMU datasets. We analyze your data, identify quality and sensor-related issues, and deliver customer-specific engineering reports.',
+  tr: 'İlber; IMU veri setleri için geliştirilen teknik analiz ve raporlama hizmetidir.',
 },
 
 ilberSendData: {
-  en: 'Contact us to send your data for evaluation.',
-  tr: 'Analiz için iletişim',
+  en: 'REQUEST A TECHNICAL REVIEW',
+  tr: 'TEKNİK GÖRÜŞME TALEP ET',
 },
 
 ilberMiniDetect: {
-  en: 'Quality Control',
-  tr: 'Kalite kontrol',
-},
-
-ilberMiniAnalyze: {
-  en: 'Analyze',
-  tr: 'Analiz',
+  en: 'Data Quality',
+  tr: 'Veri Kalitesi',
 },
 
 ilberMiniRepair: {
-  en: 'Repair',
-  tr: 'Onarım',
+  en: 'Sensor Health',
+  tr: 'Sensör Sağlığı',
+},
+
+ilberMiniAnalyze: {
+  en: 'Engineering Analysis',
+  tr: 'Mühendislik Analizi',
 },
 
 ilberMiniValidate: {
-  en: 'Report',
-  tr: 'Rapor',
+  en: 'Custom Report',
+  tr: 'Müşteriye Özel Rapor',
 },
 
 ilberAnalysisScope: {
-  en: 'ANALYSIS SCOPE',
-  tr: 'ANALİZ KAPSAMIMIZ',
+  en: 'SCOPE',
+  tr: 'İlber KAPSAMI',
+},
+
+ilberAnalysisScopeTitle: {
+  en: 'We analyze your IMU data.',
+  tr: 'IMU verilerinizi analiz ediyoruz.',
+},
+
+ilberAnalysisScopeText: {
+  en: 'İlber evaluates IMU datasets across data integrity, sensor reliability and motion-related quality layers. The analysis scope is customized according to each customer’s data structure, test scenario and engineering needs.',
+  tr: 'İlber; IMU veri setlerini veri bütünlüğü, sensör güvenilirliği ve hareket kaynaklı kalite katmanları üzerinden değerlendirir. Analiz kapsamı her müşterinin veri yapısına, test senaryosuna ve mühendislik ihtiyacına göre özelleştirilir.',
+},
+
+ilberIntegrityGroupTitle: {
+  en: 'Data Quality & Integrity',
+  tr: 'Veri Kalitesi ve Bütünlüğü',
+},
+
+ilberSensorGroupTitle: {
+  en: 'Sensor Health & Signal Behavior',
+  tr: 'Sensör Sağlığı ve Sinyal Davranışı',
+},
+
+ilberNavigationGroupTitle: {
+  en: 'Motion, Flight & Consistency Analysis',
+  tr: 'Hareket, Uçuş ve Tutarlılık Analizi',
 },
 
 ilberRepairTitle: {
-  en: 'Repair',
-  tr: 'Onarım',
-},
-
-ilberSensorDomainTitle: {
-  en: 'Sensor Domain Analysis',
-  tr: 'Sensör Domain Analizi',
-},
-
-ilberSensorHealthTitle: {
-  en: 'Sensor Health Analysis',
-  tr: 'Sensör Sağlık Analizi',
-},
-
-ilberGnssTitle: {
-  en: 'GNSS Quality Analysis',
-  tr: 'GNSS Kalite Analizi',
-},
-
-ilberSpectralTitle: {
-  en: 'Spectral Analysis',
-  tr: 'Spektral Analiz',
-},
-
-ilberPhysicalTitle: {
-  en: 'Physical Consistency Checks',
-  tr: 'Fiziksel Tutarlılık Kontrolleri',
+  en: 'Missing Data & Timing Checks',
+  tr: 'Eksik Veri ve Zamanlama Kontrolleri',
 },
 
 ilberConsistencyTitle: {
-  en: 'Consistency Analysis',
-  tr: 'Tutarlılık Analizi',
+  en: 'Run-to-Run Consistency',
+  tr: 'Testler Arası Tutarlılık',
 },
 
 ilberCadenceTitle: {
-  en: 'Cadence Analysis',
-  tr: 'Ritim Analizi',
+  en: 'Dataset Suitability Review',
+  tr: 'Veri Seti Uygunluk Değerlendirmesi',
+},
+
+ilberSensorDomainTitle: {
+  en: 'IMU Signal Quality',
+  tr: 'IMU Sinyal Kalitesi',
+},
+
+ilberSensorHealthTitle: {
+  en: 'Sensor Anomaly Detection',
+  tr: 'Sensör Anomali Tespiti',
+},
+
+ilberPhysicalTitle: {
+  en: 'Physical Plausibility Checks',
+  tr: 'Fiziksel Uygunluk Kontrolleri',
+},
+
+ilberGnssTitle: {
+  en: 'GNSS / INS Data Review',
+  tr: 'GNSS / INS Veri İncelemesi',
+},
+
+ilberSpectralTitle: {
+  en: 'Noise & Spectral Analysis',
+  tr: 'Gürültü ve Spektral Analiz',
 },
 
 ilberMotionTitle: {
-  en: 'Motion Analysis',
-  tr: 'Hareket Analizi',
+  en: 'Motion / Flight Behavior Analysis',
+  tr: 'Hareket / Uçuş Davranışı Analizi',
 },
 
-ilberSessionReportTitle: {
-  en: 'Session Report',
-  tr: 'Oturum Raporu',
-},
+
 
 ilberHowItWorks: {
   en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR?',
+  tr: 'İlber NASIL ÇALIŞIR?',
 },
 
 ilberWorkflowSendTitle: {
-  en: 'Send your data.',
-  tr: 'Verinizi gönderin.',
+  en: 'Share your dataset.',
+  tr: 'Veri setinizi paylaşın.',
 },
 
 ilberWorkflowSendText: {
-  en: 'Share your IMU dataset securely for technical review.',
-  tr: 'IMU veri setinizi güvenli şekilde teknik inceleme için iletin.',
+  en: 'Send your IMU, INS or UAV flight logs for technical review.',
+  tr: 'IMU, INS veya UAV uçuş loglarınızı teknik inceleme için paylaşın.',
 },
 
 ilberWorkflowAnalyzeTitle: {
   en: 'We analyze it.',
-  tr: 'Analiz edelim.',
+  tr: 'Analizi gerçekleştirelim.',
 },
 
 ilberWorkflowAnalyzeText: {
-  en: 'Your data is evaluated through İlber analysis modules.',
-  tr: 'Veriniz İlber analiz modülleriyle değerlendirilir.',
+  en: 'Ayrota evaluates your data through İlber’s engineering analysis workflow.',
+  tr: 'Ayrota, verinizi İlber’in mühendislik analiz süreciyle değerlendirir.',
 },
 
 ilberWorkflowReportTitle: {
   en: 'Receive your report.',
-  tr: 'Raporunuzu alın.',
+  tr: 'Raporunuzu teslim alın.',
 },
 
 ilberWorkflowReportText: {
-  en: 'Get a structured engineering report with quality findings.',
-  tr: 'Kalite bulgularını içeren yapılandırılmış mühendislik raporunuzu alın.',
+  en: 'You receive a customer-specific PDF report with findings, plots and engineering comments.',
+  tr: 'Bulgular, grafikler ve mühendislik yorumları içeren müşteriye özel PDF rapor teslim edilir.',
 },
 
 ilberWorkflowPreventTitle: {
-  en: 'See problems early.',
-  tr: 'Problemleri erken görün.',
+  en: 'Decide faster.',
+  tr: 'Daha hızlı karar alın.',
 },
 
 ilberWorkflowPreventText: {
-  en: 'Reduce debugging time before algorithm development begins.',
-  tr: 'Algoritma geliştirme başlamadan önce hata ayıklama süresini azaltın.',
+  en: 'Identify data-related issues before they are misinterpreted as algorithm or software problems.',
+  tr: 'Veri kaynaklı problemleri algoritma veya yazılım hatası olarak değerlendirmeden önce görün.',
+},
+
+exampleAnalyses: {
+  en: 'Example Analyses',
+  tr: 'Örnek Analizler',
 },
 
 ilberFinalCtaTitle: {
-  en: 'Send your data.',
-  tr: 'Verinizi gönderin.',
+  en: 'Have IMU or flight logs?',
+  tr: 'IMU veya uçuş loglarınız mı var?',
 },
 
 ilberFinalCtaAccent: {
-  en: 'Let us analyze it.',
-  tr: 'Analizi yapalım.',
+  en: 'Let us turn them into an engineering report.',
+  tr: 'Bunları mühendislik raporuna dönüştürelim.',
 },
-
 /* --------------------
    YORUK PAGE
 -------------------- */
+
 yorukHeroStatement: {
-  en: 'Route analytics for vehicle fleets.',
-  tr: 'Araç filolarına özel rota analitiği.',
+  en: 'Turn your vehicle fleet into a mobile sensor network.',
+  tr: 'Araç filonuzu mobil sensör ağına dönüştürün.',
 },
 
 yorukHeroText: {
-  en: 'YÖRÜK analyzes IMU-supported vehicle data to reveal road health, route quality, vibration events, and operational patterns across fleet routes.',
-  tr: 'YÖRÜK, IMU destekli araç verilerini analiz ederek filo rotalarında yol sağlık durumu, rota kalitesi, titreşim olayları ve operasyonel örüntüleri görünür hale getirir.',
+  en: 'YÖRÜK is a road and driving analytics platform that leverages mobile device GPS and IMU signals to generate insights on road quality, route comfort, driving safety, and driver attention/fatigue risk through mobile camera data.',
+  tr: 'YÖRÜK, Mobil cihaz GPS ve IMU sinyalleriyle yol kalitesi, rota konforu, mobil kamera ile sürücü dikkat/uyku riski analizi üretmeyi hedefleyen yol ve sürüş analitiği platformu.',
 },
 
 yorukMiniFleet: {
-  en: 'Fleet analytics',
-  tr: 'Filo analitiği',
+  en: 'Fleet Operations',
+  tr: 'Filo Operasyonları',
 },
 
 yorukMiniRoute: {
-  en: 'Route quality',
-  tr: 'Rota kalitesi',
+  en: 'Road Quality',
+  tr: 'Yol Kalitesi',
 },
 
 yorukMiniRoadHealth: {
-  en: 'Road health',
-  tr: 'Yol sağlığı',
+  en: 'Driving Safety',
+  tr: 'Sürüş Güvenliği',
 },
 
 yorukMiniImu: {
-  en: 'IMU-supported',
-  tr: 'IMU destekli',
+  en: 'GPS + IMU Analytics',
+  tr: 'GPS + IMU Analitiği',
 },
 
 yorukScopeTitle: {
-  en: 'TECHNICAL SCOPE',
-  tr: 'TEKNİK KAPSAM',
+  en: 'PLATFORM CAPABILITIES',
+  tr: 'PLATFORM YETENEKLERİ',
 },
 
-yorukScopeFleet: {
-  en: 'Fleet data analytics',
-  tr: 'Filo veri analitiği',
+yorukScopeMainTitle: {
+  en: 'Road and driving analytics from existing vehicles.',
+  tr: 'Mevcut araçlardan yol ve sürüş analitiği.',
 },
 
-yorukScopeRoute: {
-  en: 'Route quality analysis',
-  tr: 'Rota kalite analizi',
+yorukScopeText: {
+  en: 'YÖRÜK turns existing vehicles into mobile data sources and helps organizations analyze road quality, route performance, driving behavior and operational risk from one platform.',
+  tr: 'YÖRÜK, mevcut araçları mobil veri kaynaklarına dönüştürerek yol kalitesi, rota performansı, sürüş davranışı ve operasyonel riskleri tek platformda analiz eder.',
 },
 
-yorukScopeRoadHealth: {
-  en: 'Road health monitoring',
-  tr: 'Yol sağlık durumu izleme',
+yorukRoadGroupTitle: {
+  en: 'Road Intelligence',
+  tr: 'Yol Zekâsı',
 },
 
-yorukScopeImu: {
-  en: 'IMU-supported sensing',
-  tr: 'IMU destekli algılama',
+yorukSignalGroupTitle: {
+  en: 'Vehicle Motion Analytics',
+  tr: 'Araç Hareket Analitiği',
 },
 
-yorukScopeAnomaly: {
-  en: 'Road anomaly detection',
-  tr: 'Yol anomalisi tespiti',
+yorukFleetGroupTitle: {
+  en: 'Operational Decision Support',
+  tr: 'Operasyonel Karar Desteği',
 },
 
-yorukScopeVibration: {
-  en: 'Vibration event analysis',
-  tr: 'Titreşim olayı analizi',
+yorukCapabilityRoadHealth: {
+  en: 'Road condition analysis',
+  tr: 'Yol durumu analizi',
 },
 
-yorukScopeSurface: {
-  en: 'Surface condition signals',
-  tr: 'Yüzey durumu sinyalleri',
+yorukCapabilityRouteQuality: {
+  en: 'Route and segment evaluation',
+  tr: 'Rota ve segment değerlendirmesi',
 },
 
-yorukScopeMap: {
-  en: 'Route map visualization',
-  tr: 'Rota haritası görselleştirme',
+yorukCapabilitySurfaceCondition: {
+  en: 'Road quality and comfort scoring',
+  tr: 'Yol kalitesi ve konfor skorlama',
 },
 
-yorukScopeReport: {
-  en: 'Operational reporting',
-  tr: 'Operasyonel raporlama',
+yorukCapabilityImuSensing: {
+  en: 'GPS and IMU data collection',
+  tr: 'GPS ve IMU veri toplama',
 },
 
-yorukScopeDashboard: {
-  en: 'Fleet dashboard',
-  tr: 'Filo paneli',
+yorukCapabilityVibration: {
+  en: 'Motion and vibration analysis',
+  tr: 'Hareket ve titreşim analizi',
+},
+
+yorukCapabilityAnomaly: {
+  en: 'Driving behavior insights',
+  tr: 'Sürüş davranışı içgörüleri',
+},
+
+yorukCapabilityFleetAnalytics: {
+  en: 'Fleet and route performance analytics',
+  tr: 'Filo ve rota performans analitiği',
+},
+
+yorukCapabilityMapVisualization: {
+  en: 'Live map visualization',
+  tr: 'Canlı harita görselleştirme',
+},
+
+yorukCapabilityDashboard: {
+  en: 'Analytics dashboard and reports',
+  tr: 'Analiz paneli ve raporlar',
 },
 
 yorukHowItWorks: {
   en: 'HOW IT WORKS',
-  tr: 'NASIL ÇALIŞIR?',
+  tr: 'NASIL ÇALIŞIR',
 },
 
 yorukWorkflowCollectTitle: {
-  en: 'Collect vehicle data.',
-  tr: 'Araç verisini toplar.',
+  en: 'Collect data.',
+  tr: 'Veri Topla.',
 },
 
 yorukWorkflowCollectText: {
-  en: 'Receives route, motion, and IMU-supported signals from fleet vehicles.',
-  tr: 'Filo araçlarından rota, hareket ve IMU destekli sinyalleri alır.',
+  en: 'Vehicles collect GPS and IMU data during their daily operations through tablet-based trip recording.',
+  tr: 'Araçlar günlük operasyonları sırasında tablet tabanlı sefer kaydı ile GPS ve IMU verisi toplar.',
 },
 
 yorukWorkflowAnalyzeTitle: {
-  en: 'Analyze road signals.',
-  tr: 'Yol sinyallerini analiz eder.',
+  en: 'Analyze motion.',
+  tr: 'Hareketi Analiz Et.',
 },
 
 yorukWorkflowAnalyzeText: {
-  en: 'Detects vibration, anomaly, and motion patterns along the route.',
-  tr: 'Rota boyunca titreşim, anomali ve hareket örüntülerini tespit eder.',
+  en: 'YÖRÜK processes vehicle motion signals to evaluate road condition, ride comfort, driving safety and route performance.',
+  tr: 'YÖRÜK, araç hareket sinyallerini işleyerek yol durumu, sürüş konforu, sürüş güvenliği ve rota performansını değerlendirir.',
 },
 
 yorukWorkflowMapTitle: {
-  en: 'Map route quality.',
-  tr: 'Rota kalitesini haritalar.',
+  en: 'Visualize insights.',
+  tr: 'İçgörüleri Görselleştir.',
 },
 
 yorukWorkflowMapText: {
-  en: 'Turns vehicle motion signals into route-level road quality insights.',
-  tr: 'Araç hareket sinyallerini rota seviyesinde yol kalite içgörülerine dönüştürür.',
+  en: 'Road quality, risky segments, route performance and operational indicators are displayed through maps and dashboards.',
+  tr: 'Yol kalitesi, riskli segmentler, rota performansı ve operasyonel göstergeler haritalar ve paneller üzerinden görüntülenir.',
 },
 
 yorukWorkflowReportTitle: {
-  en: 'Report fleet insights.',
-  tr: 'Filo içgörülerini raporlar.',
+  en: 'Support decisions.',
+  tr: 'Kararları Destekle.',
 },
 
 yorukWorkflowReportText: {
-  en: 'Produces operational outputs for maintenance, planning, and route evaluation.',
-  tr: 'Bakım, planlama ve rota değerlendirmesi için operasyonel çıktılar üretir.',
+  en: 'Reports help teams prioritize maintenance, improve driving safety, compare routes and manage operational risks.',
+  tr: 'Raporlar; bakım önceliklendirme, sürüş güvenliğini iyileştirme, rota karşılaştırma ve operasyonel risk yönetimi süreçlerini destekler.',
 },
 
 yorukFinalCtaTitle: {
-  en: 'Evaluate your fleet routes.',
-  tr: 'Filo rotalarınızı değerlendirin.',
+  en: 'Create road and driving analytics from your existing fleet.',
+  tr: 'Mevcut filonuzdan yol ve sürüş analitiği üretin.',
 },
 
 yorukFinalCtaAccent: {
-  en: 'See road health from motion data.',
-  tr: 'Yol sağlığını hareket verisinden görün.',
+  en: 'Use daily vehicle operations to understand road quality, comfort, safety and performance.',
+  tr: 'Günlük araç operasyonlarınızı yol kalitesi, konfor, güvenlik ve performans içgörülerine dönüştürün.',
 },
 
 yorukCtaButton: {
-  en: 'REQUEST PILOT',
+  en: 'REQUEST A PILOT',
   tr: 'PİLOT TALEP ET',
 },
-
 /* --------------------
-   ALKON PAGE
+   Koman PAGE
 -------------------- */
 
-alkonHeroStatement: {
+komanHeroStatement: {
   en: 'Navigation without assuming GNSS.',
   tr: 'GNSS varsaymadan navigasyon.',
 },
 
-alkonHeroText: {
-  en: 'ALKON is an IMU-focused navigation core designed to support autonomous systems when external positioning references become unreliable or unavailable.',
-  tr: 'ALKON, harici konumlama referansları güvenilir olmadığında veya tamamen kaybolduğunda otonom sistemleri desteklemek için geliştirilen IMU odaklı navigasyon çekirdeğidir.',
+komanHeroText: {
+  en: 'KOMAN is an autonomous aerial system designed to maintain navigation and mission awareness when GNSS signals become unavailable, unreliable or intentionally disrupted.',
+  tr: 'KOMAN, GNSS sinyallerinin kaybolduğu, güvenilmez hale geldiği veya kasıtlı olarak engellendiği ortamlarda navigasyon ve görev farkındalığını sürdürebilmek için geliştirilen otonom hava sistemidir.',
 },
 
-alkonMiniImu: {
-  en: 'IMU-only.',
-  tr: 'IMU odaklı',
+komanMiniImu: {
+  en: 'IMU-based.',
+  tr: 'IMU tabanlı',
 },
 
-alkonMiniGnss: {
+komanMiniGnss: {
   en: 'GNSS-denied.',
   tr: 'GNSS olmayan ortamlar',
 },
 
-alkonMiniDrift: {
-  en: 'Bounded drift.',
-  tr: 'Kontrollü sapma',
+komanMiniAutonomy: {
+  en: 'Autonomous.',
+  tr: 'Otonom',
 },
 
-alkonMiniRealtime: {
+komanMiniRealtime: {
   en: 'Real-time.',
   tr: 'Gerçek zamanlı',
 },
 
-alkonScopeTitle: {
-  en: 'TECHNICAL SCOPE',
-  tr: 'TEKNİK KAPSAM',
+komanScopeTitle: {
+  en: 'SYSTEM CAPABILITIES',
+  tr: 'SİSTEM KABİLİYETLERİ',
 },
 
-alkonScopeImuOnly: {
-  en: 'IMU-only navigation',
-  tr: 'IMU odaklı navigasyon',
+komanScopeMainTitle: {
+  en: 'Built for GNSS-denied autonomous operation.',
+  tr: 'GNSS olmayan ortamlarda otonom görevler için tasarlandı.',
 },
 
-alkonScopeGnssDenied: {
-  en: 'GNSS-denied operation',
-  tr: 'GNSS olmayan ortamda çalışma',
+komanScopeText: {
+  en: 'KOMAN combines autonomous flight, IMU-based navigation and ground control capabilities into a single operational system for environments where external positioning references cannot be trusted.',
+  tr: 'KOMAN; harici konumlama referanslarının güvenilemediği ortamlarda görev yapmak üzere geliştirilen otonom uçuş, IMU tabanlı navigasyon ve yer kontrol yeteneklerini tek bir sistemde bir araya getirir.',
 },
 
-alkonScopeBoundedDrift: {
-  en: 'Bounded drift behaviour',
-  tr: 'Kontrollü sapma davranışı',
+komanNavigationGroupTitle: {
+  en: 'Navigation',
+  tr: 'Navigasyon',
 },
 
-alkonScopeRealtime: {
-  en: 'Real-time output',
-  tr: 'Gerçek zamanlı çıktı',
+komanAutonomyGroupTitle: {
+  en: 'Autonomy',
+  tr: 'Otonomi',
 },
 
-alkonScopeResidualLearning: {
-  en: 'Residual learning correction',
-  tr: 'Artık hata öğrenimi',
+komanGroundControlGroupTitle: {
+  en: 'Ground Control',
+  tr: 'Yer Kontrol',
 },
 
-alkonScopePhysics: {
-  en: 'Physics-consistent modelling',
-  tr: 'Fizik tutarlı modelleme',
+komanCapabilityPositioning: {
+  en: 'IMU-based position estimation',
+  tr: 'IMU tabanlı konum kestirimi',
 },
 
-alkonScopeIntegration: {
-  en: 'MAVLink / ROS integration',
-  tr: 'MAVLink / ROS entegrasyonu',
+komanCapabilityHeading: {
+  en: 'Heading estimation',
+  tr: 'Yön kestirimi',
 },
 
-alkonScopeMission: {
-  en: 'Mission-level interface',
-  tr: 'Görev seviyesi arayüz',
+komanCapabilityGnssDenied: {
+  en: 'GNSS-denied navigation',
+  tr: 'GNSS olmayan ortamda navigasyon',
 },
 
-alkonScopeEmbedded: {
-  en: 'Embedded deployment',
-  tr: 'Gömülü dağıtım',
+komanCapabilityAutonomy: {
+  en: 'Autonomous mission execution',
+  tr: 'Otonom görev icrası',
 },
 
-alkonScopeValidation: {
-  en: 'Validation workflow',
-  tr: 'Doğrulama iş akışı',
+komanCapabilityWaypoint: {
+  en: 'Waypoint navigation',
+  tr: 'Waypoint navigasyonu',
 },
 
-alkonHowItWorks: {
+komanCapabilityRealtime: {
+  en: 'Real-time operation',
+  tr: 'Gerçek zamanlı operasyon',
+},
+
+komanCapabilityGroundControl: {
+  en: 'Ground control integration',
+  tr: 'Yer kontrol entegrasyonu',
+},
+
+komanCapabilityMission: {
+  en: 'Mission planning',
+  tr: 'Görev planlama',
+},
+
+
+komanHowItWorks: {
   en: 'HOW IT WORKS',
   tr: 'NASIL ÇALIŞIR?',
 },
 
-alkonWorkflowInputTitle: {
-  en: 'Read inertial data.',
-  tr: 'Ataletsel veriyi alır.',
+komanWorkflowSenseTitle: {
+  en: 'Sense motion.',
+  tr: 'Hareketi algılar.',
 },
 
-alkonWorkflowInputText: {
-  en: 'Receives raw IMU measurements from the target platform.',
-  tr: 'Hedef platformdan ham IMU ölçümlerini alır.',
+komanWorkflowSenseText: {
+  en: 'Collects inertial measurements from onboard sensors throughout the mission.',
+  tr: 'Görev boyunca dahili sensörlerden ataletsel ölçümler toplar.',
 },
 
-alkonWorkflowEstimateTitle: {
-  en: 'Estimate motion.',
-  tr: 'Hareketi kestirir.',
+komanWorkflowEstimateTitle: {
+  en: 'Estimate position.',
+  tr: 'Konumu kestirir.',
 },
 
-alkonWorkflowEstimateText: {
-  en: 'Combines inertial propagation with learned residual correction.',
-  tr: 'Ataletsel yayılımı öğrenilmiş artık hata düzeltmesiyle birleştirir.',
+komanWorkflowEstimateText: {
+  en: 'Processes inertial data to estimate position, heading and displacement when GNSS is unavailable.',
+  tr: 'GNSS bulunmadığında konum, yön ve yer değiştirme kestirimi yapar.',
 },
 
-alkonWorkflowBoundTitle: {
-  en: 'Control drift.',
-  tr: 'Sapmayı kontrol eder.',
+komanWorkflowNavigateTitle: {
+  en: 'Navigate autonomously.',
+  tr: 'Otonom ilerler.',
 },
 
-alkonWorkflowBoundText: {
-  en: 'Keeps error growth predictable within characterised operating limits.',
-  tr: 'Hata büyümesini tanımlı çalışma sınırları içinde öngörülebilir tutar.',
+komanWorkflowNavigateText: {
+  en: 'Uses estimated navigation states to execute waypoint and mission objectives.',
+  tr: 'Waypoint ve görev hedeflerini gerçekleştirmek için navigasyon çıktıları kullanılır.',
 },
 
-alkonWorkflowIntegrateTitle: {
-  en: 'Integrate with systems.',
-  tr: 'Sistemlere entegre olur.',
+komanWorkflowMonitorTitle: {
+  en: 'Monitor the mission.',
+  tr: 'Görevi izler.',
 },
 
-alkonWorkflowIntegrateText: {
-  en: 'Provides navigation outputs to higher-level mission and control layers.',
-  tr: 'Üst seviye görev ve kontrol katmanlarına navigasyon çıktısı sağlar.',
+komanWorkflowMonitorText: {
+  en: 'Streams telemetry and mission status to the ground control interface in real time.',
+  tr: 'Telemetri ve görev durumunu gerçek zamanlı olarak yer kontrol arayüzüne aktarır.',
 },
 
-alkonFinalCtaTitle: {
-  en: 'Evaluate GNSS-denied navigation.',
-  tr: 'GNSS olmayan navigasyonu değerlendirin.',
+komanFinalCtaTitle: {
+  en: 'Evaluate GNSS-denied operations.',
+  tr: 'GNSS olmayan operasyonları değerlendirin.',
 },
 
-alkonFinalCtaAccent: {
-  en: 'Start with a technical pilot.',
-  tr: 'Teknik pilotla başlayın.',
+komanFinalCtaAccent: {
+  en: 'Start with a technical demonstration.',
+  tr: 'Teknik demonstrasyonla başlayın.',
 },
 
-alkonCtaButton: {
-  en: 'REQUEST PILOT',
-  tr: 'PİLOT TALEP ET',
+komanCtaButton: {
+  en: 'CONTACT US',
+  tr: 'İLETİŞİME GEÇ',
 },
-
-
 /* --------------------
    YAYA PAGE
 -------------------- */
@@ -1496,8 +1675,8 @@ yayaHeroStatement: {
 },
 
 yayaHeroText: {
-  en: 'YAYA is a pedestrian dead reckoning software layer that estimates pedestrian motion and position from inertial signals in indoor or GNSS-limited environments.',
-  tr: 'YAYA, kapalı veya GNSS’in sınırlı olduğu ortamlarda ataletsel sinyallerden yaya hareketini ve konumunu kestiren PDR yazılım katmanıdır.',
+  en: 'YAYA is a pedestrian navigation layer that estimates motion, heading and position from inertial signals in indoor or GNSS-limited environments.',
+  tr: 'YAYA, kapalı alanlarda veya GNSS’in sınırlı olduğu ortamlarda ataletsel sinyallerden hareket, yön ve konum kestirimi yapan yaya navigasyon katmanıdır.',
 },
 
 yayaMiniPdr: {
@@ -1521,58 +1700,78 @@ yayaMiniRealtime: {
 },
 
 yayaScopeTitle: {
-  en: 'TECHNICAL SCOPE',
-  tr: 'TEKNİK KAPSAM',
+  en: 'SYSTEM CAPABILITIES',
+  tr: 'SİSTEM KABİLİYETLERİ',
 },
 
-yayaScopePdr: {
+yayaScopeMainTitle: {
+  en: 'Built for GNSS-limited pedestrian navigation.',
+  tr: 'GNSS sınırlı ortamlarda yaya navigasyonu için tasarlandı.',
+},
+
+yayaScopeText: {
+  en: 'YAYA combines pedestrian dead reckoning, inertial motion analysis and real-time positioning output into a software layer for indoor and GNSS-limited navigation use cases.',
+  tr: 'YAYA; kapalı alan ve GNSS sınırlı navigasyon senaryoları için yaya kestirimli konumlama, ataletsel hareket analizi ve gerçek zamanlı konum çıktısını tek bir yazılım katmanında birleştirir.',
+},
+
+yayaNavigationGroupTitle: {
+  en: 'Navigation',
+  tr: 'Navigasyon',
+},
+
+yayaMotionGroupTitle: {
+  en: 'Motion Analysis',
+  tr: 'Hareket Analizi',
+},
+
+yayaIntegrationGroupTitle: {
+  en: 'Integration',
+  tr: 'Entegrasyon',
+},
+
+yayaCapabilityPdr: {
   en: 'Pedestrian dead reckoning',
   tr: 'Yaya kestirimli konumlama',
 },
 
-yayaScopeStep: {
+yayaCapabilityPositioning: {
+  en: 'IMU-based position estimation',
+  tr: 'IMU tabanlı konum kestirimi',
+},
+
+yayaCapabilityHeading: {
+  en: 'Heading estimation',
+  tr: 'Yön kestirimi',
+},
+
+yayaCapabilityStepDetection: {
   en: 'Step detection',
   tr: 'Adım tespiti',
 },
 
-yayaScopeHeading: {
-  en: 'Heading estimation',
-  tr: 'Yönelim kestirimi',
-},
-
-yayaScopeImu: {
-  en: 'IMU-based motion input',
-  tr: 'IMU tabanlı hareket girdisi',
-},
-
-yayaScopeIndoor: {
-  en: 'Indoor positioning',
-  tr: 'Kapalı alan konumlama',
-},
-
-yayaScopeMotion: {
+yayaCapabilityMotionClassification: {
   en: 'Motion classification',
   tr: 'Hareket sınıflandırma',
 },
 
-yayaScopeCorrection: {
-  en: 'Drift correction logic',
-  tr: 'Sapma düzeltme mantığı',
+yayaCapabilityDriftControl: {
+  en: 'Drift control logic',
+  tr: 'Sapma kontrol mantığı',
 },
 
-yayaScopeRealtime: {
-  en: 'Real-time output',
-  tr: 'Gerçek zamanlı çıktı',
-},
-
-yayaScopeMobile: {
+yayaCapabilityMobile: {
   en: 'Mobile integration',
   tr: 'Mobil entegrasyon',
 },
 
-yayaScopeValidation: {
-  en: 'Validation workflow',
-  tr: 'Doğrulama iş akışı',
+yayaCapabilityRealtime: {
+  en: 'Real-time positioning output',
+  tr: 'Gerçek zamanlı konum çıktısı',
+},
+
+yayaCapabilityApplicationOutput: {
+  en: 'Application-level navigation output',
+  tr: 'Uygulama seviyesi navigasyon çıktısı',
 },
 
 yayaHowItWorks: {
@@ -1580,24 +1779,24 @@ yayaHowItWorks: {
   tr: 'NASIL ÇALIŞIR?',
 },
 
-yayaWorkflowInputTitle: {
-  en: 'Read motion signals.',
-  tr: 'Hareket sinyallerini alır.',
+yayaWorkflowSenseTitle: {
+  en: 'Sense motion.',
+  tr: 'Hareketi algılar.',
 },
 
-yayaWorkflowInputText: {
-  en: 'Receives inertial measurements from mobile or wearable sensors.',
-  tr: 'Mobil veya giyilebilir sensörlerden ataletsel ölçümleri alır.',
+yayaWorkflowSenseText: {
+  en: 'Collects inertial measurements from mobile or wearable sensors during pedestrian movement.',
+  tr: 'Yaya hareketi sırasında mobil veya giyilebilir sensörlerden ataletsel ölçümler toplar.',
 },
 
 yayaWorkflowDetectTitle: {
-  en: 'Detect pedestrian motion.',
-  tr: 'Yaya hareketini algılar.',
+  en: 'Detect steps.',
+  tr: 'Adımları tespit eder.',
 },
 
 yayaWorkflowDetectText: {
-  en: 'Identifies walking patterns, step events, and motion phases.',
-  tr: 'Yürüme örüntülerini, adım olaylarını ve hareket fazlarını belirler.',
+  en: 'Identifies step events, walking patterns and motion phases from inertial signals.',
+  tr: 'Ataletsel sinyallerden adım olaylarını, yürüme örüntülerini ve hareket fazlarını belirler.',
 },
 
 yayaWorkflowEstimateTitle: {
@@ -1606,8 +1805,8 @@ yayaWorkflowEstimateTitle: {
 },
 
 yayaWorkflowEstimateText: {
-  en: 'Uses PDR logic to estimate pedestrian displacement and direction.',
-  tr: 'PDR mantığıyla yaya yer değiştirmesini ve yönünü kestirir.',
+  en: 'Uses PDR logic to estimate pedestrian displacement, heading and position over time.',
+  tr: 'PDR mantığıyla yaya yer değiştirmesini, yönünü ve zamana bağlı konumunu kestirir.',
 },
 
 yayaWorkflowOutputTitle: {
@@ -1616,23 +1815,23 @@ yayaWorkflowOutputTitle: {
 },
 
 yayaWorkflowOutputText: {
-  en: 'Provides position and movement outputs for higher-level applications.',
-  tr: 'Üst seviye uygulamalar için konum ve hareket çıktıları sağlar.',
+  en: 'Provides real-time positioning and movement outputs for higher-level applications.',
+  tr: 'Üst seviye uygulamalar için gerçek zamanlı konum ve hareket çıktıları sağlar.',
 },
 
 yayaFinalCtaTitle: {
-  en: 'Evaluate indoor pedestrian positioning.',
-  tr: 'Kapalı alan yaya konumlamasını değerlendirin.',
+  en: 'Evaluate indoor pedestrian navigation.',
+  tr: 'Kapalı alan yaya navigasyonunu değerlendirin.',
 },
 
 yayaFinalCtaAccent: {
-  en: 'Start with a technical pilot.',
-  tr: 'Teknik pilotla başlayın.',
+  en: 'Start with a technical demonstration.',
+  tr: 'Teknik demonstrasyonla başlayın.',
 },
 
 yayaCtaButton: {
-  en: 'REQUEST PILOT',
-  tr: 'PİLOT TALEP ET',
+  en: 'CONTACT US',
+  tr: 'İLETİŞİME GEÇ',
 },
 
 /* --------------------
@@ -1703,20 +1902,6 @@ contactInternshipCta: {
   tr: 'Google Form Üzerinden Başvur',
 },
 
-corporateContactTitle: {
-  en: 'Corporate Contact',
-  tr: 'Kurumsal İletişim',
-},
-
-corporateContactDescription: {
-  en: 'For partnerships, pilot studies, evaluation access, and corporate matters, please use the form below.',
-  tr: 'İş birlikleri, pilot çalışmalar, değerlendirme erişimi ve kurumsal konular için lütfen aşağıdaki formu kullanın.',
-},
-
-contactMapTitle: {
-  en: 'Ayrota Location',
-  tr: 'Ayrota Konumu',
-},
 
 } as const;
 
@@ -1812,7 +1997,7 @@ export const COMPANY = {
   foundedYear: 2024,
 
   products: [
-    'ALKON',
+    'KOMAN',
     'İLBER',
     'YÖRÜK',
     'YAYA',
@@ -1841,7 +2026,7 @@ export function scrollToSection(id: string, headerOffset = 96) {
   });
 }
 ================================================================================
-FILE: pages/Alkon.tsx
+FILE: pages/Koman.tsx
 ================================================================================
 
 import { Link } from 'react-router-dom';
@@ -1850,73 +2035,56 @@ import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
-const ALKON_SCOPE_ITEMS = [
+const KOMAN_SCOPE_GROUPS = [
   {
-    label: 'alkonScopeImuOnly',
-    icon: '⌁',
+    title: 'komanNavigationGroupTitle',
+    items: [
+      'komanCapabilityPositioning',
+      'komanCapabilityHeading',
+      'komanCapabilityGnssDenied',
+    ],
   },
   {
-    label: 'alkonScopeGnssDenied',
-    icon: '◇',
+    title: 'komanAutonomyGroupTitle',
+    items: [
+      'komanCapabilityAutonomy',
+      'komanCapabilityWaypoint',
+      'komanCapabilityRealtime',
+    ],
   },
   {
-    label: 'alkonScopeBoundedDrift',
-    icon: '∿',
-  },
-  {
-    label: 'alkonScopeRealtime',
-    icon: '↯',
-  },
-  {
-    label: 'alkonScopeResidualLearning',
-    icon: '◌',
-  },
-  {
-    label: 'alkonScopePhysics',
-    icon: '⬡',
-  },
-  {
-    label: 'alkonScopeIntegration',
-    icon: '⇄',
-  },
-  {
-    label: 'alkonScopeMission',
-    icon: '⌖',
-  },
-  {
-    label: 'alkonScopeEmbedded',
-    icon: '▣',
-  },
-  {
-    label: 'alkonScopeValidation',
-    icon: '✓',
+    title: 'komanGroundControlGroupTitle',
+    items: [
+      'komanCapabilityGroundControl',
+      'komanCapabilityMission',
+    ],
   },
 ];
 
 const WORKFLOW_ITEMS = [
   {
     number: '01',
-    title: 'alkonWorkflowInputTitle',
-    text: 'alkonWorkflowInputText',
+    title: 'komanWorkflowSenseTitle',
+    text: 'komanWorkflowSenseText',
   },
   {
     number: '02',
-    title: 'alkonWorkflowEstimateTitle',
-    text: 'alkonWorkflowEstimateText',
+    title: 'komanWorkflowEstimateTitle',
+    text: 'komanWorkflowEstimateText',
   },
   {
     number: '03',
-    title: 'alkonWorkflowBoundTitle',
-    text: 'alkonWorkflowBoundText',
+    title: 'komanWorkflowNavigateTitle',
+    text: 'komanWorkflowNavigateText',
   },
   {
     number: '04',
-    title: 'alkonWorkflowIntegrateTitle',
-    text: 'alkonWorkflowIntegrateText',
+    title: 'komanWorkflowMonitorTitle',
+    text: 'komanWorkflowMonitorText',
   },
 ];
 
-export default function Alkon() {
+export default function Koman() {
   const { t } = useLanguage();
 
   return (
@@ -1936,29 +2104,29 @@ export default function Alkon() {
                 </Link>
 
                 <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
-                  ALKON
+                  KOMAN
                 </div>
 
                 <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-                  {t('alkonHeroStatement')}
+                  {t('komanHeroStatement')}
                 </h1>
 
                 <p className="mt-7 max-w-xl text-base leading-8 text-fg/58">
-                  {t('alkonHeroText')}
+                  {t('komanHeroText')}
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-fg/60">
-                  <span>{t('alkonMiniImu')}</span>
-                  <span>{t('alkonMiniGnss')}</span>
-                  <span>{t('alkonMiniDrift')}</span>
-                  <span>{t('alkonMiniRealtime')}</span>
+                  <span>{t('komanMiniImu')}</span>
+                  <span>{t('komanMiniGnss')}</span>
+                  <span>{t('komanMiniAutonomy')}</span>
+                  <span>{t('komanMiniRealtime')}</span>
                 </div>
               </div>
 
               <div className="relative overflow-hidden shadow-2xl shadow-black/30">
                 <img
-                  src="/products/alkon-report.png"
-                  alt="ALKON navigation core interface"
+                  src="/products/koman-report.png"
+                  alt="KOMAN autonomous drone and ground control interface"
                   className="w-full object-cover opacity-95"
                 />
 
@@ -1970,30 +2138,51 @@ export default function Alkon() {
       </section>
 
       <section
-        id="alkon-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
+        id="koman-scope"
+        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('alkonScopeTitle')}
-            </div>
+            <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('komanScopeTitle')}
+                </div>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {ALKON_SCOPE_ITEMS.map((item) => (
-  <div
-    key={item.label}
-    className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-  >
-    <div className="text-3xl leading-none text-blue-500">
-      {item.icon}
-    </div>
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-6xl">
+                  {t('komanScopeMainTitle')}
+                </h2>
 
-    <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-      {t(item.label)}
-    </div>
-  </div>
-))}
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('komanScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {KOMAN_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-7 transition hover:bg-panel/20 md:p-8"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/70 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
@@ -2003,7 +2192,7 @@ export default function Alkon() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('alkonHowItWorks')}
+              {t('komanHowItWorks')}
             </div>
 
             <div className="mt-10 grid gap-10 md:grid-cols-4">
@@ -2024,31 +2213,17 @@ export default function Alkon() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20">
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-[radial-gradient(ellipse_at_bottom,rgba(30,90,255,0.28),transparent_62%)]" />
-
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('alkonFinalCtaTitle')}
-              <span className="block text-blue-500">
-                {t('alkonFinalCtaAccent')}
-              </span>
-            </h2>
-
             <Link
-              to="/#contact"
-              className="mt-11 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
-            >
-              {t('alkonCtaButton')}
-              <span aria-hidden>→</span>
-            </Link>
-          </Reveal>
+            to="/#contact"
+            className="mt-10 mx-auto flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+          >
+            {t('komanCtaButton')}
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </section>
+
+  
 
       <Footer />
     </main>
@@ -2102,54 +2277,38 @@ import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
-const YAYA_SCOPE_ITEMS = [
+const YAYA_SCOPE_GROUPS = [
   {
-    label: 'yayaScopePdr',
-    icon: '⌾',
+    title: 'yayaNavigationGroupTitle',
+    items: [
+      'yayaCapabilityPdr',
+      'yayaCapabilityPositioning',
+      'yayaCapabilityHeading',
+    ],
   },
   {
-    label: 'yayaScopeStep',
-    icon: '⟡',
+    title: 'yayaMotionGroupTitle',
+    items: [
+      'yayaCapabilityStepDetection',
+      'yayaCapabilityMotionClassification',
+      'yayaCapabilityDriftControl',
+    ],
   },
   {
-    label: 'yayaScopeHeading',
-    icon: '⌖',
-  },
-  {
-    label: 'yayaScopeImu',
-    icon: '⌁',
-  },
-  {
-    label: 'yayaScopeIndoor',
-    icon: '◇',
-  },
-  {
-    label: 'yayaScopeMotion',
-    icon: '∿',
-  },
-  {
-    label: 'yayaScopeCorrection',
-    icon: '↻',
-  },
-  {
-    label: 'yayaScopeRealtime',
-    icon: '↯',
-  },
-  {
-    label: 'yayaScopeMobile',
-    icon: '▣',
-  },
-  {
-    label: 'yayaScopeValidation',
-    icon: '✓',
+    title: 'yayaIntegrationGroupTitle',
+    items: [
+      'yayaCapabilityMobile',
+      'yayaCapabilityRealtime',
+      'yayaCapabilityApplicationOutput',
+    ],
   },
 ];
 
 const WORKFLOW_ITEMS = [
   {
     number: '01',
-    title: 'yayaWorkflowInputTitle',
-    text: 'yayaWorkflowInputText',
+    title: 'yayaWorkflowSenseTitle',
+    text: 'yayaWorkflowSenseText',
   },
   {
     number: '02',
@@ -2187,7 +2346,7 @@ export default function Yaya() {
                   ← AYROTA
                 </Link>
 
-                <div className="mt-12 text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
                   YAYA
                 </div>
 
@@ -2223,29 +2382,50 @@ export default function Yaya() {
 
       <section
         id="yaya-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
+        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('yayaScopeTitle')}
-            </div>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {YAYA_SCOPE_ITEMS.map((item) => (
-                <div
-                  key={item.label}
-                  className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-                >
-                  <div className="text-3xl leading-none text-blue-500">
-                    {item.icon}
-                  </div>
-
-                  <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-                    {t(item.label)}
-                  </div>
+            <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yayaScopeTitle')}
                 </div>
-              ))}
+
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-6xl">
+                  {t('yayaScopeMainTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('yayaScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {YAYA_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-7 transition hover:bg-panel/20 md:p-8"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/70 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
@@ -2276,29 +2456,14 @@ export default function Yaya() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
+          <Link
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20">
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-[radial-gradient(ellipse_at_bottom,rgba(30,90,255,0.28),transparent_62%)]" />
-
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('yayaFinalCtaTitle')}
-              <span className="block text-blue-500">
-                {t('yayaFinalCtaAccent')}
-              </span>
-            </h2>
-
-            <Link
-              to="/#contact"
-              className="mt-10 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
-            >
-              {t('yayaCtaButton')}
-              <span aria-hidden>→</span>
-            </Link>
-          </Reveal>
+            to="/#contact"
+            className="mt-10 mx-auto flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+          >
+            {t('yayaCtaButton')}
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </section>
 
@@ -2317,20 +2482,34 @@ import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 import type { TranslationKey } from '../i18n/translations';
 
-const YORUK_SCOPE_ITEMS: {
-  label: TranslationKey;
-  icon: string;
+const YORUK_SCOPE_GROUPS: {
+  title: TranslationKey;
+  items: TranslationKey[];
 }[] = [
-  { label: 'yorukScopeFleet', icon: '▣' },
-  { label: 'yorukScopeRoute', icon: '⌁' },
-  { label: 'yorukScopeRoadHealth', icon: '◇' },
-  { label: 'yorukScopeImu', icon: '∿' },
-  { label: 'yorukScopeAnomaly', icon: '↯' },
-  { label: 'yorukScopeVibration', icon: '⌬' },
-  { label: 'yorukScopeSurface', icon: '▧' },
-  { label: 'yorukScopeMap', icon: '⌖' },
-  { label: 'yorukScopeReport', icon: '□' },
-  { label: 'yorukScopeDashboard', icon: '◌' },
+  {
+    title: 'yorukRoadGroupTitle',
+    items: [
+      'yorukCapabilityRoadHealth',
+      'yorukCapabilityRouteQuality',
+      'yorukCapabilitySurfaceCondition',
+    ],
+  },
+  {
+    title: 'yorukSignalGroupTitle',
+    items: [
+      'yorukCapabilityImuSensing',
+      'yorukCapabilityVibration',
+      'yorukCapabilityAnomaly',
+    ],
+  },
+  {
+    title: 'yorukFleetGroupTitle',
+    items: [
+      'yorukCapabilityFleetAnalytics',
+      'yorukCapabilityMapVisualization',
+      'yorukCapabilityDashboard',
+    ],
+  },
 ];
 
 const WORKFLOW_ITEMS: {
@@ -2365,10 +2544,10 @@ export default function Yoruk() {
 
   return (
     <main className="relative z-10 bg-bg text-fg">
-      <section className="relative overflow-hidden bg-bg pt-28 pb-14">
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(30,90,255,0.18),transparent_42%)]" />
 
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center">
               <div>
@@ -2415,36 +2594,57 @@ export default function Yoruk() {
 
       <section
         id="yoruk-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
+        className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg"
       >
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('yorukScopeTitle')}
-            </div>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {YORUK_SCOPE_ITEMS.map((item) => (
-                <div
-                  key={item.label}
-                  className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-                >
-                  <div className="text-3xl leading-none text-blue-500">
-                    {item.icon}
-                  </div>
-
-                  <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-                    {t(item.label)}
-                  </div>
+            <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yorukScopeTitle')}
                 </div>
-              ))}
+
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-6xl">
+                  {t('yorukScopeMainTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('yorukScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {YORUK_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-8 transition hover:bg-panel/20"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/70 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-16">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      <section className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
               {t('yorukHowItWorks')}
@@ -2468,29 +2668,14 @@ export default function Yoruk() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20">
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-[radial-gradient(ellipse_at_bottom,rgba(30,90,255,0.28),transparent_62%)]" />
-
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('yorukFinalCtaTitle')}
-              <span className="block text-blue-500">
-                {t('yorukFinalCtaAccent')}
-              </span>
-            </h2>
-
-            <Link
-              to="/#contact"
-              className="mt-10 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
-            >
-              {t('yorukCtaButton')}
-              <span aria-hidden>→</span>
-            </Link>
-          </Reveal>
+          <Link
+            to="/#contact"
+            className="mx-auto mt-16 flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+          >
+            {t('yorukCtaButton')}
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </section>
 
@@ -2509,49 +2694,33 @@ import { Reveal } from '../components/RevealSection';
 import type { TranslationKey } from '../i18n/translations';
 import { useLanguage } from '../lib/LanguageContext';
 
-const ANALYSIS_SCOPE_ITEMS: {
-  label: TranslationKey;
-  icon: string;
+const ANALYSIS_SCOPE_GROUPS: {
+  title: TranslationKey;
+  items: TranslationKey[];
 }[] = [
   {
-    label: 'ilberRepairTitle',
-    icon: '↻',
+    title: 'ilberIntegrityGroupTitle',
+    items: [
+      'ilberRepairTitle',
+      'ilberConsistencyTitle',
+      'ilberCadenceTitle',
+    ],
   },
   {
-    label: 'ilberSensorDomainTitle',
-    icon: '▧',
+    title: 'ilberSensorGroupTitle',
+    items: [
+      'ilberSensorDomainTitle',
+      'ilberSensorHealthTitle',
+      'ilberPhysicalTitle',
+    ],
   },
   {
-    label: 'ilberSensorHealthTitle',
-    icon: '⌁',
-  },
-  {
-    label: 'ilberGnssTitle',
-    icon: '◇',
-  },
-  {
-    label: 'ilberSpectralTitle',
-    icon: '▥',
-  },
-  {
-    label: 'ilberPhysicalTitle',
-    icon: '⬡',
-  },
-  {
-    label: 'ilberConsistencyTitle',
-    icon: '↗',
-  },
-  {
-    label: 'ilberCadenceTitle',
-    icon: '∿',
-  },
-  {
-    label: 'ilberMotionTitle',
-    icon: '⌬',
-  },
-  {
-    label: 'ilberSessionReportTitle',
-    icon: '□',
+    title: 'ilberNavigationGroupTitle',
+    items: [
+      'ilberGnssTitle',
+      'ilberSpectralTitle',
+      'ilberMotionTitle',
+    ],
   },
 ];
 
@@ -2583,10 +2752,12 @@ export default function Ilber() {
 
   return (
     <main className="relative z-10 bg-bg text-fg">
-      <section className="relative overflow-hidden bg-bg pt-28 pb-14">
+
+      {/* HERO */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(30,90,255,0.18),transparent_42%)]" />
 
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center">
               <div>
@@ -2601,7 +2772,7 @@ export default function Ilber() {
                   İLBER
                 </div>
 
-                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
+                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] md:text-7xl">
                   {t('ilberHeroStatement')}
                 </h1>
 
@@ -2623,7 +2794,6 @@ export default function Ilber() {
                   alt="İlber session report interface"
                   className="w-full object-cover opacity-95"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-t from-bg/15 via-transparent to-transparent" />
               </div>
             </div>
@@ -2631,38 +2801,67 @@ export default function Ilber() {
         </div>
       </section>
 
+      {/* ANALYSIS */}
       <section
         id="analysis-scope"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-12"
+        className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg"
       >
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('ilberAnalysisScope')}
-            </div>
+            <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('ilberAnalysisScope')}
+                </div>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-5">
-              {ANALYSIS_SCOPE_ITEMS.map((item) => (
-  <div
-    key={item.label}
-    className="min-h-[120px] bg-panel/15 p-5 transition hover:bg-panel/30"
-  >
-    <div className="text-3xl leading-none text-blue-500">
-      {item.icon}
-    </div>
+                <h2 className="mt-6 max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] md:text-6xl">
+                  {t('ilberAnalysisScopeTitle')}
+                </h2>
 
-    <div className="mt-5 text-sm font-medium leading-6 text-fg/70">
-      {t(item.label)}
-    </div>
-  </div>
-))}
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('ilberAnalysisScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {ANALYSIS_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-8 transition hover:bg-panel/20"
+                  >
+                    <div className="grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
+                      <div>
+                        <h3 className="text-2xl font-semibold tracking-[-0.04em]">
+                          {t(group.title)}
+                        </h3>
+
+                        <div className="mt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-fg/35">
+                          {t('exampleAnalyses')}
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/70 pl-4 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-16">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      {/* WORKFLOW */}
+      <section className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
               {t('ilberHowItWorks')}
@@ -2675,7 +2874,7 @@ export default function Ilber() {
                     {item.number}
                   </div>
 
-                  <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em] text-fg">
+                  <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em]">
                     {t(item.title)}
                   </h3>
 
@@ -2686,29 +2885,14 @@ export default function Ilber() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20">
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-[radial-gradient(ellipse_at_bottom,rgba(30,90,255,0.28),transparent_62%)]" />
-
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-0.05em] text-fg md:text-7xl">
-              {t('ilberFinalCtaTitle')}
-              <span className="block text-blue-500">
-                {t('ilberFinalCtaAccent')}
-              </span>
-            </h2>
-
-            <Link
-              to="/#contact"
-              className="mt-10 inline-flex items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
-            >
-              {t('ilberSendData')}
-              <span aria-hidden>→</span>
-            </Link>
-          </Reveal>
+          <Link
+            to="/#contact"
+            className="mx-auto mt-16 flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+          >
+            {t('ilberSendData')}
+            <span>→</span>
+          </Link>
         </div>
       </section>
 
@@ -2729,45 +2913,51 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg py-24"
+      className="relative overflow-hidden bg-bg py-8 md:py-10"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(80,145,190,0.10),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(56,189,248,0.055),transparent_46%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.18),rgba(5,10,18,0.48))]" />
+      <div className="absolute bottom-0 left-0 h-[45%] w-[42%] bg-[radial-gradient(circle_at_18%_80%,rgba(56,189,248,0.10),transparent_52%)]" />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+      <div className="relative z-10 mx-auto max-w-[1500px] px-6 md:px-10">
         <Reveal>
-          <div className="grid border-b border-fg/10 md:grid-cols-[0.75fr_1.25fr]">
-            <div className="border-r border-fg/10 pb-12 pr-10 md:pb-16">
-             
+          <div className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
+            <div className="lg:border-r lg:border-fg/10 lg:pr-8">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-9 bg-cyan-300/85" />
 
-              <h2 className="mt-5 max-w-xl text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-fg md:text-6xl">
+                <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
+                  {t('contactKicker')}
+                </span>
+              </div>
+
+              <h2 className="max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.055em] text-fg md:text-[56px] lg:text-[62px]">
                 {t('contactTitle')}
               </h2>
 
-              <div className="mt-12 border-t border-fg/10 pt-8">
-                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-fg">
-                  {t('corporateContactTitle')}
-                </h3>
-
-                <p className="mt-4 max-w-md text-sm leading-7 text-fg/55">
+              <div className="mt-7 border-t border-fg/10 pt-5">
+                <p className="max-w-md text-[15px] leading-7 text-fg/60">
                   {t('corporateContactDescription')}
                 </p>
               </div>
             </div>
 
-            <div className="pb-12 pt-10 md:pb-16 md:pl-10 md:pt-0">
+            <div>
               <form
                 action="https://usebasin.com/f/acb4b7f09c8b"
                 method="POST"
-                className="grid gap-6"
+                className="grid gap-4"
               >
                 <input type="text" name="_gotcha" className="hidden" />
-<input type="hidden" name="_redirect" value="/" />
+                <input type="hidden" name="_redirect" value="/" />
+
                 <Field label={t('contactLabelOrg')}>
                   <input
                     type="text"
                     name="organization"
                     required
-                    className="w-full border border-fg/10 bg-bg/50 px-4 py-3 text-sm text-fg outline-none transition focus:border-fg/35"
+                    placeholder={t('contactPlaceholderOrg')}
+                    className="w-full border border-fg/15 bg-bg/40 px-5 py-3 text-[15px] text-fg outline-none transition placeholder:text-fg/35 focus:border-cyan-300/55"
                   />
                 </Field>
 
@@ -2776,22 +2966,24 @@ export function Contact() {
                     type="email"
                     name="email"
                     required
-                    className="w-full border border-fg/10 bg-bg/50 px-4 py-3 text-sm text-fg outline-none transition focus:border-fg/35"
+                    placeholder={t('contactPlaceholderEmail')}
+                    className="w-full border border-fg/15 bg-bg/40 px-5 py-3 text-[15px] text-fg outline-none transition placeholder:text-fg/35 focus:border-cyan-300/55"
                   />
                 </Field>
 
                 <Field label={t('contactLabelMessage')}>
                   <textarea
                     name="message"
-                    rows={6}
+                    rows={4}
                     required
-                    className="w-full resize-none border border-fg/10 bg-bg/50 px-4 py-3 text-sm text-fg outline-none transition focus:border-fg/35"
+                    placeholder={t('contactPlaceholderMessage')}
+                    className="w-full resize-none border border-fg/15 bg-bg/40 px-5 py-3.5 text-[15px] text-fg outline-none transition placeholder:text-fg/35 focus:border-cyan-300/55"
                   />
                 </Field>
 
                 <button
                   type="submit"
-                  className="mt-2 inline-flex items-center justify-center gap-6 border border-fg/25 px-6 py-3 text-[12px] font-semibold tracking-[0.1em] text-fg/85 transition hover:border-fg/60 hover:bg-fg/5"
+                  className="mt-1 inline-flex items-center justify-center gap-10 border border-fg/30 px-7 py-3 text-[12px] font-semibold tracking-[0.14em] text-fg/90 transition hover:border-cyan-300/60 hover:bg-cyan-300/5 hover:text-fg"
                 >
                   {t('contactSubmit')}
                   <span aria-hidden>→</span>
@@ -2802,14 +2994,14 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="mt-10 overflow-hidden border border-fg/10">
-            <div className="aspect-[16/7] w-full">
+          <div className="mt-6 overflow-hidden rounded-md border border-fg/10 shadow-[0_0_48px_rgba(34,211,238,0.05)]">
+            <div className="h-[180px] w-full md:h-[220px] lg:h-[240px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.541093264971!2d32.80525197619953!3d39.77949829417675!2m3!1f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345384af32c01%3A0x49942fbe68a82b2!2sAyrota%20Yaz%C4%B1l%C4%B1m%20Teknolojileri!5e1!3m2!1str!2str!4v1771837876022!5m2!1str!2str"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-full w-full border-0"
+                className="h-full w-full border-0 invert-[0.9] hue-rotate-180 saturate-[1.15] brightness-[0.62] contrast-[1.15]"
                 title={t('contactMapTitle')}
               />
             </div>
@@ -2829,7 +3021,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-[11px] font-medium tracking-[0.14em] text-fg/45">
+      <span className="mb-2 block text-[11px] font-medium tracking-[0.18em] text-fg/65">
         {label}
       </span>
 
@@ -2843,165 +3035,120 @@ FILE: sections/Hero.tsx
 
 import { useLanguage } from '../lib/LanguageContext';
 
+const HERO_PILLARS = [
+  {
+    label: 'heroPillarImu',
+    icon: '⌁',
+  },
+  {
+    label: 'heroPillarSwapc',
+    icon: '▣',
+  },
+  {
+    label: 'heroPillarEndToEnd',
+    icon: '⌘',
+  },
+  {
+    label: 'heroPillarIndependent',
+    icon: '◎',
+  },
+];
+
 export function Hero() {
   const { t } = useLanguage();
 
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-bg"
+      className="relative min-h-screen md:h-screen bg-bg overflow-hidden"
     >
-      <img
-        src="/hero.png"
-        alt="Ayrota autonomous navigation field"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 flex justify-end">
+        <div className="relative w-full md:w-[60%] h-full">
+          <img
+            src="/hero.png"
+            alt="Ayrota autonomous navigation field"
+            className="h-full w-full object-cover"
+            style={{ objectPosition: '62% 50%' }}
+          />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/70 to-bg/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
+          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-bg via-bg/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-bg/90 via-bg/20 to-transparent" />
+        </div>
+      </div>
 
-      <div className="relative z-10 min-h-[82vh]">
-        <div className="w-full px-6 md:px-10">
-          <div className="mx-auto max-w-[1440px] pt-[120px] pb-10">
-            <div className="max-w-2xl">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-8 bg-cyan-300/80" />
-
-                <span className="text-[11px] font-medium tracking-[0.22em] text-fg/70">
-                  {t('homeHeroKicker')}
-                </span>
-              </div>
-
-              <h1 className="text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-fg md:text-[83px]">
-                {t('homeHeroTitle')}
-              </h1>
-
-              <p className="mt-10 max-w-xl text-[18px] leading-9 text-fg/65">
-                {t('homeHeroLead')}
-              </p>
+      {/* Content */}
+      <div className="relative z-10 flex items-center min-h-screen">
+        <div className="w-full md:w-1/2 px-6 md:px-10 lg:pl-20 py-24">
+          <div className="max-w-[720px]">
+            {/* Kicker */}
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-8 bg-cyan-300/80" />
+              <span className="text-[11px] font-medium tracking-[0.22em] text-fg/70 uppercase">
+                {t('homeHeroKicker')}
+              </span>
             </div>
 
-            <div className="mt-16 border-t border-fg/10 pt-4">
-              <div className="grid gap-4 md:grid-cols-4">
-                <HeroPillar label={t('heroPillarNavigation')} />
-                <HeroPillar label={t('heroPillarEstimation')} />
-                <HeroPillar label={t('heroPillarFusion')} />
-                <HeroPillar label={t('heroPillarIntegration')} />
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[56px] font-semibold leading-[1.08] tracking-[-0.04em] text-fg">
+              {t('homeHeroTitle')}
+            </h1>
+
+            {/* Description */}
+            <p className="mt-8 max-w-[560px] text-[16px] sm:text-[17px] leading-8 text-fg/65">
+              {t('homeHeroLead')}
+            </p>
+
+            {/* Pillars */}
+            <div className="mt-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 border-t border-fg/10 pt-7">
+                {HERO_PILLARS.map((pillar, index) => (
+                  <HeroPillar
+                    key={pillar.label}
+                    icon={pillar.icon}
+                    label={t(pillar.label)}
+                    first={index === 0}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Right spacer */}
+        <div className="hidden md:block md:w-1/2" />
       </div>
     </section>
   );
 }
 
 function HeroPillar({
+  icon,
   label,
+  first = false,
 }: {
+  icon: string;
   label: string;
+  first?: boolean;
 }) {
   return (
-    <div className="border-l border-fg/10 pl-6 py-1">
-      <div className="text-[11px] font-medium tracking-[0.18em] text-fg/45">
+    <div
+      className={[
+        'flex flex-col items-center justify-start',
+        'gap-2 px-2 py-3 min-w-0',
+        'md:border-l md:border-fg/10',
+        first && 'md:border-l-0',
+      ].join(' ')}
+    >
+      <div className="text-lg leading-none text-cyan-300/85">
+        {icon}
+      </div>
+
+      <div className="max-w-[120px] text-center text-[10px] leading-5 tracking-[0.22em] uppercase text-fg/85 break-words">
         {label}
       </div>
     </div>
-  );
-}
-================================================================================
-FILE: sections/Platforms.tsx
-================================================================================
-
-import { Reveal } from '../components/RevealSection';
-import { useLanguage } from '../lib/LanguageContext';
-
-const PLATFORM_ITEMS = [
-  {
-    number: '01',
-    title: 'platformsGroundTitle',
-    text: 'platformsGroundText',
-    image: '/platforms/ground.png',
-  },
-  {
-    number: '02',
-    title: 'platformsAirTitle',
-    text: 'platformsAirText',
-    image: '/platforms/air.png',
-  },
-  {
-    number: '03',
-    title: 'platformsSmartTitle',
-    text: 'platformsSmartText',
-    image: '/platforms/robotics.png',
-  },
-  {
-    number: '04',
-    title: 'platformsEndToEndTitle',
-    text: 'platformsEndToEndText',
-    image: '/platforms/embedded.png',
-  },
-];
-
-export function Platforms() {
-  const { t } = useLanguage();
-
-  return (
-    <section
-      id="platforms"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg pt-5 pb-24"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(80,145,190,0.10),transparent_42%)]" />
-
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
-        <Reveal>
-          <div className="border-b border-fg/10 pb-10">
-            <div className="max-w-3xl">
-              <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
-                {t('platformsKicker')}
-              </div>
-
-              <p className="mt-6 max-w-xl text-sm leading-7 text-fg/60">
-                {t('platformsLead')}
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <div className="mt-8 grid gap-5 border-fg/10 pb-8 md:grid-cols-2 xl:grid-cols-4">
-            {PLATFORM_ITEMS.map((item) => (
-              <div
-                key={item.title}
-                className="group relative min-h-[380px] overflow-hidden border border-fg/10 bg-panel/20"
-              >
-                <img
-                  src={item.image}
-                  alt={t(item.title)}
-                  className="absolute inset-0 h-full w-full object-cover opacity-60 transition duration-500 group-hover:scale-105 group-hover:opacity-80"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/85 to-bg/20" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="text-[11px] font-semibold tracking-[0.18em] text-fg/40">
-                    {item.number}
-                  </div>
-
-                  <h3 className="mt-4 min-h-[64px] text-[26px] font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
-  {t(item.title)}
-</h3>
-
-                  <p className="mt-4 max-w-xs text-sm leading-7 text-fg/65">
-                    {t(item.text)}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </section>
   );
 }
 ================================================================================
@@ -3011,18 +3158,31 @@ FILE: sections/Problem.tsx
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
-const PROBLEM_ITEMS = [
+const FLOW_ITEMS = [
   {
-    title: 'problemDeniedTitle',
-    text: 'problemDeniedText',
+    step: '01',
+    title: 'problemFlowGnssTitle',
+    subtitle: 'problemFlowGnssSubtitle',
+    image: '/problem/gnss-lost.png',
   },
   {
-    title: 'problemDynamicTitle',
-    text: 'problemDynamicText',
+    step: '02',
+    title: 'problemFlowSensorTitle',
+    subtitle: 'problemFlowSensorSubtitle',
+    image: '/problem/sensor-cost.png',
   },
   {
-    title: 'problemReliableTitle',
-    text: 'problemReliableText',
+    step: '03',
+    title: 'problemFlowCoreTitle',
+    subtitle: 'problemFlowCoreSubtitle',
+    image: '/problem/ayrota-core.png',
+    active: true,
+  },
+  {
+    step: '04',
+    title: 'problemFlowNavTitle',
+    subtitle: 'problemFlowNavSubtitle',
+    image: '/problem/continuous-nav.png',
   },
 ];
 
@@ -3030,51 +3190,85 @@ export function Problem() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="problem"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg py-10"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(80,145,190,0.08),transparent_42%)]" />
+    <section id="problem" className="relative min-h-screen overflow-hidden bg-bg">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(56,189,248,0.03),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.0),rgba(5,10,18,0.55))]" />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
-        <Reveal>
-          <div className="border-b border-fg/10 pb-12">
-            <div className="max-w-4xl">
-              <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
-                {t('problemKicker')}
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="mx-auto w-full max-w-[1500px] px-6 py-16 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr] lg:items-center">
+              <div>
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="h-px w-8 bg-cyan-300/80" />
+                  <span className="text-[11px] font-medium tracking-[0.22em] text-fg/60">
+                    {t('problemKicker')}
+                  </span>
+                </div>
+
+                <h2 className="max-w-4xl text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[68px]">
+                  {t('problemTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-2xl text-[17px] leading-9 text-fg/64">
+                  {t('problemLead')}
+                </p>
+
+                <p className="mt-6 max-w-2xl text-[16px] leading-9 text-fg/52">
+                  {t('problemSecondLead')}
+                </p>
               </div>
 
-              <p className="mt-8 max-w-3xl text-base leading-8 text-fg/60">
-                {t('problemLead')}
-              </p>
-            </div>
-          </div>
-        </Reveal>
+              <div className="grid gap-6 md:grid-cols-4">
+                {FLOW_ITEMS.map((item, index) => (
+                  <div key={item.title} className="relative">
+                    {index !== 0 && (
+                      <div className="absolute -left-5 top-1/2 z-20 hidden -translate-y-1/2 text-3xl text-cyan-300/70 md:block">
+                        ›
+                      </div>
+                    )}
 
-        <Reveal delay={0.12}>
-          <div className="mt-8">
-  <div className="grid gap-10 md:grid-cols-3">
-              {PROBLEM_ITEMS.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="min-h-[180px] border border-fg/10 bg-panel/20 p-6 transition hover:border-fg/25 hover:bg-panel/30"
-                >
-                  <div className="text-[11px] font-semibold tracking-[0.18em] text-fg/35">
-                    0{index + 1}
+                    <div
+                      className={[
+                        'relative flex h-[560px] flex-col overflow-hidden rounded-2xl border bg-panel/20 backdrop-blur transition',
+                        item.active
+                          ? 'border-cyan-300/70 shadow-[0_0_38px_rgba(34,211,238,0.18)]'
+                          : 'border-fg/10 hover:border-fg/25',
+                      ].join(' ')}
+                    >
+                      <div className="absolute left-7 top-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/80 text-[15px] font-semibold text-cyan-200">
+                        {item.step}
+                      </div>
+
+                      <div className="h-64 flex-shrink-0 border-b border-fg/10 bg-bg/30">
+                        <img
+                          src={item.image}
+                          alt={t(item.title)}
+                          className="h-full w-full object-cover object-center opacity-95"
+                        />
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6 text-center">
+                        <h3
+                          className={[
+                            'flex min-h-[60 px] items-center justify-center text-[15px] font-semibold leading-6 tracking-[0.08em]',
+                            item.active ? 'text-cyan-300' : 'text-fg/84',
+                          ].join(' ')}
+                        >
+                          {t(item.title)}
+                        </h3>
+
+                        <p className="mt-4 flex-1 text-[15px] leading-7 text-fg/56">
+                          {t(item.subtitle)}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-
-                  <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-fg">
-                    {t(item.title)}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-fg/55">
-                    {t(item.text)}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -3088,14 +3282,19 @@ import { Link } from 'react-router-dom';
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
-const ALKON_FEATURE_KEYS = [
-  'productsAlkonFeatureImu',
-  'productsAlkonFeatureGnss',
-  'productsAlkonFeatureDynamic',
-  'productsAlkonFeatureRealtime',
+const KOMAN_FEATURE_KEYS = [
+  'productsKomanFeatureImu',
+  'productsKomanFeatureGnss',
+  'productsKomanFeatureDynamic',
 ];
 
 const OTHER_PRODUCTS = [
+  {
+    name: 'YAYA',
+    description: 'productsYayaDescription',
+    image: '/products/yaya.png',
+    href: '/yaya',
+  },
   {
     name: 'YÖRÜK',
     description: 'productsYorukDescription',
@@ -3108,12 +3307,6 @@ const OTHER_PRODUCTS = [
     image: '/products/ilber.png',
     href: '/ilber',
   },
-  {
-    name: 'YAYA',
-    description: 'productsYayaDescription',
-    image: '/products/yaya.png',
-    href: '/yaya',
-  },
 ];
 
 export function Products() {
@@ -3122,97 +3315,102 @@ export function Products() {
   return (
     <section
       id="products"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg pt-5 pb-24"
+      className="relative overflow-hidden bg-bg py-10"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(80,145,190,0.10),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_8%,rgba(56,189,248,0.035),transparent_48%)]" />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.20),rgba(5,10,18,0.48))]" />
+
+      <div className="relative z-10 mx-auto max-w-[1500px] px-6 md:px-10">
         <Reveal>
-          <div className="grid min-h-[460px] border-b border-fg/10 md:grid-cols-[0.85fr_1.65fr]">
-            <div className="border-r border-fg/10 py-8 pr-8">
-              <div className="text-[10px] font-semibold tracking-[0.22em] text-fg/45">
-                {t('productsFlagshipKicker')}
-              </div>
+          <div className="mb-10 flex items-center gap-3">
+            <span className="h-px w-9 bg-cyan-300/85" />
 
-              <h2 className="mt-4 text-5xl font-semibold tracking-[0.18em] text-fg">
-                ALKON
+            <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
+              {t('productsKicker')}
+            </span>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="grid gap-10 lg:grid-cols-[0.66fr_1.74fr] lg:items-center">
+            <div className="max-w-md">
+              <h2 className="text-5xl font-semibold tracking-[0.16em] text-fg md:text-[58px]">
+                KOMAN
               </h2>
 
-              <p className="mt-5 max-w-xs text-sm leading-6 text-fg/60">
-                {t('productsAlkonLead')}
+              <p className="mt-8 max-w-sm text-[17px] leading-9 text-fg/66">
+                {t('productsKomanLead')}
               </p>
 
-              <ul className="mt-7 space-y-3">
-                {ALKON_FEATURE_KEYS.map((key) => (
+              <ul className="mt-10 space-y-4">
+                {KOMAN_FEATURE_KEYS.map((key) => (
                   <li
                     key={key}
-                    className="flex items-center gap-3 text-[13px] text-fg/70"
+                    className="flex items-center gap-4 text-[15px] text-fg/75"
                   >
-                    <span className="text-cyan-300/80">✓</span>
+                    <span className="text-cyan-300/90">✓</span>
                     <span>{t(key)}</span>
                   </li>
                 ))}
               </ul>
 
               <Link
-                to="/alkon"
-                className="mt-8 inline-flex items-center gap-8 border border-fg/25 px-5 py-3 text-[11px] font-semibold tracking-[0.08em] text-fg/85 transition hover:border-fg/60 hover:bg-fg/5"
+                to="/koman"
+                className="mt-10 inline-flex items-center gap-10 border border-fg/30 px-7 py-4 text-[12px] font-semibold tracking-[0.12em] text-fg/90 transition hover:border-cyan-300/60 hover:bg-cyan-300/5 hover:text-fg"
               >
-                {t('productsExploreAlkon')}
+                {t('productsExploreKoman')}
                 <span aria-hidden>→</span>
               </Link>
             </div>
 
-            <div className="relative min-h-[420px] bg-bg/20">
+            <div className="relative min-h-[430px] overflow-hidden rounded-md border border-fg/10 shadow-[0_0_40px_rgba(34,211,238,0.04)]">
               <img
-                src="/products/alkon-visual.png"
-                alt="ALKON platform visualization"
-                className="absolute inset-0 h-full w-full object-cover opacity-85"
+                src="/products/koman-visual.png"
+                alt="KOMAN platform visualization"
+                className="absolute inset-0 h-full w-full object-cover object-center opacity-100"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-r from-bg/45 via-transparent to-bg/25" />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/35 via-transparent to-bg/15" />
+              <div className="absolute inset-0 bg-gradient-to-r from-bg/18 via-transparent to-bg/5" />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/10 via-transparent to-transparent" />
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="mt-8 ">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="text-[11px] font-semibold tracking-[0.22em] text-fg/55">
-                {t('productsOtherTitle')}
-              </div>
-            </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {OTHER_PRODUCTS.map((product) => (
+              <Link
+                key={product.name}
+                to={product.href}
+                className="group relative min-h-[165px] overflow-hidden rounded-md border border-fg/10 p-8 transition hover:border-cyan-300/35"
+              >
+                <div className="flex h-full items-center gap-8">
+                  <div className="h-[120px] w-[120px] flex-shrink-0 overflow-hidden rounded-sm border border-fg/10">
+                    <img
+                      src={product.image}
+                      alt={`${product.name} visualization`}
+                      className="h-full w-full object-cover opacity-70 transition group-hover:opacity-90"
+                    />
+                  </div>
 
-            <div className="grid gap-5 md:grid-cols-3">
-              {OTHER_PRODUCTS.map((product) => (
-                <Link
-                  key={product.name}
-                  to={product.href}
-                  className="group relative min-h-[150px] overflow-hidden border border-fg/10 bg-panel/20 p-6 transition hover:border-fg/30 hover:bg-panel/35"
-                >
-                  <img
-                    src={product.image}
-                    alt={`${product.name} visualization`}
-                    className="absolute left-4 top-1/2 h-[100px] w-[120px] -translate-y-1/2 object-contain opacity-45 transition group-hover:opacity-65"
-                  />
-
-                  <div className="relative ml-[120px]">
-                    <h3 className="text-2xl font-semibold tracking-[-0.03em] text-fg">
+                  <div>
+                    <h3 className="text-3xl font-semibold tracking-[-0.04em] text-fg">
                       {product.name}
                     </h3>
 
-                    <p className="mt-3 max-w-[190px] text-sm leading-6 text-fg/55">
+                    <p className="mt-4 max-w-[230px] text-[16px] leading-7 text-fg/58">
                       {t(product.description)}
                     </p>
                   </div>
+                </div>
 
-                  <div className="absolute bottom-5 right-5 text-fg/35 transition group-hover:translate-x-1 group-hover:text-fg">
-                    →
-                  </div>
-                </Link>
-              ))}
-            </div>
+                <div className="absolute bottom-8 right-8 text-2xl text-fg/40 transition group-hover:translate-x-1 group-hover:text-cyan-300">
+                  →
+                </div>
+              </Link>
+            ))}
           </div>
         </Reveal>
       </div>
