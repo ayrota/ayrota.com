@@ -1,29 +1,29 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import { Reveal } from '../components/RevealSection';
-import { useLanguage } from '../lib/LanguageContext';
+import { Reveal } from "../components/RevealSection";
+import { useLanguage } from "../lib/LanguageContext";
 
 const PRODUCTS = [
   {
-    name: 'ALKON',
-    eyebrow: 'productsAlkonEyebrow',
-    description: 'productsAlkonDescription',
-    image: '/products/alkon.png',
-    href: '/alkon',
+    name: "ALKON",
+    eyebrow: "productsAlkonEyebrow",
+    description: "productsAlkonDescription",
+    image: "/products/alkon.png",
+    href: "/alkon",
   },
   {
-    name: 'YÖRÜK',
-    eyebrow: 'productsYorukEyebrow',
-    description: 'productsYorukDescription',
-    image: '/products/yoruk.png',
-    href: '/yoruk',
+    name: "YAYA",
+    eyebrow: "productsYayaEyebrow",
+    description: "productsYayaDescription",
+    image: "/products/yaya.png",
+    href: "/yaya",
   },
   {
-    name: 'YAYA',
-    eyebrow: 'productsYayaEyebrow',
-    description: 'productsYayaDescription',
-    image: '/products/yaya.png',
-    href: '/yaya',
+    name: "YÖRÜK",
+    eyebrow: "productsYorukEyebrow",
+    description: "productsYorukDescription",
+    image: "/products/yoruk.png",
+    href: "/yoruk",
   },
 ];
 
@@ -46,16 +46,16 @@ export function Products() {
               <span className="h-px w-9 bg-cyan-300/85" />
 
               <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
-                {t('productsKicker')}
+                {t("productsKicker")}
               </span>
             </div>
 
             <h2 className="text-4xl font-semibold leading-[1.04] tracking-[-0.05em] text-fg md:text-[54px]">
-              {t('productsTitle')}
+              {t("productsTitle")}
             </h2>
 
             <p className="mt-6 max-w-2xl text-[16px] leading-8 text-fg/58">
-              {t('productsLead')}
+              {t("productsLead")}
             </p>
           </div>
         </Reveal>
@@ -100,7 +100,7 @@ export function Products() {
                   <div className="mt-auto pt-10">
                     <div className="flex items-center justify-between border-t border-fg/10 pt-6">
                       <span className="text-[10px] font-semibold tracking-[0.14em] text-fg/50 transition group-hover:text-cyan-300">
-                        {t('productsExplore')}
+                        {t("productsExplore")}
                       </span>
 
                       <span
