@@ -7,6 +7,7 @@ import { useLanguage } from '../lib/LanguageContext';
 type NavSubItem = {
   label: string;
   href: string;
+  dividerAfter?: boolean;
 };
 
 type NavItem = {
@@ -14,33 +15,67 @@ type NavItem = {
   items: NavSubItem[];
 };
 
-const NAV_ITEMS: NavItem[] = [
-  {
-    label: 'ÜRÜNLER',
-    items: [
-      { label: 'ALKON', href: '/alkon' },
-      { label: 'YAYA', href: '/yaya' },
-      { label: 'YÖRÜK', href: '/yoruk' },
-      { label: 'İLBER', href: '/ilber' },
-    ],
-  },
-  {
-    label: 'ŞİRKET',
-    items: [
-      { label: 'Anasayfa', href: '/#hero' },
-      { label: 'İletişim', href: '/#contact' },
-    ],
-  },
-];
-
 export function Header() {
   const { lang, setLang } = useLanguage();
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
+  const NAV_ITEMS: NavItem[] = [
+    {
+      label: lang === 'tr' ? 'ÜRÜNLER' : 'PRODUCTS',
+      items: [
+        {
+          label: lang === 'tr' ? 'Tüm Ürünler' : 'All Products',
+          href: '/#products',
+          dividerAfter: true,
+        },
+        {
+          label: 'ALKON',
+          href: '/alkon',
+        },
+        {
+          label: 'YÖRÜK',
+          href: '/yoruk',
+        },
+        {
+          label: 'YAYA',
+          href: '/yaya',
+        },
+      ],
+    },
+    {
+      label: lang === 'tr' ? 'KEŞFET' : 'EXPLORE',
+      items: [
+        {
+          label:
+            lang === 'tr'
+              ? 'Çekirdek Teknoloji'
+              : 'Core Technology',
+          href: '/#technology',
+        },
+        {
+          label:
+            lang === 'tr'
+              ? 'Kullanım Alanları'
+              : 'Applications',
+          href: '/#applications',
+        },
+        {
+          label:
+            lang === 'tr'
+              ? 'İletişim'
+              : 'Contact',
+          href: '/#contact',
+        },
+      ],
+    },
+  ];
+
   const langButtonClass = (target: 'tr' | 'en') =>
     [
       'text-[11px] tracking-[0.18em] transition-colors',
-      lang === target ? 'text-fg' : 'text-muted hover:text-fg',
+      lang === target
+        ? 'text-fg'
+        : 'text-muted hover:text-fg',
     ].join(' ');
 
   return (
@@ -63,7 +98,7 @@ export function Header() {
             </span>
           </Link>
 
-          <div className="ml-auto flex items-center gap-20">
+          <div className="ml-auto flex items-center gap-16">
             <nav className="hidden items-center gap-12 lg:flex">
               {NAV_ITEMS.map((item) => (
                 <div
@@ -85,21 +120,29 @@ export function Header() {
                   </button>
 
                   {activeMenu === item.label && (
-                    <div className="absolute left-0 top-full pt-6">
-                      <div className="flex flex-col gap-3">
-                        {item.items.map((subItem) => (
-                          <Link
-                            key={subItem.label}
-                            to={subItem.href}
-                            className="group flex items-center gap-3 whitespace-nowrap"
-                          >
-                            <span className="h-px w-0 bg-fg/70 transition-all duration-300 group-hover:w-5" />
+                    <div className="absolute left-1/2 top-full -translate-x-1/2 pt-5">
+                      <div className="min-w-[220px] border border-fg/10 bg-bg/95 px-5 py-5 shadow-2xl shadow-black/20 backdrop-blur-xl">
+                        <div className="flex flex-col">
+                          {item.items.map((subItem) => (
+                            <div key={subItem.label}>
+                              <Link
+                                to={subItem.href}
+                                onClick={() => setActiveMenu(null)}
+                                className="group flex items-center gap-3 whitespace-nowrap py-2"
+                              >
+                                <span className="h-px w-0 bg-cyan-300/80 transition-all duration-300 group-hover:w-4" />
 
-                            <span className="text-[13px] font-medium tracking-[0.08em] text-fg/65 transition-colors group-hover:text-fg">
-                              {subItem.label}
-                            </span>
-                          </Link>
-                        ))}
+                                <span className="text-[12px] font-medium tracking-[0.08em] text-fg/60 transition-colors group-hover:text-fg">
+                                  {subItem.label}
+                                </span>
+                              </Link>
+
+                              {subItem.dividerAfter && (
+                                <div className="my-3 h-px bg-fg/10" />
+                              )}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
