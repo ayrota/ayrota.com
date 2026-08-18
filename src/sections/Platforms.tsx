@@ -1,9 +1,4 @@
-import {
-  Footprints,
-  Navigation,
-  Route,
-  type LucideIcon,
-} from "lucide-react";
+import { Footprints, Navigation, Route, type LucideIcon } from "lucide-react";
 
 import { Reveal } from "../components/RevealSection";
 import type { TranslationKey } from "../i18n/translations";
@@ -55,10 +50,16 @@ export function Platforms() {
             </p>
           </div>
         </Reveal>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4">
+        <div
+          className={[
+            "grid",
+            "md:grid-cols-2",
+            APPLICATIONS.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4",
+          ].join(" ")}
+        >
           {APPLICATIONS.map((application, index) => {
             const Icon = application.icon;
+            const isLast = index === APPLICATIONS.length - 1;
 
             return (
               <Reveal key={application.title} delay={index * 0.04}>
@@ -66,14 +67,14 @@ export function Platforms() {
                   className={[
                     "group flex h-full min-h-[220px] flex-col py-8",
                     "border-b border-fg/10 md:min-h-[240px] md:px-7",
+
                     index === 0 ? "md:pl-0" : "",
-                    index === APPLICATIONS.length - 1 ? "md:pr-0" : "",
+                    isLast ? "md:pr-0" : "",
+
                     index % 2 === 0 ? "md:border-r" : "",
-                    index < 2 ? "lg:border-b-0" : "",
-                    index < APPLICATIONS.length - 1
-                      ? "lg:border-r lg:border-fg/10"
-                      : "lg:border-r-0",
+
                     "lg:border-b-0",
+                    !isLast ? "lg:border-r lg:border-fg/10" : "lg:border-r-0",
                   ].join(" ")}
                 >
                   <div className="pt-20 lg:pt-28">
