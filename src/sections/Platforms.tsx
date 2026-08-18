@@ -30,11 +30,6 @@ const APPLICATIONS: {
     text: "platformsRoadText",
     icon: Route,
   },
-  {
-    title: "platformsEngineeringTitle",
-    text: "platformsEngineeringText",
-    icon: Cpu,
-  },
 ];
 
 export function Platforms() {
