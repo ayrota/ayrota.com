@@ -9,8 +9,9 @@ type CounterProps = {
 export function Counter({ value, suffix = '' }: CounterProps) {
   const count = useMotionValue(0);
 
-  const displayValue = useTransform(count, (latest) =>
-    `${Math.floor(latest).toString().padStart(2, '0')}${suffix}`
+  const displayValue = useTransform(
+    count,
+    (latest) => `${Math.floor(latest).toString().padStart(2, '0')}${suffix}`,
   );
 
   useEffect(() => {

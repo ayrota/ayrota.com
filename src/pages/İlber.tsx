@@ -11,27 +11,15 @@ const ANALYSIS_SCOPE_GROUPS: {
 }[] = [
   {
     title: 'ilberIntegrityGroupTitle',
-    items: [
-      'ilberRepairTitle',
-      'ilberConsistencyTitle',
-      'ilberCadenceTitle',
-    ],
+    items: ['ilberRepairTitle', 'ilberConsistencyTitle', 'ilberCadenceTitle'],
   },
   {
     title: 'ilberSensorGroupTitle',
-    items: [
-      'ilberSensorDomainTitle',
-      'ilberSensorHealthTitle',
-      'ilberPhysicalTitle',
-    ],
+    items: ['ilberSensorDomainTitle', 'ilberSensorHealthTitle', 'ilberPhysicalTitle'],
   },
   {
     title: 'ilberNavigationGroupTitle',
-    items: [
-      'ilberGnssTitle',
-      'ilberSpectralTitle',
-      'ilberMotionTitle',
-    ],
+    items: ['ilberGnssTitle', 'ilberSpectralTitle', 'ilberMotionTitle'],
   },
 ];
 
@@ -63,7 +51,6 @@ export default function Ilber() {
 
   return (
     <main className="relative z-10 bg-bg text-fg">
-
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(30,90,255,0.18),transparent_42%)]" />
@@ -87,9 +74,7 @@ export default function Ilber() {
                   {t('ilberHeroStatement')}
                 </h1>
 
-                <p className="mt-7 max-w-xl text-base leading-8 text-fg/58">
-                  {t('ilberHeroText')}
-                </p>
+                <p className="mt-7 max-w-xl text-base leading-8 text-fg/58">{t('ilberHeroText')}</p>
 
                 <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-fg/60">
                   <span>{t('ilberMiniDetect')}</span>
@@ -181,17 +166,13 @@ export default function Ilber() {
             <div className="mt-10 grid gap-10 md:grid-cols-4">
               {WORKFLOW_ITEMS.map((item) => (
                 <div key={item.number}>
-                  <div className="text-2xl font-semibold text-blue-500">
-                    {item.number}
-                  </div>
+                  <div className="text-2xl font-semibold text-blue-500">{item.number}</div>
 
                   <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em]">
                     {t(item.title)}
                   </h3>
 
-                  <p className="mt-4 max-w-xs text-sm leading-7 text-fg/55">
-                    {t(item.text)}
-                  </p>
+                  <p className="mt-4 max-w-xs text-sm leading-7 text-fg/55">{t(item.text)}</p>
                 </div>
               ))}
             </div>

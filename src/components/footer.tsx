@@ -21,10 +21,7 @@ export function Footer() {
               {t('footerCopyright').replace('{{year}}', String(year))}
             </div>
 
-            <Link
-              to="/privacy"
-              className="text-sm text-fg/55 transition hover:text-fg"
-            >
+            <Link to="/privacy" className="text-sm text-fg/55 transition hover:text-fg">
               {t('footerPrivacy')}
             </Link>
           </div>

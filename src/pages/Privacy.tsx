@@ -8,9 +8,7 @@ export default function Privacy() {
     <div className="pt-32 pb-24">
       <Container>
         <div className="max-w-3xl mx-auto text-sm text-muted leading-relaxed">
-          <h1 className="text-2xl text-fg font-medium mb-6">
-            {t('privacyTitle')}
-          </h1>
+          <h1 className="text-2xl text-fg font-medium mb-6">{t('privacyTitle')}</h1>
 
           <p>{t('privacyIntro')}</p>
 
@@ -22,9 +20,7 @@ export default function Privacy() {
 
           <p className="mt-4">{t('privacyConsent')}</p>
 
-          <h2 className="mt-10 text-lg text-fg font-medium">
-            {t('privacyCookieTitle')}
-          </h2>
+          <h2 className="mt-10 text-lg text-fg font-medium">{t('privacyCookieTitle')}</h2>
 
           <p className="mt-4">{t('privacyCookieText')}</p>
         </div>

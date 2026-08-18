@@ -46,24 +46,15 @@ export function Header() {
       label: lang === 'tr' ? 'KEŞFET' : 'EXPLORE',
       items: [
         {
-          label:
-            lang === 'tr'
-              ? 'Çekirdek Teknoloji'
-              : 'Core Technology',
+          label: lang === 'tr' ? 'Çekirdek Teknoloji' : 'Core Technology',
           href: '/#technology',
         },
         {
-          label:
-            lang === 'tr'
-              ? 'Kullanım Alanları'
-              : 'Applications',
+          label: lang === 'tr' ? 'Kullanım Alanları' : 'Applications',
           href: '/#applications',
         },
         {
-          label:
-            lang === 'tr'
-              ? 'İletişim'
-              : 'Contact',
+          label: lang === 'tr' ? 'İletişim' : 'Contact',
           href: '/#contact',
         },
       ],
@@ -73,9 +64,7 @@ export function Header() {
   const langButtonClass = (target: 'tr' | 'en') =>
     [
       'text-[11px] tracking-[0.18em] transition-colors',
-      lang === target
-        ? 'text-fg'
-        : 'text-muted hover:text-fg',
+      lang === target ? 'text-fg' : 'text-muted hover:text-fg',
     ].join(' ');
 
   return (
@@ -93,9 +82,7 @@ export function Header() {
               className="h-10 w-10 object-contain opacity-90 transition-opacity group-hover:opacity-100"
             />
 
-            <span className="text-[22px] font-semibold tracking-[0.28em] text-fg">
-              AYROTA
-            </span>
+            <span className="text-[22px] font-semibold tracking-[0.28em] text-fg">AYROTA</span>
           </Link>
 
           <div className="ml-auto flex items-center gap-16">
@@ -111,9 +98,7 @@ export function Header() {
                     type="button"
                     className={[
                       'text-[12px] font-medium tracking-[0.16em] transition-colors',
-                      activeMenu === item.label
-                        ? 'text-fg'
-                        : 'text-muted hover:text-fg',
+                      activeMenu === item.label ? 'text-fg' : 'text-muted hover:text-fg',
                     ].join(' ')}
                   >
                     {item.label}
@@ -137,9 +122,7 @@ export function Header() {
                                 </span>
                               </Link>
 
-                              {subItem.dividerAfter && (
-                                <div className="my-3 h-px bg-fg/10" />
-                              )}
+                              {subItem.dividerAfter && <div className="my-3 h-px bg-fg/10" />}
                             </div>
                           ))}
                         </div>
@@ -151,41 +134,25 @@ export function Header() {
             </nav>
 
             <div className="hidden items-center gap-3 lg:flex">
-              <button
-                type="button"
-                onClick={() => setLang('tr')}
-                className={langButtonClass('tr')}
-              >
+              <button type="button" onClick={() => setLang('tr')} className={langButtonClass('tr')}>
                 TR
               </button>
 
               <span className="h-3 w-px bg-line/80" />
 
-              <button
-                type="button"
-                onClick={() => setLang('en')}
-                className={langButtonClass('en')}
-              >
+              <button type="button" onClick={() => setLang('en')} className={langButtonClass('en')}>
                 EN
               </button>
             </div>
 
             <div className="flex items-center gap-3 lg:hidden">
-              <button
-                type="button"
-                onClick={() => setLang('tr')}
-                className={langButtonClass('tr')}
-              >
+              <button type="button" onClick={() => setLang('tr')} className={langButtonClass('tr')}>
                 TR
               </button>
 
               <span className="text-muted">/</span>
 
-              <button
-                type="button"
-                onClick={() => setLang('en')}
-                className={langButtonClass('en')}
-              >
+              <button type="button" onClick={() => setLang('en')} className={langButtonClass('en')}>
                 EN
               </button>
             </div>

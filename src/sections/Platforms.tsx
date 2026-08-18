@@ -1,8 +1,8 @@
-import { Footprints, Navigation, Route, type LucideIcon } from "lucide-react";
+import { Footprints, Navigation, Route, type LucideIcon } from 'lucide-react';
 
-import { Reveal } from "../components/RevealSection";
-import type { TranslationKey } from "../i18n/translations";
-import { useLanguage } from "../lib/LanguageContext";
+import { Reveal } from '../components/RevealSection';
+import type { TranslationKey } from '../i18n/translations';
+import { useLanguage } from '../lib/LanguageContext';
 
 const APPLICATIONS: {
   title: TranslationKey;
@@ -10,18 +10,18 @@ const APPLICATIONS: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "platformsAutonomyTitle",
-    text: "platformsAutonomyText",
+    title: 'platformsAutonomyTitle',
+    text: 'platformsAutonomyText',
     icon: Navigation,
   },
   {
-    title: "platformsIndoorTitle",
-    text: "platformsIndoorText",
+    title: 'platformsIndoorTitle',
+    text: 'platformsIndoorText',
     icon: Footprints,
   },
   {
-    title: "platformsRoadTitle",
-    text: "platformsRoadText",
+    title: 'platformsRoadTitle',
+    text: 'platformsRoadText',
     icon: Route,
   },
 ];
@@ -30,10 +30,7 @@ export function Platforms() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="applications"
-      className="relative overflow-hidden border-t border-fg/10 bg-bg"
-    >
+    <section id="applications" className="relative overflow-hidden border-t border-fg/10 bg-bg">
       <div className="mx-auto max-w-[1500px] px-6 py-16 md:px-10 md:py-20">
         <Reveal>
           <div className="border-b border-fg/10 pb-10">
@@ -41,21 +38,21 @@ export function Platforms() {
               <span className="h-px w-9 bg-cyan-300/85" />
 
               <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
-                {t("platformsKicker")}
+                {t('platformsKicker')}
               </span>
             </div>
 
             <p className="mt-7 max-w-[680px] text-[20px] font-medium leading-8 tracking-[-0.02em] text-fg/72 md:text-[22px]">
-              {t("platformsLead")}
+              {t('platformsLead')}
             </p>
           </div>
         </Reveal>
         <div
           className={[
-            "grid",
-            "md:grid-cols-2",
-            APPLICATIONS.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4",
-          ].join(" ")}
+            'grid',
+            'md:grid-cols-2',
+            APPLICATIONS.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4',
+          ].join(' ')}
         >
           {APPLICATIONS.map((application, index) => {
             const Icon = application.icon;
@@ -65,17 +62,17 @@ export function Platforms() {
               <Reveal key={application.title} delay={index * 0.04}>
                 <article
                   className={[
-                    "group flex h-full min-h-[220px] flex-col py-8",
-                    "border-b border-fg/10 md:min-h-[240px] md:px-7",
+                    'group flex h-full min-h-[220px] flex-col py-8',
+                    'border-b border-fg/10 md:min-h-[240px] md:px-7',
 
-                    index === 0 ? "md:pl-0" : "",
-                    isLast ? "md:pr-0" : "",
+                    index === 0 ? 'md:pl-0' : '',
+                    isLast ? 'md:pr-0' : '',
 
-                    index % 2 === 0 ? "md:border-r" : "",
+                    index % 2 === 0 ? 'md:border-r' : '',
 
-                    "lg:border-b-0",
-                    !isLast ? "lg:border-r lg:border-fg/10" : "lg:border-r-0",
-                  ].join(" ")}
+                    'lg:border-b-0',
+                    !isLast ? 'lg:border-r lg:border-fg/10' : 'lg:border-r-0',
+                  ].join(' ')}
                 >
                   <div className="pt-20 lg:pt-28">
                     <div className="flex min-h-[52px] items-center gap-4">

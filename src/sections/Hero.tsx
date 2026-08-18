@@ -23,10 +23,7 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen md:h-screen bg-bg overflow-hidden"
-    >
+    <section id="hero" className="relative min-h-screen md:h-screen bg-bg overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 flex justify-end">
         <div className="relative w-full md:w-[60%] h-full">
@@ -106,9 +103,7 @@ function HeroPillar({
         first && 'md:border-l-0',
       ].join(' ')}
     >
-      <div className="text-lg leading-none text-cyan-300/85">
-        {icon}
-      </div>
+      <div className="text-lg leading-none text-cyan-300/85">{icon}</div>
 
       <div className="max-w-[120px] text-center text-[10px] leading-5 tracking-[0.22em] uppercase text-fg/85 break-words">
         {label}

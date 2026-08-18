@@ -3,10 +3,7 @@ import { useEffect, useRef } from 'react';
 type FlowKey = 'dark' | 'mid' | 'light';
 type FlowState = [number, number, number, number, number];
 
-const COLORS: Record<
-  FlowKey,
-  { base: string; active: string }
-> = {
+const COLORS: Record<FlowKey, { base: string; active: string }> = {
   dark: {
     base: '#1F3F66',
     active: '#2F5F6A',
@@ -31,19 +28,18 @@ const FLOW_CONFIG: Record<FlowKey, FlowState[]> = {
   mid: [
     [0.0, 0.56, 0.74, 1.0, 5],
     [0.0, 0.56, 0.78, 1.0, 4],
-    [0.0, 0.60, 0.72, 1.0, 4],
-    [0.0, 0.60, 0.72, 1.0, 5],
+    [0.0, 0.6, 0.72, 1.0, 4],
+    [0.0, 0.6, 0.72, 1.0, 5],
   ],
   light: [
-    [0.0, 0.50, 0.82, 1.0, 5],
+    [0.0, 0.5, 0.82, 1.0, 5],
     [0.0, 0.54, 0.86, 1.0, 4],
-    [0.0, 0.50, 0.82, 1.0, 5],
-    [0.0, 0.50, 0.82, 1.0, 5],
+    [0.0, 0.5, 0.82, 1.0, 5],
+    [0.0, 0.5, 0.82, 1.0, 5],
   ],
 };
 
-const lerp = (a: number, b: number, t: number) =>
-  a + (b - a) * t;
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 const VIRTUAL_SCALE = 1.1;
 
@@ -78,12 +74,7 @@ function lerpColor(a: string, b: string, t: number) {
   )`;
 }
 
-function buildPath(
-  w: number,
-  h: number,
-  params: FlowState,
-  phase: number
-) {
+function buildPath(w: number, h: number, params: FlowState, phase: number) {
   const [x0s, y0s, x1s, y1s, periods] = params;
 
   const vW = w * VIRTUAL_SCALE;
@@ -104,10 +95,7 @@ function buildPath(
     const t = i / steps;
     const x = lerp(x0, x1, t);
     const yBase = lerp(y0, y1, t);
-    const wave =
-      Math.sin(
-        t * Math.PI * 2 * periods + phase
-      ) * 18;
+    const wave = Math.sin(t * Math.PI * 2 * periods + phase) * 18;
 
     d += ` L ${x} ${yBase + wave}`;
   }
@@ -127,29 +115,17 @@ export function BackgroundField() {
   const colorEnergy = useRef(0);
 
   const lastScroll = useRef(0);
-  const lastMouse = useRef<{ x: number; y: number } | null>(
-    null
-  );
+  const lastMouse = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
       if (lastMouse.current) {
-        const dx = Math.abs(
-          e.clientX - lastMouse.current.x
-        );
-        const dy = Math.abs(
-          e.clientY - lastMouse.current.y
-        );
+        const dx = Math.abs(e.clientX - lastMouse.current.x);
+        const dy = Math.abs(e.clientY - lastMouse.current.y);
 
-        energy.current = Math.min(
-          MAX_ENERGY,
-          energy.current + dx * ENERGY_RISE
-        );
+        energy.current = Math.min(MAX_ENERGY, energy.current + dx * ENERGY_RISE);
 
-        colorEnergy.current = Math.min(
-          1,
-          colorEnergy.current + dy * 0.0018
-        );
+        colorEnergy.current = Math.min(1, colorEnergy.current + dy * 0.0018);
       }
 
       lastMouse.current = {
@@ -159,13 +135,8 @@ export function BackgroundField() {
     };
 
     const onScroll = () => {
-      const dy = Math.abs(
-        window.scrollY - lastScroll.current
-      );
-      energy.current = Math.min(
-        MAX_ENERGY,
-        energy.current + dy * ENERGY_RISE * 0.5
-      );
+      const dy = Math.abs(window.scrollY - lastScroll.current);
+      energy.current = Math.min(MAX_ENERGY, energy.current + dy * ENERGY_RISE * 0.5);
       lastScroll.current = window.scrollY;
     };
 
@@ -175,14 +146,8 @@ export function BackgroundField() {
     });
 
     return () => {
-      window.removeEventListener(
-        'mousemove',
-        onMouseMove
-      );
-      window.removeEventListener(
-        'scroll',
-        onScroll
-      );
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -199,78 +164,44 @@ export function BackgroundField() {
       svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
 
       energy.current *= ENERGY_DECAY;
-      colorEnergy.current = lerp(
-        colorEnergy.current,
-        0,
-        COLOR_BLEND_SPEED
-      );
+      colorEnergy.current = lerp(colorEnergy.current, 0, COLOR_BLEND_SPEED);
 
-      (Object.keys(FLOW_CONFIG) as FlowKey[]).forEach(
-        (key) => {
-          const states = FLOW_CONFIG[key];
-          const segments = states.length - 1;
+      (Object.keys(FLOW_CONFIG) as FlowKey[]).forEach((key) => {
+        const states = FLOW_CONFIG[key];
+        const segments = states.length - 1;
 
-          const scrollMax =
-            document.body.scrollHeight - h;
-          const s =
-            scrollMax > 0
-              ? window.scrollY / scrollMax
-              : 0;
+        const scrollMax = document.body.scrollHeight - h;
+        const s = scrollMax > 0 ? window.scrollY / scrollMax : 0;
 
-          const scrollP = Math.min(
-            Math.max(s, 0),
-            0.999999
-          );
+        const scrollP = Math.min(Math.max(s, 0), 0.999999);
 
-          const seg = Math.floor(
-            scrollP * segments
-          );
-          const t =
-            scrollP * segments - seg;
+        const seg = Math.floor(scrollP * segments);
+        const t = scrollP * segments - seg;
 
-          const a = states[seg];
-          const b = states[seg + 1];
+        const a = states[seg];
+        const b = states[seg + 1];
 
-          const interp: FlowState = [
-            lerp(a[0], b[0], t),
-            lerp(a[1], b[1], t),
-            lerp(a[2], b[2], t),
-            lerp(a[3], b[3], t),
-            lerp(a[4], b[4], t),
-          ];
+        const interp: FlowState = [
+          lerp(a[0], b[0], t),
+          lerp(a[1], b[1], t),
+          lerp(a[2], b[2], t),
+          lerp(a[3], b[3], t),
+          lerp(a[4], b[4], t),
+        ];
 
-          phaseRef.current[key] += 0.01;
+        phaseRef.current[key] += 0.01;
 
-          const path = svg.querySelector(
-            `[data-line="${key}"]`
-          ) as SVGPathElement | null;
+        const path = svg.querySelector(`[data-line="${key}"]`) as SVGPathElement | null;
 
-          const alpha =
-            0.26 + energy.current * 0.32;
+        const alpha = 0.26 + energy.current * 0.32;
 
-          path?.setAttribute(
-            'd',
-            buildPath(
-              w,
-              h,
-              interp,
-              phaseRef.current[key]
-            )
-          );
-          path?.setAttribute(
-            'stroke-opacity',
-            alpha.toFixed(3)
-          );
-          path?.setAttribute(
-            'stroke',
-            lerpColor(
-              COLORS[key].base,
-              COLORS[key].active,
-              colorEnergy.current
-            )
-          );
-        }
-      );
+        path?.setAttribute('d', buildPath(w, h, interp, phaseRef.current[key]));
+        path?.setAttribute('stroke-opacity', alpha.toFixed(3));
+        path?.setAttribute(
+          'stroke',
+          lerpColor(COLORS[key].base, COLORS[key].active, colorEnergy.current),
+        );
+      });
 
       raf = requestAnimationFrame(render);
     };
@@ -280,27 +211,18 @@ export function BackgroundField() {
   }, []);
 
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-    >
-      <svg
-        ref={svgRef}
-        className="absolute inset-0"
-        fill="none"
-      >
-        {(Object.keys(FLOW_CONFIG) as FlowKey[]).map(
-          (key) => (
-            <path
-              key={key}
-              data-line={key}
-              stroke={COLORS[key].base}
-              strokeWidth={2.3}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          )
-        )}
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <svg ref={svgRef} className="absolute inset-0" fill="none">
+        {(Object.keys(FLOW_CONFIG) as FlowKey[]).map((key) => (
+          <path
+            key={key}
+            data-line={key}
+            stroke={COLORS[key].base}
+            strokeWidth={2.3}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ))}
       </svg>
     </div>
   );

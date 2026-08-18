@@ -5,10 +5,7 @@ export function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-bg py-8 md:py-10"
-    >
+    <section id="contact" className="relative overflow-hidden bg-bg py-8 md:py-10">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(56,189,248,0.055),transparent_46%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.18),rgba(5,10,18,0.48))]" />
       <div className="absolute bottom-0 left-0 h-[45%] w-[42%] bg-[radial-gradient(circle_at_18%_80%,rgba(56,189,248,0.10),transparent_52%)]" />
@@ -106,13 +103,7 @@ export function Contact() {
   );
 }
 
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
       <span className="mb-2 block text-[11px] font-medium tracking-[0.18em] text-fg/65">

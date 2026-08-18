@@ -27,11 +27,7 @@ const YAYA_SCOPE_GROUPS: {
   },
   {
     title: 'yayaIntegrationGroupTitle',
-    items: [
-      'yayaCapabilityMobile',
-      'yayaCapabilityMapContext',
-      'yayaCapabilityApplicationOutput',
-    ],
+    items: ['yayaCapabilityMobile', 'yayaCapabilityMapContext', 'yayaCapabilityApplicationOutput'],
   },
 ];
 
@@ -137,9 +133,7 @@ export default function Yaya() {
                   {t('yayaScopeMainTitle')}
                 </h2>
 
-                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
-                  {t('yayaScopeText')}
-                </p>
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">{t('yayaScopeText')}</p>
               </div>
 
               <div className="space-y-5">
@@ -186,21 +180,14 @@ export default function Yaya() {
 
             <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
               {WORKFLOW_ITEMS.map((item) => (
-                <div
-                  key={item.number}
-                  className="border-t border-fg/10 pt-7"
-                >
-                  <div className="text-2xl font-semibold text-blue-500">
-                    {item.number}
-                  </div>
+                <div key={item.number} className="border-t border-fg/10 pt-7">
+                  <div className="text-2xl font-semibold text-blue-500">{item.number}</div>
 
                   <h3 className="mt-8 text-[24px] font-semibold tracking-[-0.04em] text-fg">
                     {t(item.title)}
                   </h3>
 
-                  <p className="mt-5 max-w-xs text-sm leading-7 text-fg/55">
-                    {t(item.text)}
-                  </p>
+                  <p className="mt-5 max-w-xs text-sm leading-7 text-fg/55">{t(item.text)}</p>
                 </div>
               ))}
             </div>
@@ -277,28 +264,14 @@ export default function Yaya() {
   );
 }
 
-function ApplicationItem({
-  number,
-  title,
-  text,
-}: {
-  number: string;
-  title: string;
-  text: string;
-}) {
+function ApplicationItem({ number, title, text }: { number: string; title: string; text: string }) {
   return (
     <div className="min-h-[260px] bg-bg p-7">
-      <div className="text-sm font-semibold text-blue-500">
-        {number}
-      </div>
+      <div className="text-sm font-semibold text-blue-500">{number}</div>
 
-      <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-fg">
-        {title}
-      </h3>
+      <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-fg">{title}</h3>
 
-      <p className="mt-5 text-sm leading-7 text-fg/55">
-        {text}
-      </p>
+      <p className="mt-5 text-sm leading-7 text-fg/55">{text}</p>
     </div>
   );
 }
