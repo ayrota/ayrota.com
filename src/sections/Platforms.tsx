@@ -1,5 +1,4 @@
 import {
-  Cpu,
   Footprints,
   Navigation,
   Route,
