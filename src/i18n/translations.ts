@@ -1,45 +1,44 @@
 export type Language = 'en' | 'tr';
 
 export const translations = {
-  /* --------------------
+     /* --------------------
      HERO
   -------------------- */
 
   homeHeroKicker: {
     en: 'INERTIAL INTELLIGENCE',
-    tr: 'NAVİGASYON VE HAREKET ANALİZİ',
+    tr: 'ATALETSEL ZEKA',
   },
 
   homeHeroTitle: {
-    en: 'Inertial Intelligence for Systems in Motion',
-    tr: 'IMU Verisinden Konum ve Hareket Bilgisine',
+    en: 'Inertial Intelligence for GNSS-Constrained Systems',
+    tr: 'GNSS Kısıtlı Sistemler İçin Ataletsel Zeka',
   },
 
   homeHeroLead: {
-    en: 'Ayrota turns IMU-based navigation and motion analytics technologies into solutions for autonomous systems, vehicles and indoor operations.',
-    tr: 'Ayrota, IMU verisini işleyerek konum, yönelim ve hareket bilgisi üreten yazılımlar geliştirir. Bu yazılımlar otonom platformlarda, araç operasyonlarında ve kapalı alan uygulamalarında kullanılır.',
+    en: 'Ayrota develops inertial navigation, motion estimation and operational intelligence technologies for autonomous systems, vehicles and indoor environments.',
+    tr: 'Ayrota; otonom sistemler, araçlar ve kapalı alan uygulamaları için ataletsel navigasyon, hareket kestirimi ve operasyonel analiz teknolojileri geliştirir.',
   },
 
-  heroPillarImu: {
-    en: 'NAVIGATION',
-    tr: 'NAVİGASYON',
+  homeHeroPrimaryCta: {
+    en: 'APPLICATIONS',
+    tr: 'UYGULAMA ALANLARI',
   },
 
-  heroPillarSwapc: {
-    en: 'SENSOR ENGINEERING',
-    tr: 'SENSÖR MÜHENDİSLİĞİ',
+  homeHeroVisualStatus: {
+    en: 'AYROTA',
+    tr: 'AYROTA',
   },
 
-  heroPillarEndToEnd: {
-    en: 'MOTION ANALYTICS',
-    tr: 'HAREKET ANALİZİ',
+  homeHeroVisualKicker: {
+    en: 'ONE TECHNOLOGY CORE',
+    tr: 'ORTAK TEKNOLOJİ ÇEKİRDEĞİ',
   },
 
-  heroPillarIndependent: {
-    en: 'EMBEDDED INTEGRATION',
-    tr: 'GÖMÜLÜ SİSTEM ENTEGRASYONU',
+  homeHeroVisualText: {
+    en: 'Navigation, motion estimation and analytics from a shared inertial engineering foundation.',
+    tr: 'Navigasyon, hareket kestirimi ve analitik için ortak ataletsel mühendislik altyapısı.',
   },
-
   /* --------------------
      PRODUCTS
   -------------------- */

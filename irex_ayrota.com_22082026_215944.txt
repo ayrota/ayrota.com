@@ -1,0 +1,4063 @@
+
+================================================================================
+FILE: index.html
+================================================================================
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      const redirect = sessionStorage.getItem('redirect');
+      if (redirect) {
+        sessionStorage.removeItem('redirect');
+        window.history.replaceState(null, '', redirect);
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ayrota.com</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+================================================================================
+FILE: irex_ayrota.com_22082026_215944.txt
+================================================================================
+
+
+================================================================================
+FILE: package.json
+================================================================================
+
+{
+  "name": "ayrota.com",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.11.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.5.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
+  }
+}
+
+================================================================================
+FILE: tsconfig.app.json
+================================================================================
+
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}
+
+================================================================================
+FILE: tsconfig.json
+================================================================================
+
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+
+================================================================================
+FILE: tsconfig.node.json
+================================================================================
+
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+
+================================================================================
+FILE: vite.config.ts
+================================================================================
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: '/',
+})
+
+
+================================================================================
+FILE: public/404.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/" />
+    <script>
+      // Preserve path + hash for SPA routing
+      const redirect = window.location.pathname + window.location.search + window.location.hash;
+      sessionStorage.setItem('redirect', redirect);
+      window.location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>
+================================================================================
+FILE: src/App.tsx
+================================================================================
+
+import { Routes, Route } from 'react-router-dom';
+
+import { BackgroundField } from './components/BackgroundField';
+import { Header } from './components/header';
+import { Footer } from './components/footer';
+import { ScrollToHash } from './components/ScrollToHash';
+
+import { Hero } from './sections/Hero';
+import { Problem } from './sections/Problem';
+import { Products } from './sections/Product';
+import { Platforms } from './sections/Platforms';
+import { Contact } from './sections/Contact';
+
+import Privacy from './pages/Privacy';
+import Ilber from './pages/İlber';
+import Yaya from './pages/Yaya';
+import Yoruk from './pages/Yoruk';
+import Alkon from './pages/Alkon';
+
+export default function App() {
+  return (
+    <div className="relative min-h-screen bg-bg font-sans text-fg">
+      <BackgroundField />
+
+      <Header />
+
+      <ScrollToHash />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="relative z-10">
+              <Hero />
+
+              <Problem />
+
+              <Products />
+
+              <Platforms />
+
+              <Contact />
+
+              <Footer />
+            </main>
+          }
+        />
+
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/ilber" element={<Ilber />} />
+        <Route path="/alkon" element={<Alkon />} />
+        <Route path="/yaya" element={<Yaya />} />
+        <Route path="/yoruk" element={<Yoruk />} />
+      </Routes>
+    </div>
+  );
+}
+================================================================================
+FILE: src/index.css
+================================================================================
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: theme('colors.bg');
+  color: theme('colors.fg');
+  font-family: ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: theme('colors.fg');
+}
+
+p { margin: 0; color: theme('colors.muted'); }
+
+a {
+  color: theme('colors.fg');
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: theme('colors.accent'); }
+
+::selection {
+  background-color: theme('colors.accent');
+  color: theme('colors.bg');
+}
+
+/* Reduced motion = hard stop */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+================================================================================
+FILE: src/main.tsx
+================================================================================
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
+
+import App from './App';
+import './index.css';
+
+import { LanguageProvider } from './lib/LanguageContext';
+
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <HashRouter>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </HashRouter>
+  </React.StrictMode>
+);
+================================================================================
+FILE: src/components/BackgroundField.tsx
+================================================================================
+
+import { useEffect, useRef } from 'react';
+
+type FlowKey = 'dark' | 'mid' | 'light';
+type FlowState = [number, number, number, number, number];
+
+const COLORS: Record<
+  FlowKey,
+  { base: string; active: string }
+> = {
+  dark: {
+    base: '#1F3F66',
+    active: '#2F5F6A',
+  },
+  mid: {
+    base: '#3F7FBF',
+    active: '#4F8FA6',
+  },
+  light: {
+    base: '#7FB7D8',
+    active: '#8FBFD0',
+  },
+};
+
+const FLOW_CONFIG: Record<FlowKey, FlowState[]> = {
+  dark: [
+    [0.0, 0.66, 0.62, 1.0, 4],
+    [0.0, 0.58, 0.58, 1.0, 5],
+    [0.0, 0.64, 0.62, 1.0, 4],
+    [0.0, 0.64, 0.62, 1.0, 5],
+  ],
+  mid: [
+    [0.0, 0.56, 0.74, 1.0, 5],
+    [0.0, 0.56, 0.78, 1.0, 4],
+    [0.0, 0.60, 0.72, 1.0, 4],
+    [0.0, 0.60, 0.72, 1.0, 5],
+  ],
+  light: [
+    [0.0, 0.50, 0.82, 1.0, 5],
+    [0.0, 0.54, 0.86, 1.0, 4],
+    [0.0, 0.50, 0.82, 1.0, 5],
+    [0.0, 0.50, 0.82, 1.0, 5],
+  ],
+};
+
+const lerp = (a: number, b: number, t: number) =>
+  a + (b - a) * t;
+
+const VIRTUAL_SCALE = 1.1;
+
+/* =============================
+   ENERGY / COLOR PARAMS
+============================= */
+const ENERGY_RISE = 0.002; // ⬅️ yavaş parlıyor
+const ENERGY_DECAY = 0.94;
+const MAX_ENERGY = 1.0;
+
+const COLOR_BLEND_SPEED = 0.035;
+
+/* =============================
+   COLOR UTILS
+============================= */
+function lerpColor(a: string, b: string, t: number) {
+  const pa = parseInt(a.slice(1), 16);
+  const pb = parseInt(b.slice(1), 16);
+
+  const ar = (pa >> 16) & 255;
+  const ag = (pa >> 8) & 255;
+  const ab = pa & 255;
+
+  const br = (pb >> 16) & 255;
+  const bg = (pb >> 8) & 255;
+  const bb = pb & 255;
+
+  return `rgb(
+    ${Math.round(lerp(ar, br, t))},
+    ${Math.round(lerp(ag, bg, t))},
+    ${Math.round(lerp(ab, bb, t))}
+  )`;
+}
+
+function buildPath(
+  w: number,
+  h: number,
+  params: FlowState,
+  phase: number
+) {
+  const [x0s, y0s, x1s, y1s, periods] = params;
+
+  const vW = w * VIRTUAL_SCALE;
+  const vH = h * VIRTUAL_SCALE;
+
+  const originX = -(vW - w) / 2;
+  const originY = h + (vH - h) / 2;
+
+  const x0 = originX + vW * x0s;
+  const y0 = originY - vH * y0s;
+  const x1 = originX + vW * x1s;
+  const y1 = originY - vH * y1s;
+
+  const steps = 140;
+  let d = `M ${x0} ${y0}`;
+
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps;
+    const x = lerp(x0, x1, t);
+    const yBase = lerp(y0, y1, t);
+    const wave =
+      Math.sin(
+        t * Math.PI * 2 * periods + phase
+      ) * 18;
+
+    d += ` L ${x} ${yBase + wave}`;
+  }
+
+  return d;
+}
+
+export function BackgroundField() {
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const phaseRef = useRef<Record<FlowKey, number>>({
+    dark: 0,
+    mid: 1.3,
+    light: 2.6,
+  });
+
+  const energy = useRef(0);
+  const colorEnergy = useRef(0);
+
+  const lastScroll = useRef(0);
+  const lastMouse = useRef<{ x: number; y: number } | null>(
+    null
+  );
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      if (lastMouse.current) {
+        const dx = Math.abs(
+          e.clientX - lastMouse.current.x
+        );
+        const dy = Math.abs(
+          e.clientY - lastMouse.current.y
+        );
+
+        energy.current = Math.min(
+          MAX_ENERGY,
+          energy.current + dx * ENERGY_RISE
+        );
+
+        colorEnergy.current = Math.min(
+          1,
+          colorEnergy.current + dy * 0.0018
+        );
+      }
+
+      lastMouse.current = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+    };
+
+    const onScroll = () => {
+      const dy = Math.abs(
+        window.scrollY - lastScroll.current
+      );
+      energy.current = Math.min(
+        MAX_ENERGY,
+        energy.current + dy * ENERGY_RISE * 0.5
+      );
+      lastScroll.current = window.scrollY;
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener(
+        'mousemove',
+        onMouseMove
+      );
+      window.removeEventListener(
+        'scroll',
+        onScroll
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    let raf = 0;
+
+    const render = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+      energy.current *= ENERGY_DECAY;
+      colorEnergy.current = lerp(
+        colorEnergy.current,
+        0,
+        COLOR_BLEND_SPEED
+      );
+
+      (Object.keys(FLOW_CONFIG) as FlowKey[]).forEach(
+        (key) => {
+          const states = FLOW_CONFIG[key];
+          const segments = states.length - 1;
+
+          const scrollMax =
+            document.body.scrollHeight - h;
+          const s =
+            scrollMax > 0
+              ? window.scrollY / scrollMax
+              : 0;
+
+          const scrollP = Math.min(
+            Math.max(s, 0),
+            0.999999
+          );
+
+          const seg = Math.floor(
+            scrollP * segments
+          );
+          const t =
+            scrollP * segments - seg;
+
+          const a = states[seg];
+          const b = states[seg + 1];
+
+          const interp: FlowState = [
+            lerp(a[0], b[0], t),
+            lerp(a[1], b[1], t),
+            lerp(a[2], b[2], t),
+            lerp(a[3], b[3], t),
+            lerp(a[4], b[4], t),
+          ];
+
+          phaseRef.current[key] += 0.01;
+
+          const path = svg.querySelector(
+            `[data-line="${key}"]`
+          ) as SVGPathElement | null;
+
+          const alpha =
+            0.26 + energy.current * 0.32;
+
+          path?.setAttribute(
+            'd',
+            buildPath(
+              w,
+              h,
+              interp,
+              phaseRef.current[key]
+            )
+          );
+          path?.setAttribute(
+            'stroke-opacity',
+            alpha.toFixed(3)
+          );
+          path?.setAttribute(
+            'stroke',
+            lerpColor(
+              COLORS[key].base,
+              COLORS[key].active,
+              colorEnergy.current
+            )
+          );
+        }
+      );
+
+      raf = requestAnimationFrame(render);
+    };
+
+    raf = requestAnimationFrame(render);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+    >
+      <svg
+        ref={svgRef}
+        className="absolute inset-0"
+        fill="none"
+      >
+        {(Object.keys(FLOW_CONFIG) as FlowKey[]).map(
+          (key) => (
+            <path
+              key={key}
+              data-line={key}
+              stroke={COLORS[key].base}
+              strokeWidth={2.3}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          )
+        )}
+      </svg>
+    </div>
+  );
+}
+================================================================================
+FILE: src/components/Card.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+
+export function Card({ children }: PropsWithChildren) {
+  return (
+    <div className="rounded-lg border border-line/60 bg-panel/40 p-6 backdrop-blur shadow-soft transition-transform duration-200 hover:-translate-y-0.5">
+      {children}
+    </div>
+  );
+}
+================================================================================
+FILE: src/components/Container.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+
+type Props = PropsWithChildren<{ className?: string }>;
+
+export function Container({ className = '', children }: Props) {
+  return <div className={`mx-auto w-full max-w-[1440px] px-6 md:px-10 ${className}`}>{children}</div>;
+}
+================================================================================
+FILE: src/components/Counter.tsx
+================================================================================
+
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
+import { useEffect } from 'react';
+
+type CounterProps = {
+  value: number;
+  suffix?: string;
+};
+
+export function Counter({ value, suffix = '' }: CounterProps) {
+  const count = useMotionValue(0);
+
+  const displayValue = useTransform(count, (latest) =>
+    `${Math.floor(latest).toString().padStart(2, '0')}${suffix}`
+  );
+
+  useEffect(() => {
+    const controls = animate(count, value, {
+      duration: 0.6,
+    });
+
+    return () => controls.stop();
+  }, [count, value]);
+
+  return <motion.span>{displayValue}</motion.span>;
+}
+================================================================================
+FILE: src/components/RevealSection.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+import { motion } from 'framer-motion';
+
+type RevealProps = PropsWithChildren<{
+  delay?: number;
+  className?: string;
+}>;
+
+export function Reveal({
+  children,
+  delay = 0,
+  className = '',
+}: RevealProps) {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 36,
+        filter: 'blur(8px)',
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+      }}
+      viewport={{
+        once: true,
+        amount: 0.22,
+      }}
+      transition={{
+        duration: 0.9,
+        delay,
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+================================================================================
+FILE: src/components/ScrollToHash.tsx
+================================================================================
+
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+export function ScrollToHash() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    const id = hash.replace('#', '');
+
+    const timeout = window.setTimeout(() => {
+      const el = document.getElementById(id);
+
+      if (!el) return;
+
+      const headerOffset = 96;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
+  }, [pathname, hash]);
+
+  return null;
+}
+================================================================================
+FILE: src/components/Section.tsx
+================================================================================
+
+import type { PropsWithChildren } from 'react';
+import { Container } from './Container';
+
+type SectionProps = PropsWithChildren<{
+  id?: string;
+  width?: 'narrow' | 'wide';
+  className?: string;
+  /** Default: "py-24" */
+  paddingClassName?: string;
+}>;
+
+export function Section({
+  id,
+  width = 'narrow',
+  className = '',
+  paddingClassName = 'py-24',
+  children,
+}: SectionProps) {
+  const maxWidth = width === 'wide' ? 'max-w-4xl' : 'max-w-3xl';
+
+  return (
+    <section id={id} className={`relative ${paddingClassName} ${className}`.trim()}>
+      <Container>
+        <div className={`${maxWidth} mx-auto`}>{children}</div>
+      </Container>
+    </section>
+  );
+}
+================================================================================
+FILE: src/components/footer.tsx
+================================================================================
+
+import { Link } from 'react-router-dom';
+
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Footer() {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="border-t border-fg/10 bg-bg py-14">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="max-w-[620px] text-[13px] leading-6 text-fg/45">
+              {t('footerDescription')}
+            </p>
+          </div>
+
+          <div className="flex flex-col items-start gap-4 md:items-end">
+            <div className="text-sm text-fg/45">
+              {t('footerCopyright').replace('{{year}}', String(year))}
+            </div>
+
+            <Link
+              to="/privacy"
+              className="text-sm text-fg/55 transition hover:text-fg"
+            >
+              {t('footerPrivacy')}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+================================================================================
+FILE: src/components/header.tsx
+================================================================================
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Container } from './Container';
+import { useLanguage } from '../lib/LanguageContext';
+
+type NavSubItem = {
+  label: string;
+  href: string;
+  dividerAfter?: boolean;
+};
+
+type NavItem = {
+  label: string;
+  items: NavSubItem[];
+};
+
+export function Header() {
+  const { lang, setLang } = useLanguage();
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
+  const NAV_ITEMS: NavItem[] = [
+    {
+      label: lang === 'tr' ? 'ÜRÜNLER' : 'PRODUCTS',
+      items: [
+        {
+          label: lang === 'tr' ? 'Tüm Ürünler' : 'All Products',
+          href: '/#products',
+          dividerAfter: true,
+        },
+        {
+          label: 'ALKON',
+          href: '/alkon',
+        },
+        {
+          label: 'YÖRÜK',
+          href: '/yoruk',
+        },
+        {
+          label: 'YAYA',
+          href: '/yaya',
+        },
+      ],
+    },
+    {
+      label: lang === 'tr' ? 'KEŞFET' : 'EXPLORE',
+      items: [
+        {
+          label:
+            lang === 'tr'
+              ? 'Çekirdek Teknoloji'
+              : 'Core Technology',
+          href: '/#technology',
+        },
+        {
+          label:
+            lang === 'tr'
+              ? 'Kullanım Alanları'
+              : 'Applications',
+          href: '/#applications',
+        },
+        {
+          label:
+            lang === 'tr'
+              ? 'İletişim'
+              : 'Contact',
+          href: '/#contact',
+        },
+      ],
+    },
+  ];
+
+  const langButtonClass = (target: 'tr' | 'en') =>
+    [
+      'text-[11px] tracking-[0.18em] transition-colors',
+      lang === target
+        ? 'text-fg'
+        : 'text-muted hover:text-fg',
+    ].join(' ');
+
+  return (
+    <header className="fixed left-0 top-0 z-50 w-full">
+      <div className="border-b border-line/50 bg-bg/85 backdrop-blur-xl">
+        <Container className="flex h-20 items-center">
+          <Link
+            to="/#hero"
+            aria-label="Ayrota ana sayfa"
+            className="group inline-flex items-center gap-4"
+          >
+            <img
+              src="/icon.png"
+              alt="Ayrota Logo"
+              className="h-10 w-10 object-contain opacity-90 transition-opacity group-hover:opacity-100"
+            />
+
+            <span className="text-[22px] font-semibold tracking-[0.28em] text-fg">
+              AYROTA
+            </span>
+          </Link>
+
+          <div className="ml-auto flex items-center gap-16">
+            <nav className="hidden items-center gap-12 lg:flex">
+              {NAV_ITEMS.map((item) => (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setActiveMenu(item.label)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <button
+                    type="button"
+                    className={[
+                      'text-[12px] font-medium tracking-[0.16em] transition-colors',
+                      activeMenu === item.label
+                        ? 'text-fg'
+                        : 'text-muted hover:text-fg',
+                    ].join(' ')}
+                  >
+                    {item.label}
+                  </button>
+
+                  {activeMenu === item.label && (
+                    <div className="absolute left-1/2 top-full -translate-x-1/2 pt-5">
+                      <div className="min-w-[220px] border border-fg/10 bg-bg/95 px-5 py-5 shadow-2xl shadow-black/20 backdrop-blur-xl">
+                        <div className="flex flex-col">
+                          {item.items.map((subItem) => (
+                            <div key={subItem.label}>
+                              <Link
+                                to={subItem.href}
+                                onClick={() => setActiveMenu(null)}
+                                className="group flex items-center gap-3 whitespace-nowrap py-2"
+                              >
+                                <span className="h-px w-0 bg-cyan-300/80 transition-all duration-300 group-hover:w-4" />
+
+                                <span className="text-[12px] font-medium tracking-[0.08em] text-fg/60 transition-colors group-hover:text-fg">
+                                  {subItem.label}
+                                </span>
+                              </Link>
+
+                              {subItem.dividerAfter && (
+                                <div className="my-3 h-px bg-fg/10" />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            <div className="hidden items-center gap-3 lg:flex">
+              <button
+                type="button"
+                onClick={() => setLang('tr')}
+                className={langButtonClass('tr')}
+              >
+                TR
+              </button>
+
+              <span className="h-3 w-px bg-line/80" />
+
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={langButtonClass('en')}
+              >
+                EN
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3 lg:hidden">
+              <button
+                type="button"
+                onClick={() => setLang('tr')}
+                className={langButtonClass('tr')}
+              >
+                TR
+              </button>
+
+              <span className="text-muted">/</span>
+
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={langButtonClass('en')}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+        </Container>
+      </div>
+    </header>
+  );
+}
+================================================================================
+FILE: src/i18n/translations.ts
+================================================================================
+
+export type Language = 'en' | 'tr';
+
+export const translations = {
+  /* --------------------
+     HERO
+  -------------------- */
+
+  homeHeroKicker: {
+    en: 'INERTIAL INTELLIGENCE',
+    tr: 'NAVİGASYON VE HAREKET ANALİZİ',
+  },
+
+  homeHeroTitle: {
+    en: 'Inertial Intelligence for Systems in Motion',
+    tr: 'IMU Verisinden Konum ve Hareket Bilgisine',
+  },
+
+  homeHeroLead: {
+    en: 'Ayrota turns IMU-based navigation and motion analytics technologies into solutions for autonomous systems, vehicles and indoor operations.',
+    tr: 'Ayrota, IMU verisini işleyerek konum, yönelim ve hareket bilgisi üreten yazılımlar geliştirir. Bu yazılımlar otonom platformlarda, araç operasyonlarında ve kapalı alan uygulamalarında kullanılır.',
+  },
+
+  heroPillarImu: {
+    en: 'NAVIGATION',
+    tr: 'NAVİGASYON',
+  },
+
+  heroPillarSwapc: {
+    en: 'SENSOR ENGINEERING',
+    tr: 'SENSÖR MÜHENDİSLİĞİ',
+  },
+
+  heroPillarEndToEnd: {
+    en: 'MOTION ANALYTICS',
+    tr: 'HAREKET ANALİZİ',
+  },
+
+  heroPillarIndependent: {
+    en: 'EMBEDDED INTEGRATION',
+    tr: 'GÖMÜLÜ SİSTEM ENTEGRASYONU',
+  },
+
+  /* --------------------
+     PRODUCTS
+  -------------------- */
+
+  productsKicker: {
+    en: 'PRODUCTS',
+    tr: 'ÜRÜNLER',
+  },
+
+  productsTitle: {
+    en: 'Inertial Technology Built for Real Operations',
+    tr: 'Aynı Teknik Altyapı, Üç Farklı Ürün',
+  },
+
+  productsLead: {
+    en: 'Ayrota brings its inertial navigation and motion intelligence capabilities into autonomous systems, vehicle operations and indoor environments.',
+    tr: 'Ortak navigasyon, sensör işleme ve hareket kestirimi altyapısı; farklı saha ihtiyaçlarına göre farklı ürünlere dönüşmüştür.',
+  },
+
+  productsAlkonEyebrow: {
+    en: 'AUTONOMOUS NAVIGATION & MISSION SYSTEM',
+    tr: 'OTONOM NAVİGASYON VE GÖREV SİSTEMİ',
+  },
+
+  productsAlkonDescription: {
+    en: 'Alkon supports autonomous platforms operating where GNSS is unavailable or unreliable. It combines inertial navigation with mission planning and mission execution in a single software system.',
+    tr: 'Alkon, GNSS’in kullanılamadığı veya güvenilirliğinin azaldığı koşullarda otonom platformların navigasyon ve görev süreçlerini destekler. IMU tabanlı navigasyon, görev planlama ve görev yürütme aynı yazılım sistemi içinde çalışır.',
+  },
+
+  productsYorukEyebrow: {
+    en: 'VEHICLE & ROAD INTELLIGENCE',
+    tr: 'YOL, SÜRÜŞ VE FİLO ANALİZİ',
+  },
+
+  productsYorukDescription: {
+    en: 'Yoruk turns sensor data collected from moving vehicles into road condition, driving behaviour and operational insights for fleets, municipalities and transportation operations.',
+    tr: 'Yörük, araçlardan toplanan hareket verilerini yol durumu, sürüş davranışı ve rota performansı açısından analiz eder. Belediyeler, filolar ve ulaşım ekipleri için düzenli ve karşılaştırılabilir bilgiler üretir.',
+  },
+
+  productsYayaEyebrow: {
+    en: 'INDOOR MOVEMENT & NAVIGATION',
+    tr: 'KAPALI ALAN HAREKETİ VE NAVİGASYON',
+  },
+
+  productsYayaDescription: {
+    en: 'Yaya uses mobile inertial sensing to understand pedestrian movement where GNSS cannot be used. It supports indoor navigation and movement analytics for hospitals, warehouses and large facilities.',
+    tr: 'Yaya, mobil cihazlardaki IMU verisini kullanarak GNSS erişiminin olmadığı ortamlarda yaya hareketini kestirir. Elde edilen bilgiler kapalı alan navigasyonu ve hareket analizi uygulamalarında kullanılır.',
+  },
+
+  productsExplore: {
+    en: 'EXPLORE',
+    tr: 'İNCELE',
+  },
+
+  /* --------------------
+     APPLICATIONS
+  -------------------- */
+
+  platformsKicker: {
+    en: 'APPLICATIONS',
+    tr: 'KULLANIM ALANLARI',
+  },
+
+  platformsLead: {
+    en: 'Ayrota technologies adapt to different motion, navigation and operational intelligence requirements.',
+    tr: 'Navigasyon ve hareket kestirimi kabiliyetleri, farklı çalışma ortamlarının ihtiyaçlarına göre uyarlanabilir.',
+  },
+
+  platformsAutonomyTitle: {
+    en: 'Autonomous Systems',
+    tr: 'Otonom Sistemler',
+  },
+
+  platformsAutonomyText: {
+    en: 'Navigation and mission capabilities for GNSS-constrained operations.',
+    tr: 'GNSS’in güvenilir olmadığı görevlerde otonom platformların navigasyon ve görev süreçlerinin sürdürülmesi.',
+  },
+
+  platformsRoadTitle: {
+    en: 'Road & Fleet',
+    tr: 'Yol ve Filo',
+  },
+
+  platformsRoadText: {
+    en: 'Road condition, driving and vehicle motion analytics.',
+    tr: 'Araç hareketlerinden yol durumu, sürüş davranışı ve rota performansının değerlendirilmesi.',
+  },
+
+  platformsIndoorTitle: {
+    en: 'Indoor Environments',
+    tr: 'Kapalı Alanlar',
+  },
+
+  platformsIndoorText: {
+    en: 'Pedestrian navigation and movement analysis where GNSS is unavailable.',
+    tr: 'GNSS erişiminin olmadığı tesislerde yaya hareketinin kestirilmesi ve bina içi navigasyon.',
+  },
+
+  platformsEngineeringTitle: {
+    en: 'Engineering',
+    tr: 'Mühendislik',
+  },
+
+  platformsEngineeringText: {
+    en: 'IMU analysis, navigation development and system integration.',
+    tr: 'IMU verilerinin değerlendirilmesi, navigasyon algoritmalarının geliştirilmesi ve sistem entegrasyonu.',
+  },
+
+  /* --------------------
+     CORE TECHNOLOGY
+  -------------------- */
+
+  problemKicker: {
+    en: 'CORE TECHNOLOGY',
+    tr: 'ÇEKİRDEK TEKNOLOJİ',
+  },
+
+  problemTitle: {
+    en: 'The foundation of inertial intelligence',
+    tr: 'IMU Verisi Konum ve Hareket Bilgisine Nasıl Dönüşür?',
+  },
+
+  problemLead: {
+    en: 'Ayrota’s technology core is a shared engineering foundation that turns IMU data into navigation, motion estimation and operational insight.',
+    tr: 'İvmeölçer ve jiroskop ölçümleri önce veri kalitesi, zamanlama ve sensör davranışı açısından değerlendirilir. Ardından bu ölçümler işlenerek konum, yönelim ve hareket kestirimi üretilir.',
+  },
+
+  problemSecondLead: {
+    en: 'The same core is adapted across autonomous systems, vehicles and indoor applications.',
+    tr: 'Aynı yazılım ve algoritma altyapısı; kullanılan sensöre, platforma ve çalışma koşullarına göre uyarlanarak farklı ürünlerde kullanılır.',
+  },
+
+  problemFlowGnssTitle: {
+    en: 'IMU DATA',
+    tr: 'IMU VERİSİ',
+  },
+
+  problemFlowGnssSubtitle: {
+    en: 'Inertial measurements capture system motion and provide the base input for estimation and analysis.',
+    tr: 'İvmeölçer ve jiroskop verileri, sistemin hareketini tanımlayan temel ölçümleri sağlar.',
+  },
+
+  problemFlowSensorTitle: {
+    en: 'SENSOR ENGINEERING',
+    tr: 'SENSÖR MÜHENDİSLİĞİ',
+  },
+
+  problemFlowSensorSubtitle: {
+    en: 'Sensor behaviour, data quality, timing and motion characteristics are evaluated at engineering level.',
+    tr: 'Ölçümlerin güvenilirliği; veri kalitesi, zamanlama ve sensör davranışı dikkate alınarak değerlendirilir.',
+  },
+
+  problemFlowCoreTitle: {
+    en: 'INERTIAL CORE',
+    tr: 'NAVİGASYON VE KESTİRİM',
+  },
+
+  problemFlowCoreSubtitle: {
+    en: 'A shared software and algorithm foundation supports navigation, motion estimation and movement analytics.',
+    tr: 'Sensör ölçümleri işlenerek konum, yönelim ve hareket bilgileri hesaplanır.',
+  },
+
+  problemFlowNavTitle: {
+    en: 'APPLICATION LAYER',
+    tr: 'UYGULAMA KATMANI',
+  },
+
+  problemFlowNavSubtitle: {
+    en: 'Core capabilities are integrated into autonomous platforms, vehicle operations and indoor applications.',
+    tr: 'Üretilen bilgiler, ilgili platformun veya uygulamanın ihtiyaç duyduğu biçimde sisteme aktarılır.',
+  },
+
+  /* --------------------
+     CONTACT
+  -------------------- */
+
+  contactKicker: {
+    en: 'CONTACT',
+    tr: 'İLETİŞİM',
+  },
+
+  contactTitle: {
+    en: 'Get in touch',
+    tr: 'Bizimle iletişime geçin',
+  },
+
+  corporateContactTitle: {
+    en: 'Corporate contact',
+    tr: 'Kurumsal İletişim',
+  },
+
+  corporateContactDescription: {
+    en: 'Use the form for partnerships, pilot studies, evaluation access, and corporate inquiries.',
+    tr: 'Navigasyon, sensör analizi, araç verisi veya kapalı alan hareketiyle ilgili projeniz için bizimle iletişime geçebilirsiniz. Teknik değerlendirme, entegrasyon ve iş birliği taleplerinizi form üzerinden iletebilirsiniz.',
+  },
+
+  contactLabelOrg: {
+    en: 'PERSON / ORGANIZATION',
+    tr: 'AD / KURUM',
+  },
+
+  contactLabelEmail: {
+    en: 'CONTACT EMAIL',
+    tr: 'E-POSTA',
+  },
+
+  contactLabelMessage: {
+    en: 'MESSAGE',
+    tr: 'MESAJ',
+  },
+
+  contactPlaceholderOrg: {
+    en: 'Enter your name or organization',
+    tr: 'Adınızı veya kurumunuzu yazın',
+  },
+
+  contactPlaceholderEmail: {
+    en: 'Enter your email address',
+    tr: 'E-posta adresinizi yazın',
+  },
+
+  contactPlaceholderMessage: {
+    en: 'Write your message here...',
+    tr: 'Projenizi veya çözmek istediğiniz problemi kısaca anlatın...',
+  },
+
+  contactSubmit: {
+    en: 'SEND MESSAGE',
+    tr: 'MESAJI GÖNDER',
+  },
+
+  contactMapTitle: {
+    en: 'Ayrota office location',
+    tr: 'Ayrota ofis konumu',
+  },
+
+  /* --------------------
+     FOOTER
+  -------------------- */
+
+  footerCopyright: {
+    en: '© {{year}} Ayrota',
+    tr: '© {{year}} Ayrota',
+  },
+
+  footerDescription: {
+    en: 'Inertial navigation and motion intelligence for autonomous systems, vehicles and indoor operations.',
+    tr: 'Otonom sistemler, araçlar ve kapalı alan uygulamaları için navigasyon, sensör işleme ve hareket analizi yazılımları.',
+  },
+
+  footerPrivacy: {
+    en: 'Privacy & Data Notice',
+    tr: 'Gizlilik ve Veri Bildirimi',
+  },
+
+  /* --------------------
+     ILBER PAGE
+  -------------------- */
+
+  ilberHeroStatement: {
+    en: 'Turn your IMU logs into engineering reports.',
+    tr: 'IMU Veriniz Hedef Uygulama İçin Uygun mu?',
+  },
+
+  ilberHeroText: {
+    en: 'İlber is Ayrota’s technical analysis and reporting service for IMU datasets. We analyze your data, identify quality and sensor-related issues, and deliver customer-specific engineering reports.',
+    tr: 'İlber, IMU veri setlerini veri kalitesi, sensör davranışı ve hedef kullanım açısından değerlendirir. Analiz sonucunda verinin güçlü ve sorunlu yönlerini ortaya koyan mühendislik bulguları sunulur.',
+  },
+
+  ilberSendData: {
+    en: 'REQUEST A TECHNICAL REVIEW',
+    tr: 'TEKNİK İNCELEME TALEP ET',
+  },
+
+  ilberMiniDetect: {
+    en: 'Data Quality',
+    tr: 'Veri Kalitesi',
+  },
+
+  ilberMiniRepair: {
+    en: 'Sensor Health',
+    tr: 'Sensör Davranışı',
+  },
+
+  ilberMiniAnalyze: {
+    en: 'Engineering Analysis',
+    tr: 'Mühendislik Analizi',
+  },
+
+  ilberMiniValidate: {
+    en: 'Custom Report',
+    tr: 'İhtiyaca Özel Rapor',
+  },
+
+  ilberAnalysisScope: {
+    en: 'SCOPE',
+    tr: 'ANALİZ KAPSAMI',
+  },
+
+  ilberAnalysisScopeTitle: {
+    en: 'We analyze your IMU data.',
+    tr: 'IMU Verisini Teknik Açıdan Değerlendirin',
+  },
+
+  ilberAnalysisScopeText: {
+    en: 'İlber evaluates IMU datasets across data integrity, sensor reliability and motion-related quality layers. The analysis scope is customized according to each customer’s data structure, test scenario and engineering needs.',
+    tr: 'İnceleme; veri bütünlüğü, sensör davranışı, sinyal kalitesi ve hareket kaynaklı etkileri kapsar. Analiz kapsamı veri yapısına, test senaryosuna ve çözülmek istenen mühendislik problemine göre belirlenir.',
+  },
+
+  ilberIntegrityGroupTitle: {
+    en: 'Data Quality & Integrity',
+    tr: 'Veri Kalitesi ve Bütünlüğü',
+  },
+
+  ilberSensorGroupTitle: {
+    en: 'Sensor Health & Signal Behavior',
+    tr: 'Sensör ve Sinyal Davranışı',
+  },
+
+  ilberNavigationGroupTitle: {
+    en: 'Motion, Flight & Consistency Analysis',
+    tr: 'Hareket, Uçuş ve Tutarlılık Analizi',
+  },
+
+  ilberRepairTitle: {
+    en: 'Missing Data & Timing Checks',
+    tr: 'Eksik Veri ve Zamanlama Kontrolleri',
+  },
+
+  ilberConsistencyTitle: {
+    en: 'Run-to-Run Consistency',
+    tr: 'Testler Arası Tutarlılık',
+  },
+
+  ilberCadenceTitle: {
+    en: 'Dataset Suitability Review',
+    tr: 'Veri Setinin Kullanıma Uygunluğu',
+  },
+
+  ilberSensorDomainTitle: {
+    en: 'IMU Signal Quality',
+    tr: 'IMU Sinyal Kalitesi',
+  },
+
+  ilberSensorHealthTitle: {
+    en: 'Sensor Anomaly Detection',
+    tr: 'Sensör Anomalilerinin Tespiti',
+  },
+
+  ilberPhysicalTitle: {
+    en: 'Physical Plausibility Checks',
+    tr: 'Fiziksel Tutarlılık Kontrolleri',
+  },
+
+  ilberGnssTitle: {
+    en: 'GNSS / INS Data Review',
+    tr: 'GNSS / INS Veri İncelemesi',
+  },
+
+  ilberSpectralTitle: {
+    en: 'Noise & Spectral Analysis',
+    tr: 'Gürültü ve Spektral Analiz',
+  },
+
+  ilberMotionTitle: {
+    en: 'Motion / Flight Behavior Analysis',
+    tr: 'Hareket ve Uçuş Davranışı Analizi',
+  },
+
+  ilberHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'SÜREÇ NASIL İŞLER?',
+  },
+
+  ilberWorkflowSendTitle: {
+    en: 'Share your dataset.',
+    tr: 'Veriyi Paylaşın',
+  },
+
+  ilberWorkflowSendText: {
+    en: 'Send your IMU, INS or UAV flight logs for technical review.',
+    tr: 'IMU, INS veya insansız hava aracı uçuş kayıtlarınızı teknik inceleme için paylaşın.',
+  },
+
+  ilberWorkflowAnalyzeTitle: {
+    en: 'We analyze it.',
+    tr: 'Veri İncelenir',
+  },
+
+  ilberWorkflowAnalyzeText: {
+    en: 'Ayrota evaluates your data through İlber’s engineering analysis workflow.',
+    tr: 'Veri; bütünlük, zamanlama, sinyal kalitesi, sensör davranışı ve hareket özellikleri açısından değerlendirilir.',
+  },
+
+  ilberWorkflowReportTitle: {
+    en: 'Receive your report.',
+    tr: 'Sonuçlar Raporlanır',
+  },
+
+  ilberWorkflowReportText: {
+    en: 'You receive a customer-specific PDF report with findings, plots and engineering comments.',
+    tr: 'Bulgular, grafikler ve mühendislik değerlendirmeleri ihtiyaca göre hazırlanan bir raporda sunulur.',
+  },
+
+  ilberWorkflowPreventTitle: {
+    en: 'Decide faster.',
+    tr: 'Sorunun Kaynağını Netleştirin',
+  },
+
+  ilberWorkflowPreventText: {
+    en: 'Identify data-related issues before they are misinterpreted as algorithm or software problems.',
+    tr: 'Veri ve sensör kaynaklı sorunları algoritma veya yazılım problemlerinden ayırarak geliştirme sürecindeki belirsizliği azaltın.',
+  },
+
+  exampleAnalyses: {
+    en: 'Example Analyses',
+    tr: 'Örnek Analizler',
+  },
+
+  ilberFinalCtaTitle: {
+    en: 'Have IMU or flight logs?',
+    tr: 'İncelenmesi Gereken Bir IMU Veri Setiniz mi Var?',
+  },
+
+  ilberFinalCtaAccent: {
+    en: 'Let us turn them into an engineering report.',
+    tr: 'Verinin hedef kullanım için uygunluğunu teknik olarak değerlendirelim.',
+  },
+
+  /* --------------------
+     ALKON PAGE
+  -------------------- */
+
+  alkonProductCategory: {
+    en: 'AUTONOMOUS NAVIGATION & MISSION SYSTEM',
+    tr: 'OTONOM NAVİGASYON VE GÖREV SİSTEMİ',
+  },
+
+  alkonHeroStatement: {
+    en: 'Navigation and Mission Capability Where GNSS Cannot Be Relied Upon',
+    tr: 'GNSS Kısıtlı Ortamlarda Navigasyon ve Görev Sürekliliği',
+  },
+
+  alkonHeroText: {
+    en: 'Alkon brings inertial navigation, mission planning and mission execution together in a single software system for autonomous platforms.',
+    tr: 'Alkon, GNSS’in güvenilir olmadığı koşullarda otonom platformların navigasyon ve görev süreçlerini destekler. IMU tabanlı navigasyon, görev planlama ve görev yürütme aynı yazılım sistemi içinde bir araya gelir.',
+  },
+
+  alkonMiniNavigation: {
+    en: 'INERTIAL NAVIGATION',
+    tr: 'IMU TABANLI NAVİGASYON',
+  },
+
+  alkonMiniMission: {
+    en: 'MISSION PLANNING',
+    tr: 'GÖREV PLANLAMA',
+  },
+
+  alkonMiniAutonomy: {
+    en: 'AUTONOMOUS OPERATION',
+    tr: 'OTONOM GÖREV',
+  },
+
+  alkonMiniIntegration: {
+    en: 'PLATFORM INTEGRATION',
+    tr: 'PLATFORM ENTEGRASYONU',
+  },
+
+  alkonScopeTitle: {
+    en: 'SYSTEM CAPABILITIES',
+    tr: 'SİSTEM KABİLİYETLERİ',
+  },
+
+  alkonScopeMainTitle: {
+    en: 'Navigation and Mission System for Autonomous Platforms',
+    tr: 'Navigasyon ve Görev Yönetimi ',
+  },
+
+  alkonScopeText: {
+    en: 'Alkon combines inertial navigation outputs with mission planning, mission execution and platform integration for operations where GNSS is constrained.',
+    tr: 'Sensörlerden elde edilen navigasyon bilgisi, görev planlama ve platform kontrolüyle birlikte kullanılır. Böylece navigasyon ve görev süreçleri aynı yazılım katmanı üzerinden yönetilebilir.',
+  },
+
+  alkonNavigationGroupTitle: {
+    en: 'Navigation',
+    tr: 'Navigasyon',
+  },
+
+  alkonMissionGroupTitle: {
+    en: 'Mission System',
+    tr: 'Görev Yönetimi',
+  },
+
+  alkonIntegrationGroupTitle: {
+    en: 'Integration',
+    tr: 'Entegrasyon',
+  },
+
+  alkonCapabilityInertialNavigation: {
+    en: 'IMU-based inertial navigation',
+    tr: 'IMU tabanlı navigasyon',
+  },
+
+  alkonCapabilityPositioning: {
+    en: 'Position and motion estimation',
+    tr: 'Konum ve hareket kestirimi',
+  },
+
+  alkonCapabilityHeading: {
+    en: 'Heading estimation',
+    tr: 'Yönelim kestirimi',
+  },
+
+  alkonCapabilityMissionPlanning: {
+    en: 'Mission planning',
+    tr: 'Görev planlama',
+  },
+
+  alkonCapabilityMissionExecution: {
+    en: 'Autonomous mission execution',
+    tr: 'Otonom görev yürütme',
+  },
+
+  alkonCapabilityWaypoint: {
+    en: 'Waypoint-based navigation',
+    tr: 'Rota noktaları üzerinden navigasyon',
+  },
+
+  alkonCapabilityAutonomousPlatforms: {
+    en: 'Autonomous platform integration',
+    tr: 'Otonom platform entegrasyonu',
+  },
+
+  alkonCapabilityGroundControl: {
+    en: 'Ground control integration',
+    tr: 'Yer kontrol sistemi entegrasyonu',
+  },
+
+  alkonCapabilityMavlink: {
+    en: 'MAVLink-based navigation interface',
+    tr: 'MAVLink tabanlı navigasyon arayüzü',
+  },
+
+  alkonHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'NASIL ÇALIŞIR?',
+  },
+
+  alkonHowItWorksTitle: {
+    en: 'From Motion to Autonomous Mission Execution',
+    tr: 'Sensör Verisi Otonom Göreve Nasıl Dönüşür?',
+  },
+
+  alkonWorkflowSenseTitle: {
+    en: 'Sense Motion',
+    tr: 'Hareket Ölçülür',
+  },
+
+  alkonWorkflowSenseText: {
+    en: 'Onboard inertial sensors provide continuous motion measurements to the navigation software.',
+    tr: 'Platform üzerindeki ataletsel sensörler hareketi sürekli ölçerek navigasyon yazılımına veri sağlar.',
+  },
+
+  alkonWorkflowNavigateTitle: {
+    en: 'Estimate Navigation',
+    tr: 'Navigasyon Bilgisi Üretilir',
+  },
+
+  alkonWorkflowNavigateText: {
+    en: 'Inertial measurements are processed to generate navigation states for the autonomous platform.',
+    tr: 'Sensör ölçümleri işlenerek platformun konum, hareket ve yönelim bilgileri kestirilir.',
+  },
+
+  alkonWorkflowPlanTitle: {
+    en: 'Plan the Mission',
+    tr: 'Görev Planlanır',
+  },
+
+  alkonWorkflowPlanText: {
+    en: 'Mission objectives and waypoint sequences are defined through the mission software layer.',
+    tr: 'Görev hedefleri, rota noktaları ve izlenecek görev akışı yazılım üzerinden tanımlanır.',
+  },
+
+  alkonWorkflowExecuteTitle: {
+    en: 'Execute the Mission',
+    tr: 'Görev Yürütülür',
+  },
+
+  alkonWorkflowExecuteText: {
+    en: 'Navigation states and mission commands are delivered to the platform to support autonomous mission execution.',
+    tr: 'Navigasyon bilgileri ve görev komutları platforma aktarılır ve tanımlanan görev akışı yürütülür.',
+  },
+
+  alkonFinalCtaTitle: {
+    en: 'Evaluate Alkon for Your Platform',
+    tr: 'Alkon Platformunuza Nasıl Entegre Edilebilir?',
+  },
+
+  alkonFinalCtaText: {
+    en: 'Tell us about your platform, mission environment and navigation requirements. We can evaluate the appropriate integration approach together.',
+    tr: 'Platformunuzu, görev ortamınızı ve navigasyon gereksinimlerinizi paylaşın. Uygun entegrasyon yaklaşımını birlikte değerlendirelim.',
+  },
+
+  alkonCtaButton: {
+    en: 'CONTACT US',
+    tr: 'İLETİŞİME GEÇ',
+  },
+
+  /* --------------------
+     YORUK PAGE
+  -------------------- */
+
+  yorukProductCategory: {
+    en: 'VEHICLE & ROAD INTELLIGENCE',
+    tr: 'YOL, SÜRÜŞ VE FİLO ANALİZİ',
+  },
+
+  yorukHeroStatement: {
+    en: 'Turn Vehicle Motion Into Road and Driving Intelligence',
+    tr: 'Araç Verisinden Yol, Sürüş ve Rota Analizi',
+  },
+
+  yorukHeroText: {
+    en: 'Yoruk transforms GPS and IMU data collected from moving vehicles into insights on road condition, driving behaviour and operational performance.',
+    tr: 'Yörük, günlük araç operasyonlarından toplanan GPS ve IMU verilerini analiz eder. Yol durumu, sürüş davranışı ve rota performansı hakkında düzenli ve karşılaştırılabilir bilgiler üretir.',
+  },
+
+  yorukMiniRoad: {
+    en: 'ROAD INTELLIGENCE',
+    tr: 'YOL DURUMU',
+  },
+
+  yorukMiniDriving: {
+    en: 'DRIVING ANALYTICS',
+    tr: 'SÜRÜŞ ANALİZİ',
+  },
+
+  yorukMiniFleet: {
+    en: 'FLEET OPERATIONS',
+    tr: 'FİLO OPERASYONLARI',
+  },
+
+  yorukMiniSensors: {
+    en: 'GPS + IMU',
+    tr: 'GPS + IMU',
+  },
+
+  yorukScopeTitle: {
+    en: 'PLATFORM CAPABILITIES',
+    tr: 'PLATFORM KABİLİYETLERİ',
+  },
+
+  yorukScopeMainTitle: {
+    en: 'Road and Vehicle Intelligence From Existing Motion Data',
+    tr: 'Mevcut Araçlardan Sürekli Saha Verisi',
+  },
+
+  yorukScopeText: {
+    en: 'Yoruk turns vehicle motion into a continuous source of information for road operations, driving analysis and fleet-level decision support.',
+    tr: 'Araçların günlük hareketi sürekli bir veri kaynağı olarak kullanılır. Aynı veriler yol durumunu izlemek, sürüş olaylarını değerlendirmek, rotaları karşılaştırmak ve bakım gerektiren bölgeleri belirlemek için analiz edilir.',
+  },
+
+  yorukRoadGroupTitle: {
+    en: 'Road Intelligence',
+    tr: 'Yol Durumu',
+  },
+
+  yorukDrivingGroupTitle: {
+    en: 'Driving Intelligence',
+    tr: 'Sürüş Davranışı',
+  },
+
+  yorukOperationsGroupTitle: {
+    en: 'Operational Analytics',
+    tr: 'Filo ve Rota Analizi',
+  },
+
+  yorukCapabilityRoadCondition: {
+    en: 'Road condition analysis',
+    tr: 'Yol durumunun değerlendirilmesi',
+  },
+
+  yorukCapabilityRouteSegments: {
+    en: 'Route and segment comparison',
+    tr: 'Rota ve yol kesimlerinin karşılaştırılması',
+  },
+
+  yorukCapabilityMaintenance: {
+    en: 'Maintenance prioritization insights',
+    tr: 'Bakım gerektiren bölgelerin önceliklendirilmesi',
+  },
+
+  yorukCapabilityDrivingEvents: {
+    en: 'Driving risk event analysis',
+    tr: 'Riskli sürüş olaylarının belirlenmesi',
+  },
+
+  yorukCapabilityDrivingPatterns: {
+    en: 'Driving behaviour patterns',
+    tr: 'Sürüş davranışlarının değerlendirilmesi',
+  },
+
+  yorukCapabilityMotionProfiles: {
+    en: 'Vehicle motion profiles',
+    tr: 'Araç hareket profillerinin çıkarılması',
+  },
+
+  yorukCapabilityFleetComparison: {
+    en: 'Fleet and route comparison',
+    tr: 'Filo ve rotaların karşılaştırılması',
+  },
+
+  yorukCapabilityMapReporting: {
+    en: 'Map-based analysis and reporting',
+    tr: 'Harita tabanlı analiz ve raporlama',
+  },
+
+  yorukCapabilityLongitudinal: {
+    en: 'Longitudinal road intelligence',
+    tr: 'Yol durumundaki değişimin zaman içinde izlenmesi',
+  },
+
+  yorukHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'NASIL ÇALIŞIR?',
+  },
+
+  yorukHowItWorksTitle: {
+    en: 'From Vehicle Motion to Operational Insight',
+    tr: 'Araç Verisi Nasıl Yol ve Sürüş Bilgisine Dönüşür?',
+  },
+
+  yorukWorkflowCollectTitle: {
+    en: 'Collect Motion Data',
+    tr: 'Veri Toplanır',
+  },
+
+  yorukWorkflowCollectText: {
+    en: 'GPS and IMU signals are collected during normal vehicle operations using mobile sensing devices.',
+    tr: 'GPS ve IMU verileri, araçların normal operasyonları sırasında mobil sensör cihazları üzerinden toplanır.',
+  },
+
+  yorukWorkflowAnalyzeTitle: {
+    en: 'Analyze Movement',
+    tr: 'Hareket Analiz Edilir',
+  },
+
+  yorukWorkflowAnalyzeText: {
+    en: 'Vehicle motion signals are processed to identify road characteristics, driving events and movement patterns.',
+    tr: 'Araç hareket sinyalleri işlenerek yol özellikleri, sürüş olayları ve tekrar eden hareket davranışları belirlenir.',
+  },
+
+  yorukWorkflowContextTitle: {
+    en: 'Add Operational Context',
+    tr: 'Konum ve Rotayla Eşleştirilir',
+  },
+
+  yorukWorkflowContextText: {
+    en: 'Motion findings are combined with route and location context to produce road- and vehicle-level intelligence.',
+    tr: 'Analiz sonuçları rota ve konum bilgileriyle eşleştirilerek olayların nerede ve hangi güzergah üzerinde gerçekleştiği belirlenir.',
+  },
+
+  yorukWorkflowDecisionTitle: {
+    en: 'Support Decisions',
+    tr: 'Sonuçlar Karar Sürecine Aktarılır',
+  },
+
+  yorukWorkflowDecisionText: {
+    en: 'Analysis and reporting help teams prioritize road actions, compare routes and understand driving behaviour.',
+    tr: 'Elde edilen sonuçlar bakım çalışmalarının önceliklendirilmesi, rotaların karşılaştırılması ve sürüş davranışlarının değerlendirilmesi için kullanılır.',
+  },
+
+  yorukApplicationsKicker: {
+    en: 'APPLICATIONS',
+    tr: 'KULLANIM ALANLARI',
+  },
+
+  yorukApplicationsTitle: {
+    en: 'Built for Road and Vehicle Operations',
+    tr: 'Yol ve Araç Operasyonlarında Kullanım',
+  },
+
+  yorukApplicationMunicipalities: {
+    en: 'Municipalities',
+    tr: 'Belediyeler',
+  },
+
+  yorukApplicationMunicipalitiesText: {
+    en: 'Use vehicle-generated movement data to support road inspection and maintenance prioritization.',
+    tr: 'Hizmet araçlarından toplanan verilerle yol durumu izlenebilir ve bakım gerektiren bölgeler önceliklendirilebilir.',
+  },
+
+  yorukApplicationFleets: {
+    en: 'Fleets',
+    tr: 'Araç Filoları',
+  },
+
+  yorukApplicationFleetsText: {
+    en: 'Compare routes, movement patterns and driving events across daily fleet operations.',
+    tr: 'Günlük operasyonlarda rotalar, araç hareketleri ve sürüş olayları karşılaştırılarak filo performansı değerlendirilebilir.',
+  },
+
+  yorukApplicationLogistics: {
+    en: 'Logistics & Transport',
+    tr: 'Lojistik ve Ulaşım',
+  },
+
+  yorukApplicationLogisticsText: {
+    en: 'Build operational insight from repeated vehicle movement across road networks.',
+    tr: 'Düzenli kullanılan güzergahlardan toplanan verilerle yol ve rota koşullarındaki değişim zaman içinde takip edilebilir.',
+  },
+
+  yorukFinalCtaTitle: {
+    en: 'Evaluate Yoruk for Your Vehicle Operations',
+    tr: 'Yörük Araç Operasyonlarınıza Nasıl Uyarlanabilir?',
+  },
+
+  yorukFinalCtaText: {
+    en: 'Tell us about your vehicles, operating routes and the road or driving questions you want to understand.',
+    tr: 'Araç yapınızı, kullandığınız rotaları ve değerlendirmek istediğiniz yol veya sürüş problemlerini paylaşın. Uygun kullanım yaklaşımını birlikte belirleyelim.',
+  },
+
+  yorukCtaButton: {
+    en: 'CONTACT US',
+    tr: 'İLETİŞİME GEÇ',
+  },
+
+  /* --------------------
+     YAYA PAGE
+  -------------------- */
+
+  yayaProductCategory: {
+    en: 'INDOOR MOVEMENT & NAVIGATION',
+    tr: 'KAPALI ALAN HAREKETİ VE NAVİGASYON',
+  },
+
+  yayaHeroStatement: {
+    en: 'Turn Indoor Movement Into Navigation and Operational Insight',
+    tr: 'Kapalı Alanlarda Yaya Hareketi ve Navigasyon',
+  },
+
+  yayaHeroText: {
+    en: 'Yaya uses mobile IMU data to estimate pedestrian movement and turn it into indoor navigation and movement intelligence for complex facilities.',
+    tr: 'Yaya, mobil cihazlardaki IMU verisini kullanarak yaya hareketini ve göreli yer değiştirmeyi kestirir. Elde edilen bilgiler bina içi navigasyon, rota analizi ve tesis içi hareket uygulamalarında kullanılır.',
+  },
+
+  yayaMiniPdr: {
+    en: 'PDR',
+    tr: 'PDR',
+  },
+
+  yayaMiniIndoor: {
+    en: 'INDOOR NAVIGATION',
+    tr: 'KAPALI ALAN NAVİGASYONU',
+  },
+
+  yayaMiniMovement: {
+    en: 'MOVEMENT ANALYTICS',
+    tr: 'HAREKET ANALİZİ',
+  },
+
+  yayaMiniMobile: {
+    en: 'MOBILE IMU',
+    tr: 'MOBİL IMU',
+  },
+
+  yayaScopeTitle: {
+    en: 'PLATFORM CAPABILITIES',
+    tr: 'SİSTEM KABİLİYETLERİ',
+  },
+
+  yayaScopeMainTitle: {
+    en: 'Indoor Movement Intelligence From Mobile Sensors',
+    tr: 'Mobil Sensörlerden Yaya Hareketi ve Konum Bilgisi',
+  },
+
+  yayaScopeText: {
+    en: 'Yaya combines pedestrian dead reckoning, movement analysis and indoor context to support navigation and operational movement use cases.',
+    tr: 'Mobil sensörlerden elde edilen hareket kestirimi, tesisin harita ve mekansal bilgileriyle birlikte kullanılır. Böylece navigasyon, rota analizi ve personel hareketinin değerlendirilmesi için kullanılabilir çıktılar elde edilir.',
+  },
+
+  yayaNavigationGroupTitle: {
+    en: 'Indoor Navigation',
+    tr: 'Kapalı Alan Navigasyonu',
+  },
+
+  yayaMotionGroupTitle: {
+    en: 'Movement Intelligence',
+    tr: 'Hareket Analizi',
+  },
+
+  yayaIntegrationGroupTitle: {
+    en: 'Application Integration',
+    tr: 'Uygulama Entegrasyonu',
+  },
+
+  yayaCapabilityPdr: {
+    en: 'Pedestrian dead reckoning',
+    tr: 'Yaya kestirimli konumlama',
+  },
+
+  yayaCapabilityRelativeMovement: {
+    en: 'Relative pedestrian movement estimation',
+    tr: 'Göreli yaya hareketinin kestirilmesi',
+  },
+
+  yayaCapabilityIndoorNavigation: {
+    en: 'Indoor navigation support',
+    tr: 'Kapalı alan navigasyon desteği',
+  },
+
+  yayaCapabilityStepDetection: {
+    en: 'Step and movement event detection',
+    tr: 'Adım ve hareket olaylarının tespiti',
+  },
+
+  yayaCapabilityMovementPatterns: {
+    en: 'Pedestrian movement patterns',
+    tr: 'Yaya hareketlerinin değerlendirilmesi',
+  },
+
+  yayaCapabilityMovementAnalytics: {
+    en: 'Movement analytics',
+    tr: 'Hareket verilerinin analizi',
+  },
+
+  yayaCapabilityMobile: {
+    en: 'Mobile device integration',
+    tr: 'Mobil cihaz entegrasyonu',
+  },
+
+  yayaCapabilityMapContext: {
+    en: 'Indoor map and spatial context',
+    tr: 'Kapalı alan haritası ve mekansal bilgiler',
+  },
+
+  yayaCapabilityApplicationOutput: {
+    en: 'Application-level movement output',
+    tr: 'Uygulamalar için hareket ve konum çıktısı',
+  },
+
+  yayaHowItWorks: {
+    en: 'HOW IT WORKS',
+    tr: 'NASIL ÇALIŞIR?',
+  },
+
+  yayaHowItWorksTitle: {
+    en: 'From Mobile Motion to Indoor Intelligence',
+    tr: 'Mobil IMU Verisinden Yaya Hareketi Nasıl Kestirilir?',
+  },
+
+  yayaWorkflowSenseTitle: {
+    en: 'Sense Movement',
+    tr: 'Hareket Ölçülür',
+  },
+
+  yayaWorkflowSenseText: {
+    en: 'Mobile inertial sensors capture pedestrian motion during movement through indoor environments.',
+    tr: 'Mobil cihazdaki ataletsel sensörler, kişinin hareketi sırasında oluşan ivme ve dönme hareketlerini ölçer.',
+  },
+
+  yayaWorkflowEstimateTitle: {
+    en: 'Estimate Movement',
+    tr: 'Yaya Hareketi Kestirilir',
+  },
+
+  yayaWorkflowEstimateText: {
+    en: 'PDR processing estimates relative displacement and pedestrian movement from inertial signals.',
+    tr: 'PDR algoritmaları, ataletsel ölçümlerden adımları ve göreli yer değiştirmeyi hesaplayarak yayanın hareketini kestirir.',
+  },
+
+  yayaWorkflowContextTitle: {
+    en: 'Add Spatial Context',
+    tr: 'Mekansal Bilgilerle Eşleştirilir',
+  },
+
+  yayaWorkflowContextText: {
+    en: 'Movement estimates are combined with indoor spatial context to support navigation and facility-specific applications.',
+    tr: 'Hareket kestirimleri tesisin harita ve mekansal bilgileriyle birleştirilerek bina içindeki hareketin konumla ilişkilendirilmesi sağlanır.',
+  },
+
+  yayaWorkflowInsightTitle: {
+    en: 'Create Movement Intelligence',
+    tr: 'Uygulamalara Aktarılır',
+  },
+
+  yayaWorkflowInsightText: {
+    en: 'Movement data becomes navigation output and operational insight for people and facilities.',
+    tr: 'Üretilen hareket ve konum bilgileri navigasyon uygulamalarına veya tesis içi hareketi analiz eden sistemlere aktarılır.',
+  },
+
+  yayaApplicationsKicker: {
+    en: 'APPLICATIONS',
+    tr: 'KULLANIM ALANLARI',
+  },
+
+  yayaApplicationsTitle: {
+    en: 'Built for Complex Indoor Environments',
+    tr: 'Karmaşık Kapalı Alanlarda Kullanım',
+  },
+
+  yayaApplicationHospital: {
+    en: 'Hospitals',
+    tr: 'Hastaneler',
+  },
+
+  yayaApplicationHospitalText: {
+    en: 'Support indoor navigation and location intelligence across complex hospital environments.',
+    tr: 'Büyük hastane yapılarında bina içi yönlendirme ve konuma dayalı uygulamalar için yaya hareket bilgisi kullanılabilir.',
+  },
+
+  yayaApplicationDepot: {
+    en: 'Warehouses & Depots',
+    tr: 'Depolar ve Lojistik Tesisler',
+  },
+
+  yayaApplicationDepotText: {
+    en: 'Turn personnel movement into operational movement analytics across warehouse and depot workflows.',
+    tr: 'Depo ve lojistik tesislerinde personelin kullandığı rotalar ve tesis içindeki hareket akışı analiz edilebilir.',
+  },
+
+  yayaFinalCtaTitle: {
+    en: 'Evaluate Yaya for Your Indoor Environment',
+    tr: 'Yaya Tesisinizde Nasıl Kullanılabilir?',
+  },
+
+  yayaFinalCtaText: {
+    en: 'Tell us about your facility, target devices and the indoor movement or navigation problem you want to solve.',
+    tr: 'Tesis yapınızı, kullanılacak cihazları ve çözmek istediğiniz hareket veya navigasyon problemini paylaşın. Uygun kullanım senaryosunu birlikte değerlendirelim.',
+  },
+
+  yayaCtaButton: {
+    en: 'CONTACT US',
+    tr: 'İLETİŞİME GEÇ',
+  },
+
+  /* --------------------
+     PRIVACY / DATA NOTICE
+  -------------------- */
+
+  privacyTitle: {
+    en: 'Privacy & Data Notice',
+    tr: 'Gizlilik ve Veri Bildirimi',
+  },
+
+  privacyIntro: {
+    en: 'Ayrota collects limited personal data solely for evaluation purposes.',
+    tr: 'Ayrota, yalnızca iletişim ve değerlendirme süreçleri için gerekli olan sınırlı kişisel verileri toplar.',
+  },
+
+  privacyParagraph1: {
+    en: 'Data collected via the contact form may include organization or project name, contact email address, and high-level inquiry context.',
+    tr: 'İletişim formu üzerinden ad veya kurum bilgisi, e-posta adresi ve ilettiğiniz talebe ilişkin genel bilgiler toplanabilir.',
+  },
+
+  privacyParagraph2: {
+    en: 'This website does not perform tracking, profiling, or marketing analytics.',
+    tr: 'Bu web sitesinde kullanıcı takibi, profilleme veya pazarlama amaçlı analiz yapılmaz.',
+  },
+
+  privacyParagraph3: {
+    en: 'Form submissions are processed through a third-party form handling service (Basin) and stored securely for review.',
+    tr: 'İletişim formu üzerinden gönderilen bilgiler, üçüncü taraf form hizmeti Basin aracılığıyla işlenir ve talebinizin değerlendirilmesi amacıyla güvenli şekilde saklanır.',
+  },
+
+  privacyParagraph4: {
+    en: 'Personal data is retained only as long as necessary to assess potential engagement and is deleted periodically.',
+    tr: 'Kişisel veriler yalnızca talebin veya olası iş birliğinin değerlendirilmesi için gereken süre boyunca saklanır ve belirli aralıklarla silinir.',
+  },
+
+  privacyParagraph5: {
+    en: 'Where applicable, data handling complies with KVKK and GDPR.',
+    tr: 'Kişisel verilerin işlenmesinde, uygulanabildiği ölçüde KVKK ve GDPR hükümleri gözetilir.',
+  },
+
+  privacyConsent: {
+    en: 'By submitting the contact form, you acknowledge and consent to this data processing for evaluation purposes.',
+    tr: 'İletişim formunu göndererek paylaştığınız bilgilerin, talebinizin değerlendirilmesi amacıyla bu kapsamda işlenmesini kabul etmiş olursunuz.',
+  },
+
+  privacyCookieTitle: {
+    en: 'Cookie Notice',
+    tr: 'Çerez Bildirimi',
+  },
+
+  privacyCookieText: {
+    en: 'This website does not use tracking or marketing cookies. Any technical cookies used are strictly required for basic functionality and security.',
+    tr: 'Bu web sitesinde takip veya pazarlama amacıyla çerez kullanılmaz. Kullanılması halinde teknik çerezler yalnızca sitenin temel işlevleri ve güvenliği için kullanılır.',
+  },
+
+  internshipTitle: {
+    en: 'Internship Applications',
+    tr: 'Staj Başvuruları',
+  },
+
+  internshipDescription: {
+    en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
+    tr: 'Staj başvuruları yalnızca Google Form üzerinden kabul edilir. Başvurunuzu aşağıdaki bağlantı üzerinden iletebilirsiniz.',
+  },
+
+  contactInternshipCta: {
+    en: 'Apply via Google Form',
+    tr: 'STAJ BAŞVURUSU YAP',
+  },
+} as const;
+
+export type TranslationKey = keyof typeof translations;
+================================================================================
+FILE: src/lib/LanguageContext.tsx
+================================================================================
+
+import { createContext, useContext, useState } from 'react';
+import { translations } from '../i18n/translations';
+import type { TranslationKey, Language } from '../i18n/translations';
+
+type LanguageContextType = {
+  lang: Language;
+  setLang: (l: Language) => void;
+  t: (key: TranslationKey | string) => string;
+};
+
+const LanguageContext = createContext<LanguageContextType | null>(null);
+
+/* --------------------------------
+   INITIAL LANGUAGE DETECTION
+-------------------------------- */
+function detectInitialLang(): Language {
+  // Browser guard (SSR / build safety)
+  if (typeof window === 'undefined') return 'en';
+
+  // 1) Daha önce seçildiyse
+  const saved = localStorage.getItem('lang');
+  if (saved === 'tr' || saved === 'en') return saved;
+
+  // 2) Tarayıcı dili
+  const nav = (navigator.language || '').toLowerCase();
+  if (nav.startsWith('tr')) return 'tr';
+
+  // 3) Varsayılan
+  return 'en';
+}
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [lang, setLangState] = useState<Language>(detectInitialLang);
+
+  /* --------------------------------
+     LANGUAGE SETTER (PERSISTENT)
+  -------------------------------- */
+  const setLang = (l: Language) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lang', l);
+    }
+    setLangState(l);
+  };
+
+  /* --------------------------------
+     TRANSLATION FUNCTION
+  -------------------------------- */
+  const t = (key: TranslationKey | string): string => {
+    const entry = (translations as Record<string, any>)[key];
+
+    // 🔒 Fallback: key aynen döner (uppercase YOK)
+    if (!entry) {
+      if (import.meta.env.DEV) {
+        console.warn(`[i18n] Missing key: ${key}`);
+      }
+      return key.toLocaleUpperCase();
+    }
+
+    return entry[lang] ?? entry.en ?? key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const ctx = useContext(LanguageContext);
+  if (!ctx) {
+    throw new Error('useLanguage must be used within LanguageProvider');
+  }
+  return ctx;
+}
+================================================================================
+FILE: src/lib/company.ts
+================================================================================
+
+export const COMPANY = {
+  foundedYear: 2024,
+
+  products: [
+    'KOMAN',
+    'İLBER',
+    'YÖRÜK',
+    'YAYA',
+  ],
+
+  coreArchitectures: 1,
+
+};
+
+export const developmentYears =
+  new Date().getFullYear() - COMPANY.foundedYear + 1;
+================================================================================
+FILE: src/lib/scrollToSection.ts
+================================================================================
+
+export function scrollToSection(id: string, headerOffset = 96) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const elementPosition = el.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth',
+  });
+}
+================================================================================
+FILE: src/pages/Alkon.tsx
+================================================================================
+
+import { Link } from 'react-router-dom';
+
+import { Footer } from '../components/footer';
+import { Reveal } from '../components/RevealSection';
+import type { TranslationKey } from '../i18n/translations';
+import { useLanguage } from '../lib/LanguageContext';
+
+const ALKON_SCOPE_GROUPS: {
+  title: TranslationKey;
+  items: TranslationKey[];
+}[] = [
+  {
+    title: 'alkonNavigationGroupTitle',
+    items: [
+      'alkonCapabilityInertialNavigation',
+      'alkonCapabilityPositioning',
+      'alkonCapabilityHeading',
+    ],
+  },
+  {
+    title: 'alkonMissionGroupTitle',
+    items: [
+      'alkonCapabilityMissionPlanning',
+      'alkonCapabilityMissionExecution',
+      'alkonCapabilityWaypoint',
+    ],
+  },
+  {
+    title: 'alkonIntegrationGroupTitle',
+    items: [
+      'alkonCapabilityAutonomousPlatforms',
+      'alkonCapabilityGroundControl',
+      'alkonCapabilityMavlink',
+    ],
+  },
+];
+
+const WORKFLOW_ITEMS: {
+  number: string;
+  title: TranslationKey;
+  text: TranslationKey;
+}[] = [
+  {
+    number: '01',
+    title: 'alkonWorkflowSenseTitle',
+    text: 'alkonWorkflowSenseText',
+  },
+  {
+    number: '02',
+    title: 'alkonWorkflowNavigateTitle',
+    text: 'alkonWorkflowNavigateText',
+  },
+  {
+    number: '03',
+    title: 'alkonWorkflowPlanTitle',
+    text: 'alkonWorkflowPlanText',
+  },
+  {
+    number: '04',
+    title: 'alkonWorkflowExecuteTitle',
+    text: 'alkonWorkflowExecuteText',
+  },
+];
+
+export default function Alkon() {
+  const { t } = useLanguage();
+
+  return (
+    <main className="relative z-10 bg-bg text-fg">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-bg pb-16 pt-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(30,90,255,0.16),transparent_43%)]" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div>
+                <Link
+                  to="/#products"
+                  className="text-[11px] font-semibold tracking-[0.18em] text-fg/40 transition hover:text-fg"
+                >
+                  ← AYROTA
+                </Link>
+
+                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
+                  ALKON
+                </div>
+
+                <div className="mt-4 text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                  {t('alkonProductCategory')}
+                </div>
+
+                <h1 className="mt-6 max-w-[680px] text-4xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[62px]">
+                  {t('alkonHeroStatement')}
+                </h1>
+
+                <p className="mt-7 max-w-[610px] text-base leading-8 text-fg/58">
+                  {t('alkonHeroText')}
+                </p>
+
+                <div className="mt-10 flex max-w-[620px] flex-wrap gap-x-8 gap-y-4 text-[12px] font-medium tracking-[0.04em] text-fg/52">
+                  <span>{t('alkonMiniNavigation')}</span>
+                  <span>{t('alkonMiniMission')}</span>
+                  <span>{t('alkonMiniAutonomy')}</span>
+                  <span>{t('alkonMiniIntegration')}</span>
+                </div>
+              </div>
+
+              <div className="relative min-h-[430px] overflow-hidden border border-fg/10 bg-panel/10 shadow-2xl shadow-black/30 md:min-h-[520px]">
+                <img
+                  src="/products/alkon.png"
+                  alt="Alkon autonomous navigation and mission system"
+                  className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/20 via-transparent to-bg/5" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* SYSTEM CAPABILITIES */}
+      <section
+        id="alkon-capabilities"
+        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24"
+      >
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('alkonScopeTitle')}
+                </div>
+
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[56px]">
+                  {t('alkonScopeMainTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('alkonScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {ALKON_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-7 transition hover:border-fg/20 hover:bg-panel/20 md:p-8"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/65 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* WORKFLOW */}
+      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+              {t('alkonHowItWorks')}
+            </div>
+
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
+              {t('alkonHowItWorksTitle')}
+            </h2>
+
+            <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+              {WORKFLOW_ITEMS.map((item) => (
+                <div
+                  key={item.number}
+                  className="border-t border-fg/10 pt-7"
+                >
+                  <div className="text-2xl font-semibold text-blue-500">
+                    {item.number}
+                  </div>
+
+                  <h3 className="mt-8 text-[24px] font-semibold tracking-[-0.04em] text-fg">
+                    {t(item.title)}
+                  </h3>
+
+                  <p className="mt-5 max-w-xs text-sm leading-7 text-fg/55">
+                    {t(item.text)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-fg/10 bg-bg py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="flex flex-col gap-10 border-t border-fg/10 pt-12 md:flex-row md:items-end md:justify-between">
+              <div>
+                <div className="text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                  ALKON
+                </div>
+
+                <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.045em] text-fg md:text-[42px]">
+                  {t('alkonFinalCtaTitle')}
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-base leading-8 text-fg/55">
+                  {t('alkonFinalCtaText')}
+                </p>
+              </div>
+
+              <Link
+                to="/#contact"
+                className="flex w-fit flex-shrink-0 items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+              >
+                {t('alkonCtaButton')}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+================================================================================
+FILE: src/pages/Privacy.tsx
+================================================================================
+
+import { Container } from '../components/Container';
+import { useLanguage } from '../lib/LanguageContext';
+
+export default function Privacy() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="pt-32 pb-24">
+      <Container>
+        <div className="max-w-3xl mx-auto text-sm text-muted leading-relaxed">
+          <h1 className="text-2xl text-fg font-medium mb-6">
+            {t('privacyTitle')}
+          </h1>
+
+          <p>{t('privacyIntro')}</p>
+
+          <p className="mt-4">{t('privacyParagraph1')}</p>
+          <p className="mt-4">{t('privacyParagraph2')}</p>
+          <p className="mt-4">{t('privacyParagraph3')}</p>
+          <p className="mt-4">{t('privacyParagraph4')}</p>
+          <p className="mt-4">{t('privacyParagraph5')}</p>
+
+          <p className="mt-4">{t('privacyConsent')}</p>
+
+          <h2 className="mt-10 text-lg text-fg font-medium">
+            {t('privacyCookieTitle')}
+          </h2>
+
+          <p className="mt-4">{t('privacyCookieText')}</p>
+        </div>
+      </Container>
+    </div>
+  );
+}
+================================================================================
+FILE: src/pages/Yaya.tsx
+================================================================================
+
+import { Link } from 'react-router-dom';
+
+import { Footer } from '../components/footer';
+import { Reveal } from '../components/RevealSection';
+import type { TranslationKey } from '../i18n/translations';
+import { useLanguage } from '../lib/LanguageContext';
+
+const YAYA_SCOPE_GROUPS: {
+  title: TranslationKey;
+  items: TranslationKey[];
+}[] = [
+  {
+    title: 'yayaNavigationGroupTitle',
+    items: [
+      'yayaCapabilityPdr',
+      'yayaCapabilityRelativeMovement',
+      'yayaCapabilityIndoorNavigation',
+    ],
+  },
+  {
+    title: 'yayaMotionGroupTitle',
+    items: [
+      'yayaCapabilityStepDetection',
+      'yayaCapabilityMovementPatterns',
+      'yayaCapabilityMovementAnalytics',
+    ],
+  },
+  {
+    title: 'yayaIntegrationGroupTitle',
+    items: [
+      'yayaCapabilityMobile',
+      'yayaCapabilityMapContext',
+      'yayaCapabilityApplicationOutput',
+    ],
+  },
+];
+
+const WORKFLOW_ITEMS: {
+  number: string;
+  title: TranslationKey;
+  text: TranslationKey;
+}[] = [
+  {
+    number: '01',
+    title: 'yayaWorkflowSenseTitle',
+    text: 'yayaWorkflowSenseText',
+  },
+  {
+    number: '02',
+    title: 'yayaWorkflowEstimateTitle',
+    text: 'yayaWorkflowEstimateText',
+  },
+  {
+    number: '03',
+    title: 'yayaWorkflowContextTitle',
+    text: 'yayaWorkflowContextText',
+  },
+  {
+    number: '04',
+    title: 'yayaWorkflowInsightTitle',
+    text: 'yayaWorkflowInsightText',
+  },
+];
+
+export default function Yaya() {
+  const { t } = useLanguage();
+
+  return (
+    <main className="relative z-10 bg-bg text-fg">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-bg pb-16 pt-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(30,90,255,0.16),transparent_43%)]" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div>
+                <Link
+                  to="/#products"
+                  className="text-[11px] font-semibold tracking-[0.18em] text-fg/40 transition hover:text-fg"
+                >
+                  ← AYROTA
+                </Link>
+
+                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
+                  YAYA
+                </div>
+
+                <div className="mt-4 text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                  {t('yayaProductCategory')}
+                </div>
+
+                <h1 className="mt-6 max-w-[680px] text-4xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[62px]">
+                  {t('yayaHeroStatement')}
+                </h1>
+
+                <p className="mt-7 max-w-[610px] text-base leading-8 text-fg/58">
+                  {t('yayaHeroText')}
+                </p>
+
+                <div className="mt-10 flex max-w-[650px] flex-wrap gap-x-8 gap-y-4 text-[12px] font-medium tracking-[0.04em] text-fg/52">
+                  <span>{t('yayaMiniPdr')}</span>
+                  <span>{t('yayaMiniIndoor')}</span>
+                  <span>{t('yayaMiniMovement')}</span>
+                  <span>{t('yayaMiniMobile')}</span>
+                </div>
+              </div>
+
+              <div className="relative min-h-[430px] overflow-hidden border border-fg/10 bg-panel/10 shadow-2xl shadow-black/30 md:min-h-[520px]">
+                <img
+                  src="/products/yaya.png"
+                  alt="Yaya indoor movement and navigation"
+                  className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/20 via-transparent to-bg/5" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CAPABILITIES */}
+      <section
+        id="yaya-capabilities"
+        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24"
+      >
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yayaScopeTitle')}
+                </div>
+
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[56px]">
+                  {t('yayaScopeMainTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('yayaScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {YAYA_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-7 transition hover:border-fg/20 hover:bg-panel/20 md:p-8"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/65 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* WORKFLOW */}
+      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+              {t('yayaHowItWorks')}
+            </div>
+
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
+              {t('yayaHowItWorksTitle')}
+            </h2>
+
+            <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+              {WORKFLOW_ITEMS.map((item) => (
+                <div
+                  key={item.number}
+                  className="border-t border-fg/10 pt-7"
+                >
+                  <div className="text-2xl font-semibold text-blue-500">
+                    {item.number}
+                  </div>
+
+                  <h3 className="mt-8 text-[24px] font-semibold tracking-[-0.04em] text-fg">
+                    {t(item.title)}
+                  </h3>
+
+                  <p className="mt-5 max-w-xs text-sm leading-7 text-fg/55">
+                    {t(item.text)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* APPLICATIONS */}
+      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yayaApplicationsKicker')}
+                </div>
+
+                <h2 className="mt-6 max-w-[580px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
+                  {t('yayaApplicationsTitle')}
+                </h2>
+              </div>
+
+              <div className="grid gap-px border border-fg/10 bg-fg/10 md:grid-cols-2">
+                <ApplicationItem
+                  number="01"
+                  title={t('yayaApplicationHospital')}
+                  text={t('yayaApplicationHospitalText')}
+                />
+
+                <ApplicationItem
+                  number="02"
+                  title={t('yayaApplicationDepot')}
+                  text={t('yayaApplicationDepotText')}
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-fg/10 bg-bg py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="flex flex-col gap-10 border-t border-fg/10 pt-12 md:flex-row md:items-end md:justify-between">
+              <div>
+                <div className="text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                  YAYA
+                </div>
+
+                <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.045em] text-fg md:text-[42px]">
+                  {t('yayaFinalCtaTitle')}
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-base leading-8 text-fg/55">
+                  {t('yayaFinalCtaText')}
+                </p>
+              </div>
+
+              <Link
+                to="/#contact"
+                className="flex w-fit flex-shrink-0 items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+              >
+                {t('yayaCtaButton')}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function ApplicationItem({
+  number,
+  title,
+  text,
+}: {
+  number: string;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="min-h-[260px] bg-bg p-7">
+      <div className="text-sm font-semibold text-blue-500">
+        {number}
+      </div>
+
+      <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-fg">
+        {title}
+      </h3>
+
+      <p className="mt-5 text-sm leading-7 text-fg/55">
+        {text}
+      </p>
+    </div>
+  );
+}
+================================================================================
+FILE: src/pages/Yoruk.tsx
+================================================================================
+
+import { Link } from 'react-router-dom';
+
+import { Footer } from '../components/footer';
+import { Reveal } from '../components/RevealSection';
+import type { TranslationKey } from '../i18n/translations';
+import { useLanguage } from '../lib/LanguageContext';
+
+const YORUK_SCOPE_GROUPS: {
+  title: TranslationKey;
+  items: TranslationKey[];
+}[] = [
+  {
+    title: 'yorukRoadGroupTitle',
+    items: [
+      'yorukCapabilityRoadCondition',
+      'yorukCapabilityRouteSegments',
+      'yorukCapabilityMaintenance',
+    ],
+  },
+  {
+    title: 'yorukDrivingGroupTitle',
+    items: [
+      'yorukCapabilityDrivingEvents',
+      'yorukCapabilityDrivingPatterns',
+      'yorukCapabilityMotionProfiles',
+    ],
+  },
+  {
+    title: 'yorukOperationsGroupTitle',
+    items: [
+      'yorukCapabilityFleetComparison',
+      'yorukCapabilityMapReporting',
+      'yorukCapabilityLongitudinal',
+    ],
+  },
+];
+
+const WORKFLOW_ITEMS: {
+  number: string;
+  title: TranslationKey;
+  text: TranslationKey;
+}[] = [
+  {
+    number: '01',
+    title: 'yorukWorkflowCollectTitle',
+    text: 'yorukWorkflowCollectText',
+  },
+  {
+    number: '02',
+    title: 'yorukWorkflowAnalyzeTitle',
+    text: 'yorukWorkflowAnalyzeText',
+  },
+  {
+    number: '03',
+    title: 'yorukWorkflowContextTitle',
+    text: 'yorukWorkflowContextText',
+  },
+  {
+    number: '04',
+    title: 'yorukWorkflowDecisionTitle',
+    text: 'yorukWorkflowDecisionText',
+  },
+];
+
+export default function Yoruk() {
+  const { t } = useLanguage();
+
+  return (
+    <main className="relative z-10 bg-bg text-fg">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-bg pb-16 pt-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(30,90,255,0.16),transparent_43%)]" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div>
+                <Link
+                  to="/#products"
+                  className="text-[11px] font-semibold tracking-[0.18em] text-fg/40 transition hover:text-fg"
+                >
+                  ← AYROTA
+                </Link>
+
+                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
+                  YÖRÜK
+                </div>
+
+                <div className="mt-4 text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                  {t('yorukProductCategory')}
+                </div>
+
+                <h1 className="mt-6 max-w-[680px] text-4xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[62px]">
+                  {t('yorukHeroStatement')}
+                </h1>
+
+                <p className="mt-7 max-w-[610px] text-base leading-8 text-fg/58">
+                  {t('yorukHeroText')}
+                </p>
+
+                <div className="mt-10 flex max-w-[650px] flex-wrap gap-x-8 gap-y-4 text-[12px] font-medium tracking-[0.04em] text-fg/52">
+                  <span>{t('yorukMiniRoad')}</span>
+                  <span>{t('yorukMiniDriving')}</span>
+                  <span>{t('yorukMiniFleet')}</span>
+                  <span>{t('yorukMiniSensors')}</span>
+                </div>
+              </div>
+
+              <div className="relative min-h-[430px] overflow-hidden border border-fg/10 bg-panel/10 shadow-2xl shadow-black/30 md:min-h-[520px]">
+                <img
+                  src="/products/yoruk.png"
+                  alt="Yörük vehicle and road intelligence"
+                  className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/20 via-transparent to-bg/5" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CAPABILITIES */}
+      <section
+        id="yoruk-capabilities"
+        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24"
+      >
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yorukScopeTitle')}
+                </div>
+
+                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[56px]">
+                  {t('yorukScopeMainTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('yorukScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {YORUK_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-7 transition hover:border-fg/20 hover:bg-panel/20 md:p-8"
+                  >
+                    <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-start">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
+                        {t(group.title)}
+                      </h3>
+
+                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/65 pl-5 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* WORKFLOW */}
+      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+              {t('yorukHowItWorks')}
+            </div>
+
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
+              {t('yorukHowItWorksTitle')}
+            </h2>
+
+            <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+              {WORKFLOW_ITEMS.map((item) => (
+                <div
+                  key={item.number}
+                  className="border-t border-fg/10 pt-7"
+                >
+                  <div className="text-2xl font-semibold text-blue-500">
+                    {item.number}
+                  </div>
+
+                  <h3 className="mt-8 text-[24px] font-semibold tracking-[-0.04em] text-fg">
+                    {t(item.title)}
+                  </h3>
+
+                  <p className="mt-5 max-w-xs text-sm leading-7 text-fg/55">
+                    {t(item.text)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* USE CASES */}
+      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('yorukApplicationsKicker')}
+                </div>
+
+                <h2 className="mt-6 max-w-[580px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
+                  {t('yorukApplicationsTitle')}
+                </h2>
+              </div>
+
+              <div className="grid gap-px border border-fg/10 bg-fg/10 md:grid-cols-3">
+                <ApplicationItem
+                  number="01"
+                  title={t('yorukApplicationMunicipalities')}
+                  text={t('yorukApplicationMunicipalitiesText')}
+                />
+
+                <ApplicationItem
+                  number="02"
+                  title={t('yorukApplicationFleets')}
+                  text={t('yorukApplicationFleetsText')}
+                />
+
+                <ApplicationItem
+                  number="03"
+                  title={t('yorukApplicationLogistics')}
+                  text={t('yorukApplicationLogisticsText')}
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-fg/10 bg-bg py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="flex flex-col gap-10 border-t border-fg/10 pt-12 md:flex-row md:items-end md:justify-between">
+              <div>
+                <div className="text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                  YÖRÜK
+                </div>
+
+                <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.045em] text-fg md:text-[42px]">
+                  {t('yorukFinalCtaTitle')}
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-base leading-8 text-fg/55">
+                  {t('yorukFinalCtaText')}
+                </p>
+              </div>
+
+              <Link
+                to="/#contact"
+                className="flex w-fit flex-shrink-0 items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+              >
+                {t('yorukCtaButton')}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function ApplicationItem({
+  number,
+  title,
+  text,
+}: {
+  number: string;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="min-h-[260px] bg-bg p-7">
+      <div className="text-sm font-semibold text-blue-500">
+        {number}
+      </div>
+
+      <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-fg">
+        {title}
+      </h3>
+
+      <p className="mt-5 text-sm leading-7 text-fg/55">
+        {text}
+      </p>
+    </div>
+  );
+}
+================================================================================
+FILE: src/pages/İlber.tsx
+================================================================================
+
+import { Link } from 'react-router-dom';
+
+import { Footer } from '../components/footer';
+import { Reveal } from '../components/RevealSection';
+import type { TranslationKey } from '../i18n/translations';
+import { useLanguage } from '../lib/LanguageContext';
+
+const ANALYSIS_SCOPE_GROUPS: {
+  title: TranslationKey;
+  items: TranslationKey[];
+}[] = [
+  {
+    title: 'ilberIntegrityGroupTitle',
+    items: [
+      'ilberRepairTitle',
+      'ilberConsistencyTitle',
+      'ilberCadenceTitle',
+    ],
+  },
+  {
+    title: 'ilberSensorGroupTitle',
+    items: [
+      'ilberSensorDomainTitle',
+      'ilberSensorHealthTitle',
+      'ilberPhysicalTitle',
+    ],
+  },
+  {
+    title: 'ilberNavigationGroupTitle',
+    items: [
+      'ilberGnssTitle',
+      'ilberSpectralTitle',
+      'ilberMotionTitle',
+    ],
+  },
+];
+
+const WORKFLOW_ITEMS = [
+  {
+    number: '01',
+    title: 'ilberWorkflowSendTitle',
+    text: 'ilberWorkflowSendText',
+  },
+  {
+    number: '02',
+    title: 'ilberWorkflowAnalyzeTitle',
+    text: 'ilberWorkflowAnalyzeText',
+  },
+  {
+    number: '03',
+    title: 'ilberWorkflowReportTitle',
+    text: 'ilberWorkflowReportText',
+  },
+  {
+    number: '04',
+    title: 'ilberWorkflowPreventTitle',
+    text: 'ilberWorkflowPreventText',
+  },
+];
+
+export default function Ilber() {
+  const { t } = useLanguage();
+
+  return (
+    <main className="relative z-10 bg-bg text-fg">
+
+      {/* HERO */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(30,90,255,0.18),transparent_42%)]" />
+
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+              <div>
+                <Link
+                  to="/#products"
+                  className="text-[11px] font-semibold tracking-[0.18em] text-fg/40 transition hover:text-fg"
+                >
+                  ← AYROTA
+                </Link>
+
+                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
+                  İLBER
+                </div>
+
+                <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.05em] md:text-7xl">
+                  {t('ilberHeroStatement')}
+                </h1>
+
+                <p className="mt-7 max-w-xl text-base leading-8 text-fg/58">
+                  {t('ilberHeroText')}
+                </p>
+
+                <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-fg/60">
+                  <span>{t('ilberMiniDetect')}</span>
+                  <span>{t('ilberMiniRepair')}</span>
+                  <span>{t('ilberMiniAnalyze')}</span>
+                  <span>{t('ilberMiniValidate')}</span>
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden shadow-2xl shadow-black/30">
+                <img
+                  src="/products/ilber-report.png"
+                  alt="İlber session report interface"
+                  className="w-full object-cover opacity-95"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/15 via-transparent to-transparent" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ANALYSIS */}
+      <section
+        id="analysis-scope"
+        className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg"
+      >
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-14 md:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                  {t('ilberAnalysisScope')}
+                </div>
+
+                <h2 className="mt-6 max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] md:text-6xl">
+                  {t('ilberAnalysisScopeTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
+                  {t('ilberAnalysisScopeText')}
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                {ANALYSIS_SCOPE_GROUPS.map((group) => (
+                  <div
+                    key={group.title}
+                    className="border border-fg/10 bg-panel/10 p-8 transition hover:bg-panel/20"
+                  >
+                    <div className="grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
+                      <div>
+                        <h3 className="text-2xl font-semibold tracking-[-0.04em]">
+                          {t(group.title)}
+                        </h3>
+
+                        <div className="mt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-fg/35">
+                          {t('exampleAnalyses')}
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {group.items.map((item) => (
+                          <div
+                            key={item}
+                            className="border-l border-blue-500/70 pl-4 text-sm leading-7 text-fg/68"
+                          >
+                            {t(item)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* WORKFLOW */}
+      <section className="relative flex min-h-screen items-center overflow-hidden border-t border-fg/10 bg-bg">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
+          <Reveal>
+            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+              {t('ilberHowItWorks')}
+            </div>
+
+            <div className="mt-10 grid gap-10 md:grid-cols-4">
+              {WORKFLOW_ITEMS.map((item) => (
+                <div key={item.number}>
+                  <div className="text-2xl font-semibold text-blue-500">
+                    {item.number}
+                  </div>
+
+                  <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em]">
+                    {t(item.title)}
+                  </h3>
+
+                  <p className="mt-4 max-w-xs text-sm leading-7 text-fg/55">
+                    {t(item.text)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Link
+            to="/#contact"
+            className="mx-auto mt-16 flex w-fit items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+          >
+            {t('ilberSendData')}
+            <span>→</span>
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+================================================================================
+FILE: src/sections/Contact.tsx
+================================================================================
+
+import { Reveal } from '../components/RevealSection';
+import { useLanguage } from '../lib/LanguageContext';
+
+export function Contact() {
+  const { t } = useLanguage();
+
+  return (
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-bg py-8 md:py-10"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(56,189,248,0.055),transparent_46%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.18),rgba(5,10,18,0.48))]" />
+      <div className="absolute bottom-0 left-0 h-[45%] w-[42%] bg-[radial-gradient(circle_at_18%_80%,rgba(56,189,248,0.10),transparent_52%)]" />
+
+      <div className="relative z-10 mx-auto max-w-[1500px] px-6 md:px-10">
+        <Reveal>
+          <div className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
+            <div className="lg:border-r lg:border-fg/10 lg:pr-8">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-9 bg-cyan-300/85" />
+
+                <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
+                  {t('contactKicker')}
+                </span>
+              </div>
+
+              <h2 className="max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.055em] text-fg md:text-[56px] lg:text-[62px]">
+                {t('contactTitle')}
+              </h2>
+
+              <div className="mt-7 border-t border-fg/10 pt-5">
+                <p className="max-w-md text-[15px] leading-7 text-fg/60">
+                  {t('corporateContactDescription')}
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <form
+                action="https://usebasin.com/f/acb4b7f09c8b"
+                method="POST"
+                className="grid gap-4"
+              >
+                <input type="text" name="_gotcha" className="hidden" />
+                <input type="hidden" name="_redirect" value="/" />
+
+                <Field label={t('contactLabelOrg')}>
+                  <input
+                    type="text"
+                    name="organization"
+                    required
+                    placeholder={t('contactPlaceholderOrg')}
+                    className="w-full border border-fg/15 bg-bg/40 px-5 py-3 text-[15px] text-fg outline-none transition placeholder:text-fg/35 focus:border-cyan-300/55"
+                  />
+                </Field>
+
+                <Field label={t('contactLabelEmail')}>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder={t('contactPlaceholderEmail')}
+                    className="w-full border border-fg/15 bg-bg/40 px-5 py-3 text-[15px] text-fg outline-none transition placeholder:text-fg/35 focus:border-cyan-300/55"
+                  />
+                </Field>
+
+                <Field label={t('contactLabelMessage')}>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    required
+                    placeholder={t('contactPlaceholderMessage')}
+                    className="w-full resize-none border border-fg/15 bg-bg/40 px-5 py-3.5 text-[15px] text-fg outline-none transition placeholder:text-fg/35 focus:border-cyan-300/55"
+                  />
+                </Field>
+
+                <button
+                  type="submit"
+                  className="mt-1 inline-flex items-center justify-center gap-10 border border-fg/30 px-7 py-3 text-[12px] font-semibold tracking-[0.14em] text-fg/90 transition hover:border-cyan-300/60 hover:bg-cyan-300/5 hover:text-fg"
+                >
+                  {t('contactSubmit')}
+                  <span aria-hidden>→</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.12}>
+          <div className="mt-6 overflow-hidden rounded-md border border-fg/10 shadow-[0_0_48px_rgba(34,211,238,0.05)]">
+            <div className="h-[180px] w-full md:h-[220px] lg:h-[240px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.541093264971!2d32.80525197619953!3d39.77949829417675!2m3!1f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345384af32c01%3A0x49942fbe68a82b2!2sAyrota%20Yaz%C4%B1l%C4%B1m%20Teknolojileri!5e1!3m2!1str!2str!4v1771837876022!5m2!1str!2str"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full border-0 invert-[0.9] hue-rotate-180 saturate-[1.15] brightness-[0.62] contrast-[1.15]"
+                title={t('contactMapTitle')}
+              />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="block">
+      <span className="mb-2 block text-[11px] font-medium tracking-[0.18em] text-fg/65">
+        {label}
+      </span>
+
+      {children}
+    </label>
+  );
+}
+================================================================================
+FILE: src/sections/Hero.tsx
+================================================================================
+
+import { useLanguage } from '../lib/LanguageContext';
+
+const HERO_PILLARS = [
+  {
+    label: 'heroPillarImu',
+    icon: '⌁',
+  },
+  {
+    label: 'heroPillarSwapc',
+    icon: '▣',
+  },
+  {
+    label: 'heroPillarEndToEnd',
+    icon: '⌘',
+  },
+  {
+    label: 'heroPillarIndependent',
+    icon: '◎',
+  },
+];
+
+export function Hero() {
+  const { t } = useLanguage();
+
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen md:h-screen bg-bg overflow-hidden"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 flex justify-end">
+        <div className="relative w-full md:w-[60%] h-full">
+          <img
+            src="/hero.png"
+            alt="Ayrota autonomous navigation field"
+            className="h-full w-full object-cover"
+            style={{ objectPosition: '62% 50%' }}
+          />
+
+          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-bg via-bg/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-bg/90 via-bg/20 to-transparent" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex items-center min-h-screen">
+        <div className="w-full md:w-1/2 px-6 md:px-10 lg:pl-20 py-24">
+          <div className="max-w-[720px]">
+            {/* Kicker */}
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-8 bg-cyan-300/80" />
+              <span className="text-[11px] font-medium tracking-[0.22em] text-fg/70 uppercase">
+                {t('homeHeroKicker')}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[56px] font-semibold leading-[1.08] tracking-[-0.04em] text-fg">
+              {t('homeHeroTitle')}
+            </h1>
+
+            {/* Description */}
+            <p className="mt-8 max-w-[560px] text-[16px] sm:text-[17px] leading-8 text-fg/65">
+              {t('homeHeroLead')}
+            </p>
+
+            {/* Pillars */}
+            <div className="mt-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 border-t border-fg/10 pt-7">
+                {HERO_PILLARS.map((pillar, index) => (
+                  <HeroPillar
+                    key={pillar.label}
+                    icon={pillar.icon}
+                    label={t(pillar.label)}
+                    first={index === 0}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right spacer */}
+        <div className="hidden md:block md:w-1/2" />
+      </div>
+    </section>
+  );
+}
+
+function HeroPillar({
+  icon,
+  label,
+  first = false,
+}: {
+  icon: string;
+  label: string;
+  first?: boolean;
+}) {
+  return (
+    <div
+      className={[
+        'flex flex-col items-center justify-start',
+        'gap-2 px-2 py-3 min-w-0',
+        'md:border-l md:border-fg/10',
+        first && 'md:border-l-0',
+      ].join(' ')}
+    >
+      <div className="text-lg leading-none text-cyan-300/85">
+        {icon}
+      </div>
+
+      <div className="max-w-[120px] text-center text-[10px] leading-5 tracking-[0.22em] uppercase text-fg/85 break-words">
+        {label}
+      </div>
+    </div>
+  );
+}
+================================================================================
+FILE: src/sections/Platforms.tsx
+================================================================================
+
+import {
+  Cpu,
+  Footprints,
+  Navigation,
+  Route,
+  type LucideIcon,
+} from 'lucide-react';
+
+import { Reveal } from '../components/RevealSection';
+import type { TranslationKey } from '../i18n/translations';
+import { useLanguage } from '../lib/LanguageContext';
+
+const APPLICATIONS: {
+  title: TranslationKey;
+  text: TranslationKey;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: 'platformsAutonomyTitle',
+    text: 'platformsAutonomyText',
+    icon: Navigation,
+  },
+  {
+    title: 'platformsRoadTitle',
+    text: 'platformsRoadText',
+    icon: Route,
+  },
+  {
+    title: 'platformsIndoorTitle',
+    text: 'platformsIndoorText',
+    icon: Footprints,
+  },
+  {
+    title: 'platformsEngineeringTitle',
+    text: 'platformsEngineeringText',
+    icon: Cpu,
+  },
+];
+
+export function Platforms() {
+  const { t } = useLanguage();
+
+  return (
+    <section
+      id="applications"
+      className="relative overflow-hidden border-t border-fg/10 bg-bg"
+    >
+      <div className="mx-auto max-w-[1500px] px-6 py-16 md:px-10 md:py-20">
+        <Reveal>
+  <div className="border-b border-fg/10 pb-10">
+    <div className="flex items-center gap-3">
+      <span className="h-px w-9 bg-cyan-300/85" />
+
+      <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
+        {t('platformsKicker')}
+      </span>
+    </div>
+
+    <p className="mt-7 max-w-[680px] text-[20px] font-medium leading-8 tracking-[-0.02em] text-fg/72 md:text-[22px]">
+      {t('platformsLead')}
+    </p>
+  </div>
+</Reveal>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4">
+          {APPLICATIONS.map((application, index) => {
+            const Icon = application.icon;
+
+            return (
+              <Reveal
+                key={application.title}
+                delay={index * 0.04}
+              >
+                <article
+                  className={[
+                    'group flex h-full min-h-[220px] flex-col py-8',
+                    'border-b border-fg/10 md:min-h-[240px] md:px-7',
+                    index === 0 ? 'md:pl-0' : '',
+                    index === APPLICATIONS.length - 1 ? 'md:pr-0' : '',
+                    index % 2 === 0 ? 'md:border-r' : '',
+                    index < 2 ? 'lg:border-b-0' : '',
+                    index < APPLICATIONS.length - 1
+                      ? 'lg:border-r lg:border-fg/10'
+                      : 'lg:border-r-0',
+                    'lg:border-b-0',
+                  ].join(' ')}
+                >
+                  <h3 className="max-w-[260px] text-[22px] font-semibold leading-[1.15] tracking-[-0.035em] text-fg">
+                    {t(application.title)}
+                  </h3>
+
+                  <p className="mt-5 max-w-[300px] text-[14px] leading-7 text-fg/52">
+                    {t(application.text)}
+                  </p>
+
+                  <div className="mt-auto pt-8">
+                    <div className="flex h-10 w-10 items-center justify-center border border-fg/10 text-fg/35 transition duration-300 group-hover:border-cyan-300/40 group-hover:text-cyan-300">
+                      <Icon
+                        size={18}
+                        strokeWidth={1.5}
+                        aria-hidden
+                      />
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+================================================================================
+FILE: src/sections/Problem.tsx
+================================================================================
+
+import { Reveal } from '../components/RevealSection';
+import { useLanguage } from '../lib/LanguageContext';
+
+const FLOW_ITEMS = [
+  {
+    step: '01',
+    title: 'problemFlowGnssTitle',
+    subtitle: 'problemFlowGnssSubtitle',
+    image: '/problem/gnss-lost.png',
+  },
+  {
+    step: '02',
+    title: 'problemFlowSensorTitle',
+    subtitle: 'problemFlowSensorSubtitle',
+    image: '/problem/sensor-cost.png',
+  },
+  {
+    step: '03',
+    title: 'problemFlowCoreTitle',
+    subtitle: 'problemFlowCoreSubtitle',
+    image: '/problem/ayrota-core.png',
+    active: true,
+  },
+  {
+    step: '04',
+    title: 'problemFlowNavTitle',
+    subtitle: 'problemFlowNavSubtitle',
+    image: '/problem/continuous-nav.png',
+  },
+];
+
+export function Problem() {
+  const { t } = useLanguage();
+
+  return (
+    <section
+      id="technology"
+      className="relative min-h-screen overflow-hidden bg-bg"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(56,189,248,0.03),transparent_55%)]" />
+
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.0),rgba(5,10,18,0.55))]" />
+
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="mx-auto w-full max-w-[1500px] px-6 py-16 md:px-10">
+          <Reveal>
+            <div className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr] lg:items-center">
+              <div>
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="h-px w-8 bg-cyan-300/80" />
+
+                  <span className="text-[11px] font-medium tracking-[0.22em] text-fg/60">
+                    {t('problemKicker')}
+                  </span>
+                </div>
+
+                <h2 className="max-w-4xl text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[68px]">
+                  {t('problemTitle')}
+                </h2>
+
+                <p className="mt-8 max-w-2xl text-[17px] leading-9 text-fg/64">
+                  {t('problemLead')}
+                </p>
+
+                <p className="mt-6 max-w-2xl text-[16px] leading-9 text-fg/52">
+                  {t('problemSecondLead')}
+                </p>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-4">
+                {FLOW_ITEMS.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className="relative"
+                  >
+                    {index !== 0 && (
+                      <div className="absolute -left-5 top-1/2 z-20 hidden -translate-y-1/2 text-3xl text-cyan-300/70 md:block">
+                        ›
+                      </div>
+                    )}
+
+                    <div
+                      className={[
+                        'relative flex h-[560px] flex-col overflow-hidden rounded-2xl border bg-panel/20 backdrop-blur transition',
+                        item.active
+                          ? 'border-cyan-300/70 shadow-[0_0_38px_rgba(34,211,238,0.18)]'
+                          : 'border-fg/10 hover:border-fg/25',
+                      ].join(' ')}
+                    >
+                      <div className="absolute left-7 top-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/80 text-[15px] font-semibold text-cyan-200">
+                        {item.step}
+                      </div>
+
+                      <div className="h-64 flex-shrink-0 border-b border-fg/10 bg-bg/30">
+                        <img
+                          src={item.image}
+                          alt={t(item.title)}
+                          className="h-full w-full object-cover object-center opacity-95"
+                        />
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6 text-center">
+                        <h3
+                          className={[
+                            'flex min-h-[60px] items-center justify-center text-[15px] font-semibold leading-6 tracking-[0.08em]',
+                            item.active
+                              ? 'text-cyan-300'
+                              : 'text-fg/84',
+                          ].join(' ')}
+                        >
+                          {t(item.title)}
+                        </h3>
+
+                        <p className="mt-4 flex-1 text-[15px] leading-7 text-fg/56">
+                          {t(item.subtitle)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+================================================================================
+FILE: src/sections/Product.tsx
+================================================================================
+
+import { Link } from 'react-router-dom';
+
+import { Reveal } from '../components/RevealSection';
+import { useLanguage } from '../lib/LanguageContext';
+
+const PRODUCTS = [
+  {
+    name: 'ALKON',
+    eyebrow: 'productsAlkonEyebrow',
+    description: 'productsAlkonDescription',
+    image: '/products/alkon.png',
+    href: '/alkon',
+  },
+  {
+    name: 'YÖRÜK',
+    eyebrow: 'productsYorukEyebrow',
+    description: 'productsYorukDescription',
+    image: '/products/yoruk.png',
+    href: '/yoruk',
+  },
+  {
+    name: 'YAYA',
+    eyebrow: 'productsYayaEyebrow',
+    description: 'productsYayaDescription',
+    image: '/products/yaya.png',
+    href: '/yaya',
+  },
+];
+
+export function Products() {
+  const { t } = useLanguage();
+
+  return (
+    <section
+      id="products"
+      className="relative overflow-hidden bg-bg py-20 md:py-24"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_8%,rgba(56,189,248,0.035),transparent_48%)]" />
+
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,10,18,0.12),rgba(5,10,18,0.42))]" />
+
+      <div className="relative z-10 mx-auto max-w-[1500px] px-6 md:px-10">
+        <Reveal>
+          <div className="max-w-[760px]">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-9 bg-cyan-300/85" />
+
+              <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
+                {t('productsKicker')}
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-semibold leading-[1.04] tracking-[-0.05em] text-fg md:text-[54px]">
+              {t('productsTitle')}
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-[16px] leading-8 text-fg/58">
+              {t('productsLead')}
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <div className="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
+            {PRODUCTS.map((product, index) => (
+              <Link
+                key={product.name}
+                to={product.href}
+                className="group relative flex h-full flex-col overflow-hidden border border-fg/10 bg-panel/[0.08] transition duration-300 hover:border-cyan-300/35 hover:bg-panel/[0.14]"
+              >
+                <div className="relative h-[280px] overflow-hidden border-b border-fg/10 bg-bg/40">
+                  <img
+                    src={product.image}
+                    alt={`${product.name} visualization`}
+                    className="h-full w-full object-cover object-center opacity-90 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent" />
+
+                  <div className="absolute left-5 top-5 flex h-9 w-9 items-center justify-center border border-cyan-300/45 bg-bg/70 text-[11px] font-semibold text-cyan-200 backdrop-blur">
+                    0{index + 1}
+                  </div>
+                </div>
+
+                <div className="flex flex-1 flex-col p-7">
+                  <div>
+                    <div className="min-h-[32px] text-[10px] font-medium leading-5 tracking-[0.18em] text-cyan-300/70">
+                      {t(product.eyebrow)}
+                    </div>
+
+                    <h3 className="mt-4 text-[34px] font-semibold tracking-[-0.045em] text-fg">
+                      {product.name}
+                    </h3>
+
+                    <p className="mt-5 text-[15px] leading-7 text-fg/58">
+                      {t(product.description)}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto pt-10">
+                    <div className="flex items-center justify-between border-t border-fg/10 pt-6">
+                      <span className="text-[10px] font-semibold tracking-[0.14em] text-fg/50 transition group-hover:text-cyan-300">
+                        {t('productsExplore')}
+                      </span>
+
+                      <span
+                        aria-hidden
+                        className="text-xl text-fg/35 transition duration-300 group-hover:translate-x-1 group-hover:text-cyan-300"
+                      >
+                        →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
