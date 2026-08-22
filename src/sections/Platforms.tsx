@@ -1,28 +1,42 @@
-import { Footprints, Navigation, Route, type LucideIcon } from 'lucide-react';
+import {
+  Building2,
+  Factory,
+  Shield,
+  type LucideIcon,
+} from 'lucide-react';
 
 import { Reveal } from '../components/RevealSection';
-import type { TranslationKey } from '../i18n/translations';
 import { useLanguage } from '../lib/LanguageContext';
 
-const APPLICATIONS: {
-  title: TranslationKey;
-  text: TranslationKey;
+type Application = {
+  title: string;
+  text: string;
+  detail: string;
+  image: string;
   icon: LucideIcon;
-}[] = [
+};
+
+const APPLICATIONS: Application[] = [
   {
-    title: 'platformsAutonomyTitle',
-    text: 'platformsAutonomyText',
-    icon: Navigation,
+    title: 'applicationDefenseTitle',
+    text: 'applicationDefenseText',
+    detail: 'applicationDefenseDetail',
+    image: '/applications/defense.png',
+    icon: Shield,
   },
   {
-    title: 'platformsIndoorTitle',
-    text: 'platformsIndoorText',
-    icon: Footprints,
+    title: 'applicationDualUseTitle',
+    text: 'applicationDualUseText',
+    detail: 'applicationDualUseDetail',
+    image: '/applications/dual-use.png',
+    icon: Factory,
   },
   {
-    title: 'platformsRoadTitle',
-    text: 'platformsRoadText',
-    icon: Route,
+    title: 'applicationCivilTitle',
+    text: 'applicationCivilText',
+    detail: 'applicationCivilDetail',
+    image: '/applications/civil.png',
+    icon: Building2,
   },
 ];
 
@@ -30,70 +44,124 @@ export function Platforms() {
   const { t } = useLanguage();
 
   return (
-    <section id="applications" className="relative overflow-hidden border-t border-fg/10 bg-bg">
-      <div className="mx-auto max-w-[1500px] px-6 py-16 md:px-10 md:py-20">
-        <Reveal>
-          <div className="border-b border-fg/10 pb-10">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-9 bg-cyan-300/85" />
+    <section
+      id="applications"
+      className="relative overflow-hidden bg-[#16202b] py-20 text-white md:py-24"
+    >
+      {/* Background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+      >
+        <div className="absolute left-1/2 top-[-220px] h-[560px] w-[960px] -translate-x-1/2 rounded-full bg-blue-400/[0.045] blur-[170px]" />
 
-              <span className="text-[11px] font-medium tracking-[0.24em] text-fg/70">
-                {t('platformsKicker')}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.016)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
+
+        <div className="absolute inset-x-0 top-0 h-px bg-white/[0.05]" />
+
+        <div className="absolute inset-x-0 bottom-0 h-px bg-white/[0.05]" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-10">
+        {/* Heading */}
+        <Reveal>
+          <div className="mx-auto max-w-[760px] text-center">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-cyan-200/30" />
+
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-100/65">
+                {t('applicationsKicker')}
               </span>
+
+              <span className="h-px w-8 bg-cyan-200/30" />
             </div>
 
-            <p className="mt-7 max-w-[680px] text-[20px] font-medium leading-8 tracking-[-0.02em] text-fg/72 md:text-[22px]">
-              {t('platformsLead')}
+            <h2 className="mt-5 text-[32px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#eef3f7] md:text-[40px]">
+              {t('applicationsTitle')}
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-[650px] text-[15px] leading-7 text-white/58">
+              {t('applicationsLead')}
             </p>
           </div>
         </Reveal>
-        <div
-          className={[
-            'grid',
-            'md:grid-cols-2',
-            APPLICATIONS.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4',
-          ].join(' ')}
-        >
+
+        {/* Cards */}
+        <div className="mt-11 grid items-stretch gap-5 lg:grid-cols-3">
           {APPLICATIONS.map((application, index) => {
             const Icon = application.icon;
-            const isLast = index === APPLICATIONS.length - 1;
 
             return (
-              <Reveal key={application.title} delay={index * 0.04}>
-                <article
-                  className={[
-                    'group flex h-full min-h-[220px] flex-col py-8',
-                    'border-b border-fg/10 md:min-h-[240px] md:px-7',
+              <Reveal
+                key={application.title}
+                delay={index * 0.06}
+                className="h-full"
+              >
+                <article className="group relative flex h-full min-h-[390px] overflow-hidden bg-[#0d1620] shadow-[0_16px_46px_rgba(0,0,0,0.12)]">
+                  {/* Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.02]"
+                    style={{
+                      backgroundImage: `url("${application.image}")`,
+                    }}
+                  />
 
-                    index === 0 ? 'md:pl-0' : '',
-                    isLast ? 'md:pr-0' : '',
+                  {/* Overlays */}
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,10,20,0.06)_0%,rgba(3,10,20,0.18)_42%,rgba(3,10,20,0.82)_100%)]" />
 
-                    index % 2 === 0 ? 'md:border-r' : '',
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,10,20,0.12),transparent_72%)]" />
 
-                    'lg:border-b-0',
-                    !isLast ? 'lg:border-r lg:border-fg/10' : 'lg:border-r-0',
-                  ].join(' ')}
-                >
-                  <div className="pt-20 lg:pt-28">
-                    <div className="flex min-h-[52px] items-center gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-fg/10 text-fg/35 transition duration-300 group-hover:border-cyan-300/40 group-hover:text-cyan-300">
-                        <Icon size={18} strokeWidth={1.5} aria-hidden />
+                  <div className="absolute inset-0 bg-[#10263a]/[0.05]" />
+
+                  <div className="pointer-events-none absolute inset-0 border border-white/[0.07] transition-colors duration-300 group-hover:border-cyan-100/18" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex h-full w-full flex-col p-7 md:p-8">
+                    <div className="flex items-center justify-between">
+                      <div className="flex h-10 w-10 items-center justify-center border border-white/[0.10] bg-[#0a131d]/40 text-cyan-100/60 backdrop-blur-sm">
+                        <Icon
+                          size={18}
+                          strokeWidth={1.4}
+                        />
                       </div>
 
-                      <h3 className="max-w-[260px] text-[22px] font-semibold leading-[1.15] tracking-[-0.035em] text-fg">
-                        {t(application.title)}
-                      </h3>
+                      <span className="text-[9px] font-medium tracking-[0.22em] text-white/28">
+                        0{index + 1}
+                      </span>
                     </div>
 
-                    <p className="mt-5 max-w-[300px] text-[14px] leading-7 text-fg/52">
-                      {t(application.text)}
-                    </p>
+                    <div className="mt-auto">
+                      <h3 className="text-[26px] font-semibold tracking-[-0.04em] text-white">
+                        {t(application.title)}
+                      </h3>
+
+                      <p className="mt-4 min-h-[78px] max-w-[390px] text-[14px] leading-7 text-white/64">
+                        {t(application.text)}
+                      </p>
+
+                      <div className="mt-6 border-t border-white/[0.09] pt-5">
+                        <div className="min-h-[34px]">
+                          <span className="text-[10px] leading-5 text-white/42">
+                            {t(application.detail)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </Reveal>
             );
           })}
         </div>
+
+        {/* Bottom */}
+        <Reveal delay={0.12}>
+          <div className="mt-9 border-t border-white/[0.08] pt-6">
+            <p className="mx-auto max-w-[760px] text-center text-[13px] leading-6 text-white/40">
+              {t('applicationsBottomText')}
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

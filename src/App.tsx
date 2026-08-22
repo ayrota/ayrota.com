@@ -33,15 +33,13 @@ export default function App() {
             <main className="relative z-10">
               <Hero />
 
+              <Platforms />
+
               <Problem />
 
               <Products />
 
-              <Platforms />
-
               <Contact />
-
-              <Footer />
             </main>
           }
         />

@@ -93,60 +93,79 @@ export const translations = {
     tr: 'İNCELE',
   },
 
-  /* --------------------
+    /* --------------------
      APPLICATIONS
   -------------------- */
 
-  platformsKicker: {
-    en: 'APPLICATIONS',
-    tr: 'KULLANIM ALANLARI',
+  applicationsKicker: {
+    en: 'APPLICATION AREAS',
+    tr: 'UYGULAMA ALANLARI',
   },
 
-  platformsLead: {
-    en: 'Ayrota technologies adapt to different motion, navigation and operational intelligence requirements.',
-    tr: 'Navigasyon ve hareket kestirimi kabiliyetleri, farklı çalışma ortamlarının ihtiyaçlarına göre uyarlanabilir.',
+  applicationsTitle: {
+    en: 'One Technology Core. Three Operational Domains.',
+    tr: 'Tek Teknoloji Çekirdeği. Üç Uygulama Alanı.',
   },
 
-  platformsAutonomyTitle: {
-    en: 'Autonomous Systems',
-    tr: 'Otonom Sistemler',
+  applicationsLead: {
+    en: 'Ayrota adapts its inertial engineering capabilities to defence, dual-use and civil operational environments.',
+    tr: 'Ayrota, ataletsel mühendislik kabiliyetlerini savunma, çift kullanım ve sivil operasyonların farklı ihtiyaçlarına uygular.',
   },
 
-  platformsAutonomyText: {
-    en: 'Navigation and mission capabilities for GNSS-constrained operations.',
-    tr: 'GNSS’in güvenilir olmadığı görevlerde otonom platformların navigasyon ve görev süreçlerinin sürdürülmesi.',
+  applicationDefenseTitle: {
+    en: 'Defence',
+    tr: 'Savunma',
   },
 
-  platformsRoadTitle: {
-    en: 'Road & Fleet',
-    tr: 'Yol ve Filo',
+  applicationDefenseText: {
+    en: 'Navigation and motion capabilities for autonomous platforms operating in GNSS-constrained and mission-critical environments.',
+    tr: 'GNSS erişiminin kısıtlandığı ve görev sürekliliğinin kritik olduğu ortamlarda çalışan otonom platformlar için navigasyon ve hareket kabiliyetleri.',
   },
 
-  platformsRoadText: {
-    en: 'Road condition, driving and vehicle motion analytics.',
-    tr: 'Araç hareketlerinden yol durumu, sürüş davranışı ve rota performansının değerlendirilmesi.',
+  applicationDefenseDetail: {
+    en: 'UAV · Autonomous Systems',
+    tr: 'İHA · Otonom Sistemler',
   },
 
-  platformsIndoorTitle: {
-    en: 'Indoor Environments',
-    tr: 'Kapalı Alanlar',
+  applicationDualUseTitle: {
+    en: 'Dual-Use',
+    tr: 'Çift Kullanım',
   },
 
-  platformsIndoorText: {
-    en: 'Pedestrian navigation and movement analysis where GNSS is unavailable.',
-    tr: 'GNSS erişiminin olmadığı tesislerde yaya hareketinin kestirilmesi ve bina içi navigasyon.',
+  applicationDualUseText: {
+    en: 'Inertial sensing and movement intelligence for critical infrastructure, robotics and industrial operations.',
+    tr: 'Kritik altyapılar, robotik sistemler ve endüstriyel operasyonlar için ataletsel algılama ve hareket analizi.',
   },
 
-  platformsEngineeringTitle: {
-    en: 'Engineering',
-    tr: 'Mühendislik',
+  applicationDualUseDetail: {
+    en: 'Robotics · Critical Infrastructure · Industry',
+    tr: 'Robotik · Kritik Altyapı · Endüstri',
   },
 
-  platformsEngineeringText: {
-    en: 'IMU analysis, navigation development and system integration.',
-    tr: 'IMU verilerinin değerlendirilmesi, navigasyon algoritmalarının geliştirilmesi ve sistem entegrasyonu.',
+  applicationCivilTitle: {
+    en: 'Civil & Commercial',
+    tr: 'Sivil ve Ticari',
   },
 
+  applicationCivilText: {
+    en: 'Motion-based intelligence for road infrastructure, fleets, facilities and urban operations.',
+    tr: 'Yol altyapısı, filolar, tesisler ve şehir operasyonları için hareket verisine dayalı analiz ve karar desteği.',
+  },
+
+  applicationCivilDetail: {
+    en: 'Roads · Fleets · Facilities · Smart Cities',
+    tr: 'Yol · Filo · Tesis · Akıllı Şehir',
+  },
+
+  applicationsBottomText: {
+    en: 'The same inertial engineering foundation is adapted according to platform, sensor and operational requirements.',
+    tr: 'Aynı ataletsel mühendislik altyapısı; platforma, sensöre ve operasyonel ihtiyaca göre farklı çözümlere uyarlanır.',
+  },
+
+  applicationsTechnologyCta: {
+    en: 'EXPLORE THE TECHNOLOGY',
+    tr: 'TEKNOLOJİYİ İNCELE',
+  },
   /* --------------------
      CORE TECHNOLOGY
   -------------------- */
