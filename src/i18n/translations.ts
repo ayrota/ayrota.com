@@ -166,69 +166,119 @@ export const translations = {
     en: 'EXPLORE THE TECHNOLOGY',
     tr: 'TEKNOLOJİYİ İNCELE',
   },
-  /* --------------------
-     CORE TECHNOLOGY
-  -------------------- */
+   /* --------------------
+   CORE TECHNOLOGY
+-------------------- */
 
-  problemKicker: {
-    en: 'CORE TECHNOLOGY',
-    tr: 'ÇEKİRDEK TEKNOLOJİ',
-  },
+technologyKicker: {
+  en: 'CORE TECHNOLOGY',
+  tr: 'TEMEL TEKNOLOJİ',
+},
 
-  problemTitle: {
-    en: 'The foundation of inertial intelligence',
-    tr: 'IMU Verisi Konum ve Hareket Bilgisine Nasıl Dönüşür?',
-  },
+technologyTitle: {
+  en: 'One Inertial Engineering Core',
+  tr: 'Tek Bir Ataletsel Mühendislik Çekirdeği',
+},
 
-  problemLead: {
-    en: 'Ayrota’s technology core is a shared engineering foundation that turns IMU data into navigation, motion estimation and operational insight.',
-    tr: 'İvmeölçer ve jiroskop ölçümleri önce veri kalitesi, zamanlama ve sensör davranışı açısından değerlendirilir. Ardından bu ölçümler işlenerek konum, yönelim ve hareket kestirimi üretilir.',
-  },
+technologyLead: {
+  en: 'Ayrota combines inertial sensing, sensor and data analysis, navigation, movement analytics and edge integration within a shared engineering foundation.',
+  tr: 'Ayrota; ataletsel algılama, sensör ve veri analizi, navigasyon, hareket analitiği ve edge entegrasyonunu ortak bir mühendislik altyapısında birleştirir.',
+},
 
-  problemSecondLead: {
-    en: 'The same core is adapted across autonomous systems, vehicles and indoor applications.',
-    tr: 'Aynı yazılım ve algoritma altyapısı; kullanılan sensöre, platforma ve çalışma koşullarına göre uyarlanarak farklı ürünlerde kullanılır.',
-  },
+technologyCoreTitle: {
+  en: 'Shared Inertial Technology Foundation',
+  tr: 'Ortak Ataletsel Teknoloji Altyapısı',
+},
 
-  problemFlowGnssTitle: {
-    en: 'IMU DATA',
-    tr: 'IMU VERİSİ',
-  },
+technologyCoreMetricSensing: {
+  en: 'DATA LAYER',
+  tr: 'VERİ KATMANI',
+},
 
-  problemFlowGnssSubtitle: {
-    en: 'Inertial measurements capture system motion and provide the base input for estimation and analysis.',
-    tr: 'İvmeölçer ve jiroskop verileri, sistemin hareketini tanımlayan temel ölçümleri sağlar.',
-  },
+technologyCoreMetricSensingValue: {
+  en: 'INERTIAL SENSING',
+  tr: 'ATALETSEL ALGILAMA',
+},
 
-  problemFlowSensorTitle: {
-    en: 'SENSOR ENGINEERING',
-    tr: 'SENSÖR MÜHENDİSLİĞİ',
-  },
+technologyCoreMetricEstimation: {
+  en: 'ESTIMATION LAYER',
+  tr: 'KESTİRİM KATMANI',
+},
 
-  problemFlowSensorSubtitle: {
-    en: 'Sensor behaviour, data quality, timing and motion characteristics are evaluated at engineering level.',
-    tr: 'Ölçümlerin güvenilirliği; veri kalitesi, zamanlama ve sensör davranışı dikkate alınarak değerlendirilir.',
-  },
+technologyCoreMetricEstimationValue: {
+  en: 'NAVIGATION & MOTION',
+  tr: 'NAVİGASYON & HAREKET',
+},
 
-  problemFlowCoreTitle: {
-    en: 'INERTIAL CORE',
-    tr: 'NAVİGASYON VE KESTİRİM',
-  },
+technologyCoreMetricIntegration: {
+  en: 'SYSTEM LAYER',
+  tr: 'SİSTEM KATMANI',
+},
 
-  problemFlowCoreSubtitle: {
-    en: 'A shared software and algorithm foundation supports navigation, motion estimation and movement analytics.',
-    tr: 'Sensör ölçümleri işlenerek konum, yönelim ve hareket bilgileri hesaplanır.',
-  },
+technologyCoreMetricIntegrationValue: {
+  en: 'EDGE & INTEGRATION',
+  tr: 'EDGE & ENTEGRASYON',
+},
 
-  problemFlowNavTitle: {
-    en: 'APPLICATION LAYER',
-    tr: 'UYGULAMA KATMANI',
-  },
+technologyNavigationTitle: {
+  en: 'GNSS-Denied Navigation',
+  tr: 'GNSS Kısıtlı Navigasyon',
+},
 
-  problemFlowNavSubtitle: {
-    en: 'Core capabilities are integrated into autonomous platforms, vehicle operations and indoor applications.',
-    tr: 'Üretilen bilgiler, ilgili platformun veya uygulamanın ihtiyaç duyduğu biçimde sisteme aktarılır.',
-  },
+technologyNavigationText: {
+  en: 'IMU-based navigation and navigation resilience evaluation for autonomous platforms operating under GNSS-constrained conditions.',
+  tr: 'GNSS kısıtlı koşullarda çalışan otonom platformlar için IMU tabanlı navigasyon ve navigasyon sürekliliğinin teknik değerlendirilmesi.',
+},
+
+technologySensorTitle: {
+  en: 'Sensor & IMU ',
+  tr: 'Sensör ve IMU',
+},
+
+technologySensorText: {
+  en: 'Technical evaluation of sensor and data suitability, error sources and mission-profile compatibility.',
+  tr: 'Sensör ve veri uygunluğunun, hata kaynaklarının ve görev profiline uyumluluğun teknik olarak değerlendirilmesi.',
+},
+
+technologyIndoorTitle: {
+  en: 'Indoor Movement & PDR',
+  tr: 'Kapalı Alan Hareketi ve PDR',
+},
+
+technologyIndoorText: {
+  en: 'Relative pedestrian movement estimation, indoor movement tracking and analytics using mobile inertial sensors.',
+  tr: 'Mobil ataletsel sensörlerle göreli yaya hareket kestirimi, kapalı alan hareket takibi ve hareket analitiği.',
+},
+
+technologyAnalyticsTitle: {
+  en: 'Vehicle & Road Analytics',
+  tr: 'Araç ve Yol Analitiği',
+},
+
+technologyAnalyticsText: {
+  en: 'Transforming vehicle motion data into road-condition, driving-behaviour and operational decision-support insights.',
+  tr: 'Araç hareket verisinin yol durumu, sürüş davranışı ve operasyonel karar desteği çıktısına dönüştürülmesi.',
+},
+
+technologyEmbeddedTitle: {
+  en: 'Edge & System Integration',
+  tr: 'Edge ve Sistem Entegrasyonu',
+},
+
+technologyEmbeddedText: {
+  en: 'Sensor processing and autonomous-system integration across resource-constrained, embedded and mobile environments.',
+  tr: 'Kaynak kısıtlı, gömülü ve mobil ortamlarda sensör işleme ile otonom sistem entegrasyonu.',
+},
+
+technologyBottomKicker: {
+  en: 'SHARED FOUNDATION',
+  tr: 'ORTAK ALTYAPI',
+},
+
+technologyBottomText: {
+  en: 'One inertial engineering core supports multiple deployment surfaces across navigation, movement and analytics.',
+  tr: 'Tek bir ataletsel mühendislik çekirdeği; navigasyon, hareket ve analitik ekseninde farklı kullanım alanlarını destekler.',
+},
 
   /* --------------------
      CONTACT
