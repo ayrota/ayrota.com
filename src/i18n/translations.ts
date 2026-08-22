@@ -39,60 +39,95 @@ export const translations = {
     en: 'Navigation, motion estimation and analytics from a shared inertial engineering foundation.',
     tr: 'Navigasyon, hareket kestirimi ve analitik için ortak ataletsel mühendislik altyapısı.',
   },
-  /* --------------------
-     PRODUCTS
-  -------------------- */
+ /* --------------------
+   PRODUCTS
+-------------------- */
 
-  productsKicker: {
-    en: 'PRODUCTS',
-    tr: 'ÜRÜNLER',
-  },
+productsKicker: {
+  en: 'PRODUCTS',
+  tr: 'ÜRÜNLER',
+},
 
-  productsTitle: {
-    en: 'Inertial Technology Built for Real Operations',
-    tr: 'Aynı Teknik Altyapı, Üç Farklı Ürün',
-  },
+productsTitle: {
+  en: 'Inertial Intelligence, Applied.',
+  tr: 'Ataletsel Zekânın Ürünleşmiş Hali.',
+},
 
-  productsLead: {
-    en: 'Ayrota brings its inertial navigation and motion intelligence capabilities into autonomous systems, vehicle operations and indoor environments.',
-    tr: 'Ortak navigasyon, sensör işleme ve hareket kestirimi altyapısı; farklı saha ihtiyaçlarına göre farklı ürünlere dönüşmüştür.',
-  },
+productsLead: {
+  en: 'Ayrota turns its inertial navigation, sensing and movement-analysis capabilities into products for autonomous systems, indoor operations and road intelligence.',
+  tr: 'Ayrota; ataletsel navigasyon, algılama ve hareket analizi kabiliyetlerini otonom sistemler, kapalı alan operasyonları ve yol analitiği için ürünlere dönüştürür.',
+},
 
-  productsAlkonEyebrow: {
-    en: 'AUTONOMOUS NAVIGATION & MISSION SYSTEM',
-    tr: 'OTONOM NAVİGASYON VE GÖREV SİSTEMİ',
-  },
+productsDetail: {
+  en: 'EXPLORE PRODUCT',
+  tr: 'ÜRÜNÜ İNCELE',
+},
 
-  productsAlkonDescription: {
-    en: 'Alkon supports autonomous platforms operating where GNSS is unavailable or unreliable. It combines inertial navigation with mission planning and mission execution in a single software system.',
-    tr: 'Alkon, GNSS’in kullanılamadığı veya güvenilirliğinin azaldığı koşullarda otonom platformların navigasyon ve görev süreçlerini destekler. IMU tabanlı navigasyon, görev planlama ve görev yürütme aynı yazılım sistemi içinde çalışır.',
-  },
+/* ALKON */
 
-  productsYorukEyebrow: {
-    en: 'VEHICLE & ROAD INTELLIGENCE',
-    tr: 'YOL, SÜRÜŞ VE FİLO ANALİZİ',
-  },
+productsAlkonEyebrow: {
+  en: 'AUTONOMOUS NAVIGATION',
+  tr: 'OTONOM NAVİGASYON',
+},
 
-  productsYorukDescription: {
-    en: 'Yoruk turns sensor data collected from moving vehicles into road condition, driving behaviour and operational insights for fleets, municipalities and transportation operations.',
-    tr: 'Yörük, araçlardan toplanan hareket verilerini yol durumu, sürüş davranışı ve rota performansı açısından analiz eder. Belediyeler, filolar ve ulaşım ekipleri için düzenli ve karşılaştırılabilir bilgiler üretir.',
-  },
+productsAlkonDescription: {
+  en: 'GNSS-constrained navigation and mission capability for autonomous platforms operating where external positioning cannot be fully relied upon.',
+  tr: 'Harici konumlama kaynaklarının güvenilir olmadığı koşullarda çalışan otonom platformlar için GNSS kısıtlı navigasyon ve görev kabiliyeti.',
+},
 
-  productsYayaEyebrow: {
-    en: 'INDOOR MOVEMENT & NAVIGATION',
-    tr: 'KAPALI ALAN HAREKETİ VE NAVİGASYON',
-  },
+productsAlkonApplicationOne: {
+  en: 'UAV',
+  tr: 'İHA',
+},
 
-  productsYayaDescription: {
-    en: 'Yaya uses mobile inertial sensing to understand pedestrian movement where GNSS cannot be used. It supports indoor navigation and movement analytics for hospitals, warehouses and large facilities.',
-    tr: 'Yaya, mobil cihazlardaki IMU verisini kullanarak GNSS erişiminin olmadığı ortamlarda yaya hareketini kestirir. Elde edilen bilgiler kapalı alan navigasyonu ve hareket analizi uygulamalarında kullanılır.',
-  },
+productsAlkonApplicationTwo: {
+  en: 'AUTONOMOUS SYSTEMS',
+  tr: 'OTONOM SİSTEMLER',
+},
 
-  productsExplore: {
-    en: 'EXPLORE',
-    tr: 'İNCELE',
-  },
+/* YAYA */
 
+productsYayaEyebrow: {
+  en: 'INDOOR MOVEMENT',
+  tr: 'KAPALI ALAN HAREKETİ',
+},
+
+productsYayaDescription: {
+  en: 'Relative movement, indoor navigation and movement analytics using mobile inertial sensors where GNSS is weak or unavailable.',
+  tr: 'GNSS’in zayıf veya kullanılamaz olduğu kapalı alanlarda mobil ataletsel sensörlerle göreli hareket, navigasyon ve hareket analitiği.',
+},
+
+productsYayaApplicationOne: {
+  en: 'HOSPITAL',
+  tr: 'HASTANE',
+},
+
+productsYayaApplicationTwo: {
+  en: 'DEPOT & FACILITIES',
+  tr: 'DEPO & TESİSLER',
+},
+
+/* YORUK */
+
+productsYorukEyebrow: {
+  en: 'ROAD & VEHICLE ANALYTICS',
+  tr: 'YOL & ARAÇ ANALİTİĞİ',
+},
+
+productsYorukDescription: {
+  en: 'Transforms vehicle movement data into road-condition, maintenance and driving-safety insights for operational decision making.',
+  tr: 'Araç hareket verisini yol durumu, bakım ve sürüş güvenliği içgörülerine dönüştürerek operasyonel karar süreçlerinin desteklenmesi.',
+},
+
+productsYorukApplicationOne: {
+  en: 'ROAD MAINTENANCE',
+  tr: 'YOL BAKIM',
+},
+
+productsYorukApplicationTwo: {
+  en: 'DRIVING SAFETY',
+  tr: 'SÜRÜŞ GÜVENLİĞİ',
+},
     /* --------------------
      APPLICATIONS
   -------------------- */
@@ -361,180 +396,6 @@ technologyBottomText: {
   footerPrivacy: {
     en: 'Privacy & Data Notice',
     tr: 'Gizlilik ve Veri Bildirimi',
-  },
-
-  /* --------------------
-     ILBER PAGE
-  -------------------- */
-
-  ilberHeroStatement: {
-    en: 'Turn your IMU logs into engineering reports.',
-    tr: 'IMU Veriniz Hedef Uygulama İçin Uygun mu?',
-  },
-
-  ilberHeroText: {
-    en: 'İlber is Ayrota’s technical analysis and reporting service for IMU datasets. We analyze your data, identify quality and sensor-related issues, and deliver customer-specific engineering reports.',
-    tr: 'İlber, IMU veri setlerini veri kalitesi, sensör davranışı ve hedef kullanım açısından değerlendirir. Analiz sonucunda verinin güçlü ve sorunlu yönlerini ortaya koyan mühendislik bulguları sunulur.',
-  },
-
-  ilberSendData: {
-    en: 'REQUEST A TECHNICAL REVIEW',
-    tr: 'TEKNİK İNCELEME TALEP ET',
-  },
-
-  ilberMiniDetect: {
-    en: 'Data Quality',
-    tr: 'Veri Kalitesi',
-  },
-
-  ilberMiniRepair: {
-    en: 'Sensor Health',
-    tr: 'Sensör Davranışı',
-  },
-
-  ilberMiniAnalyze: {
-    en: 'Engineering Analysis',
-    tr: 'Mühendislik Analizi',
-  },
-
-  ilberMiniValidate: {
-    en: 'Custom Report',
-    tr: 'İhtiyaca Özel Rapor',
-  },
-
-  ilberAnalysisScope: {
-    en: 'SCOPE',
-    tr: 'ANALİZ KAPSAMI',
-  },
-
-  ilberAnalysisScopeTitle: {
-    en: 'We analyze your IMU data.',
-    tr: 'IMU Verisini Teknik Açıdan Değerlendirin',
-  },
-
-  ilberAnalysisScopeText: {
-    en: 'İlber evaluates IMU datasets across data integrity, sensor reliability and motion-related quality layers. The analysis scope is customized according to each customer’s data structure, test scenario and engineering needs.',
-    tr: 'İnceleme; veri bütünlüğü, sensör davranışı, sinyal kalitesi ve hareket kaynaklı etkileri kapsar. Analiz kapsamı veri yapısına, test senaryosuna ve çözülmek istenen mühendislik problemine göre belirlenir.',
-  },
-
-  ilberIntegrityGroupTitle: {
-    en: 'Data Quality & Integrity',
-    tr: 'Veri Kalitesi ve Bütünlüğü',
-  },
-
-  ilberSensorGroupTitle: {
-    en: 'Sensor Health & Signal Behavior',
-    tr: 'Sensör ve Sinyal Davranışı',
-  },
-
-  ilberNavigationGroupTitle: {
-    en: 'Motion, Flight & Consistency Analysis',
-    tr: 'Hareket, Uçuş ve Tutarlılık Analizi',
-  },
-
-  ilberRepairTitle: {
-    en: 'Missing Data & Timing Checks',
-    tr: 'Eksik Veri ve Zamanlama Kontrolleri',
-  },
-
-  ilberConsistencyTitle: {
-    en: 'Run-to-Run Consistency',
-    tr: 'Testler Arası Tutarlılık',
-  },
-
-  ilberCadenceTitle: {
-    en: 'Dataset Suitability Review',
-    tr: 'Veri Setinin Kullanıma Uygunluğu',
-  },
-
-  ilberSensorDomainTitle: {
-    en: 'IMU Signal Quality',
-    tr: 'IMU Sinyal Kalitesi',
-  },
-
-  ilberSensorHealthTitle: {
-    en: 'Sensor Anomaly Detection',
-    tr: 'Sensör Anomalilerinin Tespiti',
-  },
-
-  ilberPhysicalTitle: {
-    en: 'Physical Plausibility Checks',
-    tr: 'Fiziksel Tutarlılık Kontrolleri',
-  },
-
-  ilberGnssTitle: {
-    en: 'GNSS / INS Data Review',
-    tr: 'GNSS / INS Veri İncelemesi',
-  },
-
-  ilberSpectralTitle: {
-    en: 'Noise & Spectral Analysis',
-    tr: 'Gürültü ve Spektral Analiz',
-  },
-
-  ilberMotionTitle: {
-    en: 'Motion / Flight Behavior Analysis',
-    tr: 'Hareket ve Uçuş Davranışı Analizi',
-  },
-
-  ilberHowItWorks: {
-    en: 'HOW IT WORKS',
-    tr: 'SÜREÇ NASIL İŞLER?',
-  },
-
-  ilberWorkflowSendTitle: {
-    en: 'Share your dataset.',
-    tr: 'Veriyi Paylaşın',
-  },
-
-  ilberWorkflowSendText: {
-    en: 'Send your IMU, INS or UAV flight logs for technical review.',
-    tr: 'IMU, INS veya insansız hava aracı uçuş kayıtlarınızı teknik inceleme için paylaşın.',
-  },
-
-  ilberWorkflowAnalyzeTitle: {
-    en: 'We analyze it.',
-    tr: 'Veri İncelenir',
-  },
-
-  ilberWorkflowAnalyzeText: {
-    en: 'Ayrota evaluates your data through İlber’s engineering analysis workflow.',
-    tr: 'Veri; bütünlük, zamanlama, sinyal kalitesi, sensör davranışı ve hareket özellikleri açısından değerlendirilir.',
-  },
-
-  ilberWorkflowReportTitle: {
-    en: 'Receive your report.',
-    tr: 'Sonuçlar Raporlanır',
-  },
-
-  ilberWorkflowReportText: {
-    en: 'You receive a customer-specific PDF report with findings, plots and engineering comments.',
-    tr: 'Bulgular, grafikler ve mühendislik değerlendirmeleri ihtiyaca göre hazırlanan bir raporda sunulur.',
-  },
-
-  ilberWorkflowPreventTitle: {
-    en: 'Decide faster.',
-    tr: 'Sorunun Kaynağını Netleştirin',
-  },
-
-  ilberWorkflowPreventText: {
-    en: 'Identify data-related issues before they are misinterpreted as algorithm or software problems.',
-    tr: 'Veri ve sensör kaynaklı sorunları algoritma veya yazılım problemlerinden ayırarak geliştirme sürecindeki belirsizliği azaltın.',
-  },
-
-  exampleAnalyses: {
-    en: 'Example Analyses',
-    tr: 'Örnek Analizler',
-  },
-
-  ilberFinalCtaTitle: {
-    en: 'Have IMU or flight logs?',
-    tr: 'İncelenmesi Gereken Bir IMU Veri Setiniz mi Var?',
-  },
-
-  ilberFinalCtaAccent: {
-    en: 'Let us turn them into an engineering report.',
-    tr: 'Verinin hedef kullanım için uygunluğunu teknik olarak değerlendirelim.',
   },
 
   /* --------------------

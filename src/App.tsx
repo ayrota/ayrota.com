@@ -12,7 +12,6 @@ import { Platforms } from './sections/Platforms';
 import { Contact } from './sections/Contact';
 
 import Privacy from './pages/Privacy';
-import Ilber from './pages/İlber';
 import Yaya from './pages/Yaya';
 import Yoruk from './pages/Yoruk';
 import Alkon from './pages/Alkon';
@@ -45,7 +44,6 @@ export default function App() {
         />
 
         <Route path="/privacy" element={<Privacy />} />
-        <Route path="/ilber" element={<Ilber />} />
         <Route path="/alkon" element={<Alkon />} />
         <Route path="/yaya" element={<Yaya />} />
         <Route path="/yoruk" element={<Yoruk />} />
