@@ -266,8 +266,8 @@ technologyNavigationText: {
 },
 
 technologySensorTitle: {
-  en: 'Sensor & IMU ',
-  tr: 'Sensör ve IMU',
+  en: 'IMU Sensing',
+  tr: 'IMU Verisi',
 },
 
 technologySensorText: {
@@ -313,6 +313,79 @@ technologyBottomKicker: {
 technologyBottomText: {
   en: 'One inertial engineering core supports multiple deployment surfaces across navigation, movement and analytics.',
   tr: 'Tek bir ataletsel mühendislik çekirdeği; navigasyon, hareket ve analitik ekseninde farklı kullanım alanlarını destekler.',
+},
+/* --------------------
+   ENGAGEMENT
+-------------------- */
+
+engagementKicker: {
+  en: 'WORKING WITH AYROTA',
+  tr: 'AYROTA İLE ÇALIŞMA',
+},
+
+engagementTitle: {
+  en: 'From Technical Question to Working System.',
+  tr: 'Teknik Sorudan Çalışan Sisteme.',
+},
+
+engagementLead: {
+  en: 'We start by understanding the real operating problem, validate the approach in a controlled scope, then move toward integration and repeatable deployment.',
+  tr: 'Önce gerçek operasyon problemini ve sistem sınırlarını netleştiririz. Yaklaşımı kontrollü kapsamda doğrular, ardından entegrasyon ve sürdürülebilir kullanıma taşırız.',
+},
+
+engagementAssessmentTitle: {
+  en: 'Technical Assessment',
+  tr: 'Teknik Değerlendirme',
+},
+
+engagementAssessmentText: {
+  en: 'We examine the operating scenario, available sensor data, system constraints and integration requirements.',
+  tr: 'Operasyon senaryosu, mevcut sensör ve veriyi, sistem kısıtlarını ve entegrasyon ihtiyaçlarını değerlendirilir',
+},
+
+engagementPocTitle: {
+  en: 'Technical PoC',
+  tr: 'Teknik PoC',
+},
+
+engagementPocText: {
+  en: 'The proposed capability is tested under a limited and measurable technical scenario.',
+  tr: 'Önerilen kabiliyet sınırlı, kontrollü ve ölçülebilir bir teknik senaryoda test edilir.',
+},
+
+engagementPilotTitle: {
+  en: 'Pilot',
+  tr: 'Pilot',
+},
+
+engagementPilotText: {
+  en: 'The validated approach is evaluated in a representative operational environment and workflow.',
+  tr: 'Doğrulanan yaklaşım gerçek kullanımı temsil eden operasyon ortamı ve iş akışı içinde değerlendirilir.',
+},
+
+engagementIntegrationTitle: {
+  en: 'Integration',
+  tr: 'Entegrasyon',
+},
+
+engagementIntegrationText: {
+  en: 'The capability is integrated with the customer platform, application or operational software stack.',
+  tr: 'Kabiliyet müşteri platformuna, uygulamasına veya operasyonel yazılım altyapısına entegre edilir.',
+},
+
+engagementScaleTitle: {
+  en: 'Operational Use',
+  tr: 'Operasyonel Kullanım',
+},
+
+engagementScaleText: {
+  en: 'Successful deployments can continue through recurring analytics, software delivery, support or licensing models.',
+  tr: 'Başarılı çalışmalar; tekrarlayan analitik hizmeti, yazılım teslimi, destek veya lisanslama modelleriyle sürdürülebilir hale getirilebilir.',
+},
+
+engagementBottomText: {
+  en: 'The exact path depends on the problem and maturity of the system; not every engagement needs to pass through every stage.',
+  tr: 'İzlenecek yol problemin ve mevcut sistemin olgunluğuna göre değişir; her çalışma bütün aşamalardan geçmek zorunda değildir.',
 },
 
   /* --------------------

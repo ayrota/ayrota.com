@@ -4,6 +4,7 @@ import { BackgroundField } from './components/BackgroundField';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { ScrollToHash } from './components/ScrollToHash';
+import { Engagement } from './sections/Engagement';
 
 import { Hero } from './sections/Hero';
 import { Problem } from './sections/Problem';
@@ -37,8 +38,11 @@ export default function App() {
               <Problem />
 
               <Products />
+              <Engagement />
+
 
               <Contact />
+              <Footer />
             </main>
           }
         />
