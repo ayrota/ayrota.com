@@ -496,612 +496,606 @@ contactLocationText: {
   },
 
   /* --------------------
-     ALKON PAGE
-  -------------------- */
-
-  alkonProductCategory: {
-    en: 'AUTONOMOUS NAVIGATION & MISSION SYSTEM',
-    tr: 'OTONOM NAVİGASYON VE GÖREV SİSTEMİ',
-  },
-
-  alkonHeroStatement: {
-    en: 'Navigation and Mission Capability Where GNSS Cannot Be Relied Upon',
-    tr: 'GNSS Kısıtlı Ortamlarda Navigasyon ve Görev Sürekliliği',
-  },
-
-  alkonHeroText: {
-    en: 'Alkon brings inertial navigation, mission planning and mission execution together in a single software system for autonomous platforms.',
-    tr: 'Alkon, GNSS’in güvenilir olmadığı koşullarda otonom platformların navigasyon ve görev süreçlerini destekler. IMU tabanlı navigasyon, görev planlama ve görev yürütme aynı yazılım sistemi içinde bir araya gelir.',
-  },
-
-  alkonMiniNavigation: {
-    en: 'INERTIAL NAVIGATION',
-    tr: 'IMU TABANLI NAVİGASYON',
-  },
-
-  alkonMiniMission: {
-    en: 'MISSION PLANNING',
-    tr: 'GÖREV PLANLAMA',
-  },
-
-  alkonMiniAutonomy: {
-    en: 'AUTONOMOUS OPERATION',
-    tr: 'OTONOM GÖREV',
-  },
-
-  alkonMiniIntegration: {
-    en: 'PLATFORM INTEGRATION',
-    tr: 'PLATFORM ENTEGRASYONU',
-  },
-
-  alkonScopeTitle: {
-    en: 'SYSTEM CAPABILITIES',
-    tr: 'SİSTEM KABİLİYETLERİ',
-  },
-
-  alkonScopeMainTitle: {
-    en: 'Navigation and Mission System for Autonomous Platforms',
-    tr: 'Navigasyon ve Görev Yönetimi ',
-  },
-
-  alkonScopeText: {
-    en: 'Alkon combines inertial navigation outputs with mission planning, mission execution and platform integration for operations where GNSS is constrained.',
-    tr: 'Sensörlerden elde edilen navigasyon bilgisi, görev planlama ve platform kontrolüyle birlikte kullanılır. Böylece navigasyon ve görev süreçleri aynı yazılım katmanı üzerinden yönetilebilir.',
-  },
-
-  alkonNavigationGroupTitle: {
-    en: 'Navigation',
-    tr: 'Navigasyon',
-  },
-
-  alkonMissionGroupTitle: {
-    en: 'Mission System',
-    tr: 'Görev Yönetimi',
-  },
-
-  alkonIntegrationGroupTitle: {
-    en: 'Integration',
-    tr: 'Entegrasyon',
-  },
-
-  alkonCapabilityInertialNavigation: {
-    en: 'IMU-based inertial navigation',
-    tr: 'IMU tabanlı navigasyon',
-  },
-
-  alkonCapabilityPositioning: {
-    en: 'Position and motion estimation',
-    tr: 'Konum ve hareket kestirimi',
-  },
-
-  alkonCapabilityHeading: {
-    en: 'Heading estimation',
-    tr: 'Yönelim kestirimi',
-  },
-
-  alkonCapabilityMissionPlanning: {
-    en: 'Mission planning',
-    tr: 'Görev planlama',
-  },
-
-  alkonCapabilityMissionExecution: {
-    en: 'Autonomous mission execution',
-    tr: 'Otonom görev yürütme',
-  },
-
-  alkonCapabilityWaypoint: {
-    en: 'Waypoint-based navigation',
-    tr: 'Rota noktaları üzerinden navigasyon',
-  },
-
-  alkonCapabilityAutonomousPlatforms: {
-    en: 'Autonomous platform integration',
-    tr: 'Otonom platform entegrasyonu',
-  },
-
-  alkonCapabilityGroundControl: {
-    en: 'Ground control integration',
-    tr: 'Yer kontrol sistemi entegrasyonu',
-  },
-
-  alkonCapabilityMavlink: {
-    en: 'MAVLink-based navigation interface',
-    tr: 'MAVLink tabanlı navigasyon arayüzü',
-  },
-
-  alkonHowItWorks: {
-    en: 'HOW IT WORKS',
-    tr: 'NASIL ÇALIŞIR?',
-  },
-
-  alkonHowItWorksTitle: {
-    en: 'From Motion to Autonomous Mission Execution',
-    tr: 'Sensör Verisi Otonom Göreve Nasıl Dönüşür?',
-  },
-
-  alkonWorkflowSenseTitle: {
-    en: 'Sense Motion',
-    tr: 'Hareket Ölçülür',
-  },
-
-  alkonWorkflowSenseText: {
-    en: 'Onboard inertial sensors provide continuous motion measurements to the navigation software.',
-    tr: 'Platform üzerindeki ataletsel sensörler hareketi sürekli ölçerek navigasyon yazılımına veri sağlar.',
-  },
-
-  alkonWorkflowNavigateTitle: {
-    en: 'Estimate Navigation',
-    tr: 'Navigasyon Bilgisi Üretilir',
-  },
-
-  alkonWorkflowNavigateText: {
-    en: 'Inertial measurements are processed to generate navigation states for the autonomous platform.',
-    tr: 'Sensör ölçümleri işlenerek platformun konum, hareket ve yönelim bilgileri kestirilir.',
-  },
-
-  alkonWorkflowPlanTitle: {
-    en: 'Plan the Mission',
-    tr: 'Görev Planlanır',
-  },
-
-  alkonWorkflowPlanText: {
-    en: 'Mission objectives and waypoint sequences are defined through the mission software layer.',
-    tr: 'Görev hedefleri, rota noktaları ve izlenecek görev akışı yazılım üzerinden tanımlanır.',
-  },
-
-  alkonWorkflowExecuteTitle: {
-    en: 'Execute the Mission',
-    tr: 'Görev Yürütülür',
-  },
-
-  alkonWorkflowExecuteText: {
-    en: 'Navigation states and mission commands are delivered to the platform to support autonomous mission execution.',
-    tr: 'Navigasyon bilgileri ve görev komutları platforma aktarılır ve tanımlanan görev akışı yürütülür.',
-  },
-
-  alkonFinalCtaTitle: {
-    en: 'Evaluate Alkon for Your Platform',
-    tr: 'Alkon Platformunuza Nasıl Entegre Edilebilir?',
-  },
-
-  alkonFinalCtaText: {
-    en: 'Tell us about your platform, mission environment and navigation requirements. We can evaluate the appropriate integration approach together.',
-    tr: 'Platformunuzu, görev ortamınızı ve navigasyon gereksinimlerinizi paylaşın. Uygun entegrasyon yaklaşımını birlikte değerlendirelim.',
-  },
-
-  alkonCtaButton: {
-    en: 'CONTACT US',
-    tr: 'İLETİŞİME GEÇ',
-  },
-
-  /* --------------------
-     YORUK PAGE
-  -------------------- */
-
-  yorukProductCategory: {
-    en: 'VEHICLE & ROAD INTELLIGENCE',
-    tr: 'YOL, SÜRÜŞ VE FİLO ANALİZİ',
-  },
-
-  yorukHeroStatement: {
-    en: 'Turn Vehicle Motion Into Road and Driving Intelligence',
-    tr: 'Araç Verisinden Yol, Sürüş ve Rota Analizi',
-  },
-
-  yorukHeroText: {
-    en: 'Yoruk transforms GPS and IMU data collected from moving vehicles into insights on road condition, driving behaviour and operational performance.',
-    tr: 'Yörük, günlük araç operasyonlarından toplanan GPS ve IMU verilerini analiz eder. Yol durumu, sürüş davranışı ve rota performansı hakkında düzenli ve karşılaştırılabilir bilgiler üretir.',
-  },
-
-  yorukMiniRoad: {
-    en: 'ROAD INTELLIGENCE',
-    tr: 'YOL DURUMU',
-  },
-
-  yorukMiniDriving: {
-    en: 'DRIVING ANALYTICS',
-    tr: 'SÜRÜŞ ANALİZİ',
-  },
-
-  yorukMiniFleet: {
-    en: 'FLEET OPERATIONS',
-    tr: 'FİLO OPERASYONLARI',
-  },
-
-  yorukMiniSensors: {
-    en: 'GPS + IMU',
-    tr: 'GPS + IMU',
-  },
-
-  yorukScopeTitle: {
-    en: 'PLATFORM CAPABILITIES',
-    tr: 'PLATFORM KABİLİYETLERİ',
-  },
-
-  yorukScopeMainTitle: {
-    en: 'Road and Vehicle Intelligence From Existing Motion Data',
-    tr: 'Mevcut Araçlardan Sürekli Saha Verisi',
-  },
-
-  yorukScopeText: {
-    en: 'Yoruk turns vehicle motion into a continuous source of information for road operations, driving analysis and fleet-level decision support.',
-    tr: 'Araçların günlük hareketi sürekli bir veri kaynağı olarak kullanılır. Aynı veriler yol durumunu izlemek, sürüş olaylarını değerlendirmek, rotaları karşılaştırmak ve bakım gerektiren bölgeleri belirlemek için analiz edilir.',
-  },
-
-  yorukRoadGroupTitle: {
-    en: 'Road Intelligence',
-    tr: 'Yol Durumu',
-  },
-
-  yorukDrivingGroupTitle: {
-    en: 'Driving Intelligence',
-    tr: 'Sürüş Davranışı',
-  },
-
-  yorukOperationsGroupTitle: {
-    en: 'Operational Analytics',
-    tr: 'Filo ve Rota Analizi',
-  },
-
-  yorukCapabilityRoadCondition: {
-    en: 'Road condition analysis',
-    tr: 'Yol durumunun değerlendirilmesi',
-  },
-
-  yorukCapabilityRouteSegments: {
-    en: 'Route and segment comparison',
-    tr: 'Rota ve yol kesimlerinin karşılaştırılması',
-  },
-
-  yorukCapabilityMaintenance: {
-    en: 'Maintenance prioritization insights',
-    tr: 'Bakım gerektiren bölgelerin önceliklendirilmesi',
-  },
-
-  yorukCapabilityDrivingEvents: {
-    en: 'Driving risk event analysis',
-    tr: 'Riskli sürüş olaylarının belirlenmesi',
-  },
-
-  yorukCapabilityDrivingPatterns: {
-    en: 'Driving behaviour patterns',
-    tr: 'Sürüş davranışlarının değerlendirilmesi',
-  },
-
-  yorukCapabilityMotionProfiles: {
-    en: 'Vehicle motion profiles',
-    tr: 'Araç hareket profillerinin çıkarılması',
-  },
-
-  yorukCapabilityFleetComparison: {
-    en: 'Fleet and route comparison',
-    tr: 'Filo ve rotaların karşılaştırılması',
-  },
-
-  yorukCapabilityMapReporting: {
-    en: 'Map-based analysis and reporting',
-    tr: 'Harita tabanlı analiz ve raporlama',
-  },
-
-  yorukCapabilityLongitudinal: {
-    en: 'Longitudinal road intelligence',
-    tr: 'Yol durumundaki değişimin zaman içinde izlenmesi',
-  },
-
-  yorukHowItWorks: {
-    en: 'HOW IT WORKS',
-    tr: 'NASIL ÇALIŞIR?',
-  },
-
-  yorukHowItWorksTitle: {
-    en: 'From Vehicle Motion to Operational Insight',
-    tr: 'Araç Verisi Nasıl Yol ve Sürüş Bilgisine Dönüşür?',
-  },
-
-  yorukWorkflowCollectTitle: {
-    en: 'Collect Motion Data',
-    tr: 'Veri Toplanır',
-  },
-
-  yorukWorkflowCollectText: {
-    en: 'GPS and IMU signals are collected during normal vehicle operations using mobile sensing devices.',
-    tr: 'GPS ve IMU verileri, araçların normal operasyonları sırasında mobil sensör cihazları üzerinden toplanır.',
-  },
-
-  yorukWorkflowAnalyzeTitle: {
-    en: 'Analyze Movement',
-    tr: 'Hareket Analiz Edilir',
-  },
-
-  yorukWorkflowAnalyzeText: {
-    en: 'Vehicle motion signals are processed to identify road characteristics, driving events and movement patterns.',
-    tr: 'Araç hareket sinyalleri işlenerek yol özellikleri, sürüş olayları ve tekrar eden hareket davranışları belirlenir.',
-  },
-
-  yorukWorkflowContextTitle: {
-    en: 'Add Operational Context',
-    tr: 'Konum ve Rotayla Eşleştirilir',
-  },
-
-  yorukWorkflowContextText: {
-    en: 'Motion findings are combined with route and location context to produce road- and vehicle-level intelligence.',
-    tr: 'Analiz sonuçları rota ve konum bilgileriyle eşleştirilerek olayların nerede ve hangi güzergah üzerinde gerçekleştiği belirlenir.',
-  },
-
-  yorukWorkflowDecisionTitle: {
-    en: 'Support Decisions',
-    tr: 'Sonuçlar Karar Sürecine Aktarılır',
-  },
-
-  yorukWorkflowDecisionText: {
-    en: 'Analysis and reporting help teams prioritize road actions, compare routes and understand driving behaviour.',
-    tr: 'Elde edilen sonuçlar bakım çalışmalarının önceliklendirilmesi, rotaların karşılaştırılması ve sürüş davranışlarının değerlendirilmesi için kullanılır.',
-  },
-
-  yorukApplicationsKicker: {
-    en: 'APPLICATIONS',
-    tr: 'KULLANIM ALANLARI',
-  },
-
-  yorukApplicationsTitle: {
-    en: 'Built for Road and Vehicle Operations',
-    tr: 'Yol ve Araç Operasyonlarında Kullanım',
-  },
-
-  yorukApplicationMunicipalities: {
-    en: 'Municipalities',
-    tr: 'Belediyeler',
-  },
-
-  yorukApplicationMunicipalitiesText: {
-    en: 'Use vehicle-generated movement data to support road inspection and maintenance prioritization.',
-    tr: 'Hizmet araçlarından toplanan verilerle yol durumu izlenebilir ve bakım gerektiren bölgeler önceliklendirilebilir.',
-  },
-
-  yorukApplicationFleets: {
-    en: 'Fleets',
-    tr: 'Araç Filoları',
-  },
-
-  yorukApplicationFleetsText: {
-    en: 'Compare routes, movement patterns and driving events across daily fleet operations.',
-    tr: 'Günlük operasyonlarda rotalar, araç hareketleri ve sürüş olayları karşılaştırılarak filo performansı değerlendirilebilir.',
-  },
-
-  yorukApplicationLogistics: {
-    en: 'Logistics & Transport',
-    tr: 'Lojistik ve Ulaşım',
-  },
-
-  yorukApplicationLogisticsText: {
-    en: 'Build operational insight from repeated vehicle movement across road networks.',
-    tr: 'Düzenli kullanılan güzergahlardan toplanan verilerle yol ve rota koşullarındaki değişim zaman içinde takip edilebilir.',
-  },
-
-  yorukFinalCtaTitle: {
-    en: 'Evaluate Yoruk for Your Vehicle Operations',
-    tr: 'Yörük Araç Operasyonlarınıza Nasıl Uyarlanabilir?',
-  },
-
-  yorukFinalCtaText: {
-    en: 'Tell us about your vehicles, operating routes and the road or driving questions you want to understand.',
-    tr: 'Araç yapınızı, kullandığınız rotaları ve değerlendirmek istediğiniz yol veya sürüş problemlerini paylaşın. Uygun kullanım yaklaşımını birlikte belirleyelim.',
-  },
-
-  yorukCtaButton: {
-    en: 'CONTACT US',
-    tr: 'İLETİŞİME GEÇ',
-  },
-
-  /* --------------------
-     YAYA PAGE
-  -------------------- */
-
-  yayaProductCategory: {
-    en: 'INDOOR MOVEMENT & NAVIGATION',
-    tr: 'KAPALI ALAN HAREKETİ VE NAVİGASYON',
-  },
-
-  yayaHeroStatement: {
-    en: 'Turn Indoor Movement Into Navigation and Operational Insight',
-    tr: 'Kapalı Alanlarda Yaya Hareketi ve Navigasyon',
-  },
-
-  yayaHeroText: {
-    en: 'Yaya uses mobile IMU data to estimate pedestrian movement and turn it into indoor navigation and movement intelligence for complex facilities.',
-    tr: 'Yaya, mobil cihazlardaki IMU verisini kullanarak yaya hareketini ve göreli yer değiştirmeyi kestirir. Elde edilen bilgiler bina içi navigasyon, rota analizi ve tesis içi hareket uygulamalarında kullanılır.',
-  },
-
-  yayaMiniPdr: {
-    en: 'PDR',
-    tr: 'PDR',
-  },
-
-  yayaMiniIndoor: {
-    en: 'INDOOR NAVIGATION',
-    tr: 'KAPALI ALAN NAVİGASYONU',
-  },
-
-  yayaMiniMovement: {
-    en: 'MOVEMENT ANALYTICS',
-    tr: 'HAREKET ANALİZİ',
-  },
-
-  yayaMiniMobile: {
-    en: 'MOBILE IMU',
-    tr: 'MOBİL IMU',
-  },
-
-  yayaScopeTitle: {
-    en: 'PLATFORM CAPABILITIES',
-    tr: 'SİSTEM KABİLİYETLERİ',
-  },
-
-  yayaScopeMainTitle: {
-    en: 'Indoor Movement Intelligence From Mobile Sensors',
-    tr: 'Mobil Sensörlerden Yaya Hareketi ve Konum Bilgisi',
-  },
-
-  yayaScopeText: {
-    en: 'Yaya combines pedestrian dead reckoning, movement analysis and indoor context to support navigation and operational movement use cases.',
-    tr: 'Mobil sensörlerden elde edilen hareket kestirimi, tesisin harita ve mekansal bilgileriyle birlikte kullanılır. Böylece navigasyon, rota analizi ve personel hareketinin değerlendirilmesi için kullanılabilir çıktılar elde edilir.',
-  },
-
-  yayaNavigationGroupTitle: {
-    en: 'Indoor Navigation',
-    tr: 'Kapalı Alan Navigasyonu',
-  },
-
-  yayaMotionGroupTitle: {
-    en: 'Movement Intelligence',
-    tr: 'Hareket Analizi',
-  },
-
-  yayaIntegrationGroupTitle: {
-    en: 'Application Integration',
-    tr: 'Uygulama Entegrasyonu',
-  },
-
-  yayaCapabilityPdr: {
-    en: 'Pedestrian dead reckoning',
-    tr: 'Yaya kestirimli konumlama',
-  },
-
-  yayaCapabilityRelativeMovement: {
-    en: 'Relative pedestrian movement estimation',
-    tr: 'Göreli yaya hareketinin kestirilmesi',
-  },
-
-  yayaCapabilityIndoorNavigation: {
-    en: 'Indoor navigation support',
-    tr: 'Kapalı alan navigasyon desteği',
-  },
-
-  yayaCapabilityStepDetection: {
-    en: 'Step and movement event detection',
-    tr: 'Adım ve hareket olaylarının tespiti',
-  },
-
-  yayaCapabilityMovementPatterns: {
-    en: 'Pedestrian movement patterns',
-    tr: 'Yaya hareketlerinin değerlendirilmesi',
-  },
-
-  yayaCapabilityMovementAnalytics: {
-    en: 'Movement analytics',
-    tr: 'Hareket verilerinin analizi',
-  },
-
-  yayaCapabilityMobile: {
-    en: 'Mobile device integration',
-    tr: 'Mobil cihaz entegrasyonu',
-  },
-
-  yayaCapabilityMapContext: {
-    en: 'Indoor map and spatial context',
-    tr: 'Kapalı alan haritası ve mekansal bilgiler',
-  },
-
-  yayaCapabilityApplicationOutput: {
-    en: 'Application-level movement output',
-    tr: 'Uygulamalar için hareket ve konum çıktısı',
-  },
-
-  yayaHowItWorks: {
-    en: 'HOW IT WORKS',
-    tr: 'NASIL ÇALIŞIR?',
-  },
-
-  yayaHowItWorksTitle: {
-    en: 'From Mobile Motion to Indoor Intelligence',
-    tr: 'Mobil IMU Verisinden Yaya Hareketi Nasıl Kestirilir?',
-  },
-
-  yayaWorkflowSenseTitle: {
-    en: 'Sense Movement',
-    tr: 'Hareket Ölçülür',
-  },
-
-  yayaWorkflowSenseText: {
-    en: 'Mobile inertial sensors capture pedestrian motion during movement through indoor environments.',
-    tr: 'Mobil cihazdaki ataletsel sensörler, kişinin hareketi sırasında oluşan ivme ve dönme hareketlerini ölçer.',
-  },
-
-  yayaWorkflowEstimateTitle: {
-    en: 'Estimate Movement',
-    tr: 'Yaya Hareketi Kestirilir',
-  },
-
-  yayaWorkflowEstimateText: {
-    en: 'PDR processing estimates relative displacement and pedestrian movement from inertial signals.',
-    tr: 'PDR algoritmaları, ataletsel ölçümlerden adımları ve göreli yer değiştirmeyi hesaplayarak yayanın hareketini kestirir.',
-  },
-
-  yayaWorkflowContextTitle: {
-    en: 'Add Spatial Context',
-    tr: 'Mekansal Bilgilerle Eşleştirilir',
-  },
-
-  yayaWorkflowContextText: {
-    en: 'Movement estimates are combined with indoor spatial context to support navigation and facility-specific applications.',
-    tr: 'Hareket kestirimleri tesisin harita ve mekansal bilgileriyle birleştirilerek bina içindeki hareketin konumla ilişkilendirilmesi sağlanır.',
-  },
-
-  yayaWorkflowInsightTitle: {
-    en: 'Create Movement Intelligence',
-    tr: 'Uygulamalara Aktarılır',
-  },
-
-  yayaWorkflowInsightText: {
-    en: 'Movement data becomes navigation output and operational insight for people and facilities.',
-    tr: 'Üretilen hareket ve konum bilgileri navigasyon uygulamalarına veya tesis içi hareketi analiz eden sistemlere aktarılır.',
-  },
-
-  yayaApplicationsKicker: {
-    en: 'APPLICATIONS',
-    tr: 'KULLANIM ALANLARI',
-  },
-
-  yayaApplicationsTitle: {
-    en: 'Built for Complex Indoor Environments',
-    tr: 'Karmaşık Kapalı Alanlarda Kullanım',
-  },
-
-  yayaApplicationHospital: {
-    en: 'Hospitals',
-    tr: 'Hastaneler',
-  },
-
-  yayaApplicationHospitalText: {
-    en: 'Support indoor navigation and location intelligence across complex hospital environments.',
-    tr: 'Büyük hastane yapılarında bina içi yönlendirme ve konuma dayalı uygulamalar için yaya hareket bilgisi kullanılabilir.',
-  },
-
-  yayaApplicationDepot: {
-    en: 'Warehouses & Depots',
-    tr: 'Depolar ve Lojistik Tesisler',
-  },
-
-  yayaApplicationDepotText: {
-    en: 'Turn personnel movement into operational movement analytics across warehouse and depot workflows.',
-    tr: 'Depo ve lojistik tesislerinde personelin kullandığı rotalar ve tesis içindeki hareket akışı analiz edilebilir.',
-  },
-
-  yayaFinalCtaTitle: {
-    en: 'Evaluate Yaya for Your Indoor Environment',
-    tr: 'Yaya Tesisinizde Nasıl Kullanılabilir?',
-  },
-
-  yayaFinalCtaText: {
-    en: 'Tell us about your facility, target devices and the indoor movement or navigation problem you want to solve.',
-    tr: 'Tesis yapınızı, kullanılacak cihazları ve çözmek istediğiniz hareket veya navigasyon problemini paylaşın. Uygun kullanım senaryosunu birlikte değerlendirelim.',
-  },
-
-  yayaCtaButton: {
-    en: 'CONTACT US',
-    tr: 'İLETİŞİME GEÇ',
-  },
-
+   ALKON PAGE
+-------------------- */
+
+alkonProductCategory: {
+  en: 'GNSS-DENIED NAVIGATION',
+  tr: 'GNSS KISITLI NAVİGASYON',
+},
+
+alkonHeroStatement: {
+  en: 'Navigation Capability When GNSS Cannot Be Relied Upon',
+  tr: 'GNSS Güvenilir Olmadığında Navigasyon Kabiliyeti',
+},
+
+alkonHeroText: {
+  en: 'Alkon is Ayrota’s GNSS-denied navigation capability for autonomous platforms, focused on inertial navigation, controlled validation and platform integration.',
+  tr: 'Alkon, otonom platformlar için geliştirilen GNSS kısıtlı navigasyon kabiliyetidir. Ataletsel navigasyon, kontrollü doğrulama ve platform entegrasyonuna odaklanır.',
+},
+
+alkonMiniNavigation: {
+  en: 'IMU-BASED NAVIGATION',
+  tr: 'IMU TABANLI NAVİGASYON',
+},
+
+alkonMiniAutonomy: {
+  en: 'AUTONOMOUS PLATFORMS',
+  tr: 'OTONOM PLATFORMLAR',
+},
+
+alkonMiniIntegration: {
+  en: 'SYSTEM INTEGRATION',
+  tr: 'SİSTEM ENTEGRASYONU',
+},
+
+alkonVisualKicker: {
+  en: 'AUTONOMOUS SYSTEMS',
+  tr: 'OTONOM SİSTEMLER',
+},
+
+alkonVisualText: {
+  en: 'Navigation resilience under GNSS-constrained conditions.',
+  tr: 'GNSS kısıtlı koşullarda navigasyon sürekliliği.',
+},
+
+alkonProblemKicker: {
+  en: 'THE PROBLEM',
+  tr: 'PROBLEM',
+},
+
+alkonProblemTitle: {
+  en: 'Autonomy Becomes Fragile When GNSS Becomes Unreliable.',
+  tr: 'GNSS Güvenilirliğini Kaybettiğinde Otonomi Kırılganlaşır.',
+},
+
+alkonProblemText: {
+  en: 'Autonomous platforms can lose navigation capability when GNSS is degraded, jammed, spoofed or unavailable. Inertial navigation provides continuity, but its error behaviour must be understood and managed over mission-relevant periods.',
+  tr: 'Otonom platformlar GNSS zayıfladığında, karıştırıldığında, yanıltıldığında veya tamamen kullanılamadığında navigasyon kabiliyetini kaybedebilir. Ataletsel navigasyon süreklilik sağlar; ancak hata davranışının görev açısından anlamlı süreler boyunca anlaşılması ve yönetilmesi gerekir.',
+},
+
+alkonProblemNote: {
+  en: 'Alkon focuses on measurable navigation behaviour and integration risk rather than absolute or zero-drift claims.',
+  tr: 'Alkon, mutlak doğruluk veya sıfır drift iddiası yerine ölçülebilir navigasyon davranışı ve entegrasyon riskine odaklanır.',
+},
+
+alkonScopeTitle: {
+  en: 'CAPABILITY',
+  tr: 'KABİLİYET',
+},
+
+alkonScopeMainTitle: {
+  en: 'A GNSS-Denied Navigation Layer for Autonomous Platforms',
+  tr: 'Otonom Platformlar İçin GNSS Kısıtlı Navigasyon Katmanı',
+},
+
+alkonScopeText: {
+  en: 'Alkon combines IMU-based navigation research with autonomous-platform integration to evaluate how navigation can continue when external positioning cannot be relied upon.',
+  tr: 'Alkon, harici konumlama kaynaklarının güvenilir olmadığı koşullarda navigasyonun nasıl sürdürülebileceğini değerlendirmek için IMU tabanlı navigasyon araştırmasını otonom platform entegrasyonuyla birleştirir.',
+},
+
+alkonCapabilityNavigationTitle: {
+  en: 'Inertial Navigation',
+  tr: 'Ataletsel Navigasyon',
+},
+
+alkonCapabilityNavigationText: {
+  en: 'IMU-based navigation state estimation for periods where GNSS measurements are degraded or unavailable.',
+  tr: 'GNSS ölçümlerinin zayıfladığı veya kullanılamadığı dönemlerde IMU verisinden navigasyon durumlarının kestirilmesi.',
+},
+
+alkonCapabilityResilienceTitle: {
+  en: 'Navigation Resilience',
+  tr: 'Navigasyon Sürekliliği',
+},
+
+alkonCapabilityResilienceText: {
+  en: 'Controlled evaluation of navigation behaviour, drift and mission-relevant performance under GNSS-constrained conditions.',
+  tr: 'GNSS kısıtlı koşullarda navigasyon davranışının, drift karakterinin ve görev açısından anlamlı performansın kontrollü olarak değerlendirilmesi.',
+},
+
+alkonCapabilityIntegrationTitle: {
+  en: 'Platform Integration',
+  tr: 'Platform Entegrasyonu',
+},
+
+alkonCapabilityIntegrationText: {
+  en: 'Assessment and integration with autonomous-system software and robotics stacks according to the target platform.',
+  tr: 'Hedef platforma göre otonom sistem yazılımı ve robotik altyapılarla entegrasyonun değerlendirilmesi.',
+},
+
+alkonPocKicker: {
+  en: 'TECHNICAL POC',
+  tr: 'TEKNİK POC',
+},
+
+alkonPocTitle: {
+  en: 'Validate Before Deployment.',
+  tr: 'Entegrasyondan Önce Doğrula.',
+},
+
+alkonPocLead: {
+  en: 'Alkon is currently offered through controlled technical PoC and integration-assessment studies rather than broad product deployment.',
+  tr: 'Alkon bugün geniş ölçekli ürün kurulumu yerine kontrollü teknik PoC ve entegrasyon değerlendirme çalışmaları kapsamında sunulur.',
+},
+
+alkonPocScenarioTitle: {
+  en: 'Scenario Definition',
+  tr: 'Senaryo Tanımı',
+},
+
+alkonPocScenarioText: {
+  en: 'Platform, operating conditions, available sensors and success criteria are defined together.',
+  tr: 'Platform, çalışma koşulları, mevcut sensörler ve başarı ölçütleri birlikte netleştirilir.',
+},
+
+alkonPocExperimentTitle: {
+  en: 'Navigation Experiment',
+  tr: 'Navigasyon Deneyi',
+},
+
+alkonPocExperimentText: {
+  en: 'IMU-based navigation behaviour is evaluated under a constrained and measurable technical scenario.',
+  tr: 'IMU tabanlı navigasyon davranışı sınırlı ve ölçülebilir bir teknik senaryo altında değerlendirilir.',
+},
+
+alkonPocReportTitle: {
+  en: 'Engineering Report',
+  tr: 'Mühendislik Raporu',
+},
+
+alkonPocReportText: {
+  en: 'Drift behaviour, integration risks and recommended next steps are documented for technical decision making.',
+  tr: 'Drift davranışı, entegrasyon riskleri ve önerilen sonraki adımlar teknik karar sürecini destekleyecek şekilde raporlanır.',
+},
+
+alkonValidationKicker: {
+  en: 'CURRENT VALIDATION',
+  tr: 'MEVCUT DOĞRULAMA',
+},
+
+alkonValidationTitle: {
+  en: 'Validation Progress',
+  tr: 'Doğrulama Durumu',
+},
+
+alkonValidationSimulation: {
+  en: 'SIMULATION',
+  tr: 'SİMÜLASYON',
+},
+
+alkonValidationRobustness: {
+  en: 'ROBUSTNESS',
+  tr: 'ROBUSTNESS',
+},
+
+alkonValidationHitl: {
+  en: 'HITL / FIELD',
+  tr: 'HITL / SAHA',
+},
+
+alkonValidationComplete: {
+  en: 'COMPLETE',
+  tr: 'TAMAMLANDI',
+},
+
+alkonValidationOngoing: {
+  en: 'IN PROGRESS',
+  tr: 'DEVAM EDİYOR',
+},
+
+alkonValidationNext: {
+  en: 'NEXT VALIDATION STEP',
+  tr: 'SONRAKİ DOĞRULAMA ADIMI',
+},
+
+alkonFinalCtaTitle: {
+  en: 'Evaluate GNSS-Denied Navigation for Your Platform.',
+  tr: 'Platformunuz İçin GNSS Kısıtlı Navigasyonu Değerlendirelim.',
+},
+
+alkonFinalCtaText: {
+  en: 'Share your platform, navigation stack, sensors and operating scenario. We can define an appropriate technical evaluation or PoC scope.',
+  tr: 'Platformunuzu, navigasyon altyapınızı, sensörlerinizi ve çalışma senaryonuzu paylaşın. Uygun teknik değerlendirme veya PoC kapsamını birlikte belirleyelim.',
+},
+
+alkonCtaButton: {
+  en: 'DISCUSS ALKON',
+  tr: 'ALKON’U GÖRÜŞELİM',
+},
+
+/* --------------------
+   YORUK PAGE
+-------------------- */
+
+yorukProductCategory: {
+  en: 'ROAD & DRIVING ANALYTICS',
+  tr: 'YOL VE SÜRÜŞ ANALİTİĞİ',
+},
+
+yorukHeroStatement: {
+  en: 'Turn Vehicle Motion Into Road and Driving Intelligence',
+  tr: 'Araç Hareketini Yol ve Sürüş Bilgisine Dönüştürün',
+},
+
+yorukHeroText: {
+  en: 'Yörük uses vehicle motion data to produce road-condition, maintenance and driving-safety insights for operational decision making.',
+  tr: 'Yörük, araç hareket verisini kullanarak yol durumu, bakım ve sürüş güvenliği hakkında operasyonel karar süreçlerini destekleyen bilgiler üretir.',
+},
+
+yorukMiniRoad: {
+  en: 'ROAD CONDITION',
+  tr: 'YOL DURUMU',
+},
+
+yorukMiniDriving: {
+  en: 'DRIVING SAFETY',
+  tr: 'SÜRÜŞ GÜVENLİĞİ',
+},
+
+yorukMiniSensors: {
+  en: 'GPS + IMU',
+  tr: 'GPS + IMU',
+},
+
+yorukVisualKicker: {
+  en: 'VEHICLE MOTION INTELLIGENCE',
+  tr: 'ARAÇ HAREKET ZEKÂSI',
+},
+
+yorukVisualText: {
+  en: 'Operational insight from vehicle GPS and inertial data.',
+  tr: 'Araç GPS ve ataletsel verisinden operasyonel bilgi.',
+},
+
+yorukProblemKicker: {
+  en: 'THE PROBLEM',
+  tr: 'PROBLEM',
+},
+
+yorukProblemTitle: {
+  en: 'Road and Driving Conditions Are Difficult to Observe Continuously.',
+  tr: 'Yol ve Sürüş Koşullarını Sürekli Gözlemlemek Zordur.',
+},
+
+yorukProblemText: {
+  en: 'Road networks and vehicle operations generate continuous physical movement, but conventional inspection and reporting processes provide only limited snapshots. Vehicle sensor data can turn normal operations into a continuous source of road and driving information.',
+  tr: 'Yol ağları ve araç operasyonları sürekli fiziksel hareket üretir; ancak klasik denetim ve raporlama yöntemleri çoğu zaman yalnızca sınırlı anlık görüntüler sağlar. Araç sensör verisi, günlük operasyonları sürekli bir yol ve sürüş bilgisi kaynağına dönüştürebilir.',
+},
+
+yorukScopeTitle: {
+  en: 'CAPABILITY',
+  tr: 'KABİLİYET',
+},
+
+yorukScopeMainTitle: {
+  en: 'Road and Driving Analytics From Vehicle Motion',
+  tr: 'Araç Hareketinden Yol ve Sürüş Analitiği',
+},
+
+yorukScopeText: {
+  en: 'Yörük processes vehicle GPS and IMU data to identify road characteristics, driving events and operational patterns across repeated trips.',
+  tr: 'Yörük, tekrar eden araç hareketlerinden gelen GPS ve IMU verilerini işleyerek yol özelliklerini, sürüş olaylarını ve operasyonel örüntüleri değerlendirir.',
+},
+
+yorukCapabilityRoadTitle: {
+  en: 'Road Condition',
+  tr: 'Yol Durumu',
+},
+
+yorukCapabilityRoadText: {
+  en: 'Vehicle motion can be analysed to identify road-condition differences and support maintenance prioritisation.',
+  tr: 'Araç hareketi analiz edilerek yol koşullarındaki farklılıklar belirlenebilir ve bakım önceliklendirmesi desteklenebilir.',
+},
+
+yorukCapabilityDrivingTitle: {
+  en: 'Driving Behaviour',
+  tr: 'Sürüş Davranışı',
+},
+
+yorukCapabilityDrivingText: {
+  en: 'Motion signals can be transformed into driving-risk events and behaviour patterns for safety analysis.',
+  tr: 'Hareket sinyalleri sürüş güvenliği analizi için risk olaylarına ve davranış örüntülerine dönüştürülebilir.',
+},
+
+yorukCapabilityOperationalTitle: {
+  en: 'Operational Analytics',
+  tr: 'Operasyonel Analitik',
+},
+
+yorukCapabilityOperationalText: {
+  en: 'Repeated trips provide route- and fleet-level data that can support comparison, reporting and operational decisions.',
+  tr: 'Tekrar eden seferler; rota ve filo seviyesinde karşılaştırma, raporlama ve operasyonel karar desteği için veri sağlar.',
+},
+
+yorukApplicationsKicker: {
+  en: 'APPLICATION SURFACES',
+  tr: 'KULLANIM ALANLARI',
+},
+
+yorukApplicationsTitle: {
+  en: 'Two Operational Uses of the Same Vehicle Data.',
+  tr: 'Aynı Araç Verisinin İki Operasyonel Kullanımı.',
+},
+
+yorukApplicationsLead: {
+  en: 'The same vehicle motion data can support infrastructure maintenance and driving-safety workflows.',
+  tr: 'Aynı araç hareket verisi hem altyapı bakım süreçlerini hem de sürüş güvenliği çalışmalarını destekleyebilir.',
+},
+
+yorukRoadMaintenanceTitle: {
+  en: 'Road Maintenance',
+  tr: 'Yol Bakım',
+},
+
+yorukRoadMaintenanceText: {
+  en: 'Existing fleet vehicles can act as a moving road-observation network. Repeated measurements support road-condition monitoring, maintenance prioritisation and periodic reporting.',
+  tr: 'Mevcut filo araçları hareket eden bir yol gözlem ağı gibi kullanılabilir. Tekrar eden ölçümler yol durumunun izlenmesini, bakım önceliklendirmesini ve periyodik raporlamayı destekler.',
+},
+
+yorukSafetyTitle: {
+  en: 'Driving Safety',
+  tr: 'Sürüş Güvenliği',
+},
+
+yorukSafetyText: {
+  en: 'Vehicle IMU data can be analysed at driver and trip level to identify risk events and recurring driving-behaviour patterns.',
+  tr: 'Araç IMU verisi sürücü ve sefer seviyesinde analiz edilerek riskli sürüş olayları ve tekrar eden sürüş davranışı örüntüleri belirlenebilir.',
+},
+
+yorukFlowKicker: {
+  en: 'DATA FLOW',
+  tr: 'VERİ AKIŞI',
+},
+
+yorukFlowTitle: {
+  en: 'From Everyday Vehicle Motion to Operational Output.',
+  tr: 'Günlük Araç Hareketinden Operasyonel Çıktıya.',
+},
+
+yorukFlowCollectTitle: {
+  en: 'Collect',
+  tr: 'Topla',
+},
+
+yorukFlowCollectText: {
+  en: 'GPS and IMU data is collected during normal vehicle operation.',
+  tr: 'GPS ve IMU verisi aracın normal operasyonu sırasında toplanır.',
+},
+
+yorukFlowAnalyseTitle: {
+  en: 'Analyse',
+  tr: 'Analiz Et',
+},
+
+yorukFlowAnalyseText: {
+  en: 'Motion signals are processed to identify road and driving characteristics.',
+  tr: 'Hareket sinyalleri işlenerek yol ve sürüş özellikleri değerlendirilir.',
+},
+
+yorukFlowOutputTitle: {
+  en: 'Report',
+  tr: 'Raporla',
+},
+
+yorukFlowOutputText: {
+  en: 'Findings are converted into maps, comparisons and operational reports according to the use case.',
+  tr: 'Bulgular kullanım senaryosuna göre harita, karşılaştırma ve operasyonel raporlara dönüştürülür.',
+},
+
+yorukFinalCtaTitle: {
+  en: 'Evaluate Yörük for Your Vehicle Operations.',
+  tr: 'Yörük’ü Araç Operasyonlarınız İçin Değerlendirelim.',
+},
+
+yorukFinalCtaText: {
+  en: 'Tell us about your vehicles, routes and the road-maintenance or driving-safety problem you want to evaluate.',
+  tr: 'Araçlarınızı, rotalarınızı ve değerlendirmek istediğiniz yol bakım veya sürüş güvenliği problemini paylaşın. Uygun kullanım kapsamını birlikte belirleyelim.',
+},
+
+yorukCtaButton: {
+  en: 'DISCUSS YÖRÜK',
+  tr: 'YÖRÜK’Ü GÖRÜŞELİM',
+},
+/* --------------------
+   YAYA PAGE
+-------------------- */
+
+yayaProductCategory: {
+  en: 'INDOOR MOVEMENT & NAVIGATION',
+  tr: 'KAPALI ALAN HAREKETİ VE NAVİGASYON',
+},
+
+yayaHeroStatement: {
+  en: 'Indoor Navigation and Movement Intelligence From Mobile Sensors',
+  tr: 'Mobil Sensörlerden Kapalı Alan Navigasyonu ve Hareket Bilgisi',
+},
+
+yayaHeroText: {
+  en: 'Yaya uses mobile inertial sensors to estimate movement in GPS-constrained environments and supports indoor wayfinding, route analysis and operational movement intelligence.',
+  tr: 'Yaya, mobil ataletsel sensörleri kullanarak GPS’in güvenilir olmadığı ortamlarda hareketi kestirir; kapalı alan yön bulma, rota analizi ve operasyonel hareket uygulamalarını destekler.',
+},
+
+yayaMiniMovement: {
+  en: 'MOVEMENT ESTIMATION',
+  tr: 'HAREKET KESTİRİMİ',
+},
+
+yayaMiniRoute: {
+  en: 'WAYFINDING & ROUTES',
+  tr: 'YÖN BULMA & ROTALAR',
+},
+
+yayaMiniMobile: {
+  en: 'MOBILE IMU',
+  tr: 'MOBİL IMU',
+},
+
+yayaVisualKicker: {
+  en: 'INDOOR MOVEMENT INTELLIGENCE',
+  tr: 'KAPALI ALAN HAREKET ZEKÂSI',
+},
+
+yayaVisualText: {
+  en: 'Navigation and movement intelligence from mobile inertial sensing.',
+  tr: 'Mobil ataletsel algılamadan navigasyon ve hareket bilgisi.',
+},
+
+yayaProblemKicker: {
+  en: 'THE PROBLEM',
+  tr: 'PROBLEM',
+},
+
+yayaProblemTitle: {
+  en: 'Navigation Becomes Difficult Where GNSS Is Unavailable.',
+  tr: 'GNSS Kullanılamadığında Navigasyon Zorlaşır.',
+},
+
+yayaProblemText: {
+  en: 'Large hospitals, warehouses and complex facilities are difficult environments for satellite-based positioning. This limits indoor wayfinding, route understanding and the ability to analyse how people move through physical spaces.',
+  tr: 'Büyük hastaneler, depolar ve karmaşık tesisler uydu tabanlı konumlama için zorlu ortamlardır. Bu durum bina içi yön bulmayı, rotaların anlaşılmasını ve insanların fiziksel mekân içinde nasıl hareket ettiğinin analiz edilmesini zorlaştırır.',
+},
+
+yayaProblemNote: {
+  en: 'Yaya does not make an absolute indoor positioning guarantee. Its capabilities are adapted to the use case, from indoor wayfinding to route and movement analytics.',
+  tr: 'Yaya mutlak konum garantisi veren bir sistem olarak konumlandırılmaz. Kabiliyetleri kullanım senaryosuna göre; bina içi yön bulmadan rota ve hareket analizine kadar uyarlanır.',
+},
+
+yayaScopeTitle: {
+  en: 'CAPABILITY',
+  tr: 'KABİLİYET',
+},
+
+yayaScopeMainTitle: {
+  en: 'Movement Intelligence From Mobile Inertial Sensors',
+  tr: 'Mobil Ataletsel Sensörlerden Hareket Bilgisi',
+},
+
+yayaScopeText: {
+  en: 'Yaya turns mobile IMU measurements into relative pedestrian movement and combines this information with spatial and operational context.',
+  tr: 'Yaya, mobil IMU ölçümlerini göreli yaya hareketine dönüştürür ve bu bilgiyi mekânsal ve operasyonel bağlamla birleştirir.',
+},
+
+yayaCapabilityMovementTitle: {
+  en: 'Movement Estimation',
+  tr: 'Hareket Kestirimi',
+},
+
+yayaCapabilityMovementText: {
+  en: 'Pedestrian dead reckoning and inertial processing estimate relative displacement and movement from mobile sensors.',
+  tr: 'PDR ve ataletsel veri işleme yöntemleriyle mobil sensörlerden göreli yer değiştirme ve yaya hareketi kestirilir.',
+},
+
+yayaCapabilityRouteTitle: {
+  en: 'Wayfinding & Routes',
+  tr: 'Yön Bulma ve Rotalar',
+},
+
+yayaCapabilityRouteText: {
+  en: 'Movement estimates can support indoor wayfinding, route understanding and route-based operational applications.',
+  tr: 'Hareket kestirimleri bina içi yön bulma, rota takibi ve rotaya dayalı operasyonel uygulamaları destekleyebilir.',
+},
+
+yayaCapabilityContextTitle: {
+  en: 'Spatial Context',
+  tr: 'Mekânsal Bağlam',
+},
+
+yayaCapabilityContextText: {
+  en: 'Movement data can be associated with facility layouts and spatial context to produce application-level navigation and analytics outputs.',
+  tr: 'Hareket verisi tesis yerleşimi ve mekânsal bağlamla ilişkilendirilerek navigasyon ve analiz uygulamaları için anlamlı çıktılara dönüştürülebilir.',
+},
+
+yayaApplicationsKicker: {
+  en: 'APPLICATION SURFACES',
+  tr: 'KULLANIM ALANLARI',
+},
+
+yayaApplicationsTitle: {
+  en: 'One Movement Core. Different Indoor Experiences.',
+  tr: 'Tek Hareket Çekirdeği. Farklı Kapalı Alan Deneyimleri.',
+},
+
+yayaApplicationsLead: {
+  en: 'The same mobile inertial capability is adapted according to the user, facility and operational problem.',
+  tr: 'Aynı mobil ataletsel kabiliyet; kullanıcıya, tesise ve çözülmek istenen operasyonel probleme göre uyarlanır.',
+},
+
+yayaHospitalTitle: {
+  en: 'Hospital Wayfinding',
+  tr: 'Hastane Yön Bulma',
+},
+
+yayaHospitalText: {
+  en: 'Supports mobile indoor wayfinding and location intelligence across complex hospital environments, helping patients and visitors navigate between destinations.',
+  tr: 'Karmaşık hastane yapılarında mobil bina içi yön bulma ve konum farkındalığını destekler; hasta ve ziyaretçilerin hedef noktalar arasında yönlendirilmesini sağlar.',
+},
+
+yayaDepotTitle: {
+  en: 'Depot & Facility Analytics',
+  tr: 'Depo & Tesis Analitiği',
+},
+
+yayaDepotText: {
+  en: 'Transforms personnel movement into route, flow and coverage analytics across warehouse and facility operations.',
+  tr: 'Personel hareketini depo ve tesis operasyonlarında rota, akış ve kapsama analizine dönüştürür.',
+},
+
+yayaPilotKicker: {
+  en: 'CONTROLLED PILOT',
+  tr: 'KONTROLLÜ PİLOT',
+},
+
+yayaPilotTitle: {
+  en: 'Validate the Use Case in the Real Environment.',
+  tr: 'Kullanım Senaryosunu Gerçek Ortamda Doğrulayın.',
+},
+
+yayaPilotScopeTitle: {
+  en: 'Define Scope',
+  tr: 'Kapsamı Tanımla',
+},
+
+yayaPilotScopeText: {
+  en: 'The facility, target users, route or navigation objective and pilot criteria are defined.',
+  tr: 'Tesis, hedef kullanıcılar, rota veya navigasyon amacı ve pilot ölçütleri belirlenir.',
+},
+
+yayaPilotCollectTitle: {
+  en: 'Collect Movement',
+  tr: 'Hareketi Topla',
+},
+
+yayaPilotCollectText: {
+  en: 'Movement data is collected from mobile devices during representative use inside the facility.',
+  tr: 'Tesis içindeki temsili kullanım sırasında mobil cihazlardan hareket verisi toplanır.',
+},
+
+yayaPilotReportTitle: {
+  en: 'Evaluate Results',
+  tr: 'Sonuçları Değerlendir',
+},
+
+yayaPilotReportText: {
+  en: 'Navigation, route or movement findings are evaluated and documented according to the pilot objective.',
+  tr: 'Navigasyon, rota veya hareket bulguları pilotun amacına göre değerlendirilir ve raporlanır.',
+},
+
+yayaFinalCtaTitle: {
+  en: 'Evaluate Yaya for Your Indoor Environment.',
+  tr: 'Yaya’yı Kapalı Alanınız İçin Değerlendirelim.',
+},
+
+yayaFinalCtaText: {
+  en: 'Tell us about your facility, users and the indoor navigation or movement problem you want to solve. We can define the appropriate pilot scope together.',
+  tr: 'Tesisinizi, kullanıcılarınızı ve çözmek istediğiniz kapalı alan yön bulma veya hareket problemini paylaşın. Uygun pilot kapsamını birlikte belirleyelim.',
+},
+
+yayaCtaButton: {
+  en: 'DISCUSS YAYA',
+  tr: 'YAYA’YI GÖRÜŞELİM',
+},
+  
   /* --------------------
      PRIVACY / DATA NOTICE
   -------------------- */

@@ -1,64 +1,57 @@
 import { Link } from 'react-router-dom';
+import {
+  Activity,
+  Car,
+  MapPinned,
+  ShieldCheck,
+  Wrench,
+  type LucideIcon,
+} from 'lucide-react';
 
 import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
-import type { TranslationKey } from '../i18n/translations';
 import { useLanguage } from '../lib/LanguageContext';
 
-const YORUK_SCOPE_GROUPS: {
-  title: TranslationKey;
-  items: TranslationKey[];
-}[] = [
+type Capability = {
+  title: string;
+  text: string;
+  icon: LucideIcon;
+};
+
+type Surface = {
+  title: string;
+  text: string;
+  icon: LucideIcon;
+};
+
+const CAPABILITIES: Capability[] = [
   {
-    title: 'yorukRoadGroupTitle',
-    items: [
-      'yorukCapabilityRoadCondition',
-      'yorukCapabilityRouteSegments',
-      'yorukCapabilityMaintenance',
-    ],
+    title: 'yorukCapabilityRoadTitle',
+    text: 'yorukCapabilityRoadText',
+    icon: MapPinned,
   },
   {
-    title: 'yorukDrivingGroupTitle',
-    items: [
-      'yorukCapabilityDrivingEvents',
-      'yorukCapabilityDrivingPatterns',
-      'yorukCapabilityMotionProfiles',
-    ],
+    title: 'yorukCapabilityDrivingTitle',
+    text: 'yorukCapabilityDrivingText',
+    icon: Activity,
   },
   {
-    title: 'yorukOperationsGroupTitle',
-    items: [
-      'yorukCapabilityFleetComparison',
-      'yorukCapabilityMapReporting',
-      'yorukCapabilityLongitudinal',
-    ],
+    title: 'yorukCapabilityOperationalTitle',
+    text: 'yorukCapabilityOperationalText',
+    icon: Car,
   },
 ];
 
-const WORKFLOW_ITEMS: {
-  number: string;
-  title: TranslationKey;
-  text: TranslationKey;
-}[] = [
+const SURFACES: Surface[] = [
   {
-    number: '01',
-    title: 'yorukWorkflowCollectTitle',
-    text: 'yorukWorkflowCollectText',
+    title: 'yorukRoadMaintenanceTitle',
+    text: 'yorukRoadMaintenanceText',
+    icon: Wrench,
   },
   {
-    number: '02',
-    title: 'yorukWorkflowAnalyzeTitle',
-    text: 'yorukWorkflowAnalyzeText',
-  },
-  {
-    number: '03',
-    title: 'yorukWorkflowContextTitle',
-    text: 'yorukWorkflowContextText',
-  },
-  {
-    number: '04',
-    title: 'yorukWorkflowDecisionTitle',
-    text: 'yorukWorkflowDecisionText',
+    title: 'yorukSafetyTitle',
+    text: 'yorukSafetyText',
+    icon: ShieldCheck,
   },
 ];
 
@@ -66,173 +59,267 @@ export default function Yoruk() {
   const { t } = useLanguage();
 
   return (
-    <main className="relative z-10 bg-bg text-fg">
+    <main className="relative z-10 bg-[#09131d] text-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-bg pb-16 pt-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(30,90,255,0.16),transparent_43%)]" />
+      <section className="relative min-h-screen overflow-hidden pt-20">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+        >
+          <div className="absolute right-[8%] top-[14%] h-[520px] w-[560px] rounded-full bg-blue-400/[0.035] blur-[170px]" />
 
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
-          <Reveal>
-            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px]" />
+        </div>
+
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] w-full max-w-[1500px] items-center px-6 py-10 md:px-10">
+          <div className="grid w-full gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+            <Reveal>
               <div>
                 <Link
                   to="/#products"
-                  className="text-[11px] font-semibold tracking-[0.18em] text-fg/40 transition hover:text-fg"
+                  className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35 transition hover:text-white/70"
                 >
                   ← AYROTA
                 </Link>
 
-                <div className="mt-12 text-[22px] font-semibold tracking-[0.24em] text-blue-400">
+                <div className="mt-12 flex items-center gap-3">
+                  <span className="h-px w-8 bg-cyan-200/35" />
+
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-100/60">
+                    {t('yorukProductCategory')}
+                  </span>
+                </div>
+
+                <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
                   YÖRÜK
                 </div>
 
-                <div className="mt-4 text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
-                  {t('yorukProductCategory')}
-                </div>
-
-                <h1 className="mt-6 max-w-[680px] text-4xl font-semibold leading-[1.04] tracking-[-0.055em] text-fg md:text-[62px]">
+                <h1 className="mt-5 max-w-[700px] text-[42px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#eef3f7] md:text-[60px]">
                   {t('yorukHeroStatement')}
                 </h1>
 
-                <p className="mt-7 max-w-[610px] text-base leading-8 text-fg/58">
+                <p className="mt-7 max-w-[620px] text-[16px] leading-8 text-white/54">
                   {t('yorukHeroText')}
                 </p>
 
-                <div className="mt-10 flex max-w-[650px] flex-wrap gap-x-8 gap-y-4 text-[12px] font-medium tracking-[0.04em] text-fg/52">
-                  <span>{t('yorukMiniRoad')}</span>
-                  <span>{t('yorukMiniDriving')}</span>
-                  <span>{t('yorukMiniFleet')}</span>
-                  <span>{t('yorukMiniSensors')}</span>
+                <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/36">
+                    {t('yorukMiniRoad')}
+                  </span>
+
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/36">
+                    {t('yorukMiniDriving')}
+                  </span>
+
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/36">
+                    {t('yorukMiniSensors')}
+                  </span>
                 </div>
               </div>
+            </Reveal>
 
-              <div className="relative min-h-[430px] overflow-hidden border border-fg/10 bg-panel/10 shadow-2xl shadow-black/30 md:min-h-[520px]">
+            <Reveal
+              delay={0.1}
+              className="relative h-[430px] md:h-[540px]"
+            >
+              <div className="relative h-full overflow-hidden border border-white/[0.07] bg-[#07111a]">
                 <img
                   src="/products/yoruk.png"
-                  alt="Yörük vehicle and road intelligence"
-                  className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
+                  alt="Yoruk road and driving analytics"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/20 via-transparent to-bg/5" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,14,22,0.22),transparent_60%)]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09131d]/50 via-transparent to-transparent" />
+
+                <div className="absolute bottom-6 left-6 border-l border-cyan-200/25 pl-4">
+                  <div className="text-[9px] font-semibold uppercase tracking-[0.2em] text-cyan-100/45">
+                    {t('yorukVisualKicker')}
+                  </div>
+
+                  <div className="mt-2 text-[12px] text-white/50">
+                    {t('yorukVisualText')}
+                  </div>
+                </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* CAPABILITIES */}
-      <section
-        id="yoruk-capabilities"
-        className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24"
-      >
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      {/* PROBLEM */}
+      <section className="relative border-t border-white/[0.05] bg-[#0e1924] py-20 md:py-24">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
           <Reveal>
-            <div className="grid gap-14 lg:grid-cols-[0.78fr_1.22fr]">
+            <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-                  {t('yorukScopeTitle')}
+                <div className="text-[10px] font-semibold uppercase tracking-[0.26em] text-cyan-100/55">
+                  {t('yorukProblemKicker')}
                 </div>
 
-                <h2 className="mt-6 max-w-[620px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[56px]">
-                  {t('yorukScopeMainTitle')}
+                <h2 className="mt-5 max-w-[560px] text-[34px] font-semibold leading-[1.05] tracking-[-0.045em] text-[#eef3f7] md:text-[44px]">
+                  {t('yorukProblemTitle')}
                 </h2>
+              </div>
 
-                <p className="mt-8 max-w-lg text-base leading-8 text-fg/58">
-                  {t('yorukScopeText')}
+              <div className="max-w-[700px] lg:justify-self-end">
+                <p className="text-[16px] leading-8 text-white/52">
+                  {t('yorukProblemText')}
                 </p>
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-              <div className="space-y-5">
-                {YORUK_SCOPE_GROUPS.map((group) => (
-                  <div
-                    key={group.title}
-                    className="border border-fg/10 bg-panel/10 p-7 transition hover:border-fg/20 hover:bg-panel/20 md:p-8"
-                  >
-                    <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-start">
-                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-fg">
-                        {t(group.title)}
+      {/* CAPABILITY */}
+      <section className="relative border-t border-white/[0.05] bg-[#101c28] py-20 md:py-24">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <Reveal>
+            <div className="max-w-[760px]">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.26em] text-cyan-100/55">
+                {t('yorukScopeTitle')}
+              </div>
+
+              <h2 className="mt-5 text-[34px] font-semibold leading-[1.05] tracking-[-0.045em] text-[#eef3f7] md:text-[44px]">
+                {t('yorukScopeMainTitle')}
+              </h2>
+
+              <p className="mt-6 max-w-[680px] text-[15px] leading-7 text-white/50">
+                {t('yorukScopeText')}
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            {CAPABILITIES.map((capability, index) => {
+              const Icon = capability.icon;
+
+              return (
+                <Reveal
+                  key={capability.title}
+                  delay={0.05 + index * 0.05}
+                  className="h-full"
+                >
+                  <article className="flex h-full min-h-[280px] flex-col border border-white/[0.07] bg-[#0a151f]/70 p-7 transition duration-300 hover:border-cyan-100/20">
+                    <div className="flex h-11 w-11 items-center justify-center border border-white/[0.09] text-cyan-100/55">
+                      <Icon size={19} strokeWidth={1.4} />
+                    </div>
+
+                    <div className="mt-auto pt-12">
+                      <h3 className="text-[20px] font-semibold tracking-[-0.03em] text-white/90">
+                        {t(capability.title)}
                       </h3>
 
-                      <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
-                        {group.items.map((item) => (
-                          <div
-                            key={item}
-                            className="border-l border-blue-500/65 pl-5 text-sm leading-7 text-fg/68"
-                          >
-                            {t(item)}
-                          </div>
-                        ))}
-                      </div>
+                      <p className="mt-4 text-[13px] leading-6 text-white/44">
+                        {t(capability.text)}
+                      </p>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* WORKFLOW */}
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      {/* PRODUCT SURFACES */}
+      <section className="relative border-t border-white/[0.05] bg-[#0c1721] py-20 md:py-24">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
           <Reveal>
-            <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
-              {t('yorukHowItWorks')}
-            </div>
-
-            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
-              {t('yorukHowItWorksTitle')}
-            </h2>
-
-            <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-              {WORKFLOW_ITEMS.map((item) => (
-                <div key={item.number} className="border-t border-fg/10 pt-7">
-                  <div className="text-2xl font-semibold text-blue-500">{item.number}</div>
-
-                  <h3 className="mt-8 text-[24px] font-semibold tracking-[-0.04em] text-fg">
-                    {t(item.title)}
-                  </h3>
-
-                  <p className="mt-5 max-w-xs text-sm leading-7 text-fg/55">{t(item.text)}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* USE CASES */}
-      <section className="relative overflow-hidden border-t border-fg/10 bg-bg py-20 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-          <Reveal>
-            <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
               <div>
-                <div className="text-[11px] font-semibold tracking-[0.24em] text-blue-400">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.26em] text-cyan-100/55">
                   {t('yorukApplicationsKicker')}
                 </div>
 
-                <h2 className="mt-6 max-w-[580px] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-fg md:text-[52px]">
+                <h2 className="mt-5 max-w-[600px] text-[34px] font-semibold leading-[1.05] tracking-[-0.045em] text-[#eef3f7] md:text-[44px]">
                   {t('yorukApplicationsTitle')}
                 </h2>
               </div>
 
-              <div className="grid gap-px border border-fg/10 bg-fg/10 md:grid-cols-3">
-                <ApplicationItem
+              <p className="max-w-[650px] text-[15px] leading-7 text-white/48 lg:justify-self-end">
+                {t('yorukApplicationsLead')}
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+            {SURFACES.map((surface, index) => {
+              const Icon = surface.icon;
+
+              return (
+                <Reveal
+                  key={surface.title}
+                  delay={0.06 + index * 0.06}
+                >
+                  <article className="relative min-h-[330px] overflow-hidden border border-white/[0.07] bg-[#09131d] p-7 md:p-9">
+                    <div
+                      aria-hidden
+                      className="absolute right-[-80px] top-[-80px] h-[240px] w-[240px] rounded-full bg-blue-300/[0.025] blur-[80px]"
+                    />
+
+                    <div className="relative z-10 flex h-full flex-col">
+                      <div className="flex items-center justify-between">
+                        <div className="flex h-11 w-11 items-center justify-center border border-white/[0.09] text-cyan-100/55">
+                          <Icon size={19} strokeWidth={1.4} />
+                        </div>
+
+                        <span className="text-[9px] tracking-[0.2em] text-white/22">
+                          0{index + 1}
+                        </span>
+                      </div>
+
+                      <div className="mt-auto pt-16">
+                        <h3 className="text-[26px] font-semibold tracking-[-0.04em] text-white/92">
+                          {t(surface.title)}
+                        </h3>
+
+                        <p className="mt-5 max-w-[540px] text-[14px] leading-7 text-white/46">
+                          {t(surface.text)}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* DATA FLOW */}
+      <section className="relative border-t border-white/[0.05] bg-[#101c28] py-16 md:py-20">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <Reveal>
+            <div className="grid gap-8 border border-white/[0.07] bg-[#0a151f]/60 p-7 md:p-9 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-cyan-100/45">
+                  {t('yorukFlowKicker')}
+                </div>
+
+                <h2 className="mt-4 max-w-[420px] text-[28px] font-semibold leading-tight tracking-[-0.04em] text-white/92">
+                  {t('yorukFlowTitle')}
+                </h2>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-3">
+                <FlowItem
                   number="01"
-                  title={t('yorukApplicationMunicipalities')}
-                  text={t('yorukApplicationMunicipalitiesText')}
+                  title={t('yorukFlowCollectTitle')}
+                  text={t('yorukFlowCollectText')}
                 />
 
-                <ApplicationItem
+                <FlowItem
                   number="02"
-                  title={t('yorukApplicationFleets')}
-                  text={t('yorukApplicationFleetsText')}
+                  title={t('yorukFlowAnalyseTitle')}
+                  text={t('yorukFlowAnalyseText')}
                 />
 
-                <ApplicationItem
+                <FlowItem
                   number="03"
-                  title={t('yorukApplicationLogistics')}
-                  text={t('yorukApplicationLogisticsText')}
+                  title={t('yorukFlowOutputTitle')}
+                  text={t('yorukFlowOutputText')}
                 />
               </div>
             </div>
@@ -241,30 +328,29 @@ export default function Yoruk() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-fg/10 bg-bg py-16 md:py-20">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+      <section className="relative border-t border-white/[0.05] bg-[#09131d] py-20">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
           <Reveal>
-            <div className="flex flex-col gap-10 border-t border-fg/10 pt-12 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
               <div>
-                <div className="text-[11px] font-medium tracking-[0.2em] text-cyan-300/70">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-100/50">
                   YÖRÜK
                 </div>
 
-                <h2 className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.045em] text-fg md:text-[42px]">
+                <h2 className="mt-5 max-w-[760px] text-[32px] font-semibold leading-[1.1] tracking-[-0.045em] text-white md:text-[42px]">
                   {t('yorukFinalCtaTitle')}
                 </h2>
 
-                <p className="mt-5 max-w-2xl text-base leading-8 text-fg/55">
+                <p className="mt-5 max-w-[650px] text-[15px] leading-7 text-white/48">
                   {t('yorukFinalCtaText')}
                 </p>
               </div>
 
               <Link
                 to="/#contact"
-                className="flex w-fit flex-shrink-0 items-center justify-center gap-8 bg-blue-600 px-10 py-4 text-[12px] font-semibold tracking-[0.1em] text-white transition hover:bg-blue-500"
+                className="inline-flex min-h-[50px] w-fit shrink-0 items-center justify-center bg-blue-600 px-8 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-blue-500"
               >
                 {t('yorukCtaButton')}
-                <span aria-hidden>→</span>
               </Link>
             </div>
           </Reveal>
@@ -276,14 +362,28 @@ export default function Yoruk() {
   );
 }
 
-function ApplicationItem({ number, title, text }: { number: string; title: string; text: string }) {
+function FlowItem({
+  number,
+  title,
+  text,
+}: {
+  number: string;
+  title: string;
+  text: string;
+}) {
   return (
-    <div className="min-h-[260px] bg-bg p-7">
-      <div className="text-sm font-semibold text-blue-500">{number}</div>
+    <div className="border-l border-white/[0.08] pl-5">
+      <div className="text-[9px] tracking-[0.2em] text-white/24">
+        {number}
+      </div>
 
-      <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-fg">{title}</h3>
+      <h3 className="mt-4 text-[16px] font-semibold tracking-[-0.025em] text-white/88">
+        {title}
+      </h3>
 
-      <p className="mt-5 text-sm leading-7 text-fg/55">{text}</p>
+      <p className="mt-3 text-[12px] leading-6 text-white/40">
+        {text}
+      </p>
     </div>
   );
 }
