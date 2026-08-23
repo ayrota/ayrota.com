@@ -324,8 +324,8 @@ engagementKicker: {
 },
 
 engagementTitle: {
-  en: 'From Technical Question to Working System.',
-  tr: 'Teknik Sorudan Çalışan Sisteme.',
+  en: 'From Evaluation to Integration.',
+  tr: 'Değerlendirmeden Entegrasyona.',
 },
 
 engagementLead: {
@@ -451,6 +451,30 @@ engagementBottomText: {
     en: 'Ayrota office location',
     tr: 'Ayrota ofis konumu',
   },
+  contactProjectKicker: {
+  en: 'WHAT TO SHARE',
+  tr: 'NE PAYLAŞABİLİRSİNİZ',
+},
+
+contactProjectText: {
+  en: 'A short description of the operating environment, available sensors, platform and expected outcome is enough for an initial technical discussion.',
+  tr: 'İlk teknik görüşme için çalışma ortamını, mevcut sensörleri, platformu ve beklenen çıktıyı kısaca anlatmanız yeterlidir.',
+},
+
+contactPrivacyNote: {
+  en: 'Your information is used only to evaluate and respond to your inquiry.',
+  tr: 'Paylaştığınız bilgiler yalnızca talebinizi değerlendirmek ve size dönüş yapmak amacıyla kullanılır.',
+},
+
+contactLocationKicker: {
+  en: 'LOCATION',
+  tr: 'KONUM',
+},
+
+contactLocationText: {
+  en: 'Ankara, Türkiye',
+  tr: 'Ankara, Türkiye',
+},
 
   /* --------------------
      FOOTER
@@ -1132,20 +1156,6 @@ engagementBottomText: {
     tr: 'Bu web sitesinde takip veya pazarlama amacıyla çerez kullanılmaz. Kullanılması halinde teknik çerezler yalnızca sitenin temel işlevleri ve güvenliği için kullanılır.',
   },
 
-  internshipTitle: {
-    en: 'Internship Applications',
-    tr: 'Staj Başvuruları',
-  },
-
-  internshipDescription: {
-    en: 'Student applications are accepted exclusively through the Google Form. Please use the link below.',
-    tr: 'Staj başvuruları yalnızca Google Form üzerinden kabul edilir. Başvurunuzu aşağıdaki bağlantı üzerinden iletebilirsiniz.',
-  },
-
-  contactInternshipCta: {
-    en: 'Apply via Google Form',
-    tr: 'STAJ BAŞVURUSU YAP',
-  },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
