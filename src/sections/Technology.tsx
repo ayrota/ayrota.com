@@ -50,7 +50,7 @@ const CAPABILITIES: Capability[] = [
   },
 ];
 
-export function Problem() {
+export function Technology() {
   const { t } = useLanguage();
 
   return (

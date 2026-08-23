@@ -1,8 +1,11 @@
 export const COMPANY = {
   foundedYear: 2024,
 
-  products: ['KOMAN', 'İLBER', 'YÖRÜK', 'YAYA'],
-
+  products: [
+    'ALKON',
+    'YÖRÜK',
+    'YAYA',
+  ],
   coreArchitectures: 1,
 };
 

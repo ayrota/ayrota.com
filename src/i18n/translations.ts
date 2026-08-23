@@ -1,44 +1,44 @@
 export type Language = 'en' | 'tr';
 
 export const translations = {
-     /* --------------------
-     HERO
-  -------------------- */
+/* --------------------
+   HERO
+-------------------- */
 
-  homeHeroKicker: {
-    en: 'INERTIAL INTELLIGENCE',
-    tr: 'ATALETSEL ZEKA',
-  },
+homeHeroKicker: {
+  en: 'INERTIAL INTELLIGENCE',
+  tr: 'ATALETSEL ZEKA',
+},
 
-  homeHeroTitle: {
-    en: 'Inertial Intelligence for GNSS-Constrained Systems',
-    tr: 'GNSS Kısıtlı Sistemler İçin Ataletsel Zeka',
-  },
+homeHeroTitle: {
+  en: 'Inertial Intelligence for Real-World Systems',
+  tr: 'Fiziksel Sistemler İçin Ataletsel Zeka',
+},
 
-  homeHeroLead: {
-    en: 'Ayrota develops inertial navigation, motion estimation and operational intelligence technologies for autonomous systems, vehicles and indoor environments.',
-    tr: 'Ayrota; otonom sistemler, araçlar ve kapalı alan uygulamaları için ataletsel navigasyon, hareket kestirimi ve operasyonel analiz teknolojileri geliştirir.',
-  },
+homeHeroLead: {
+  en: 'Ayrota develops inertial navigation, motion estimation and operational intelligence technologies for autonomous systems, vehicles and indoor environments.',
+  tr: 'Ayrota; otonom sistemler, araçlar ve kapalı alan uygulamaları için ataletsel navigasyon, hareket kestirimi ve operasyonel analiz teknolojileri geliştirir.',
+},
 
-  homeHeroPrimaryCta: {
-    en: 'APPLICATIONS',
-    tr: 'UYGULAMA ALANLARI',
-  },
+homeHeroPrimaryCta: {
+  en: 'APPLICATIONS',
+  tr: 'UYGULAMA ALANLARI',
+},
 
-  homeHeroVisualStatus: {
-    en: 'AYROTA',
-    tr: 'AYROTA',
-  },
+homeHeroVisualStatus: {
+  en: 'AYROTA',
+  tr: 'AYROTA',
+},
 
-  homeHeroVisualKicker: {
-    en: 'ONE TECHNOLOGY CORE',
-    tr: 'ORTAK TEKNOLOJİ ÇEKİRDEĞİ',
-  },
+homeHeroVisualKicker: {
+  en: 'ONE TECHNOLOGY CORE',
+  tr: 'ORTAK TEKNOLOJİ ÇEKİRDEĞİ',
+},
 
-  homeHeroVisualText: {
-    en: 'Navigation, motion estimation and analytics from a shared inertial engineering foundation.',
-    tr: 'Navigasyon, hareket kestirimi ve analitik için ortak ataletsel mühendislik altyapısı.',
-  },
+homeHeroVisualText: {
+  en: 'Navigation, movement estimation and analytics from a shared inertial technology foundation.',
+  tr: 'Navigasyon, hareket kestirimi ve analitik için ortak ataletsel teknoloji altyapısı.',
+},
  /* --------------------
    PRODUCTS
 -------------------- */
@@ -50,12 +50,12 @@ productsKicker: {
 
 productsTitle: {
   en: 'Inertial Intelligence, Applied.',
-  tr: 'Ataletsel Zekânın Ürünleşmiş Hali.',
+  tr: 'Ataletsel Zekanın Ürünleşmiş Hali.',
 },
 
 productsLead: {
-  en: 'Ayrota turns its inertial navigation, sensing and movement-analysis capabilities into products for autonomous systems, indoor operations and road intelligence.',
-  tr: 'Ayrota; ataletsel navigasyon, algılama ve hareket analizi kabiliyetlerini otonom sistemler, kapalı alan operasyonları ve yol analitiği için ürünlere dönüştürür.',
+  en: 'Ayrota turns its inertial navigation, movement estimation and motion-analysis capabilities into products for autonomous systems, indoor operations and road intelligence.',
+  tr: 'Ayrota; ataletsel navigasyon, hareket kestirimi ve hareket analizi kabiliyetlerini otonom sistemler, kapalı alan operasyonları ve yol analitiği için ürünlere dönüştürür.',
 },
 
 productsDetail: {
@@ -63,21 +63,23 @@ productsDetail: {
   tr: 'ÜRÜNÜ İNCELE',
 },
 
-/* ALKON */
+/* --------------------
+   ALKON
+-------------------- */
 
 productsAlkonEyebrow: {
-  en: 'AUTONOMOUS NAVIGATION',
-  tr: 'OTONOM NAVİGASYON',
+  en: 'GNSS-DENIED NAVIGATION',
+  tr: 'GNSS KISITLI NAVİGASYON',
 },
 
 productsAlkonDescription: {
-  en: 'GNSS-constrained navigation and mission capability for autonomous platforms operating where external positioning cannot be fully relied upon.',
-  tr: 'Harici konumlama kaynaklarının güvenilir olmadığı koşullarda çalışan otonom platformlar için GNSS kısıtlı navigasyon ve görev kabiliyeti.',
+  en: 'IMU-based navigation capability for autonomous platforms operating where GNSS cannot be fully relied upon.',
+  tr: 'GNSS’in güvenilir olmadığı koşullarda çalışan otonom platformlar için IMU tabanlı navigasyon kabiliyeti.',
 },
 
 productsAlkonApplicationOne: {
-  en: 'UAV',
-  tr: 'İHA',
+  en: 'UAV & UGV',
+  tr: 'İHA & İKA',
 },
 
 productsAlkonApplicationTwo: {
@@ -85,7 +87,9 @@ productsAlkonApplicationTwo: {
   tr: 'OTONOM SİSTEMLER',
 },
 
-/* YAYA */
+/* --------------------
+   YAYA
+-------------------- */
 
 productsYayaEyebrow: {
   en: 'INDOOR MOVEMENT',
@@ -93,115 +97,117 @@ productsYayaEyebrow: {
 },
 
 productsYayaDescription: {
-  en: 'Relative movement, indoor navigation and movement analytics using mobile inertial sensors where GNSS is weak or unavailable.',
-  tr: 'GNSS’in zayıf veya kullanılamaz olduğu kapalı alanlarda mobil ataletsel sensörlerle göreli hareket, navigasyon ve hareket analitiği.',
+  en: 'Estimates relative pedestrian movement from mobile inertial sensors and turns indoor motion into route, coverage and operational insights.',
+  tr: 'Mobil ataletsel sensörlerden göreli yaya hareketini kestirir; kapalı alan hareketini rota, kapsama ve operasyonel içgörülere dönüştürür.',
 },
 
 productsYayaApplicationOne: {
-  en: 'HOSPITAL',
-  tr: 'HASTANE',
+  en: 'HOSPITALS',
+  tr: 'HASTANELER',
 },
 
 productsYayaApplicationTwo: {
-  en: 'DEPOT & FACILITIES',
-  tr: 'DEPO & TESİSLER',
+  en: 'DEPOTS & FACILITIES',
+  tr: 'DEPOLAR & TESİSLER',
 },
 
-/* YORUK */
+/* --------------------
+   YÖRÜK
+-------------------- */
 
 productsYorukEyebrow: {
-  en: 'ROAD & VEHICLE ANALYTICS',
-  tr: 'YOL & ARAÇ ANALİTİĞİ',
+  en: 'ROAD & DRIVING ANALYTICS',
+  tr: 'YOL & SÜRÜŞ ANALİTİĞİ',
 },
 
 productsYorukDescription: {
   en: 'Transforms vehicle movement data into road-condition, maintenance and driving-safety insights for operational decision making.',
-  tr: 'Araç hareket verisini yol durumu, bakım ve sürüş güvenliği içgörülerine dönüştürerek operasyonel karar süreçlerinin desteklenmesi.',
+  tr: 'Araç hareket verisini yol durumu, bakım ve sürüş güvenliğine ilişkin operasyonel içgörülere dönüştürür.',
 },
 
 productsYorukApplicationOne: {
   en: 'ROAD MAINTENANCE',
-  tr: 'YOL BAKIM',
+  tr: 'YOL BAKIMI',
 },
 
 productsYorukApplicationTwo: {
   en: 'DRIVING SAFETY',
   tr: 'SÜRÜŞ GÜVENLİĞİ',
 },
-    /* --------------------
-     APPLICATIONS
-  -------------------- */
+  /* --------------------
+   APPLICATIONS
+-------------------- */
 
-  applicationsKicker: {
-    en: 'APPLICATION AREAS',
-    tr: 'UYGULAMA ALANLARI',
-  },
+applicationsKicker: {
+  en: 'APPLICATION AREAS',
+  tr: 'UYGULAMA ALANLARI',
+},
 
-  applicationsTitle: {
-    en: 'One Technology Core. Three Operational Domains.',
-    tr: 'Tek Teknoloji Çekirdeği. Üç Uygulama Alanı.',
-  },
+applicationsTitle: {
+  en: 'From a Single Technology Core to Diverse Application Areas.',
+  tr: 'Tek Teknoloji Çekirdeğinden Farklı Uygulama Alanlarına.',
+},
 
-  applicationsLead: {
-    en: 'Ayrota adapts its inertial engineering capabilities to defence, dual-use and civil operational environments.',
-    tr: 'Ayrota, ataletsel mühendislik kabiliyetlerini savunma, çift kullanım ve sivil operasyonların farklı ihtiyaçlarına uygular.',
-  },
+applicationsLead: {
+  en: 'Ayrota adapts its inertial technology across defence, dual-use and civil applications.',
+  tr: 'Ayrota, ataletsel teknoloji altyapısını savunma, çift kullanım ve sivil uygulamalara uyarlar.',
+},
 
-  applicationDefenseTitle: {
-    en: 'Defence',
-    tr: 'Savunma',
-  },
+applicationDefenseTitle: {
+  en: 'Defence',
+  tr: 'Savunma',
+},
 
-  applicationDefenseText: {
-    en: 'Navigation and motion capabilities for autonomous platforms operating in GNSS-constrained and mission-critical environments.',
-    tr: 'GNSS erişiminin kısıtlandığı ve görev sürekliliğinin kritik olduğu ortamlarda çalışan otonom platformlar için navigasyon ve hareket kabiliyetleri.',
-  },
+applicationDefenseText: {
+  en: 'Navigation and motion capabilities for autonomous platforms operating in GNSS-constrained and mission-critical environments.',
+  tr: 'GNSS erişiminin kısıtlandığı ve görev sürekliliğinin kritik olduğu ortamlarda çalışan otonom platformlar için navigasyon ve hareket kabiliyetleri.',
+},
 
-  applicationDefenseDetail: {
-    en: 'UAV · Autonomous Systems',
-    tr: 'İHA · Otonom Sistemler',
-  },
+applicationDefenseDetail: {
+  en: 'UAV · Autonomous Systems',
+  tr: 'İHA · Otonom Sistemler',
+},
 
-  applicationDualUseTitle: {
-    en: 'Dual-Use',
-    tr: 'Çift Kullanım',
-  },
+applicationDualUseTitle: {
+  en: 'Dual-Use',
+  tr: 'Çift Kullanım',
+},
 
-  applicationDualUseText: {
-    en: 'Inertial sensing and movement intelligence for critical infrastructure, robotics and industrial operations.',
-    tr: 'Kritik altyapılar, robotik sistemler ve endüstriyel operasyonlar için ataletsel algılama ve hareket analizi.',
-  },
+applicationDualUseText: {
+  en: 'Inertial navigation and movement intelligence for robotics, critical infrastructure and industrial systems.',
+  tr: 'Robotik sistemler, kritik altyapılar ve endüstriyel uygulamalar için ataletsel navigasyon ve hareket analizi.',
+},
 
-  applicationDualUseDetail: {
-    en: 'Robotics · Critical Infrastructure · Industry',
-    tr: 'Robotik · Kritik Altyapı · Endüstri',
-  },
+applicationDualUseDetail: {
+  en: 'Robotics · Critical Infrastructure · Industry',
+  tr: 'Robotik · Kritik Altyapı · Endüstri',
+},
 
-  applicationCivilTitle: {
-    en: 'Civil & Commercial',
-    tr: 'Sivil ve Ticari',
-  },
+applicationCivilTitle: {
+  en: 'Civil & Commercial',
+  tr: 'Sivil ve Ticari',
+},
 
-  applicationCivilText: {
-    en: 'Motion-based intelligence for road infrastructure, fleets, facilities and urban operations.',
-    tr: 'Yol altyapısı, filolar, tesisler ve şehir operasyonları için hareket verisine dayalı analiz ve karar desteği.',
-  },
+applicationCivilText: {
+  en: 'Motion intelligence for road infrastructure, fleets, facilities and urban operations.',
+  tr: 'Yol altyapısı, filolar, tesisler ve şehir operasyonları için hareket verisine dayalı analiz ve karar desteği.',
+},
 
-  applicationCivilDetail: {
-    en: 'Roads · Fleets · Facilities · Smart Cities',
-    tr: 'Yol · Filo · Tesis · Akıllı Şehir',
-  },
+applicationCivilDetail: {
+  en: 'Roads · Fleets · Facilities · Smart Cities',
+  tr: 'Yol · Filo · Tesis · Akıllı Şehir',
+},
 
-  applicationsBottomText: {
-    en: 'The same inertial engineering foundation is adapted according to platform, sensor and operational requirements.',
-    tr: 'Aynı ataletsel mühendislik altyapısı; platforma, sensöre ve operasyonel ihtiyaca göre farklı çözümlere uyarlanır.',
-  },
+applicationsBottomText: {
+  en: 'The same inertial engineering foundation is adapted according to platform, sensor and operational requirements.',
+  tr: 'Aynı ataletsel mühendislik altyapısı; platforma, sensöre ve operasyonel ihtiyaca göre farklı çözümlere uyarlanır.',
+},
 
-  applicationsTechnologyCta: {
-    en: 'EXPLORE THE TECHNOLOGY',
-    tr: 'TEKNOLOJİYİ İNCELE',
-  },
-   /* --------------------
+applicationsTechnologyCta: {
+  en: 'EXPLORE THE TECHNOLOGY',
+  tr: 'TEKNOLOJİYİ İNCELE',
+},
+  /* --------------------
    CORE TECHNOLOGY
 -------------------- */
 
@@ -211,13 +217,13 @@ technologyKicker: {
 },
 
 technologyTitle: {
-  en: 'One Inertial Engineering Core',
-  tr: 'Tek Bir Ataletsel Mühendislik Çekirdeği',
+  en: 'One Inertial Technology Core',
+  tr: 'Tek Bir Ataletsel Teknoloji Çekirdeği',
 },
 
 technologyLead: {
-  en: 'Ayrota combines inertial sensing, sensor and data analysis, navigation, movement analytics and edge integration within a shared engineering foundation.',
-  tr: 'Ayrota; ataletsel algılama, sensör ve veri analizi, navigasyon, hareket analitiği ve edge entegrasyonunu ortak bir mühendislik altyapısında birleştirir.',
+  en: 'Ayrota combines inertial sensing, motion estimation, navigation, movement analytics and edge integration within a shared technology foundation.',
+  tr: 'Ayrota; ataletsel algılama, hareket kestirimi, navigasyon, hareket analitiği ve edge entegrasyonunu ortak bir teknoloji altyapısında birleştirir.',
 },
 
 technologyCoreTitle: {
@@ -226,13 +232,13 @@ technologyCoreTitle: {
 },
 
 technologyCoreMetricSensing: {
-  en: 'DATA LAYER',
-  tr: 'VERİ KATMANI',
+  en: 'SENSING LAYER',
+  tr: 'ALGILAMA KATMANI',
 },
 
 technologyCoreMetricSensingValue: {
-  en: 'INERTIAL SENSING',
-  tr: 'ATALETSEL ALGILAMA',
+  en: 'INERTIAL DATA',
+  tr: 'ATALETSEL VERİ',
 },
 
 technologyCoreMetricEstimation: {
@@ -256,53 +262,53 @@ technologyCoreMetricIntegrationValue: {
 },
 
 technologyNavigationTitle: {
-  en: 'GNSS-Denied Navigation',
-  tr: 'GNSS Kısıtlı Navigasyon',
+  en: 'Navigation',
+  tr: 'Navigasyon',
 },
 
 technologyNavigationText: {
-  en: 'IMU-based navigation and navigation resilience evaluation for autonomous platforms operating under GNSS-constrained conditions.',
-  tr: 'GNSS kısıtlı koşullarda çalışan otonom platformlar için IMU tabanlı navigasyon ve navigasyon sürekliliğinin teknik değerlendirilmesi.',
+  en: 'IMU-based navigation and navigation resilience for autonomous platforms operating under GNSS-constrained conditions.',
+  tr: 'GNSS kısıtlı koşullarda çalışan otonom platformlar için IMU tabanlı navigasyon ve navigasyon sürekliliği.',
 },
 
 technologySensorTitle: {
-  en: 'IMU Sensing',
-  tr: 'IMU Verisi',
+  en: 'Inertial Sensing',
+  tr: 'Ataletsel Algılama',
 },
 
 technologySensorText: {
-  en: 'Technical evaluation of sensor and data suitability, error sources and mission-profile compatibility.',
-  tr: 'Sensör ve veri uygunluğunun, hata kaynaklarının ve görev profiline uyumluluğun teknik olarak değerlendirilmesi.',
+  en: 'Processing inertial measurements into reliable inputs for navigation, movement estimation and motion analytics.',
+  tr: 'Ataletsel ölçümlerin navigasyon, hareket kestirimi ve hareket analitiği için kullanılabilir verilere dönüştürülmesi.',
 },
 
 technologyIndoorTitle: {
-  en: 'Indoor Movement & PDR',
-  tr: 'Kapalı Alan Hareketi ve PDR',
+  en: 'Movement Estimation',
+  tr: 'Hareket Kestirimi',
 },
 
 technologyIndoorText: {
-  en: 'Relative pedestrian movement estimation, indoor movement tracking and analytics using mobile inertial sensors.',
-  tr: 'Mobil ataletsel sensörlerle göreli yaya hareket kestirimi, kapalı alan hareket takibi ve hareket analitiği.',
+  en: 'Relative movement estimation and motion analysis from mobile inertial sensors in GNSS-constrained environments.',
+  tr: 'GNSS’in kısıtlı olduğu ortamlarda mobil ataletsel sensörlerden göreli hareket kestirimi ve hareket analizi.',
 },
 
 technologyAnalyticsTitle: {
-  en: 'Vehicle & Road Analytics',
-  tr: 'Araç ve Yol Analitiği',
+  en: 'Motion Analytics',
+  tr: 'Hareket Analitiği',
 },
 
 technologyAnalyticsText: {
-  en: 'Transforming vehicle motion data into road-condition, driving-behaviour and operational decision-support insights.',
-  tr: 'Araç hareket verisinin yol durumu, sürüş davranışı ve operasyonel karar desteği çıktısına dönüştürülmesi.',
+  en: 'Transforming vehicle and pedestrian motion data into operational insights for roads, facilities and mobility applications.',
+  tr: 'Araç ve yaya hareket verisinin yol, tesis ve mobilite uygulamaları için operasyonel içgörülere dönüştürülmesi.',
 },
 
 technologyEmbeddedTitle: {
-  en: 'Edge & System Integration',
-  tr: 'Edge ve Sistem Entegrasyonu',
+  en: 'System Integration',
+  tr: 'Sistem Entegrasyonu',
 },
 
 technologyEmbeddedText: {
-  en: 'Sensor processing and autonomous-system integration across resource-constrained, embedded and mobile environments.',
-  tr: 'Kaynak kısıtlı, gömülü ve mobil ortamlarda sensör işleme ile otonom sistem entegrasyonu.',
+  en: 'Deploying inertial processing and estimation capabilities across embedded, mobile and autonomous-system environments.',
+  tr: 'Ataletsel veri işleme ve kestirim kabiliyetlerinin gömülü, mobil ve otonom sistem ortamlarına taşınması.',
 },
 
 technologyBottomKicker: {
@@ -311,8 +317,8 @@ technologyBottomKicker: {
 },
 
 technologyBottomText: {
-  en: 'One inertial engineering core supports multiple deployment surfaces across navigation, movement and analytics.',
-  tr: 'Tek bir ataletsel mühendislik çekirdeği; navigasyon, hareket ve analitik ekseninde farklı kullanım alanlarını destekler.',
+  en: 'The same inertial technology core supports Alkon, Yaya and Yörük across navigation, movement and analytics.',
+  tr: 'Aynı ataletsel teknoloji çekirdeği; Alkon, Yaya ve Yörük ürünlerini navigasyon, hareket ve analitik eksenlerinde destekler.',
 },
 /* --------------------
    ENGAGEMENT
@@ -324,33 +330,33 @@ engagementKicker: {
 },
 
 engagementTitle: {
-  en: 'From Evaluation to Integration.',
-  tr: 'Değerlendirmeden Entegrasyona.',
+  en: 'From Validation to Deployment.',
+  tr: 'Doğrulamadan Uygulamaya.',
 },
 
 engagementLead: {
-  en: 'We start by understanding the real operating problem, validate the approach in a controlled scope, then move toward integration and repeatable deployment.',
-  tr: 'Önce gerçek operasyon problemini ve sistem sınırlarını netleştiririz. Yaklaşımı kontrollü kapsamda doğrular, ardından entegrasyon ve sürdürülebilir kullanıma taşırız.',
+  en: 'Ayrota products are introduced through controlled evaluation, pilot and integration stages according to the product and operating environment.',
+  tr: 'Ayrota ürünleri; ürüne ve çalışma ortamına göre kontrollü değerlendirme, pilot ve entegrasyon aşamalarıyla devreye alınır.',
 },
 
 engagementAssessmentTitle: {
-  en: 'Technical Assessment',
-  tr: 'Teknik Değerlendirme',
+  en: 'Define',
+  tr: 'Tanımla',
 },
 
 engagementAssessmentText: {
-  en: 'We examine the operating scenario, available sensor data, system constraints and integration requirements.',
-  tr: 'Operasyon senaryosu, mevcut sensör ve veriyi, sistem kısıtlarını ve entegrasyon ihtiyaçlarını değerlendirilir',
+  en: 'The platform, operating environment, available data and expected outcome are defined.',
+  tr: 'Platform, çalışma ortamı, mevcut veri ve beklenen çıktı netleştirilir.',
 },
 
 engagementPocTitle: {
-  en: 'Technical PoC',
-  tr: 'Teknik PoC',
+  en: 'Validate',
+  tr: 'Doğrula',
 },
 
 engagementPocText: {
-  en: 'The proposed capability is tested under a limited and measurable technical scenario.',
-  tr: 'Önerilen kabiliyet sınırlı, kontrollü ve ölçülebilir bir teknik senaryoda test edilir.',
+  en: 'The product capability is evaluated under a controlled and measurable scenario.',
+  tr: 'Ürün kabiliyeti kontrollü ve ölçülebilir bir senaryo altında değerlendirilir.',
 },
 
 engagementPilotTitle: {
@@ -359,106 +365,112 @@ engagementPilotTitle: {
 },
 
 engagementPilotText: {
-  en: 'The validated approach is evaluated in a representative operational environment and workflow.',
-  tr: 'Doğrulanan yaklaşım gerçek kullanımı temsil eden operasyon ortamı ve iş akışı içinde değerlendirilir.',
+  en: 'The validated capability is tested in a representative operational environment and workflow.',
+  tr: 'Doğrulanan kabiliyet gerçek kullanımı temsil eden bir operasyon ortamı ve iş akışı içinde test edilir.',
 },
 
 engagementIntegrationTitle: {
-  en: 'Integration',
-  tr: 'Entegrasyon',
+  en: 'Integrate',
+  tr: 'Entegre Et',
 },
 
 engagementIntegrationText: {
-  en: 'The capability is integrated with the customer platform, application or operational software stack.',
-  tr: 'Kabiliyet müşteri platformuna, uygulamasına veya operasyonel yazılım altyapısına entegre edilir.',
+  en: 'The product is integrated with the target platform, application or operational software stack.',
+  tr: 'Ürün, hedef platforma, uygulamaya veya operasyonel yazılım altyapısına entegre edilir.',
 },
 
 engagementScaleTitle: {
-  en: 'Operational Use',
-  tr: 'Operasyonel Kullanım',
+  en: 'Operate',
+  tr: 'Kullan',
 },
 
 engagementScaleText: {
-  en: 'Successful deployments can continue through recurring analytics, software delivery, support or licensing models.',
-  tr: 'Başarılı çalışmalar; tekrarlayan analitik hizmeti, yazılım teslimi, destek veya lisanslama modelleriyle sürdürülebilir hale getirilebilir.',
+  en: 'Validated deployments can continue through software delivery, recurring analytics, support or licensing models depending on the product.',
+  tr: 'Doğrulanmış uygulamalar, ürüne göre yazılım teslimi, tekrarlayan analitik, destek veya lisanslama modelleriyle sürdürülebilir.',
 },
 
 engagementBottomText: {
-  en: 'The exact path depends on the problem and maturity of the system; not every engagement needs to pass through every stage.',
-  tr: 'İzlenecek yol problemin ve mevcut sistemin olgunluğuna göre değişir; her çalışma bütün aşamalardan geçmek zorunda değildir.',
+  en: 'The exact path depends on the product and operating scenario; not every engagement needs to pass through every stage.',
+  tr: 'İzlenecek yol ürüne ve operasyon senaryosuna göre değişir; her çalışma bütün aşamalardan geçmek zorunda değildir.',
 },
 
   /* --------------------
-     CONTACT
-  -------------------- */
+   CONTACT
+-------------------- */
 
-  contactKicker: {
-    en: 'CONTACT',
-    tr: 'İLETİŞİM',
-  },
+contactKicker: {
+  en: 'CONTACT',
+  tr: 'İLETİŞİM',
+},
 
-  contactTitle: {
-    en: 'Get in touch',
-    tr: 'Bizimle iletişime geçin',
-  },
+contactTitle: {
+  en: 'Let’s Discuss Your Application.',
+  tr: 'Uygulamanızı Birlikte Değerlendirelim.',
+},
 
-  corporateContactTitle: {
-    en: 'Corporate contact',
-    tr: 'Kurumsal İletişim',
-  },
+contactLead: {
+  en: 'Tell us about your platform, operating environment or use case. We can evaluate how Alkon, Yaya or Yörük fits your application.',
+  tr: 'Platformunuzu, çalışma ortamınızı veya kullanım senaryonuzu paylaşın. Ürünlerimizin uygulamanıza nasıl uyabileceğini birlikte değerlendirelim.',
+},
 
-  corporateContactDescription: {
-    en: 'Use the form for partnerships, pilot studies, evaluation access, and corporate inquiries.',
-    tr: 'Navigasyon, sensör analizi, araç verisi veya kapalı alan hareketiyle ilgili projeniz için bizimle iletişime geçebilirsiniz. Teknik değerlendirme, entegrasyon ve iş birliği taleplerinizi form üzerinden iletebilirsiniz.',
-  },
-
-  contactLabelOrg: {
-    en: 'PERSON / ORGANIZATION',
-    tr: 'AD / KURUM',
-  },
-
-  contactLabelEmail: {
-    en: 'CONTACT EMAIL',
-    tr: 'E-POSTA',
-  },
-
-  contactLabelMessage: {
-    en: 'MESSAGE',
-    tr: 'MESAJ',
-  },
-
-  contactPlaceholderOrg: {
-    en: 'Enter your name or organization',
-    tr: 'Adınızı veya kurumunuzu yazın',
-  },
-
-  contactPlaceholderEmail: {
-    en: 'Enter your email address',
-    tr: 'E-posta adresinizi yazın',
-  },
-
-  contactPlaceholderMessage: {
-    en: 'Write your message here...',
-    tr: 'Projenizi veya çözmek istediğiniz problemi kısaca anlatın...',
-  },
-
-  contactSubmit: {
-    en: 'SEND MESSAGE',
-    tr: 'MESAJI GÖNDER',
-  },
-
-  contactMapTitle: {
-    en: 'Ayrota office location',
-    tr: 'Ayrota ofis konumu',
-  },
-  contactProjectKicker: {
+contactProjectKicker: {
   en: 'WHAT TO SHARE',
   tr: 'NE PAYLAŞABİLİRSİNİZ',
 },
 
 contactProjectText: {
-  en: 'A short description of the operating environment, available sensors, platform and expected outcome is enough for an initial technical discussion.',
-  tr: 'İlk teknik görüşme için çalışma ortamını, mevcut sensörleri, platformu ve beklenen çıktıyı kısaca anlatmanız yeterlidir.',
+  en: 'A short description of your operating environment, platform, available data and expected outcome is enough for an initial discussion.',
+  tr: 'İlk görüşme için çalışma ortamınızı, platformunuzu, mevcut veriyi ve beklediğiniz çıktıyı kısaca anlatmanız yeterlidir.',
+},
+
+contactLabelOrg: {
+  en: 'PERSON / ORGANISATION',
+  tr: 'AD / KURUM',
+},
+
+contactLabelEmail: {
+  en: 'EMAIL',
+  tr: 'E-POSTA',
+},
+
+contactLabelProduct: {
+  en: 'PRODUCT',
+  tr: 'ÜRÜN',
+},
+
+contactLabelMessage: {
+  en: 'APPLICATION / MESSAGE',
+  tr: 'UYGULAMA / MESAJ',
+},
+
+contactPlaceholderOrg: {
+  en: 'Enter your name or organisation',
+  tr: 'Adınızı veya kurumunuzu yazın',
+},
+
+contactPlaceholderEmail: {
+  en: 'Enter your email address',
+  tr: 'E-posta adresinizi yazın',
+},
+
+contactPlaceholderProduct: {
+  en: 'Select a product',
+  tr: 'Ürün seçin',
+},
+
+contactProductUnsure: {
+  en: 'OTHER',
+  tr: 'DİĞER',
+},
+
+contactPlaceholderMessage: {
+  en: 'Tell us briefly about your platform, environment or use case...',
+  tr: 'Platformunuzu, çalışma ortamınızı veya kullanım senaryonuzu kısaca anlatın...',
+},
+
+contactSubmit: {
+  en: 'SEND MESSAGE',
+  tr: 'MESAJI GÖNDER',
 },
 
 contactPrivacyNote: {
@@ -476,6 +488,10 @@ contactLocationText: {
   tr: 'Ankara, Türkiye',
 },
 
+contactMapTitle: {
+  en: 'Ayrota office location',
+  tr: 'Ayrota ofis konumu',
+},
   /* --------------------
      FOOTER
   -------------------- */
@@ -485,17 +501,17 @@ contactLocationText: {
     tr: '© {{year}} Ayrota',
   },
 
-  footerDescription: {
-    en: 'Inertial navigation and motion intelligence for autonomous systems, vehicles and indoor operations.',
-    tr: 'Otonom sistemler, araçlar ve kapalı alan uygulamaları için navigasyon, sensör işleme ve hareket analizi yazılımları.',
-  },
+ footerDescription: {
+  en: 'Inertial navigation, movement estimation and operational intelligence for autonomous systems, vehicles and indoor environments.',
+  tr: 'Otonom sistemler, araçlar ve kapalı alan uygulamaları için ataletsel navigasyon, hareket kestirimi ve operasyonel analiz teknolojileri.',
+},
 
   footerPrivacy: {
     en: 'Privacy & Data Notice',
     tr: 'Gizlilik ve Veri Bildirimi',
   },
 
-  /* --------------------
+ /* --------------------
    ALKON PAGE
 -------------------- */
 
@@ -510,8 +526,8 @@ alkonHeroStatement: {
 },
 
 alkonHeroText: {
-  en: 'Alkon is Ayrota’s GNSS-denied navigation capability for autonomous platforms, focused on inertial navigation, controlled validation and platform integration.',
-  tr: 'Alkon, otonom platformlar için geliştirilen GNSS kısıtlı navigasyon kabiliyetidir. Ataletsel navigasyon, kontrollü doğrulama ve platform entegrasyonuna odaklanır.',
+  en: 'Alkon is Ayrota’s GNSS-denied navigation capability for autonomous platforms, combining inertial navigation, controlled validation and platform integration.',
+  tr: 'Alkon, otonom platformlar için geliştirilen GNSS kısıtlı navigasyon kabiliyetidir; ataletsel navigasyon, kontrollü doğrulama ve platform entegrasyonunu bir araya getirir.',
 },
 
 alkonMiniNavigation: {
@@ -535,7 +551,7 @@ alkonVisualKicker: {
 },
 
 alkonVisualText: {
-  en: 'Navigation resilience under GNSS-constrained conditions.',
+  en: 'Navigation resilience under GNSS-denied conditions.',
   tr: 'GNSS kısıtlı koşullarda navigasyon sürekliliği.',
 },
 
@@ -570,8 +586,8 @@ alkonScopeMainTitle: {
 },
 
 alkonScopeText: {
-  en: 'Alkon combines IMU-based navigation research with autonomous-platform integration to evaluate how navigation can continue when external positioning cannot be relied upon.',
-  tr: 'Alkon, harici konumlama kaynaklarının güvenilir olmadığı koşullarda navigasyonun nasıl sürdürülebileceğini değerlendirmek için IMU tabanlı navigasyon araştırmasını otonom platform entegrasyonuyla birleştirir.',
+  en: 'Alkon combines IMU-based navigation with autonomous-platform integration to evaluate navigation continuity when external positioning cannot be relied upon.',
+  tr: 'Alkon, harici konumlama kaynaklarına güvenilemediği koşullarda navigasyon sürekliliğini değerlendirmek için IMU tabanlı navigasyonu otonom platform entegrasyonuyla birleştirir.',
 },
 
 alkonCapabilityNavigationTitle: {
@@ -580,7 +596,7 @@ alkonCapabilityNavigationTitle: {
 },
 
 alkonCapabilityNavigationText: {
-  en: 'IMU-based navigation state estimation for periods where GNSS measurements are degraded or unavailable.',
+  en: 'IMU-based navigation state estimation during periods where GNSS measurements are degraded or unavailable.',
   tr: 'GNSS ölçümlerinin zayıfladığı veya kullanılamadığı dönemlerde IMU verisinden navigasyon durumlarının kestirilmesi.',
 },
 
@@ -590,7 +606,7 @@ alkonCapabilityResilienceTitle: {
 },
 
 alkonCapabilityResilienceText: {
-  en: 'Controlled evaluation of navigation behaviour, drift and mission-relevant performance under GNSS-constrained conditions.',
+  en: 'Controlled evaluation of navigation behaviour, drift and mission-relevant performance under GNSS-denied conditions.',
   tr: 'GNSS kısıtlı koşullarda navigasyon davranışının, drift karakterinin ve görev açısından anlamlı performansın kontrollü olarak değerlendirilmesi.',
 },
 
@@ -600,8 +616,8 @@ alkonCapabilityIntegrationTitle: {
 },
 
 alkonCapabilityIntegrationText: {
-  en: 'Assessment and integration with autonomous-system software and robotics stacks according to the target platform.',
-  tr: 'Hedef platforma göre otonom sistem yazılımı ve robotik altyapılarla entegrasyonun değerlendirilmesi.',
+  en: 'Integration with autonomous-system software and robotics stacks according to the target platform.',
+  tr: 'Hedef platforma göre otonom sistem yazılımı ve robotik altyapılarla entegrasyon.',
 },
 
 alkonPocKicker: {
@@ -615,8 +631,8 @@ alkonPocTitle: {
 },
 
 alkonPocLead: {
-  en: 'Alkon is currently offered through controlled technical PoC and integration-assessment studies rather than broad product deployment.',
-  tr: 'Alkon bugün geniş ölçekli ürün kurulumu yerine kontrollü teknik PoC ve entegrasyon değerlendirme çalışmaları kapsamında sunulur.',
+  en: 'Alkon is currently available through controlled technical PoC and integration-assessment studies.',
+  tr: 'Alkon bugün kontrollü teknik PoC ve entegrasyon değerlendirme çalışmaları kapsamında sunulur.',
 },
 
 alkonPocScenarioTitle: {
@@ -666,7 +682,7 @@ alkonValidationSimulation: {
 
 alkonValidationRobustness: {
   en: 'ROBUSTNESS',
-  tr: 'ROBUSTNESS',
+  tr: 'DAYANIKLILIK',
 },
 
 alkonValidationHitl: {
@@ -740,7 +756,7 @@ yorukMiniSensors: {
 
 yorukVisualKicker: {
   en: 'VEHICLE MOTION INTELLIGENCE',
-  tr: 'ARAÇ HAREKET ZEKÂSI',
+  tr: 'ARAÇ HAREKET ZEKASI',
 },
 
 yorukVisualText: {
@@ -902,18 +918,18 @@ yorukCtaButton: {
 -------------------- */
 
 yayaProductCategory: {
-  en: 'INDOOR MOVEMENT & NAVIGATION',
-  tr: 'KAPALI ALAN HAREKETİ VE NAVİGASYON',
+  en: 'INDOOR MOVEMENT INTELLIGENCE',
+  tr: 'KAPALI ALAN HAREKET ANALİTİĞİ',
 },
 
 yayaHeroStatement: {
-  en: 'Indoor Navigation and Movement Intelligence From Mobile Sensors',
-  tr: 'Mobil Sensörlerden Kapalı Alan Navigasyonu ve Hareket Bilgisi',
+  en: 'Understand Indoor Movement From Mobile Sensors',
+  tr: 'Mobil Sensörlerden Kapalı Alan Hareketini Anlayın',
 },
 
 yayaHeroText: {
-  en: 'Yaya uses mobile inertial sensors to estimate movement in GPS-constrained environments and supports indoor wayfinding, route analysis and operational movement intelligence.',
-  tr: 'Yaya, mobil ataletsel sensörleri kullanarak GPS’in güvenilir olmadığı ortamlarda hareketi kestirir; kapalı alan yön bulma, rota analizi ve operasyonel hareket uygulamalarını destekler.',
+  en: 'Yaya uses mobile inertial sensors to estimate relative pedestrian movement and turn indoor motion into route, coverage and operational insights.',
+  tr: 'Yaya, mobil ataletsel sensörlerle göreli yaya hareketini kestirir ve kapalı alan hareketini rota, kapsama ve operasyonel içgörülere dönüştürür.',
 },
 
 yayaMiniMovement: {
@@ -922,8 +938,8 @@ yayaMiniMovement: {
 },
 
 yayaMiniRoute: {
-  en: 'WAYFINDING & ROUTES',
-  tr: 'YÖN BULMA & ROTALAR',
+  en: 'ROUTE & COVERAGE',
+  tr: 'ROTA & KAPSAMA',
 },
 
 yayaMiniMobile: {
@@ -933,12 +949,12 @@ yayaMiniMobile: {
 
 yayaVisualKicker: {
   en: 'INDOOR MOVEMENT INTELLIGENCE',
-  tr: 'KAPALI ALAN HAREKET ZEKÂSI',
+  tr: 'KAPALI ALAN HAREKET ANALİTİĞİ',
 },
 
 yayaVisualText: {
-  en: 'Navigation and movement intelligence from mobile inertial sensing.',
-  tr: 'Mobil ataletsel algılamadan navigasyon ve hareket bilgisi.',
+  en: 'Relative movement and route intelligence from mobile inertial sensing.',
+  tr: 'Mobil ataletsel algılamadan göreli hareket ve rota bilgisi.',
 },
 
 yayaProblemKicker: {
@@ -947,18 +963,18 @@ yayaProblemKicker: {
 },
 
 yayaProblemTitle: {
-  en: 'Navigation Becomes Difficult Where GNSS Is Unavailable.',
-  tr: 'GNSS Kullanılamadığında Navigasyon Zorlaşır.',
+  en: 'Indoor Movement Is Difficult to Observe Where GNSS Is Unavailable.',
+  tr: 'GNSS Kullanılamadığında Kapalı Alan Hareketini Gözlemlemek Zordur.',
 },
 
 yayaProblemText: {
-  en: 'Large hospitals, warehouses and complex facilities are difficult environments for satellite-based positioning. This limits indoor wayfinding, route understanding and the ability to analyse how people move through physical spaces.',
-  tr: 'Büyük hastaneler, depolar ve karmaşık tesisler uydu tabanlı konumlama için zorlu ortamlardır. Bu durum bina içi yön bulmayı, rotaların anlaşılmasını ve insanların fiziksel mekân içinde nasıl hareket ettiğinin analiz edilmesini zorlaştırır.',
+  en: 'Large hospitals, warehouses and complex facilities are difficult environments for satellite-based positioning. This makes it harder to understand routes, coverage and how people move through physical spaces.',
+  tr: 'Büyük hastaneler, depolar ve karmaşık tesisler uydu tabanlı konumlama için zorlu ortamlardır. Bu durum rotaların, kapsamanın ve insanların fiziksel alan içinde nasıl hareket ettiğinin anlaşılmasını zorlaştırır.',
 },
 
 yayaProblemNote: {
-  en: 'Yaya does not make an absolute indoor positioning guarantee. Its capabilities are adapted to the use case, from indoor wayfinding to route and movement analytics.',
-  tr: 'Yaya mutlak konum garantisi veren bir sistem olarak konumlandırılmaz. Kabiliyetleri kullanım senaryosuna göre; bina içi yön bulmadan rota ve hareket analizine kadar uyarlanır.',
+  en: 'Yaya focuses on relative movement and operational movement intelligence rather than absolute indoor positioning.',
+  tr: 'Yaya, mutlak bina içi konumlama yerine göreli hareket ve operasyonel hareket bilgisine odaklanır.',
 },
 
 yayaScopeTitle: {
@@ -987,13 +1003,13 @@ yayaCapabilityMovementText: {
 },
 
 yayaCapabilityRouteTitle: {
-  en: 'Wayfinding & Routes',
-  tr: 'Yön Bulma ve Rotalar',
+  en: 'Route & Coverage',
+  tr: 'Rota ve Kapsama',
 },
 
 yayaCapabilityRouteText: {
-  en: 'Movement estimates can support indoor wayfinding, route understanding and route-based operational applications.',
-  tr: 'Hareket kestirimleri bina içi yön bulma, rota takibi ve rotaya dayalı operasyonel uygulamaları destekleyebilir.',
+  en: 'Movement estimates can be used to analyse routes, coverage and repeated movement patterns inside facilities.',
+  tr: 'Hareket kestirimleri tesis içindeki rotaların, kapsamanın ve tekrar eden hareket örüntülerinin analizinde kullanılabilir.',
 },
 
 yayaCapabilityContextTitle: {
@@ -1002,8 +1018,8 @@ yayaCapabilityContextTitle: {
 },
 
 yayaCapabilityContextText: {
-  en: 'Movement data can be associated with facility layouts and spatial context to produce application-level navigation and analytics outputs.',
-  tr: 'Hareket verisi tesis yerleşimi ve mekânsal bağlamla ilişkilendirilerek navigasyon ve analiz uygulamaları için anlamlı çıktılara dönüştürülebilir.',
+  en: 'Movement data can be associated with facility layouts and spatial context to produce operational movement insights.',
+  tr: 'Hareket verisi tesis yerleşimi ve mekânsal bağlamla ilişkilendirilerek operasyonel hareket bilgisine dönüştürülebilir.',
 },
 
 yayaApplicationsKicker: {
@@ -1012,23 +1028,23 @@ yayaApplicationsKicker: {
 },
 
 yayaApplicationsTitle: {
-  en: 'One Movement Core. Different Indoor Experiences.',
-  tr: 'Tek Hareket Çekirdeği. Farklı Kapalı Alan Deneyimleri.',
+  en: 'One Movement Core. Different Indoor Operations.',
+  tr: 'Tek Hareket Çekirdeği. Farklı Kapalı Alan Operasyonları.',
 },
 
 yayaApplicationsLead: {
-  en: 'The same mobile inertial capability is adapted according to the user, facility and operational problem.',
-  tr: 'Aynı mobil ataletsel kabiliyet; kullanıcıya, tesise ve çözülmek istenen operasyonel probleme göre uyarlanır.',
+  en: 'The same mobile inertial capability is adapted according to the facility, users and operational objective.',
+  tr: 'Aynı mobil ataletsel kabiliyet; tesise, kullanıcıya ve operasyonel amaca göre uyarlanır.',
 },
 
 yayaHospitalTitle: {
-  en: 'Hospital Wayfinding',
-  tr: 'Hastane Yön Bulma',
+  en: 'Hospital Movement',
+  tr: 'Hastane İçi Hareket',
 },
 
 yayaHospitalText: {
-  en: 'Supports mobile indoor wayfinding and location intelligence across complex hospital environments, helping patients and visitors navigate between destinations.',
-  tr: 'Karmaşık hastane yapılarında mobil bina içi yön bulma ve konum farkındalığını destekler; hasta ve ziyaretçilerin hedef noktalar arasında yönlendirilmesini sağlar.',
+  en: 'Supports route and movement analysis across complex hospital environments using mobile inertial sensing.',
+  tr: 'Mobil ataletsel algılama ile karmaşık hastane ortamlarında rota ve hareket analizini destekler.',
 },
 
 yayaDepotTitle: {
@@ -1057,8 +1073,8 @@ yayaPilotScopeTitle: {
 },
 
 yayaPilotScopeText: {
-  en: 'The facility, target users, route or navigation objective and pilot criteria are defined.',
-  tr: 'Tesis, hedef kullanıcılar, rota veya navigasyon amacı ve pilot ölçütleri belirlenir.',
+  en: 'The facility, target users, route or movement objective and pilot criteria are defined.',
+  tr: 'Tesis, hedef kullanıcılar, rota veya hareket amacı ve pilot ölçütleri belirlenir.',
 },
 
 yayaPilotCollectTitle: {
@@ -1077,18 +1093,18 @@ yayaPilotReportTitle: {
 },
 
 yayaPilotReportText: {
-  en: 'Navigation, route or movement findings are evaluated and documented according to the pilot objective.',
-  tr: 'Navigasyon, rota veya hareket bulguları pilotun amacına göre değerlendirilir ve raporlanır.',
+  en: 'Route, coverage and movement findings are evaluated and documented according to the pilot objective.',
+  tr: 'Rota, kapsama ve hareket bulguları pilotun amacına göre değerlendirilir ve raporlanır.',
 },
 
 yayaFinalCtaTitle: {
-  en: 'Evaluate Yaya for Your Indoor Environment.',
-  tr: 'Yaya’yı Kapalı Alanınız İçin Değerlendirelim.',
+  en: 'Evaluate Yaya for Your Indoor Operations.',
+  tr: 'Yaya’yı Kapalı Alan Operasyonlarınız İçin Değerlendirelim.',
 },
 
 yayaFinalCtaText: {
-  en: 'Tell us about your facility, users and the indoor navigation or movement problem you want to solve. We can define the appropriate pilot scope together.',
-  tr: 'Tesisinizi, kullanıcılarınızı ve çözmek istediğiniz kapalı alan yön bulma veya hareket problemini paylaşın. Uygun pilot kapsamını birlikte belirleyelim.',
+  en: 'Tell us about your facility, users and the movement or route problem you want to evaluate. We can define an appropriate pilot scope together.',
+  tr: 'Tesisinizi, kullanıcılarınızı ve değerlendirmek istediğiniz hareket veya rota problemini paylaşın. Uygun pilot kapsamını birlikte belirleyelim.',
 },
 
 yayaCtaButton: {

@@ -4,12 +4,12 @@ import { BackgroundField } from './components/BackgroundField';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { ScrollToHash } from './components/ScrollToHash';
-import { Engagement } from './sections/Engagement';
 
 import { Hero } from './sections/Hero';
-import { Problem } from './sections/Problem';
+import { Applications } from './sections/Applications';
 import { Products } from './sections/Product';
-import { Platforms } from './sections/Platforms';
+import { Technology } from './sections/Technology';
+import { Engagement } from './sections/Engagement';
 import { Contact } from './sections/Contact';
 
 import Privacy from './pages/Privacy';
@@ -33,15 +33,16 @@ export default function App() {
             <main className="relative z-10">
               <Hero />
 
-              <Platforms />
-
-              <Problem />
+              <Applications />
 
               <Products />
+
+              <Technology />
+
               <Engagement />
 
-
               <Contact />
+
               <Footer />
             </main>
           }

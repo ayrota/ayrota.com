@@ -90,9 +90,10 @@ export default function Alkon() {
                   </span>
                 </div>
 
-                <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
-                  ALKON
-                </div>
+
+                  <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
+                    ALKON 
+                  </div>
 
                 <h1 className="mt-5 max-w-[700px] text-[42px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#eef3f7] md:text-[60px]">
                   {t('alkonHeroStatement')}

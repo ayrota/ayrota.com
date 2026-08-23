@@ -159,7 +159,7 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile */}
+          {/* Mobile controls */}
           <div className="ml-auto flex items-center gap-5 lg:hidden">
             <div className="flex items-center gap-2">
               <button

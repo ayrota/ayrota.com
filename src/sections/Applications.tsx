@@ -40,7 +40,7 @@ const APPLICATIONS: Application[] = [
   },
 ];
 
-export function Platforms() {
+export function Applications() {
   const { t } = useLanguage();
 
   return (
@@ -55,7 +55,7 @@ export function Platforms() {
       >
         <div className="absolute left-1/2 top-[-220px] h-[560px] w-[960px] -translate-x-1/2 rounded-full bg-blue-400/[0.045] blur-[170px]" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.016)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120, 33, 50, 0.02)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
 
         <div className="absolute inset-x-0 top-0 h-px bg-white/[0.05]" />
 
@@ -76,7 +76,7 @@ export function Platforms() {
               <span className="h-px w-8 bg-cyan-200/30" />
             </div>
 
-            <h2 className="mt-5 text-[32px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#eef3f7] md:text-[40px]">
+            <h2 className="mt-5 text-[32px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#eef3f7] md:text-[32px]">
               {t('applicationsTitle')}
             </h2>
 
