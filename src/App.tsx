@@ -4,6 +4,7 @@ import { BackgroundField } from './components/BackgroundField';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { ScrollToHash } from './components/ScrollToHash';
+import { Seo } from './components/Seo';
 
 import { Hero } from './sections/Hero';
 import { Applications } from './sections/Applications';
@@ -20,6 +21,7 @@ import Alkon from './pages/Alkon';
 export default function App() {
   return (
     <div className="relative min-h-screen bg-bg font-sans text-fg">
+      <Seo />
       <BackgroundField />
 
       <Header />
