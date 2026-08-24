@@ -12,12 +12,10 @@ export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
       initial={{
         opacity: 0,
         y: 36,
-        filter: 'blur(8px)',
       }}
       whileInView={{
         opacity: 1,
         y: 0,
-        filter: 'blur(0px)',
       }}
       viewport={{
         once: true,
