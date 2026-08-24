@@ -18,6 +18,8 @@ const COLORS: Record<FlowKey, { base: string; active: string }> = {
   },
 };
 
+const FLOW_KEYS = Object.keys(COLORS) as FlowKey[];
+
 const FLOW_CONFIG: Record<FlowKey, FlowState[]> = {
   dark: [
     [0.0, 0.66, 0.62, 1.0, 4],
@@ -46,11 +48,12 @@ const VIRTUAL_SCALE = 1.1;
 /* =============================
    ENERGY / COLOR PARAMS
 ============================= */
-const ENERGY_RISE = 0.002; // ⬅️ yavaş parlıyor
+const ENERGY_RISE = 0.002;
 const ENERGY_DECAY = 0.94;
 const MAX_ENERGY = 1.0;
-
 const COLOR_BLEND_SPEED = 0.035;
+const IDLE_ENERGY_THRESHOLD = 0.002;
+const IDLE_COLOR_THRESHOLD = 0.002;
 
 /* =============================
    COLOR UTILS
@@ -105,6 +108,7 @@ function buildPath(w: number, h: number, params: FlowState, phase: number) {
 
 export function BackgroundField() {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const pathRefs = useRef<Partial<Record<FlowKey, SVGPathElement | null>>>({});
   const phaseRef = useRef<Record<FlowKey, number>>({
     dark: 0,
     mid: 1.3,
@@ -113,71 +117,31 @@ export function BackgroundField() {
 
   const energy = useRef(0);
   const colorEnergy = useRef(0);
-
   const lastScroll = useRef(0);
   const lastMouse = useRef<{ x: number; y: number } | null>(null);
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      if (lastMouse.current) {
-        const dx = Math.abs(e.clientX - lastMouse.current.x);
-        const dy = Math.abs(e.clientY - lastMouse.current.y);
-
-        energy.current = Math.min(MAX_ENERGY, energy.current + dx * ENERGY_RISE);
-
-        colorEnergy.current = Math.min(1, colorEnergy.current + dy * 0.0018);
-      }
-
-      lastMouse.current = {
-        x: e.clientX,
-        y: e.clientY,
-      };
-    };
-
-    const onScroll = () => {
-      const dy = Math.abs(window.scrollY - lastScroll.current);
-      energy.current = Math.min(MAX_ENERGY, energy.current + dy * ENERGY_RISE * 0.5);
-      lastScroll.current = window.scrollY;
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('scroll', onScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
 
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
 
     let raf = 0;
+    let isAnimating = false;
+    let viewportWidth = window.innerWidth;
+    let viewportHeight = window.innerHeight;
+    let scrollMax = Math.max(document.body.scrollHeight - viewportHeight, 0);
 
-    const render = () => {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-
-      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    const renderFrame = () => {
+      const scrollP =
+        scrollMax > 0 ? Math.min(Math.max(window.scrollY / scrollMax, 0), 0.999999) : 0;
 
       energy.current *= ENERGY_DECAY;
       colorEnergy.current = lerp(colorEnergy.current, 0, COLOR_BLEND_SPEED);
 
-      (Object.keys(FLOW_CONFIG) as FlowKey[]).forEach((key) => {
+      FLOW_KEYS.forEach((key) => {
         const states = FLOW_CONFIG[key];
         const segments = states.length - 1;
-
-        const scrollMax = document.body.scrollHeight - h;
-        const s = scrollMax > 0 ? window.scrollY / scrollMax : 0;
-
-        const scrollP = Math.min(Math.max(s, 0), 0.999999);
-
         const seg = Math.floor(scrollP * segments);
         const t = scrollP * segments - seg;
-
         const a = states[seg];
         const b = states[seg + 1];
 
@@ -191,31 +155,94 @@ export function BackgroundField() {
 
         phaseRef.current[key] += 0.01;
 
-        const path = svg.querySelector(`[data-line="${key}"]`) as SVGPathElement | null;
+        const path = pathRefs.current[key];
+        if (!path) return;
 
         const alpha = 0.26 + energy.current * 0.32;
 
-        path?.setAttribute('d', buildPath(w, h, interp, phaseRef.current[key]));
-        path?.setAttribute('stroke-opacity', alpha.toFixed(3));
-        path?.setAttribute(
+        path.setAttribute('d', buildPath(viewportWidth, viewportHeight, interp, phaseRef.current[key]));
+        path.setAttribute('stroke-opacity', alpha.toFixed(3));
+        path.setAttribute(
           'stroke',
           lerpColor(COLORS[key].base, COLORS[key].active, colorEnergy.current),
         );
       });
-
-      raf = requestAnimationFrame(render);
     };
 
-    raf = requestAnimationFrame(render);
-    return () => cancelAnimationFrame(raf);
+    const tick = () => {
+      renderFrame();
+
+      const hasEnergy = energy.current > IDLE_ENERGY_THRESHOLD;
+      const hasColorEnergy = colorEnergy.current > IDLE_COLOR_THRESHOLD;
+
+      if (hasEnergy || hasColorEnergy) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        isAnimating = false;
+        raf = 0;
+      }
+    };
+
+    const requestRender = () => {
+      if (isAnimating) return;
+      isAnimating = true;
+      raf = requestAnimationFrame(tick);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (lastMouse.current) {
+        const dx = Math.abs(e.clientX - lastMouse.current.x);
+        const dy = Math.abs(e.clientY - lastMouse.current.y);
+
+        energy.current = Math.min(MAX_ENERGY, energy.current + dx * ENERGY_RISE);
+        colorEnergy.current = Math.min(1, colorEnergy.current + dy * 0.0018);
+      }
+
+      lastMouse.current = { x: e.clientX, y: e.clientY };
+      requestRender();
+    };
+
+    const onScroll = () => {
+      const dy = Math.abs(window.scrollY - lastScroll.current);
+      energy.current = Math.min(MAX_ENERGY, energy.current + dy * ENERGY_RISE * 0.5);
+      lastScroll.current = window.scrollY;
+      scrollMax = Math.max(document.body.scrollHeight - viewportHeight, 0);
+      requestRender();
+    };
+
+    const onResize = () => {
+      viewportWidth = window.innerWidth;
+      viewportHeight = window.innerHeight;
+      scrollMax = Math.max(document.body.scrollHeight - viewportHeight, 0);
+      svg.setAttribute('viewBox', `0 0 ${viewportWidth} ${viewportHeight}`);
+      requestRender();
+    };
+
+    svg.setAttribute('viewBox', `0 0 ${viewportWidth} ${viewportHeight}`);
+    lastScroll.current = window.scrollY;
+    renderFrame();
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+    };
   }, []);
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <svg ref={svgRef} className="absolute inset-0" fill="none">
-        {(Object.keys(FLOW_CONFIG) as FlowKey[]).map((key) => (
+        {FLOW_KEYS.map((key) => (
           <path
             key={key}
+            ref={(node) => {
+              pathRefs.current[key] = node;
+            }}
             data-line={key}
             stroke={COLORS[key].base}
             strokeWidth={2.3}
