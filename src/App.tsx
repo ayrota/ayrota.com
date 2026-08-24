@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { BackgroundField } from './components/BackgroundField';
@@ -13,10 +14,10 @@ import { Technology } from './sections/Technology';
 import { Engagement } from './sections/Engagement';
 import { Contact } from './sections/Contact';
 
-import Privacy from './pages/Privacy';
-import Yaya from './pages/Yaya';
-import Yoruk from './pages/Yoruk';
-import Alkon from './pages/Alkon';
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Yaya = lazy(() => import('./pages/Yaya'));
+const Yoruk = lazy(() => import('./pages/Yoruk'));
+const Alkon = lazy(() => import('./pages/Alkon'));
 
 export default function App() {
   return (
@@ -28,33 +29,35 @@ export default function App() {
 
       <ScrollToHash />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <main className="relative z-10">
-              <Hero />
+      <Suspense fallback={null}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <main className="relative z-10">
+                <Hero />
 
-              <Applications />
+                <Applications />
 
-              <Products />
+                <Products />
 
-              <Technology />
+                <Technology />
 
-              <Engagement />
+                <Engagement />
 
-              <Contact />
+                <Contact />
 
-              <Footer />
-            </main>
-          }
-        />
+                <Footer />
+              </main>
+            }
+          />
 
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/alkon" element={<Alkon />} />
-        <Route path="/yaya" element={<Yaya />} />
-        <Route path="/yoruk" element={<Yoruk />} />
-      </Routes>
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/alkon" element={<Alkon />} />
+          <Route path="/yaya" element={<Yaya />} />
+          <Route path="/yoruk" element={<Yoruk />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
