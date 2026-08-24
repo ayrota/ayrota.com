@@ -45,9 +45,6 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 const VIRTUAL_SCALE = 1.1;
 
-/* =============================
-   ENERGY / COLOR PARAMS
-============================= */
 const ENERGY_RISE = 0.002;
 const ENERGY_DECAY = 0.94;
 const MAX_ENERGY = 1.0;
@@ -55,9 +52,6 @@ const COLOR_BLEND_SPEED = 0.035;
 const IDLE_ENERGY_THRESHOLD = 0.002;
 const IDLE_COLOR_THRESHOLD = 0.002;
 
-/* =============================
-   COLOR UTILS
-============================= */
 function lerpColor(a: string, b: string, t: number) {
   const pa = parseInt(a.slice(1), 16);
   const pb = parseInt(b.slice(1), 16);
@@ -129,19 +123,17 @@ export function BackgroundField() {
     let viewportWidth = window.innerWidth;
     let viewportHeight = window.innerHeight;
     let scrollMax = Math.max(document.body.scrollHeight - viewportHeight, 0);
+    let scrollProgress = scrollMax > 0 ? Math.min(Math.max(window.scrollY / scrollMax, 0), 0.999999) : 0;
 
     const renderFrame = () => {
-      const scrollP =
-        scrollMax > 0 ? Math.min(Math.max(window.scrollY / scrollMax, 0), 0.999999) : 0;
-
       energy.current *= ENERGY_DECAY;
       colorEnergy.current = lerp(colorEnergy.current, 0, COLOR_BLEND_SPEED);
 
       FLOW_KEYS.forEach((key) => {
         const states = FLOW_CONFIG[key];
         const segments = states.length - 1;
-        const seg = Math.floor(scrollP * segments);
-        const t = scrollP * segments - seg;
+        const seg = Math.floor(scrollProgress * segments);
+        const t = scrollProgress * segments - seg;
         const a = states[seg];
         const b = states[seg + 1];
 
@@ -203,10 +195,12 @@ export function BackgroundField() {
     };
 
     const onScroll = () => {
-      const dy = Math.abs(window.scrollY - lastScroll.current);
+      const currentScroll = window.scrollY;
+      const dy = Math.abs(currentScroll - lastScroll.current);
       energy.current = Math.min(MAX_ENERGY, energy.current + dy * ENERGY_RISE * 0.5);
-      lastScroll.current = window.scrollY;
+      lastScroll.current = currentScroll;
       scrollMax = Math.max(document.body.scrollHeight - viewportHeight, 0);
+      scrollProgress = scrollMax > 0 ? Math.min(Math.max(currentScroll / scrollMax, 0), 0.999999) : 0;
       requestRender();
     };
 
@@ -214,6 +208,7 @@ export function BackgroundField() {
       viewportWidth = window.innerWidth;
       viewportHeight = window.innerHeight;
       scrollMax = Math.max(document.body.scrollHeight - viewportHeight, 0);
+      scrollProgress = scrollMax > 0 ? Math.min(Math.max(window.scrollY / scrollMax, 0), 0.999999) : 0;
       svg.setAttribute('viewBox', `0 0 ${viewportWidth} ${viewportHeight}`);
       requestRender();
     };
