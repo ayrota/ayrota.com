@@ -8,16 +8,9 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-
-    <section
-      id="hero"
-      className="relative min-h-screen overflow-hidden bg-bg pt-20"
-    >
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-bg pt-20">
       {/* Background atmosphere */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-[8%] top-[20%] h-[360px] w-[360px] rounded-full bg-blue-600/[0.06] blur-[130px]" />
 
         <div className="absolute right-[10%] top-[18%] h-[480px] w-[480px] rounded-full bg-cyan-400/[0.035] blur-[150px]" />
@@ -79,6 +72,9 @@ export function Hero() {
               <img
                 src="/hero.png"
                 alt="Ayrota inertial navigation and motion intelligence"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{
                   objectPosition: '58% 50%',
