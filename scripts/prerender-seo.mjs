@@ -95,7 +95,10 @@ function renderRoute(baseHtml, route, config) {
   html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/i, '');
   if (config.structuredData) {
     const structuredData = JSON.stringify(config.structuredData).replace(/</g, '\\u003c');
-    html = html.replace('</head>', `    <script type="application/ld+json">${structuredData}</script>\n  </head>`);
+    html = html.replace(
+      '</head>',
+      `    <script type="application/ld+json" data-ayrota-seo="structured-data">${structuredData}</script>\n  </head>`,
+    );
   }
 
   return html;
