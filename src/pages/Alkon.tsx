@@ -66,7 +66,7 @@ export default function Alkon() {
           aria-hidden
           className="pointer-events-none absolute inset-0"
         >
-          <div className="absolute left-[8%] top-[18%] h-[420px] w-[420px] rounded-full bg-blue-500/[0.045] blur-[150px]" />
+          <div className="absolute left-[2%] top-[5%] h-[650px] w-[650px] bg-[radial-gradient(circle,rgba(59,130,246,0.055)_0%,rgba(59,130,246,0.025)_35%,transparent_70%)]" />
 
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px]" />
         </div>
@@ -90,10 +90,9 @@ export default function Alkon() {
                   </span>
                 </div>
 
-
-                  <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
-                    ALKON 
-                  </div>
+                <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
+                  ALKON
+                </div>
 
                 <h1 className="mt-5 max-w-[700px] text-[42px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#eef3f7] md:text-[60px]">
                   {t('alkonHeroStatement')}

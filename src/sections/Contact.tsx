@@ -16,9 +16,9 @@ export function Contact() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
       >
-        <div className="absolute left-[8%] top-[5%] h-[500px] w-[560px] rounded-full bg-blue-500/[0.035] blur-[170px]" />
+        <div className="absolute left-[-4%] top-[-4%] h-[780px] w-[820px] bg-[radial-gradient(circle,rgba(59,130,246,0.04)_0%,rgba(59,130,246,0.015)_38%,transparent_70%)]" />
 
-        <div className="absolute right-[10%] bottom-[-160px] h-[520px] w-[600px] rounded-full bg-cyan-300/[0.02] blur-[180px]" />
+        <div className="absolute bottom-[-260px] right-[-5%] h-[820px] w-[860px] bg-[radial-gradient(circle,rgba(103,232,249,0.025)_0%,rgba(103,232,249,0.01)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]" />
 

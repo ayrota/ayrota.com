@@ -8,7 +8,6 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-
     <section
       id="hero"
       className="relative min-h-screen overflow-hidden bg-bg pt-20"
@@ -18,9 +17,9 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
       >
-        <div className="absolute left-[8%] top-[20%] h-[360px] w-[360px] rounded-full bg-blue-600/[0.06] blur-[130px]" />
+        <div className="absolute left-[-4%] top-[4%] h-[680px] w-[680px] bg-[radial-gradient(circle,rgba(37,99,235,0.075)_0%,rgba(37,99,235,0.03)_35%,transparent_70%)]" />
 
-        <div className="absolute right-[10%] top-[18%] h-[480px] w-[480px] rounded-full bg-cyan-400/[0.035] blur-[150px]" />
+        <div className="absolute right-[-5%] top-[0%] h-[760px] w-[760px] bg-[radial-gradient(circle,rgba(34,211,238,0.05)_0%,rgba(34,211,238,0.018)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:84px_84px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]" />
       </div>
@@ -127,7 +126,7 @@ export function Hero() {
               </div>
 
               {/* Info card */}
-              <div className="absolute bottom-6 right-6 w-[270px] bg-bg/82 p-5 backdrop-blur-xl">
+              <div className="absolute bottom-6 right-6 w-[270px] bg-[#09131d]/95 p-5">
                 <div className="text-[9px] font-semibold uppercase tracking-[0.22em] text-cyan-300/65">
                   {t('homeHeroVisualKicker')}
                 </div>

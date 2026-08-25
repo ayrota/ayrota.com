@@ -63,7 +63,7 @@ export function Technology() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
       >
-        <div className="absolute left-1/2 top-[20%] h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-cyan-300/[0.025] blur-[150px]" />
+        <div className="absolute left-1/2 top-[8%] h-[760px] w-[980px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(103,232,249,0.03)_0%,rgba(103,232,249,0.012)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:84px_84px]" />
 
@@ -104,7 +104,7 @@ export function Technology() {
               className="absolute left-1/2 top-full hidden h-12 w-px -translate-x-1/2 bg-gradient-to-b from-cyan-200/25 to-transparent lg:block"
             />
 
-            <div className="relative overflow-hidden border border-white/[0.08] bg-[#0b1621]/85 px-7 py-8 backdrop-blur md:px-10">
+            <div className="relative overflow-hidden border border-white/[0.08] bg-[#0b1621]/95 px-7 py-8 md:px-10">
               <div
                 aria-hidden
                 className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.055),transparent_48%)]"
@@ -204,9 +204,7 @@ export function Technology() {
         {/* Bottom */}
         <Reveal delay={0.14}>
           <div className="mt-10 flex flex-col gap-4 border-t border-white/[0.07] pt-7 md:flex-row md:items-center md:justify-between">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-cyan-100/42">
-              {t('technologyBottomKicker')}
-            </div>
+            
 
             <p className="max-w-[760px] text-[13px] leading-6 text-white/38 md:text-right">
               {t('technologyBottomText')}

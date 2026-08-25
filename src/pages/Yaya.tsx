@@ -66,7 +66,7 @@ export default function Yaya() {
           aria-hidden
           className="pointer-events-none absolute inset-0"
         >
-          <div className="absolute right-[8%] top-[16%] h-[480px] w-[520px] rounded-full bg-cyan-400/[0.035] blur-[160px]" />
+          <div className="absolute right-[0%] top-[3%] h-[720px] w-[760px] bg-[radial-gradient(circle,rgba(34,211,238,0.045)_0%,rgba(34,211,238,0.018)_38%,transparent_70%)]" />
 
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px]" />
         </div>
@@ -90,9 +90,9 @@ export default function Yaya() {
                   </span>
                 </div>
 
-<div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
-  YAYA
-</div>
+                <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
+                  YAYA
+                </div>
 
                 <h1 className="mt-5 max-w-[700px] text-[42px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#eef3f7] md:text-[60px]">
                   {t('yayaHeroStatement')}
@@ -262,7 +262,7 @@ export default function Yaya() {
                   <article className="group relative min-h-[320px] overflow-hidden border border-white/[0.07] bg-[#09131d] p-7 md:p-9">
                     <div
                       aria-hidden
-                      className="absolute right-[-80px] top-[-80px] h-[240px] w-[240px] rounded-full bg-cyan-300/[0.025] blur-[80px]"
+                      className="absolute right-[-70px] top-[-70px] h-[300px] w-[300px] bg-[radial-gradient(circle,rgba(103,232,249,0.035)_0%,transparent_68%)]"
                     />
 
                     <div className="relative z-10 flex h-full flex-col">

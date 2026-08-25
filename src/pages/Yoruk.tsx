@@ -66,7 +66,7 @@ export default function Yoruk() {
           aria-hidden
           className="pointer-events-none absolute inset-0"
         >
-          <div className="absolute right-[8%] top-[14%] h-[520px] w-[560px] rounded-full bg-blue-400/[0.035] blur-[170px]" />
+          <div className="absolute right-[-1%] top-[1%] h-[760px] w-[800px] bg-[radial-gradient(circle,rgba(96,165,250,0.045)_0%,rgba(96,165,250,0.018)_38%,transparent_70%)]" />
 
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px]" />
         </div>
@@ -90,9 +90,10 @@ export default function Yoruk() {
                   </span>
                 </div>
 
-<div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
-  YÖRÜK
-</div>
+                <div className="mt-6 text-[18px] font-semibold tracking-[0.26em] text-cyan-300/80">
+                  YÖRÜK
+                </div>
+
                 <h1 className="mt-5 max-w-[700px] text-[42px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#eef3f7] md:text-[60px]">
                   {t('yorukHeroStatement')}
                 </h1>
@@ -255,7 +256,7 @@ export default function Yoruk() {
                   <article className="relative min-h-[330px] overflow-hidden border border-white/[0.07] bg-[#09131d] p-7 md:p-9">
                     <div
                       aria-hidden
-                      className="absolute right-[-80px] top-[-80px] h-[240px] w-[240px] rounded-full bg-blue-300/[0.025] blur-[80px]"
+                      className="absolute right-[-70px] top-[-70px] h-[300px] w-[300px] bg-[radial-gradient(circle,rgba(147,197,253,0.035)_0%,transparent_68%)]"
                     />
 
                     <div className="relative z-10 flex h-full flex-col">

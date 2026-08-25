@@ -58,15 +58,17 @@ export function Engagement() {
       id="engagement"
       className="relative overflow-hidden bg-[#0e1924] py-20 text-white md:py-24"
     >
+      {/* Background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
       >
-        <div className="absolute left-1/2 top-[-220px] h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-blue-400/[0.025] blur-[170px]" />
+        <div className="absolute left-1/2 top-[-320px] h-[820px] w-[1100px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(96,165,250,0.03)_0%,rgba(96,165,250,0.012)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
 
         <div className="absolute inset-x-0 top-0 h-px bg-white/[0.05]" />
+
         <div className="absolute inset-x-0 bottom-0 h-px bg-white/[0.05]" />
       </div>
 

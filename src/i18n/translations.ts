@@ -311,10 +311,7 @@ technologyEmbeddedText: {
   tr: 'Ataletsel veri işleme ve kestirim kabiliyetlerinin gömülü, mobil ve otonom sistem ortamlarına taşınması.',
 },
 
-technologyBottomKicker: {
-  en: 'SHARED FOUNDATION',
-  tr: 'ORTAK ALTYAPI',
-},
+
 
 technologyBottomText: {
   en: 'The same inertial technology core supports Alkon, Yaya and Yörük across navigation, movement and analytics.',

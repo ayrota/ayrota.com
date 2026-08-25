@@ -53,9 +53,9 @@ export function Applications() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
       >
-        <div className="absolute left-1/2 top-[-220px] h-[560px] w-[960px] -translate-x-1/2 rounded-full bg-blue-400/[0.045] blur-[170px]" />
+        <div className="absolute left-1/2 top-[-360px] h-[900px] w-[1200px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(96,165,250,0.055)_0%,rgba(96,165,250,0.02)_38%,transparent_70%)]" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120, 33, 50, 0.02)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,33,50,0.02)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
 
         <div className="absolute inset-x-0 top-0 h-px bg-white/[0.05]" />
 
@@ -118,7 +118,7 @@ export function Applications() {
                   {/* Content */}
                   <div className="relative z-10 flex h-full w-full flex-col p-7 md:p-8">
                     <div className="flex items-center justify-between">
-                      <div className="flex h-10 w-10 items-center justify-center border border-white/[0.10] bg-[#0a131d]/40 text-cyan-100/60 backdrop-blur-sm">
+                      <div className="flex h-10 w-10 items-center justify-center border border-white/[0.10] bg-[#0a131d]/85 text-cyan-100/60">
                         <Icon
                           size={18}
                           strokeWidth={1.4}

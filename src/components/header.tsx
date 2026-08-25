@@ -29,9 +29,8 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-[100] w-full overflow-visible">
-      <div className="relative z-[100] border-b border-white/[0.06] bg-[#09131d]/95 backdrop-blur-xl">
+      <div className="relative z-[100] border-b border-white/[0.06] bg-[#09131d]">
         <Container className="flex h-20 items-center">
-          {/* Brand */}
           <Link
             to="/#hero"
             aria-label={
@@ -53,10 +52,8 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Desktop */}
           <div className="ml-auto hidden items-center gap-14 lg:flex">
             <nav className="flex items-center gap-10">
-              {/* Products */}
               <div
                 className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
@@ -116,7 +113,6 @@ export function Header() {
                 )}
               </div>
 
-              {/* Applications */}
               <Link
                 to="/#applications"
                 className={navLinkClass}
@@ -126,7 +122,6 @@ export function Header() {
                   : 'APPLICATIONS'}
               </Link>
 
-              {/* Contact */}
               <Link
                 to="/#contact"
                 className={navLinkClass}
@@ -137,7 +132,6 @@ export function Header() {
               </Link>
             </nav>
 
-            {/* Language */}
             <div className="flex items-center gap-3 border-l border-white/[0.08] pl-8">
               <button
                 type="button"
@@ -159,7 +153,6 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile controls */}
           <div className="ml-auto flex items-center gap-5 lg:hidden">
             <div className="flex items-center gap-2">
               <button
@@ -216,12 +209,10 @@ export function Header() {
         </Container>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="relative z-[190] border-b border-white/[0.07] bg-[#09131d] lg:hidden">
           <Container className="py-6">
             <nav>
-              {/* Products */}
               <div>
                 <Link
                   to="/#products"
@@ -254,7 +245,6 @@ export function Header() {
                 </div>
               </div>
 
-              {/* Main links */}
               <div className="mt-7 border-t border-white/[0.06]">
                 <MobileLink
                   href="/#applications"
