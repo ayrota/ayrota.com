@@ -12,15 +12,8 @@ export function Footer() {
         <div className="flex flex-col gap-7">
           {/* Brand */}
           <div>
-            <Link
-              to="/#hero"
-              className="inline-flex items-center gap-4"
-            >
-              <img
-                src="/icon.png"
-                alt="Ayrota"
-                className="h-8 w-8 object-contain opacity-75"
-              />
+            <Link to="/#hero" className="inline-flex items-center gap-4">
+              <img src="/icon.png" alt="Ayrota" className="h-8 w-8 object-contain opacity-75" />
 
               <span className="text-[17px] font-semibold tracking-[0.24em] text-white/80">
                 AYROTA
@@ -35,14 +28,11 @@ export function Footer() {
           {/* Bottom */}
           <div className="flex flex-col gap-3 border-t border-white/[0.06] pt-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="text-[10px] text-white/25">
-              {t('footerCopyright').replace(
-                '{{year}}',
-                String(year),
-              )}
+              {t('footerCopyright').replace('{{year}}', String(year))}
             </div>
 
             <Link
-              to="/privacy"
+              to="/privacy/"
               className="text-[10px] text-white/35 transition-colors hover:text-white/70"
             >
               {t('footerPrivacy')}

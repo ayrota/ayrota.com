@@ -1,11 +1,4 @@
-import {
-  Activity,
-  Cpu,
-  Footprints,
-  Gauge,
-  Navigation,
-  type LucideIcon,
-} from 'lucide-react';
+import { Activity, Cpu, Footprints, Gauge, Navigation, type LucideIcon } from 'lucide-react';
 
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
@@ -59,10 +52,7 @@ export function Technology() {
       className="relative overflow-hidden bg-[#101c28] py-20 text-white md:py-24"
     >
       {/* Background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[8%] h-[760px] w-[980px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(103,232,249,0.03)_0%,rgba(103,232,249,0.012)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:84px_84px]" />
@@ -154,28 +144,15 @@ export function Technology() {
               const Icon = capability.icon;
 
               return (
-                <Reveal
-                  key={capability.title}
-                  delay={0.1 + index * 0.05}
-                  className="h-full"
-                >
+                <Reveal key={capability.title} delay={0.1 + index * 0.05} className="h-full">
                   <article className="group relative flex h-full min-h-[310px] flex-col overflow-hidden border border-white/[0.07] bg-[#0b1621]/70 p-6 transition duration-300 hover:border-cyan-100/20 hover:bg-[#0d1a26]">
-                    <div
-                      aria-hidden
-                      className="absolute left-0 top-0 h-px w-14 bg-cyan-200/30"
-                    />
+                    <div aria-hidden className="absolute left-0 top-0 h-px w-14 bg-cyan-200/30" />
 
-                    <div
-                      aria-hidden
-                      className="absolute left-0 top-0 h-14 w-px bg-cyan-200/30"
-                    />
+                    <div aria-hidden className="absolute left-0 top-0 h-14 w-px bg-cyan-200/30" />
 
                     <div className="flex items-center justify-between">
                       <div className="flex h-11 w-11 items-center justify-center border border-white/[0.09] text-cyan-100/55 transition duration-300 group-hover:border-cyan-100/24 group-hover:text-cyan-100/80">
-                        <Icon
-                          size={19}
-                          strokeWidth={1.4}
-                        />
+                        <Icon size={19} strokeWidth={1.4} />
                       </div>
 
                       <span className="text-[9px] font-medium tracking-[0.22em] text-white/22">
@@ -204,8 +181,6 @@ export function Technology() {
         {/* Bottom */}
         <Reveal delay={0.14}>
           <div className="mt-10 flex flex-col gap-4 border-t border-white/[0.07] pt-7 md:flex-row md:items-center md:justify-between">
-            
-
             <p className="max-w-[760px] text-[13px] leading-6 text-white/38 md:text-right">
               {t('technologyBottomText')}
             </p>
@@ -216,18 +191,10 @@ export function Technology() {
   );
 }
 
-function CoreMetric({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function CoreMetric({ label, value }: { label: string; value: string }) {
   return (
     <div className="border-l border-white/[0.08] pl-5">
-      <div className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/30">
-        {label}
-      </div>
+      <div className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/30">{label}</div>
 
       <div className="mt-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-cyan-100/65">
         {value}

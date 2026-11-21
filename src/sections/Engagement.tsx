@@ -59,10 +59,7 @@ export function Engagement() {
       className="relative overflow-hidden bg-[#0e1924] py-20 text-white md:py-24"
     >
       {/* Background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[-320px] h-[820px] w-[1100px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(96,165,250,0.03)_0%,rgba(96,165,250,0.012)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
@@ -106,18 +103,11 @@ export function Engagement() {
               const Icon = step.icon;
 
               return (
-                <Reveal
-                  key={step.title}
-                  delay={0.06 + index * 0.05}
-                  className="h-full"
-                >
+                <Reveal key={step.title} delay={0.06 + index * 0.05} className="h-full">
                   <article className="group relative h-full lg:px-6 first:lg:pl-0 last:lg:pr-0">
                     <div className="relative z-10 flex items-center justify-between">
                       <div className="flex h-[58px] w-[58px] items-center justify-center border border-white/[0.10] bg-[#0e1924] text-cyan-100/55 transition duration-300 group-hover:border-cyan-100/28 group-hover:text-cyan-100/85">
-                        <Icon
-                          size={20}
-                          strokeWidth={1.35}
-                        />
+                        <Icon size={20} strokeWidth={1.35} />
                       </div>
 
                       <span className="text-[9px] font-medium tracking-[0.22em] text-white/25 lg:hidden">

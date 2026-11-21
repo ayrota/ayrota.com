@@ -18,37 +18,19 @@ const PRODUCTS: Product[] = [
     name: 'ALKON',
     eyebrow: 'productsAlkonEyebrow',
     description: 'productsAlkonDescription',
-    applications: [
-      'productsAlkonApplicationOne',
-      'productsAlkonApplicationTwo',
-    ],
+    applications: ['productsAlkonApplicationOne', 'productsAlkonApplicationTwo'],
     image: '/products/alkon.png',
-    href: '/alkon',
+    href: '/alkon/',
     index: '01',
   },
   {
     name: 'YAYA',
     eyebrow: 'productsYayaEyebrow',
     description: 'productsYayaDescription',
-    applications: [
-      'productsYayaApplicationOne',
-      'productsYayaApplicationTwo',
-    ],
+    applications: ['productsYayaApplicationOne', 'productsYayaApplicationTwo'],
     image: '/products/yaya.png',
-    href: '/yaya',
+    href: '/yaya/',
     index: '02',
-  },
-  {
-    name: 'YÖRÜK',
-    eyebrow: 'productsYorukEyebrow',
-    description: 'productsYorukDescription',
-    applications: [
-      'productsYorukApplicationOne',
-      'productsYorukApplicationTwo',
-    ],
-    image: '/products/yoruk.png',
-    href: '/yoruk',
-    index: '03',
   },
 ];
 
@@ -61,10 +43,7 @@ export function Products() {
       className="relative overflow-hidden bg-[#0c1721] py-20 text-white md:py-24"
     >
       {/* Background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-[2%] top-[-300px] h-[820px] w-[820px] bg-[radial-gradient(circle,rgba(59,130,246,0.035)_0%,rgba(59,130,246,0.015)_38%,transparent_70%)]" />
 
         <div className="absolute bottom-[-320px] right-[-2%] h-[820px] w-[820px] bg-[radial-gradient(circle,rgba(103,232,249,0.025)_0%,rgba(103,232,249,0.01)_38%,transparent_70%)]" />
@@ -100,19 +79,15 @@ export function Products() {
         </Reveal>
 
         {/* Products */}
-        <div className="mt-14 grid items-stretch gap-5 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid w-full max-w-[560px] items-stretch gap-5 md:max-w-[1120px] md:grid-cols-2">
           {PRODUCTS.map((product, index) => (
-            <Reveal
-              key={product.name}
-              delay={0.06 + index * 0.06}
-              className="h-full"
-            >
+            <Reveal key={product.name} delay={0.06 + index * 0.06} className="h-full">
               <Link
                 to={product.href}
                 className="group relative flex h-full min-h-[510px] flex-col overflow-hidden border border-white/[0.07] bg-[#09131d] !text-white transition duration-300 hover:border-cyan-100/20 hover:!text-white"
               >
                 {/* Visual */}
-                <div className="relative h-[265px] shrink-0 overflow-hidden">
+                <div className="relative h-[265px] shrink-0 overflow-hidden lg:h-[290px]">
                   <img
                     src={product.image}
                     alt={product.name}

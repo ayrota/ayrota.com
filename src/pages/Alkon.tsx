@@ -62,10 +62,7 @@ export default function Alkon() {
     <main className="relative z-10 bg-[#09131d] text-white">
       {/* HERO */}
       <section className="relative min-h-screen overflow-hidden pt-20">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-        >
+        <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute left-[2%] top-[5%] h-[650px] w-[650px] bg-[radial-gradient(circle,rgba(59,130,246,0.055)_0%,rgba(59,130,246,0.025)_35%,transparent_70%)]" />
 
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px]" />
@@ -118,10 +115,7 @@ export default function Alkon() {
               </div>
             </Reveal>
 
-            <Reveal
-              delay={0.1}
-              className="relative h-[430px] md:h-[540px]"
-            >
+            <Reveal delay={0.1} className="relative h-[430px] md:h-[540px]">
               <div className="relative h-full overflow-hidden border border-white/[0.07] bg-[#07111a]">
                 <img
                   src="/products/alkon.png"
@@ -137,9 +131,7 @@ export default function Alkon() {
                     {t('alkonVisualKicker')}
                   </div>
 
-                  <div className="mt-2 text-[12px] text-white/50">
-                    {t('alkonVisualText')}
-                  </div>
+                  <div className="mt-2 text-[12px] text-white/50">{t('alkonVisualText')}</div>
                 </div>
               </div>
             </Reveal>
@@ -163,14 +155,10 @@ export default function Alkon() {
               </div>
 
               <div className="max-w-[700px] lg:justify-self-end">
-                <p className="text-[16px] leading-8 text-white/52">
-                  {t('alkonProblemText')}
-                </p>
+                <p className="text-[16px] leading-8 text-white/52">{t('alkonProblemText')}</p>
 
                 <div className="mt-8 border-l border-cyan-200/20 pl-6">
-                  <p className="text-[14px] leading-7 text-white/40">
-                    {t('alkonProblemNote')}
-                  </p>
+                  <p className="text-[14px] leading-7 text-white/40">{t('alkonProblemNote')}</p>
                 </div>
               </div>
             </div>
@@ -202,11 +190,7 @@ export default function Alkon() {
               const Icon = capability.icon;
 
               return (
-                <Reveal
-                  key={capability.title}
-                  delay={0.05 + index * 0.05}
-                  className="h-full"
-                >
+                <Reveal key={capability.title} delay={0.05 + index * 0.05} className="h-full">
                   <div className="group flex h-full min-h-[280px] flex-col border border-white/[0.07] bg-[#0a151f]/70 p-7 transition duration-300 hover:border-cyan-100/20">
                     <div className="flex h-11 w-11 items-center justify-center border border-white/[0.09] text-cyan-100/55">
                       <Icon size={19} strokeWidth={1.4} />
@@ -255,17 +239,10 @@ export default function Alkon() {
               const Icon = item.icon;
 
               return (
-                <Reveal
-                  key={item.title}
-                  delay={0.05 + index * 0.05}
-                >
+                <Reveal key={item.title} delay={0.05 + index * 0.05}>
                   <div className="border-t border-white/[0.08] pt-6">
                     <div className="flex items-center justify-between">
-                      <Icon
-                        size={19}
-                        strokeWidth={1.4}
-                        className="text-cyan-100/50"
-                      />
+                      <Icon size={19} strokeWidth={1.4} className="text-cyan-100/50" />
 
                       <span className="text-[9px] tracking-[0.2em] text-white/22">
                         0{index + 1}
@@ -313,10 +290,7 @@ export default function Alkon() {
                   value={t('alkonValidationOngoing')}
                 />
 
-                <StatusItem
-                  label={t('alkonValidationHitl')}
-                  value={t('alkonValidationNext')}
-                />
+                <StatusItem label={t('alkonValidationHitl')} value={t('alkonValidationNext')} />
               </div>
             </div>
           </Reveal>
@@ -358,13 +332,7 @@ export default function Alkon() {
   );
 }
 
-function StatusItem({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function StatusItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="border-l border-white/[0.08] pl-5">
       <div className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/28">

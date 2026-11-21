@@ -15,7 +15,6 @@ import { Contact } from './sections/Contact';
 
 import Privacy from './pages/Privacy';
 import Yaya from './pages/Yaya';
-import Yoruk from './pages/Yoruk';
 import Alkon from './pages/Alkon';
 
 export default function App() {
@@ -53,7 +52,24 @@ export default function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/alkon" element={<Alkon />} />
         <Route path="/yaya" element={<Yaya />} />
-        <Route path="/yoruk" element={<Yoruk />} />
+        <Route
+          path="*"
+          element={
+            <main className="relative z-10 flex min-h-screen flex-col bg-[#09131d] pt-32 text-white">
+              <div className="mx-auto w-full max-w-[1500px] flex-1 px-6 py-24 md:px-10">
+                <h1 className="text-[40px] font-semibold">404</h1>
+                <p className="mt-4 text-white/60">Page not found / Sayfa bulunamadı.</p>
+                <a
+                  className="mt-8 inline-block border-b border-cyan-200/40 pb-2 text-white"
+                  href="/"
+                >
+                  AYROTA
+                </a>
+              </div>
+              <Footer />
+            </main>
+          }
+        />
       </Routes>
     </div>
   );

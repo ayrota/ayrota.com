@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 import { Container } from './Container';
 import { useLanguage } from '../lib/LanguageContext';
@@ -10,6 +10,8 @@ export function Header() {
 
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const productButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileButtonRef = useRef<HTMLButtonElement>(null);
 
   const closeMobile = () => {
     setMobileOpen(false);
@@ -19,25 +21,28 @@ export function Header() {
   const langButtonClass = (target: 'tr' | 'en') =>
     [
       'text-[10px] font-semibold tracking-[0.16em] transition-colors',
-      lang === target
-        ? 'text-white'
-        : 'text-white/32 hover:text-white/70',
+      lang === target ? 'text-white' : 'text-white/32 hover:text-white/70',
     ].join(' ');
 
   const navLinkClass =
     'relative py-8 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42 transition-colors hover:text-white/75';
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] w-full overflow-visible">
+    <header
+      className="fixed inset-x-0 top-0 z-[100] w-full overflow-visible"
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && mobileOpen) {
+          event.preventDefault();
+          setMobileOpen(false);
+          mobileButtonRef.current?.focus();
+        }
+      }}
+    >
       <div className="relative z-[100] border-b border-white/[0.06] bg-[#09131d]">
         <Container className="flex h-20 items-center">
           <Link
             to="/#hero"
-            aria-label={
-              lang === 'tr'
-                ? 'Ayrota ana sayfa'
-                : 'Ayrota home'
-            }
+            aria-label={lang === 'tr' ? 'Ayrota ana sayfa' : 'Ayrota home'}
             onClick={closeMobile}
             className="group inline-flex items-center gap-4"
           >
@@ -58,96 +63,96 @@ export function Header() {
                 className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
                 onMouseLeave={() => setProductsOpen(false)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setProductsOpen(false);
+                  }
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape' && productsOpen) {
+                    event.preventDefault();
+                    setProductsOpen(false);
+                    productButtonRef.current?.focus();
+                  }
+                }}
               >
-                <Link
-                  to="/#products"
-                  onClick={() => setProductsOpen(false)}
-                  aria-expanded={productsOpen}
-                  className={[
-                    navLinkClass,
-                    productsOpen ? 'text-white' : '',
-                  ].join(' ')}
+                <div className="flex items-center gap-2">
+                  <Link
+                    to="/#products"
+                    onClick={() => setProductsOpen(false)}
+                    className={[navLinkClass, productsOpen ? 'text-white' : ''].join(' ')}
+                  >
+                    {lang === 'tr' ? 'ÜRÜNLER' : 'PRODUCTS'}
+
+                    <span
+                      aria-hidden="true"
+                      className={[
+                        'absolute bottom-[22px] left-0 h-px bg-cyan-200/50 transition-all duration-300',
+                        productsOpen ? 'w-full' : 'w-0',
+                      ].join(' ')}
+                    />
+                  </Link>
+
+                  <button
+                    ref={productButtonRef}
+                    type="button"
+                    aria-label={
+                      lang === 'tr' ? 'Ürün menüsünü aç veya kapat' : 'Toggle products menu'
+                    }
+                    aria-controls="desktop-products-menu"
+                    aria-expanded={productsOpen}
+                    onClick={() => setProductsOpen((open) => !open)}
+                    className="flex h-10 w-8 items-center justify-center text-white/55 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-200"
+                  >
+                    <ChevronDown
+                      size={15}
+                      strokeWidth={1.6}
+                      className={
+                        productsOpen ? 'rotate-180 transition-transform' : 'transition-transform'
+                      }
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div
+                  id="desktop-products-menu"
+                  hidden={!productsOpen}
+                  className="absolute left-1/2 top-full z-[200] -translate-x-1/2 pt-2"
                 >
-                  {lang === 'tr'
-                    ? 'ÜRÜNLER'
-                    : 'PRODUCTS'}
+                  <div className="min-w-[180px] border border-white/[0.10] bg-[#0b1621] p-2 shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+                    <ProductLink
+                      href="/alkon/"
+                      label="ALKON"
+                      onClick={() => setProductsOpen(false)}
+                    />
 
-                  <span
-                    className={[
-                      'absolute bottom-[22px] left-0 h-px bg-cyan-200/50 transition-all duration-300',
-                      productsOpen
-                        ? 'w-full'
-                        : 'w-0',
-                    ].join(' ')}
-                  />
-                </Link>
-
-                {productsOpen && (
-                  <div className="absolute left-1/2 top-full z-[200] -translate-x-1/2 pt-2">
-                    <div className="min-w-[180px] border border-white/[0.10] bg-[#0b1621] p-2 shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
-                      <ProductLink
-                        href="/alkon"
-                        label="ALKON"
-                        onClick={() =>
-                          setProductsOpen(false)
-                        }
-                      />
-
-                      <ProductLink
-                        href="/yaya"
-                        label="YAYA"
-                        onClick={() =>
-                          setProductsOpen(false)
-                        }
-                      />
-
-                      <ProductLink
-                        href="/yoruk"
-                        label="YÖRÜK"
-                        onClick={() =>
-                          setProductsOpen(false)
-                        }
-                      />
-                    </div>
+                    <ProductLink
+                      href="/yaya/"
+                      label="YAYA"
+                      onClick={() => setProductsOpen(false)}
+                    />
                   </div>
-                )}
+                </div>
               </div>
 
-              <Link
-                to="/#applications"
-                className={navLinkClass}
-              >
-                {lang === 'tr'
-                  ? 'UYGULAMALAR'
-                  : 'APPLICATIONS'}
+              <Link to="/#applications" className={navLinkClass}>
+                {lang === 'tr' ? 'UYGULAMALAR' : 'APPLICATIONS'}
               </Link>
 
-              <Link
-                to="/#contact"
-                className={navLinkClass}
-              >
-                {lang === 'tr'
-                  ? 'İLETİŞİM'
-                  : 'CONTACT'}
+              <Link to="/#contact" className={navLinkClass}>
+                {lang === 'tr' ? 'İLETİŞİM' : 'CONTACT'}
               </Link>
             </nav>
 
             <div className="flex items-center gap-3 border-l border-white/[0.08] pl-8">
-              <button
-                type="button"
-                onClick={() => setLang('tr')}
-                className={langButtonClass('tr')}
-              >
+              <button type="button" onClick={() => setLang('tr')} className={langButtonClass('tr')}>
                 TR
               </button>
 
               <span className="h-3 w-px bg-white/[0.10]" />
 
-              <button
-                type="button"
-                onClick={() => setLang('en')}
-                className={langButtonClass('en')}
-              >
+              <button type="button" onClick={() => setLang('en')} className={langButtonClass('en')}>
                 EN
               </button>
             </div>
@@ -155,29 +160,21 @@ export function Header() {
 
           <div className="ml-auto flex items-center gap-5 lg:hidden">
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setLang('tr')}
-                className={langButtonClass('tr')}
-              >
+              <button type="button" onClick={() => setLang('tr')} className={langButtonClass('tr')}>
                 TR
               </button>
 
-              <span className="text-white/20">
-                /
-              </span>
+              <span className="text-white/20">/</span>
 
-              <button
-                type="button"
-                onClick={() => setLang('en')}
-                className={langButtonClass('en')}
-              >
+              <button type="button" onClick={() => setLang('en')} className={langButtonClass('en')}>
                 EN
               </button>
             </div>
 
             <button
+              ref={mobileButtonRef}
               type="button"
+              aria-controls="mobile-navigation"
               aria-label={
                 mobileOpen
                   ? lang === 'tr'
@@ -188,21 +185,13 @@ export function Header() {
                     : 'Open menu'
               }
               aria-expanded={mobileOpen}
-              onClick={() =>
-                setMobileOpen((value) => !value)
-              }
+              onClick={() => setMobileOpen((value) => !value)}
               className="flex h-10 w-10 items-center justify-center border border-white/[0.08] text-white/65 transition hover:border-white/[0.16] hover:text-white"
             >
               {mobileOpen ? (
-                <X
-                  size={18}
-                  strokeWidth={1.5}
-                />
+                <X size={18} strokeWidth={1.5} />
               ) : (
-                <Menu
-                  size={18}
-                  strokeWidth={1.5}
-                />
+                <Menu size={18} strokeWidth={1.5} />
               )}
             </button>
           </div>
@@ -210,7 +199,10 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="relative z-[190] border-b border-white/[0.07] bg-[#09131d] lg:hidden">
+        <div
+          id="mobile-navigation"
+          className="relative z-[190] border-b border-white/[0.07] bg-[#09131d] lg:hidden"
+        >
           <Container className="py-6">
             <nav>
               <div>
@@ -219,50 +211,26 @@ export function Header() {
                   onClick={closeMobile}
                   className="mb-3 block text-[9px] font-semibold uppercase tracking-[0.22em] text-cyan-100/40 transition-colors hover:text-cyan-100/70"
                 >
-                  {lang === 'tr'
-                    ? 'ÜRÜNLER'
-                    : 'PRODUCTS'}
+                  {lang === 'tr' ? 'ÜRÜNLER' : 'PRODUCTS'}
                 </Link>
 
                 <div className="border-t border-white/[0.06]">
-                  <MobileLink
-                    href="/alkon"
-                    label="ALKON"
-                    onClick={closeMobile}
-                  />
+                  <MobileLink href="/alkon/" label="ALKON" onClick={closeMobile} />
 
-                  <MobileLink
-                    href="/yaya"
-                    label="YAYA"
-                    onClick={closeMobile}
-                  />
-
-                  <MobileLink
-                    href="/yoruk"
-                    label="YÖRÜK"
-                    onClick={closeMobile}
-                  />
+                  <MobileLink href="/yaya/" label="YAYA" onClick={closeMobile} />
                 </div>
               </div>
 
               <div className="mt-7 border-t border-white/[0.06]">
                 <MobileLink
                   href="/#applications"
-                  label={
-                    lang === 'tr'
-                      ? 'UYGULAMALAR'
-                      : 'APPLICATIONS'
-                  }
+                  label={lang === 'tr' ? 'UYGULAMALAR' : 'APPLICATIONS'}
                   onClick={closeMobile}
                 />
 
                 <MobileLink
                   href="/#contact"
-                  label={
-                    lang === 'tr'
-                      ? 'İLETİŞİM'
-                      : 'CONTACT'
-                  }
+                  label={lang === 'tr' ? 'İLETİŞİM' : 'CONTACT'}
                   onClick={closeMobile}
                 />
               </div>
@@ -313,13 +281,9 @@ function MobileLink({
       onClick={onClick}
       className="flex items-center justify-between border-b border-white/[0.06] py-4"
     >
-      <span className="text-[12px] font-medium tracking-[0.08em] text-white/70">
-        {label}
-      </span>
+      <span className="text-[12px] font-medium tracking-[0.08em] text-white/70">{label}</span>
 
-      <span className="text-[14px] text-cyan-100/35">
-        →
-      </span>
+      <span className="text-[14px] text-cyan-100/35">→</span>
     </Link>
   );
 }

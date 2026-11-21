@@ -8,15 +8,9 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen overflow-hidden bg-bg pt-20"
-    >
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-bg pt-20">
       {/* Background atmosphere */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-4%] top-[4%] h-[680px] w-[680px] bg-[radial-gradient(circle,rgba(37,99,235,0.075)_0%,rgba(37,99,235,0.03)_35%,transparent_70%)]" />
 
         <div className="absolute right-[-5%] top-[0%] h-[760px] w-[760px] bg-[radial-gradient(circle,rgba(34,211,238,0.05)_0%,rgba(34,211,238,0.018)_38%,transparent_70%)]" />
@@ -60,10 +54,7 @@ export function Hero() {
           </Reveal>
 
           {/* RIGHT VISUAL */}
-          <Reveal
-            delay={0.12}
-            className="relative h-[420px] sm:h-[480px] lg:h-[min(58vh,560px)]"
-          >
+          <Reveal delay={0.12} className="relative h-[420px] sm:h-[480px] lg:h-[min(58vh,560px)]">
             <div
               aria-hidden
               className="absolute -left-5 top-[18%] hidden h-px w-16 bg-gradient-to-r from-transparent to-cyan-300/30 lg:block"

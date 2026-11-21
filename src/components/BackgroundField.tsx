@@ -74,14 +74,9 @@ const ACTIVE_DURATION_MS = 700;
  */
 const MIN_ACTIVE_ENERGY = 0.002;
 
-const lerp = (a: number, b: number, t: number) =>
-  a + (b - a) * t;
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-function lerpColor(
-  a: string,
-  b: string,
-  t: number,
-) {
+function lerpColor(a: string, b: string, t: number) {
   const pa = parseInt(a.slice(1), 16);
   const pb = parseInt(b.slice(1), 16);
 
@@ -93,90 +88,54 @@ function lerpColor(
   const bg = (pb >> 8) & 255;
   const bb = pb & 255;
 
-  return `rgb(${Math.round(
-    lerp(ar, br, t),
-  )}, ${Math.round(
-    lerp(ag, bg, t),
-  )}, ${Math.round(
+  return `rgb(${Math.round(lerp(ar, br, t))}, ${Math.round(lerp(ag, bg, t))}, ${Math.round(
     lerp(ab, bb, t),
   )})`;
 }
 
-function buildPath(
-  width: number,
-  height: number,
-  params: FlowState,
-  phase: number,
-) {
+function buildPath(width: number, height: number, params: FlowState, phase: number) {
   const [x0s, y0s, x1s, y1s, periods] = params;
 
   const virtualWidth = width * VIRTUAL_SCALE;
   const virtualHeight = height * VIRTUAL_SCALE;
 
-  const originX =
-    -(virtualWidth - width) / 2;
+  const originX = -(virtualWidth - width) / 2;
 
-  const originY =
-    height + (virtualHeight - height) / 2;
+  const originY = height + (virtualHeight - height) / 2;
 
-  const x0 =
-    originX + virtualWidth * x0s;
+  const x0 = originX + virtualWidth * x0s;
 
-  const y0 =
-    originY - virtualHeight * y0s;
+  const y0 = originY - virtualHeight * y0s;
 
-  const x1 =
-    originX + virtualWidth * x1s;
+  const x1 = originX + virtualWidth * x1s;
 
-  const y1 =
-    originY - virtualHeight * y1s;
+  const y1 = originY - virtualHeight * y1s;
 
-  const points = new Array<string>(
-    PATH_STEPS + 1,
-  );
+  const points = new Array<string>(PATH_STEPS + 1);
 
-  points[0] =
-    `M ${x0.toFixed(1)} ${y0.toFixed(1)}`;
+  points[0] = `M ${x0.toFixed(1)} ${y0.toFixed(1)}`;
 
-  for (
-    let i = 1;
-    i <= PATH_STEPS;
-    i++
-  ) {
+  for (let i = 1; i <= PATH_STEPS; i++) {
     const t = i / PATH_STEPS;
 
     const x = lerp(x0, x1, t);
 
-    const yBase =
-      lerp(y0, y1, t);
+    const yBase = lerp(y0, y1, t);
 
-    const wave =
-      Math.sin(
-        t *
-          Math.PI *
-          2 *
-          periods +
-          phase,
-      ) * 18;
+    const wave = Math.sin(t * Math.PI * 2 * periods + phase) * 18;
 
-    points[i] =
-      `L ${x.toFixed(1)} ${(yBase + wave).toFixed(1)}`;
+    points[i] = `L ${x.toFixed(1)} ${(yBase + wave).toFixed(1)}`;
   }
 
   return points.join(' ');
 }
 
 export function BackgroundField() {
-  const svgRef =
-    useRef<SVGSVGElement | null>(null);
+  const svgRef = useRef<SVGSVGElement | null>(null);
 
-  const pathRefs = useRef<
-    Partial<Record<FlowKey, SVGPathElement>>
-  >({});
+  const pathRefs = useRef<Partial<Record<FlowKey, SVGPathElement>>>({});
 
-  const phaseRef = useRef<
-    Record<FlowKey, number>
-  >({
+  const phaseRef = useRef<Record<FlowKey, number>>({
     dark: 0,
     mid: 1.3,
     light: 2.6,
@@ -203,57 +162,35 @@ export function BackgroundField() {
   /*
    * RAF yalnızca ihtiyaç olduğunda çalışacak.
    */
-  const rafRef = useRef<number | null>(
-    null,
-  );
+  const rafRef = useRef<number | null>(null);
 
-  const previousFrame =
-    useRef(0);
+  const previousFrame = useRef(0);
 
-  const lastActivityTime =
-    useRef(0);
+  const lastActivityTime = useRef(0);
 
-  const isRunning =
-    useRef(false);
+  const isRunning = useRef(false);
 
   /*
    * DOM ölçümleri event sırasında güncelleniyor.
    */
   useEffect(() => {
     const updateViewport = () => {
-      viewport.current.width =
-        window.innerWidth;
+      viewport.current.width = window.innerWidth;
 
-      viewport.current.height =
-        window.innerHeight;
+      viewport.current.height = window.innerHeight;
 
       const svg = svgRef.current;
 
       if (!svg) return;
 
-      svg.setAttribute(
-        'viewBox',
-        `0 0 ${viewport.current.width} ${viewport.current.height}`,
-      );
+      svg.setAttribute('viewBox', `0 0 ${viewport.current.width} ${viewport.current.height}`);
     };
 
     const updateScrollProgress = () => {
-      const scrollMax =
-        document.documentElement
-          .scrollHeight -
-        viewport.current.height;
+      const scrollMax = document.documentElement.scrollHeight - viewport.current.height;
 
       scrollProgress.current =
-        scrollMax > 0
-          ? Math.min(
-              Math.max(
-                window.scrollY /
-                  scrollMax,
-                0,
-              ),
-              0.999999,
-            )
-          : 0;
+        scrollMax > 0 ? Math.min(Math.max(window.scrollY / scrollMax, 0), 0.999999) : 0;
     };
 
     updateViewport();
@@ -264,19 +201,12 @@ export function BackgroundField() {
       updateScrollProgress();
     };
 
-    window.addEventListener(
-      'resize',
-      onResize,
-      {
-        passive: true,
-      },
-    );
+    window.addEventListener('resize', onResize, {
+      passive: true,
+    });
 
     return () => {
-      window.removeEventListener(
-        'resize',
-        onResize,
-      );
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
@@ -289,181 +219,96 @@ export function BackgroundField() {
      * Path elementlerini yalnızca bir kez buluyoruz.
      */
     for (const key of FLOW_KEYS) {
-      const path =
-        svg.querySelector<SVGPathElement>(
-          `[data-line="${key}"]`,
-        );
+      const path = svg.querySelector<SVGPathElement>(`[data-line="${key}"]`);
 
       if (path) {
         pathRefs.current[key] = path;
       }
     }
 
-    const renderFrame = (
-      timestamp: number,
-    ) => {
+    const renderFrame = (timestamp: number) => {
       /*
        * RAF queue artık render başında otomatik
        * tekrar kurulmayacak.
        */
       rafRef.current = null;
 
-      if (
-        timestamp -
-          previousFrame.current <
-        FRAME_INTERVAL
-      ) {
-        rafRef.current =
-          requestAnimationFrame(
-            renderFrame,
-          );
+      if (timestamp - previousFrame.current < FRAME_INTERVAL) {
+        rafRef.current = requestAnimationFrame(renderFrame);
 
         return;
       }
 
-      previousFrame.current =
-        timestamp -
-        ((timestamp -
-          previousFrame.current) %
-          FRAME_INTERVAL);
+      previousFrame.current = timestamp - ((timestamp - previousFrame.current) % FRAME_INTERVAL);
 
-      const { width, height } =
-        viewport.current;
+      const { width, height } = viewport.current;
 
-      if (
-        width <= 0 ||
-        height <= 0
-      ) {
+      if (width <= 0 || height <= 0) {
         isRunning.current = false;
 
         return;
       }
 
-      energy.current *=
-        ENERGY_DECAY;
+      energy.current *= ENERGY_DECAY;
 
-      colorEnergy.current =
-        lerp(
-          colorEnergy.current,
-          0,
-          COLOR_BLEND_SPEED,
-        );
+      colorEnergy.current = lerp(colorEnergy.current, 0, COLOR_BLEND_SPEED);
 
-      const progress =
-        scrollProgress.current;
+      const progress = scrollProgress.current;
 
       for (const key of FLOW_KEYS) {
-        const states =
-          FLOW_CONFIG[key];
+        const states = FLOW_CONFIG[key];
 
-        const segments =
-          states.length - 1;
+        const segments = states.length - 1;
 
-        const segmentIndex =
-          Math.min(
-            Math.floor(
-              progress * segments,
-            ),
-            segments - 1,
-          );
+        const segmentIndex = Math.min(Math.floor(progress * segments), segments - 1);
 
-        const segmentProgress =
-          progress * segments -
-          segmentIndex;
+        const segmentProgress = progress * segments - segmentIndex;
 
-        const from =
-          states[segmentIndex];
+        const from = states[segmentIndex];
 
-        const to =
-          states[segmentIndex + 1];
+        const to = states[segmentIndex + 1];
 
         if (!from || !to) {
           continue;
         }
 
-        const interpolated: FlowState =
-          [
-            lerp(
-              from[0],
-              to[0],
-              segmentProgress,
-            ),
+        const interpolated: FlowState = [
+          lerp(from[0], to[0], segmentProgress),
 
-            lerp(
-              from[1],
-              to[1],
-              segmentProgress,
-            ),
+          lerp(from[1], to[1], segmentProgress),
 
-            lerp(
-              from[2],
-              to[2],
-              segmentProgress,
-            ),
+          lerp(from[2], to[2], segmentProgress),
 
-            lerp(
-              from[3],
-              to[3],
-              segmentProgress,
-            ),
+          lerp(from[3], to[3], segmentProgress),
 
-            lerp(
-              from[4],
-              to[4],
-              segmentProgress,
-            ),
-          ];
+          lerp(from[4], to[4], segmentProgress),
+        ];
 
         /*
          * Phase sadece aktif animasyonda ilerliyor.
          */
-        phaseRef.current[key] +=
-          0.016;
+        phaseRef.current[key] += 0.016;
 
-        const path =
-          pathRefs.current[key];
+        const path = pathRefs.current[key];
 
         if (!path) continue;
 
-        const alpha =
-          0.26 +
-          energy.current * 0.32;
+        const alpha = 0.26 + energy.current * 0.32;
 
-        path.setAttribute(
-          'd',
-          buildPath(
-            width,
-            height,
-            interpolated,
-            phaseRef.current[key],
-          ),
-        );
+        path.setAttribute('d', buildPath(width, height, interpolated, phaseRef.current[key]));
 
-        path.setAttribute(
-          'stroke-opacity',
-          alpha.toFixed(3),
-        );
+        path.setAttribute('stroke-opacity', alpha.toFixed(3));
 
         path.setAttribute(
           'stroke',
-          lerpColor(
-            COLORS[key].base,
-            COLORS[key].active,
-            colorEnergy.current,
-          ),
+          lerpColor(COLORS[key].base, COLORS[key].active, colorEnergy.current),
         );
       }
 
-      const recentlyActive =
-        timestamp -
-          lastActivityTime.current <
-        ACTIVE_DURATION_MS;
+      const recentlyActive = timestamp - lastActivityTime.current < ACTIVE_DURATION_MS;
 
       const hasEnergy =
-        energy.current >
-          MIN_ACTIVE_ENERGY ||
-        colorEnergy.current >
-          MIN_ACTIVE_ENERGY;
+        energy.current > MIN_ACTIVE_ENERGY || colorEnergy.current > MIN_ACTIVE_ENERGY;
 
       /*
        * Kullanıcı hâlâ hareket ediyorsa veya
@@ -471,14 +316,8 @@ export function BackgroundField() {
        *
        * Aksi halde loop burada tamamen durur.
        */
-      if (
-        recentlyActive ||
-        hasEnergy
-      ) {
-        rafRef.current =
-          requestAnimationFrame(
-            renderFrame,
-          );
+      if (recentlyActive || hasEnergy) {
+        rafRef.current = requestAnimationFrame(renderFrame);
 
         return;
       }
@@ -487,8 +326,7 @@ export function BackgroundField() {
     };
 
     const startAnimation = () => {
-      lastActivityTime.current =
-        performance.now();
+      lastActivityTime.current = performance.now();
 
       if (isRunning.current) {
         return;
@@ -496,10 +334,7 @@ export function BackgroundField() {
 
       isRunning.current = true;
 
-      rafRef.current =
-        requestAnimationFrame(
-          renderFrame,
-        );
+      rafRef.current = requestAnimationFrame(renderFrame);
     };
 
     const renderStaticFrame = () => {
@@ -507,79 +342,38 @@ export function BackgroundField() {
        * İlk yüklemede çizgilerin görünmesi için
        * yalnızca tek bir frame çalıştırıyoruz.
        */
-      lastActivityTime.current =
-        performance.now() -
-        ACTIVE_DURATION_MS;
+      lastActivityTime.current = performance.now() - ACTIVE_DURATION_MS;
 
       isRunning.current = true;
 
-      rafRef.current =
-        requestAnimationFrame(
-          renderFrame,
-        );
+      rafRef.current = requestAnimationFrame(renderFrame);
     };
 
     const updateScrollProgress = () => {
-      const scrollMax =
-        document.documentElement
-          .scrollHeight -
-        viewport.current.height;
+      const scrollMax = document.documentElement.scrollHeight - viewport.current.height;
 
       scrollProgress.current =
-        scrollMax > 0
-          ? Math.min(
-              Math.max(
-                window.scrollY /
-                  scrollMax,
-                0,
-              ),
-              0.999999,
-            )
-          : 0;
+        scrollMax > 0 ? Math.min(Math.max(window.scrollY / scrollMax, 0), 0.999999) : 0;
     };
 
-    const onMouseMove = (
-      event: MouseEvent,
-    ) => {
-      const previous =
-        lastMouse.current;
+    const onMouseMove = (event: MouseEvent) => {
+      const previous = lastMouse.current;
 
       if (previous) {
-        const dx =
-          Math.abs(
-            event.clientX -
-              previous.x,
-          );
+        const dx = Math.abs(event.clientX - previous.x);
 
-        const dy =
-          Math.abs(
-            event.clientY -
-              previous.y,
-          );
+        const dy = Math.abs(event.clientY - previous.y);
 
         /*
          * Çok küçük mouse jitter'larını yok say.
          */
-        if (
-          dx < 1 &&
-          dy < 1
-        ) {
+        if (dx < 1 && dy < 1) {
           return;
         }
 
-        energy.current =
-          Math.min(
-            MAX_ENERGY,
-            energy.current +
-              dx * ENERGY_RISE,
-          );
+        energy.current = Math.min(MAX_ENERGY, energy.current + dx * ENERGY_RISE);
 
-        colorEnergy.current =
-          Math.min(
-            1,
-            colorEnergy.current +
-              dy * 0.0018,
-          );
+        colorEnergy.current = Math.min(1, colorEnergy.current + dy * 0.0018);
       }
 
       lastMouse.current = {
@@ -591,17 +385,11 @@ export function BackgroundField() {
     };
 
     const onScroll = () => {
-      const currentScroll =
-        window.scrollY;
+      const currentScroll = window.scrollY;
 
-      const dy =
-        Math.abs(
-          currentScroll -
-            lastScroll.current,
-        );
+      const dy = Math.abs(currentScroll - lastScroll.current);
 
-      lastScroll.current =
-        currentScroll;
+      lastScroll.current = currentScroll;
 
       updateScrollProgress();
 
@@ -609,29 +397,17 @@ export function BackgroundField() {
         return;
       }
 
-      energy.current =
-        Math.min(
-          MAX_ENERGY,
-          energy.current +
-            dy *
-              ENERGY_RISE *
-              0.5,
-        );
+      energy.current = Math.min(MAX_ENERGY, energy.current + dy * ENERGY_RISE * 0.5);
 
       startAnimation();
     };
 
     const onResize = () => {
-      viewport.current.width =
-        window.innerWidth;
+      viewport.current.width = window.innerWidth;
 
-      viewport.current.height =
-        window.innerHeight;
+      viewport.current.height = window.innerHeight;
 
-      svg.setAttribute(
-        'viewBox',
-        `0 0 ${viewport.current.width} ${viewport.current.height}`,
-      );
+      svg.setAttribute('viewBox', `0 0 ${viewport.current.width} ${viewport.current.height}`);
 
       updateScrollProgress();
 
@@ -642,16 +418,9 @@ export function BackgroundField() {
      * Sekme görünür değilken animation çalışmasın.
      */
     const onVisibilityChange = () => {
-      if (
-        document.visibilityState ===
-        'hidden'
-      ) {
-        if (
-          rafRef.current !== null
-        ) {
-          cancelAnimationFrame(
-            rafRef.current,
-          );
+      if (document.visibilityState === 'hidden') {
+        if (rafRef.current !== null) {
+          cancelAnimationFrame(rafRef.current);
 
           rafRef.current = null;
         }
@@ -664,34 +433,19 @@ export function BackgroundField() {
       startAnimation();
     };
 
-    window.addEventListener(
-      'mousemove',
-      onMouseMove,
-      {
-        passive: true,
-      },
-    );
+    window.addEventListener('mousemove', onMouseMove, {
+      passive: true,
+    });
 
-    window.addEventListener(
-      'scroll',
-      onScroll,
-      {
-        passive: true,
-      },
-    );
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    });
 
-    window.addEventListener(
-      'resize',
-      onResize,
-      {
-        passive: true,
-      },
-    );
+    window.addEventListener('resize', onResize, {
+      passive: true,
+    });
 
-    document.addEventListener(
-      'visibilitychange',
-      onVisibilityChange,
-    );
+    document.addEventListener('visibilitychange', onVisibilityChange);
 
     /*
      * İlk çizimi yap.
@@ -700,32 +454,16 @@ export function BackgroundField() {
     renderStaticFrame();
 
     return () => {
-      window.removeEventListener(
-        'mousemove',
-        onMouseMove,
-      );
+      window.removeEventListener('mousemove', onMouseMove);
 
-      window.removeEventListener(
-        'scroll',
-        onScroll,
-      );
+      window.removeEventListener('scroll', onScroll);
 
-      window.removeEventListener(
-        'resize',
-        onResize,
-      );
+      window.removeEventListener('resize', onResize);
 
-      document.removeEventListener(
-        'visibilitychange',
-        onVisibilityChange,
-      );
+      document.removeEventListener('visibilitychange', onVisibilityChange);
 
-      if (
-        rafRef.current !== null
-      ) {
-        cancelAnimationFrame(
-          rafRef.current,
-        );
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
       }
 
       rafRef.current = null;
@@ -734,15 +472,8 @@ export function BackgroundField() {
   }, []);
 
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-    >
-      <svg
-        ref={svgRef}
-        className="absolute inset-0"
-        fill="none"
-      >
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <svg ref={svgRef} className="absolute inset-0" fill="none">
         {FLOW_KEYS.map((key) => (
           <path
             key={key}

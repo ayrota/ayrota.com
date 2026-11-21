@@ -1,9 +1,4 @@
-import {
-  Building2,
-  Factory,
-  Shield,
-  type LucideIcon,
-} from 'lucide-react';
+import { Building2, Factory, Shield, type LucideIcon } from 'lucide-react';
 
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
@@ -49,10 +44,7 @@ export function Applications() {
       className="relative overflow-hidden bg-[#16202b] py-20 text-white md:py-24"
     >
       {/* Background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[-360px] h-[900px] w-[1200px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(96,165,250,0.055)_0%,rgba(96,165,250,0.02)_38%,transparent_70%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,33,50,0.02)_1px,transparent_1px)] bg-[size:92px_92px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
@@ -92,11 +84,7 @@ export function Applications() {
             const Icon = application.icon;
 
             return (
-              <Reveal
-                key={application.title}
-                delay={index * 0.06}
-                className="h-full"
-              >
+              <Reveal key={application.title} delay={index * 0.06} className="h-full">
                 <article className="group relative flex h-full min-h-[390px] overflow-hidden bg-[#0d1620] shadow-[0_16px_46px_rgba(0,0,0,0.12)]">
                   {/* Image */}
                   <div
@@ -119,10 +107,7 @@ export function Applications() {
                   <div className="relative z-10 flex h-full w-full flex-col p-7 md:p-8">
                     <div className="flex items-center justify-between">
                       <div className="flex h-10 w-10 items-center justify-center border border-white/[0.10] bg-[#0a131d]/85 text-cyan-100/60">
-                        <Icon
-                          size={18}
-                          strokeWidth={1.4}
-                        />
+                        <Icon size={18} strokeWidth={1.4} />
                       </div>
 
                       <span className="text-[9px] font-medium tracking-[0.22em] text-white/28">

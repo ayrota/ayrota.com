@@ -6,11 +6,7 @@ type RevealProps = PropsWithChildren<{
   className?: string;
 }>;
 
-export function Reveal({
-  children,
-  delay = 0,
-  className = '',
-}: RevealProps) {
+export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
   return (
     <motion.div
       initial={{

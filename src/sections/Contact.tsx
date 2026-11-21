@@ -1,21 +1,17 @@
-import { MapPin, Send } from 'lucide-react';
+import { ArrowUpRight, MapPin, Send } from 'lucide-react';
 
 import { Reveal } from '../components/RevealSection';
 import { useLanguage } from '../lib/LanguageContext';
 
 export function Contact() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <section
       id="contact"
       className="relative overflow-hidden bg-[#09131d] py-20 text-white md:py-24"
     >
-      {/* Background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-4%] top-[-4%] h-[780px] w-[820px] bg-[radial-gradient(circle,rgba(59,130,246,0.04)_0%,rgba(59,130,246,0.015)_38%,transparent_70%)]" />
 
         <div className="absolute bottom-[-260px] right-[-5%] h-[820px] w-[860px] bg-[radial-gradient(circle,rgba(103,232,249,0.025)_0%,rgba(103,232,249,0.01)_38%,transparent_70%)]" />
@@ -27,7 +23,6 @@ export function Contact() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-10">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
-          {/* LEFT */}
           <Reveal>
             <div className="flex h-full flex-col">
               <div>
@@ -48,7 +43,6 @@ export function Contact() {
                 </p>
               </div>
 
-              {/* Guidance */}
               <div className="mt-12 border-t border-white/[0.08] pt-7 lg:mt-auto">
                 <div className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">
                   {t('contactProjectKicker')}
@@ -61,7 +55,6 @@ export function Contact() {
             </div>
           </Reveal>
 
-          {/* FORM */}
           <Reveal delay={0.08}>
             <div className="border border-white/[0.08] bg-[#0b1621]/70 p-6 md:p-8">
               <form
@@ -69,7 +62,6 @@ export function Contact() {
                 method="POST"
                 className="grid gap-6"
               >
-                {/* Honeypot */}
                 <input
                   type="text"
                   name="_gotcha"
@@ -78,13 +70,8 @@ export function Contact() {
                   autoComplete="off"
                 />
 
-                <input
-                  type="hidden"
-                  name="_redirect"
-                  value="/"
-                />
+                <input type="hidden" name="_redirect" value="/" />
 
-                {/* Organisation + Email */}
                 <div className="grid gap-6 md:grid-cols-2">
                   <Field label={t('contactLabelOrg')}>
                     <input
@@ -107,52 +94,30 @@ export function Contact() {
                   </Field>
                 </div>
 
-                {/* Product */}
                 <Field label={t('contactLabelProduct')}>
                   <select
                     name="product"
                     defaultValue=""
                     className="w-full border-0 border-b border-white/[0.12] bg-transparent px-0 py-3 text-[14px] text-white outline-none transition focus:border-cyan-200/45"
                   >
-                    <option
-                      value=""
-                      disabled
-                      className="bg-[#0b1621] text-white/50"
-                    >
+                    <option value="" disabled className="bg-[#0b1621] text-white/50">
                       {t('contactPlaceholderProduct')}
                     </option>
 
-                    <option
-                      value="ALKON"
-                      className="bg-[#0b1621] text-white"
-                    >
+                    <option value="ALKON" className="bg-[#0b1621] text-white">
                       ALKON
                     </option>
 
-                    <option
-                      value="YAYA"
-                      className="bg-[#0b1621] text-white"
-                    >
+                    <option value="YAYA" className="bg-[#0b1621] text-white">
                       YAYA
                     </option>
 
-                    <option
-                      value="YORUK"
-                      className="bg-[#0b1621] text-white"
-                    >
-                      YÖRÜK
-                    </option>
-
-                    <option
-                      value="UNSURE"
-                      className="bg-[#0b1621] text-white"
-                    >
+                    <option value="UNSURE" className="bg-[#0b1621] text-white">
                       {t('contactProductUnsure')}
                     </option>
                   </select>
                 </Field>
 
-                {/* Message */}
                 <Field label={t('contactLabelMessage')}>
                   <textarea
                     name="message"
@@ -186,39 +151,52 @@ export function Contact() {
           </Reveal>
         </div>
 
-        {/* Location */}
         <Reveal delay={0.12}>
-          <div className="mt-12 grid border-t border-white/[0.07] pt-7 md:grid-cols-[0.65fr_1.35fr] md:items-center">
-            <div className="flex items-center gap-4">
-              <div className="flex h-10 w-10 items-center justify-center border border-white/[0.09] text-cyan-100/50">
-                <MapPin
-                  size={17}
-                  strokeWidth={1.4}
-                />
-              </div>
-
+          <div className="mt-14 grid gap-5 border-t border-white/[0.07] pt-8 lg:grid-cols-[0.63fr_1.37fr]">
+            <div className="flex min-h-[195px] flex-col justify-between border border-white/[0.08] bg-[#0b1621]/70 p-6 sm:p-8 lg:min-h-[380px]">
               <div>
-                <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/28">
+                <div className="flex h-12 w-12 items-center justify-center border border-white/[0.10] bg-[#0e1d2b] text-cyan-100/65">
+                  <MapPin size={20} strokeWidth={1.4} />
+                </div>
+
+                <div className="mt-8 text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-100/55">
                   {t('contactLocationKicker')}
                 </div>
 
-                <div className="mt-1 text-[13px] text-white/55">
+                <div className="mt-3 text-[25px] font-medium tracking-[-0.035em] text-[#eef3f7] sm:text-[28px]">
                   {t('contactLocationText')}
                 </div>
               </div>
+
+              <a
+                href="https://www.google.com/maps/@39.7795855,32.8070141,748m/data=!3m1!1e3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 inline-flex w-fit items-center gap-3 border-b border-cyan-100/20 pb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-cyan-100/65 transition-colors hover:border-cyan-100/50 hover:text-cyan-100"
+              >
+                {lang === 'tr' ? 'HARİTADA AÇ' : 'OPEN MAP'}
+
+                <ArrowUpRight
+                  size={15}
+                  strokeWidth={1.6}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </a>
             </div>
 
-            <div className="mt-6 overflow-hidden border border-white/[0.07] md:mt-0">
-              <div className="h-[150px] w-full">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.541093264971!2d32.80525197619953!3d39.77949829417675!2m3!1f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345384af32c01%3A0x49942fbe68a82b2!2sAyrota%20Yaz%C4%B1l%C4%B1m%20Teknolojileri!5e1!3m2!1str!2str!4v1771837876022!5m2!1str!2str"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full w-full border-0 invert-[0.9] hue-rotate-180 saturate-[1.05] brightness-[0.55] contrast-[1.15]"
-                  title={t('contactMapTitle')}
-                />
-              </div>
+            <div className="relative h-[300px] overflow-hidden border border-white/[0.09] bg-[#0b1621] sm:h-[350px] lg:h-[380px]">
+              <iframe
+                src={`/contact-map.html?lang=${lang}`}
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="absolute inset-0 h-full w-full border-0"
+                title={t('contactMapTitle')}
+              />
+
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.04]"
+              />
             </div>
           </div>
         </Reveal>
@@ -227,13 +205,7 @@ export function Contact() {
   );
 }
 
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
       <span className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-white/40">

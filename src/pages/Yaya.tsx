@@ -1,12 +1,5 @@
 import { Link } from 'react-router-dom';
-import {
-  Building2,
-  Footprints,
-  Map,
-  Route,
-  Warehouse,
-  type LucideIcon,
-} from 'lucide-react';
+import { Building2, Footprints, Map, Route, Warehouse, type LucideIcon } from 'lucide-react';
 
 import { Footer } from '../components/footer';
 import { Reveal } from '../components/RevealSection';
@@ -62,10 +55,7 @@ export default function Yaya() {
     <main className="relative z-10 bg-[#09131d] text-white">
       {/* HERO */}
       <section className="relative min-h-screen overflow-hidden pt-20">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-        >
+        <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute right-[0%] top-[3%] h-[720px] w-[760px] bg-[radial-gradient(circle,rgba(34,211,238,0.045)_0%,rgba(34,211,238,0.018)_38%,transparent_70%)]" />
 
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:84px_84px]" />
@@ -118,10 +108,7 @@ export default function Yaya() {
               </div>
             </Reveal>
 
-            <Reveal
-              delay={0.1}
-              className="relative h-[430px] md:h-[540px]"
-            >
+            <Reveal delay={0.1} className="relative h-[430px] md:h-[540px]">
               <div className="relative h-full overflow-hidden border border-white/[0.07] bg-[#07111a]">
                 <img
                   src="/products/yaya.png"
@@ -137,9 +124,7 @@ export default function Yaya() {
                     {t('yayaVisualKicker')}
                   </div>
 
-                  <div className="mt-2 text-[12px] text-white/50">
-                    {t('yayaVisualText')}
-                  </div>
+                  <div className="mt-2 text-[12px] text-white/50">{t('yayaVisualText')}</div>
                 </div>
               </div>
             </Reveal>
@@ -163,14 +148,10 @@ export default function Yaya() {
               </div>
 
               <div className="max-w-[700px] lg:justify-self-end">
-                <p className="text-[16px] leading-8 text-white/52">
-                  {t('yayaProblemText')}
-                </p>
+                <p className="text-[16px] leading-8 text-white/52">{t('yayaProblemText')}</p>
 
                 <div className="mt-8 border-l border-cyan-200/20 pl-6">
-                  <p className="text-[14px] leading-7 text-white/40">
-                    {t('yayaProblemNote')}
-                  </p>
+                  <p className="text-[14px] leading-7 text-white/40">{t('yayaProblemNote')}</p>
                 </div>
               </div>
             </div>
@@ -202,11 +183,7 @@ export default function Yaya() {
               const Icon = capability.icon;
 
               return (
-                <Reveal
-                  key={capability.title}
-                  delay={0.05 + index * 0.05}
-                  className="h-full"
-                >
+                <Reveal key={capability.title} delay={0.05 + index * 0.05} className="h-full">
                   <div className="group flex h-full min-h-[280px] flex-col border border-white/[0.07] bg-[#0a151f]/70 p-7 transition duration-300 hover:border-cyan-100/20">
                     <div className="flex h-11 w-11 items-center justify-center border border-white/[0.09] text-cyan-100/55">
                       <Icon size={19} strokeWidth={1.4} />
@@ -255,10 +232,7 @@ export default function Yaya() {
               const Icon = application.icon;
 
               return (
-                <Reveal
-                  key={application.title}
-                  delay={0.06 + index * 0.06}
-                >
+                <Reveal key={application.title} delay={0.06 + index * 0.06}>
                   <article className="group relative min-h-[320px] overflow-hidden border border-white/[0.07] bg-[#09131d] p-7 md:p-9">
                     <div
                       aria-hidden
@@ -368,28 +342,14 @@ export default function Yaya() {
   );
 }
 
-function PilotItem({
-  number,
-  title,
-  text,
-}: {
-  number: string;
-  title: string;
-  text: string;
-}) {
+function PilotItem({ number, title, text }: { number: string; title: string; text: string }) {
   return (
     <div className="border-l border-white/[0.08] pl-5">
-      <div className="text-[9px] tracking-[0.2em] text-white/24">
-        {number}
-      </div>
+      <div className="text-[9px] tracking-[0.2em] text-white/24">{number}</div>
 
-      <h3 className="mt-4 text-[16px] font-semibold tracking-[-0.025em] text-white/88">
-        {title}
-      </h3>
+      <h3 className="mt-4 text-[16px] font-semibold tracking-[-0.025em] text-white/88">{title}</h3>
 
-      <p className="mt-3 text-[12px] leading-6 text-white/40">
-        {text}
-      </p>
+      <p className="mt-3 text-[12px] leading-6 text-white/40">{text}</p>
     </div>
   );
 }

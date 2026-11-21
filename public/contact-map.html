@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.19.0/dist/maplibre-gl.css"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #0b1621;
+      }
+      body {
+        font-family: Inter, Arial, sans-serif;
+      }
+      #map {
+        position: absolute;
+        inset: 0;
+        background: #0b1621;
+      }
+      .map-placeholder {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: #0b1621;
+        color: #e6edf3;
+        text-align: center;
+      }
+      .map-placeholder[hidden] {
+        display: none;
+      }
+      .map-placeholder-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #7fb7d8;
+      }
+      .map-placeholder-place {
+        margin-top: 12px;
+        font-size: 20px;
+        letter-spacing: -0.03em;
+      }
+      .map-placeholder-link {
+        display: inline-block;
+        margin-top: 20px;
+        border-bottom: 1px solid #667380;
+        padding-bottom: 6px;
+        color: #d3e5f2;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+      }
+      .ayrota-pin {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        box-sizing: border-box;
+        border: 3px solid #eef3f7;
+        border-radius: 50%;
+        background: #07558b;
+        box-shadow:
+          0 0 0 7px rgba(7, 85, 139, 0.24),
+          0 2px 12px rgba(0, 0, 0, 0.38);
+      }
+      .ayrota-pin::after {
+        content: 'AYROTA';
+        position: absolute;
+        top: -13px;
+        left: 23px;
+        padding: 6px 9px;
+        border: 1px solid rgba(127, 183, 216, 0.3);
+        background: rgba(6, 27, 67, 0.96);
+        color: #f4f7f9;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        white-space: nowrap;
+      }
+      .maplibregl-ctrl-group {
+        overflow: hidden;
+        border: 1px solid rgba(127, 183, 216, 0.18) !important;
+        border-radius: 0 !important;
+        background: rgba(6, 27, 67, 0.94) !important;
+        box-shadow: none !important;
+      }
+      .maplibregl-ctrl-group button {
+        width: 32px;
+        height: 32px;
+      }
+      .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+        filter: invert(1) opacity(0.77);
+      }
+      .maplibregl-ctrl-attrib {
+        padding: 3px 7px !important;
+        border-radius: 0 !important;
+        background: rgba(6, 27, 67, 0.93) !important;
+        color: #c3ced7 !important;
+        font-size: 10px !important;
+      }
+      .maplibregl-ctrl-attrib a {
+        color: #dce9f1 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" role="region" aria-label="Ayrota office location map"></div>
+    <div id="fallback" class="map-placeholder" role="status">
+      <div>
+        <div class="map-placeholder-label">AYROTA / LOCATION</div>
+        <div class="map-placeholder-place">Ankara, Türkiye</div>
+        <a
+          id="fallback-link"
+          class="map-placeholder-link"
+          href="https://www.google.com/maps/@39.7795855,32.8070141,748m/data=!3m1!1e3"
+          target="_blank"
+          rel="noopener noreferrer"
+          >OPEN IN GOOGLE MAPS ↗</a
+        >
+      </div>
+    </div>
+
+    <script type="module">
+      import {
+        Map,
+        Marker,
+        NavigationControl,
+      } from 'https://cdn.jsdelivr.net/npm/maplibre-gl@6.19.0/dist/maplibre-gl.mjs';
+
+      const lang = new URLSearchParams(window.location.search).get('lang') === 'tr' ? 'tr' : 'en';
+      document.documentElement.lang = lang;
+      document.getElementById('fallback-link').textContent =
+        lang === 'tr' ? 'GOOGLE HARİTALARDA AÇ ↗' : 'OPEN IN GOOGLE MAPS ↗';
+      document
+        .getElementById('map')
+        .setAttribute(
+          'aria-label',
+          lang === 'tr' ? 'Ayrota ofis konumu haritası' : 'Ayrota office location map',
+        );
+
+      const coordinates = [32.8070141, 39.7795855];
+      const fallback = document.getElementById('fallback');
+
+      try {
+        const map = new Map({
+          container: 'map',
+          style: 'https://tiles.openfreemap.org/styles/dark',
+          center: coordinates,
+          zoom: 16,
+          minZoom: 11,
+          maxZoom: 18,
+          attributionControl: { compact: false },
+          scrollZoom: false,
+          dragRotate: false,
+          touchPitch: false,
+          pitchWithRotate: false,
+        });
+
+        const pin = document.createElement('div');
+        pin.className = 'ayrota-pin';
+        pin.setAttribute('role', 'img');
+        pin.setAttribute('aria-label', 'Ayrota');
+
+        new Marker({ element: pin, anchor: 'center' }).setLngLat(coordinates).addTo(map);
+
+        map.addControl(new NavigationControl({ showCompass: false }), 'top-right');
+        map.once('load', () => {
+          fallback.hidden = true;
+        });
+      } catch (error) {
+        console.error('Ayrota map could not initialize:', error);
+      }
+    </script>
+  </body>
+</html>
